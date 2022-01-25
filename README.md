@@ -10,8 +10,8 @@ int main(void)
 }
 ```
 
-|Tag|Link|Link|-|
+| Tag | Link | Link | - |
 |:-:|:-:|:-:|:-:|
-|C|[Document](https://mdxjs.com)|Source|-|
-|CPP|Document|Source|-|
-|Data Structure & Algorithm|Document|Source|-|
+| C | [Document](https://bluestronica.github.io/) | [Source](https://bluestronica.github.io/) | - |
+| CPP | [Document](https://bluestronica.github.io/) | [Source](https://bluestronica.github.io/) | - |
+| Data Structure & Algorithm | [Document](https://bluestronica.github.io/) | [Source](https://bluestronica.github.io/) | - |
