@@ -10,6 +10,6 @@ int main(void)
 }
 ```
 
-|Tag|Name|Syntax|Example|
+|Tag|Name|C|CPP|
 |:-:|:-:|:-:|:-:|
 |h1|Heading 1|`#`|# 1|
