@@ -1,11 +1,11 @@
-# Bluestronica Archive
----------------
-> C
->> C++
+# bluestronica.github.io
+```c
+#include "stdio.h"
 
-```C++
-int main()
+int main(void)
 {
+    printf("hello bluestronica!");
+
     return 0;
 }
 ```
