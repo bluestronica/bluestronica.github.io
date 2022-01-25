@@ -12,6 +12,6 @@ int main(void)
 
 |Tag|Link|Link|-|
 |:-:|:-:|:-:|:-:|
-|C|Document|Source|-|
+|C|[Document]<https://mdxjs.com>|Source|-|
 |CPP|Document|Source|-|
 |Data Structure & Algorithm|Document|Source|-|
