@@ -12,6 +12,6 @@ int main(void)
 
 |Tag|-|-|-|
 |:-:|:-:|:-:|:-:|
-|C|문서|source|-|
-|CPP|문서|source|-|
-|알고리듬|문서|source|-|
+|C|Document|source|-|
+|CPP|Document|source|-|
+|Data Structure & Algorithm|Document|source|-|
