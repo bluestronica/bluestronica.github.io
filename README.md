@@ -10,6 +10,8 @@ int main(void)
 }
 ```
 
-|Tag|Name|C|CPP|
+|Tag|-|-|-|
 |:-:|:-:|:-:|:-:|
-|h1|Heading 1|`#`|# 1|
+|C|문서|source|-|
+|CPP|문서|source|-|
+|알고리듬|문서|source|-|
