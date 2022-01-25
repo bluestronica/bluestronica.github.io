@@ -10,8 +10,8 @@ int main(void)
 }
 ```
 
-|Tag|-|-|-|
+|Tag|Link|Link|-|
 |:-:|:-:|:-:|:-:|
-|C|Document|source|-|
-|CPP|Document|source|-|
-|Data Structure & Algorithm|Document|source|-|
+|C|Document|Source|-|
+|CPP|Document|Source|-|
+|Data Structure & Algorithm|Document|Source|-|
