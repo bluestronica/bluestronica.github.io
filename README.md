@@ -9,3 +9,7 @@ int main(void)
     return 0;
 }
 ```
+
+|Tag|Name|Syntax|Example|
+|:-:|:-:|:-:|:-:|
+|h1|Heading 1|`#`|# 1|
