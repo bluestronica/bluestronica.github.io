@@ -9,5 +9,5 @@ int main(void)
 | Tag | Link | Link | - |
 |:-:|:-:|:-:|:-:|
 | C | [Document](https://bluestronica.github.io/) | [Source](https://bluestronica.github.io/) | - |
-| CPP | [Document](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/) | [Source](https://bluestronica.github.io/) | - |
+| CPP | [Document](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/index) | [Source](https://bluestronica.github.io/) | - |
 | Data Structure & Algorithm | [Document](https://bluestronica.github.io/) | [Source](https://bluestronica.github.io/) | - |
