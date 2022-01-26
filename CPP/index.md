@@ -1,4 +1,3 @@
 # bluestronica.CPP.Index
-| List | View | - |
-|:-:|:-:|:-:|
-|입력 (Input) | View | - |
+
+[Document](https://bluestronica.github.io/CPP/main.md) 
