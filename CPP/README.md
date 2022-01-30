@@ -1,10 +1,10 @@
-- [출력(Output)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Output.md)
-    - namespace
-    - using 지시문
-    - cout
-    - `<<` 연산자
-    - 조정자
-- 입력(Input)
+#### [출력(Output)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Output.md)
+- namespace
+- using 지시문
+- std::cout
+- `<<` 연산자
+- `#include <iomanip>` 안에 있는 조정자 
+#### 입력(Input)
 - 일부 새로운 C++ 기능
 - 문자열(string)
 - 파일 입출력(I/O)
@@ -30,4 +30,4 @@
 - 쓰레딩(Threading) 라이브러리
 
 
-### 코드를 중심으로 이야기를 풀어나가는 방식으로 작성해보자!
+### 코드를 중심으로 이야기를 풀어나가는 방식으로!!!
