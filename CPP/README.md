@@ -1,10 +1,12 @@
-#### [출력(Output)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Output.md)
+# [bluestronica.github.io/CPP](https://bluestronica.github.io/CPP)
+
+### [출력(Output)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Output.md)
 - namespace
 - using 지시문
 - std::cout
 - `<<` 연산자
 - `#include <iomanip>` 안에 있는 조정자 
-#### 입력(Input)
+### 입력(Input)
 - 일부 새로운 C++ 기능
 - 문자열(string)
 - 파일 입출력(I/O)
