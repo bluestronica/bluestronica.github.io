@@ -7,6 +7,14 @@
     - 타이핑의 양을 줄이는 방법일 뿐임
 - std::cout
 - `<<` 연산자
+- 조정자(Manipulator)
+    - showbase, noshowbase 
+    - dec, hex, oct 
+    - showpos, noshowpos
+    - uppercase, nouppercase
+    - left, internal, right
+    - fixed, scientific
+    - boolalpha, noboolalpha
 - `#include <iomanip>` 안에 있는 조정자
     - setw()
     - setfill()
