@@ -1,4 +1,4 @@
-- 출력(Output)
+- [출력(Output)](https://bluestronica.github.io/CPP/Output/)
     - namespace
     - using 지시문
     - cout
