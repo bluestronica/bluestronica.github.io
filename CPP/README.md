@@ -5,8 +5,12 @@
 - `<<` 연산자
 - `#include <iomanip>` 안에 있는 조정자 
 
-### 입력(Input)
-- 일부 새로운 C++ 기능
+### [입력(Input)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Input.md)
+- std::cin
+- get()
+- getline()
+
+### 일부 새로운 C++ 기능
 - 문자열(string)
 - 파일 입출력(I/O)
 - 개체지향 프로그래밍 1

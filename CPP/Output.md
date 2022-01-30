@@ -3,13 +3,14 @@
 ### 출력(Output)
 - namespace
     - 함수 이름, 클래스 이름, 기타 등등 이름 충돌을 피하기 위해
+    - 하나의 커다란 묶음(디렉토리 같은...)이라 생각하자!
 - using 지시문
     - 타이핑의 양을 줄이는 방법일 뿐임
 - std::cout
 - `<<` 연산자
 - 조정자(Manipulator)
-    - showbase, noshowbase 
-    - dec, hex, oct 
+    - dec, hex, oct
+    - showbase, noshowbase  
     - showpos, noshowpos
     - uppercase, nouppercase
     - left, internal, right
