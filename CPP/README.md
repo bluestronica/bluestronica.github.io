@@ -1,4 +1,9 @@
 - 출력(Output)
+    - namespace
+    - using 지시문
+    - cout
+    - `<<` 연산자
+    - 조정자
 - 입력(Input)
 - 일부 새로운 C++ 기능
 - 문자열(string)
