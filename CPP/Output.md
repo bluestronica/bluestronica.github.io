@@ -11,7 +11,7 @@
     - setw()
     - setfill()
     - setprecision() 
-#
+
 #### PrintMenu.h
 ```C++
 #pragma once 
@@ -21,7 +21,7 @@ namespace samples
 	void PrintMenuExample(); 
 } 
 ``` 
-# 
+
 #### PrintMenu.cpp 
 ```C++
 #include <iomanip>

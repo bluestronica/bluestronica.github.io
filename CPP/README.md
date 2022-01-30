@@ -4,6 +4,7 @@
 - std::cout
 - `<<` 연산자
 - `#include <iomanip>` 안에 있는 조정자 
+
 ### 입력(Input)
 - 일부 새로운 C++ 기능
 - 문자열(string)
