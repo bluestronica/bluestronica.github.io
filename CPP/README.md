@@ -9,7 +9,7 @@
 - std::cin
 - 키보드에서 안전하게 읽기
 
-### 일부 새로운 C++ 기능
+### [일부 새로운 C++ 기능](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/SomeNewC++Features.md)
 - bool 데이터형
 - 참조자(reference)
 
