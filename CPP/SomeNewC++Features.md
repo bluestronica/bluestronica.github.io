@@ -30,7 +30,7 @@
         int& reference;          // 초기화 중에 반드시 별칭이 선언되어야 한다.
         ```
 
-    - 함수 매개변수로서의 포인터
+    - 함수 매개변수로서의 `포인터`
         ```C++
         void Swap(int* number1, int* number2)
         {
@@ -39,7 +39,7 @@
             *number2 = temp;
         }
         ```
-    - 함수 매개변수로서의 참조
+    - 함수 매개변수로서의 `참조`
         ```C++
         void Swap(int& number1, int& number2)
         {
