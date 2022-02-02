@@ -7,8 +7,7 @@
 
 ### [입력(Input)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Input.md)
 - std::cin
-- get()
-- getline()
+- 키보드에서 안전하게 읽기
 
 ### 일부 새로운 C++ 기능
 - 문자열(string)
