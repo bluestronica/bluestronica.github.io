@@ -25,7 +25,7 @@
 - 키보드에서 안전하게 읽기
     - C
     ```C
-    char line[512];
+    char line[512];    // char[] == char*
     char temp[512];
     char firstName[4];
 
