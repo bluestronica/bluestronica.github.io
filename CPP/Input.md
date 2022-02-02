@@ -2,7 +2,7 @@
 
 ### 입력(Input)
 - std::cin
-    - 스트림 읽어오기
+    - 스트림 데이터 읽어오기
         - get()
             - `\n`(new line) 문자를 만나기 직전까지의 모은 문자를 가져온다.
             - new line 문자는 입력 스트림에 남아 있음
@@ -17,7 +17,7 @@
     - 스트림 상태 나타내기
         - eof()
         - fail()
-    - 스트림 입력 버리기
+    - 스트림 데이터 버리기
         - clear()
         - ignore()
             - cin.ignore(10);   `// 문자 10개를 버림`
@@ -45,7 +45,7 @@
         while (true)
         {
             cout << "Please enter an integer or EOF: ";
-            cin >> number;    // int 타입만 읽음
+            cin >> number;    // 1234abc : int니깐 1234까지 읽고  a에서 멈춘다. 스트림 상태가 설정된다.
             if (cin.eof())    // 스트림 상태을 읽음
             {
                 break;
