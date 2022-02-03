@@ -13,8 +13,10 @@
 - bool 데이터형
 - 참조자(reference)
 
-### 문자열(string)
-- 파일 입출력(I/O)
+### [문자열(string)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/string.md)
+- std::string 클래스
+
+### 파일 입출력(I/O)
 - 개체지향 프로그래밍 1
 - 개체지향 프로그래밍 2
 - 개체지향 프로그래밍 3
