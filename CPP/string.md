@@ -16,8 +16,23 @@
         const char* cLine = line.c_str();
         ```
     - string 속의 한 문자의 접근은 C와 같음
-    - `\n` 문자를 만날 때까지 `스트림(cin)`에서 문자들을 꺼내서 string에 저장
+    ```C++
+    string firstName = "blues";
+    char letter = firstName[1];
+
+    firstName[2] = 'P';
+    ```
+    - `\n` 문자를 만날 때까지 `스트림`에서 문자들을 꺼내서 `string`에 저장
         - getline()
+            - 다음의 조건을 만족할 때까지 계속해서 스트림에서 문자들을 꺼내 string에 저장
+                - end-of-file을 만날 때(eofbit 값이 true가 됨)
+                - 구분 문자(delimiter)를 만날 때까지 (구분 문자는 버려짐!)
+        ```C++
+        string mailHeader;
+        getline(cin, mailHeader); // `\n`문자를 만날 때까지 cin에서 문자들을 꺼내서 mailHeader에 저장
+
+        getline(cin, mailHeader, '@'); // '@' 문자를 만날 때까지 cin에서 문자드을 꺼내서 mailHeader에 저장
+        ```
     - `<sstream>`
         - std::istringstream
             - 키보드 대신 string으로부터 읽어옴
@@ -27,14 +42,14 @@
             - 콘솔 대신 string에 출력
             - cout와 비슷
             - sprintf()와 비슷
-    - 허나, 그렇게 자주 쓰이지는 않음
+        - 허나, 그렇게 자주 쓰이지는 않음
+    - 여전히 성능상의 이유로 많은 C함수들을 사용
+        - `<cstring>`
+        - `<cstdio>`
+        - `<cctype>`
         - 힙(heap) 메모리 할당은 느림
         - 메모리 단편화 문제
-        - 내부 버퍼의 증가는 멀티 쓰레드 환경에서 안전하지 않을 수도
-        - 여전히 성능상의 이유로 많은 C함수들을 사용
-            - `<cstring>`
-            - `<cstdio>`
-            - `<cctype>`
+        - 내부 버퍼의 증가는 멀티 쓰레드 환경에서 안전하지 않을 수도        
         - 그래서, 여전히 `sprintf()`와 함께 `char[]`를 매우 많이 사용!!!!
 
     ```C++

@@ -15,6 +15,8 @@
 
 ### [문자열(string)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/string.md)
 - std::string 클래스
+- `<sstream>`
+- 여전히 성능상의 이유로 많은 C함수들을 사용
 
 ### 파일 입출력(I/O)
 - 개체지향 프로그래밍 1
