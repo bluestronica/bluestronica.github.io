@@ -68,6 +68,7 @@
         cout << buffer << endl;
         ```
 
+- ### Samples
     ```C++
     string line = "Hello world!";
 
