@@ -18,8 +18,9 @@
 - `<sstream>`
 - 여전히 성능상의 이유로 많은 C함수들을 사용
 
-### 파일 입출력(I/O)
-- 개체지향 프로그래밍 1
+### [파일 입출력(I/O)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/File_IO.md)
+
+### 개체지향 프로그래밍 1
 - 개체지향 프로그래밍 2
 - 개체지향 프로그래밍 3
 - 캐스팅(형변환, Casting)
