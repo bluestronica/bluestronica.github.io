@@ -8,9 +8,14 @@
     - 비교(Relational)연산자
     - size(), length()
     - c_str()
+        - const char*
+        - 해당 string이 가지고 있는 문자 배열의 시작 주소를 가리키는 포인터를 반환
+        ```C++
+        string line;
+        cin >> line;
+        const char* cLine = line.c_str();
+        ```
     - string 속의 한 문자의 접근은 C와 같음
-        - firstName[2] = 'P';
-        - char letter = firstName[2];
     - `\n` 문자를 만날 때까지 `스트림(cin)`에서 문자들을 꺼내서 string에 저장
         - getline()
     - `<sstream>`
@@ -31,6 +36,7 @@
             - `<cstdio>`
             - `<cctype>`
         - 그래서, 여전히 `sprintf()`와 함께 `char[]`를 매우 많이 사용!!!!
+
     ```C++
     string line = "Hello world!";
 
