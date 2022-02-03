@@ -44,7 +44,7 @@
         - cout와 비슷
         - sprintf()와 비슷
     - 허나, 그렇게 자주 쓰이지는 않음
-    
+
 - #### 여전히 성능상의 이유로 많은 C함수들을 사용
     - `<cstring>`
     - `<cstdio>`
@@ -52,7 +52,21 @@
     - 힙(heap) 메모리 할당은 느림
     - 메모리 단편화 문제
     - 내부 버퍼의 증가는 멀티 쓰레드 환경에서 안전하지 않을 수도        
-    - 그래서, 여전히 `sprintf()`와 함께 `char[]`를 매우 많이 사용!!!!
+    - 그래서, 여전히 `sprintf()`와 함께 `char[]`를 매우 많이 사용!!!!  
+        - int sprintf(char* buffer, const char* format, ...);
+        - 출력은 char 배열에!
+        - C++에서 string 클래스가 있는데도 이걸 대신 많이 쓴다.
+        - 쓰는 이유? 속도 때문(가장 빨리 문자열을 조작하는 함수는 C함수)
+        - 다만, 프로그래머가 충분히 큰 버퍼를 잡아주지 않으면 위험!!!
+        ```C++
+        char buffer[100];
+        int score = 100;
+        const char* name = "Rachel";
+
+        sprintf(buffer, "%s: %d", name, score);
+
+        cout << buffer << endl;
+        ```
 
     ```C++
     string line = "Hello world!";
