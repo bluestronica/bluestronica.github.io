@@ -1,6 +1,6 @@
 ### [bluestronica.github.io/CPP](https://bluestronica.github.io/CPP)
 
-### (char*)&vector
+- ### (char*)&vector
     ```C++
     int main()
     {
