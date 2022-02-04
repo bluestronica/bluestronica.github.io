@@ -22,6 +22,14 @@
 - 여전히 성능상의 이유로 많은 C함수들을 사용
 
 ### [파일 입출력(I/O)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/File_IO.md)
+- `<fstream>`
+- 파일 읽기
+- 파일에 쓰기
+- 바이너리 파일 읽기
+- 바이너리 파일에 쓰기
+- 파일 안에서 탐색
+- 탐색(seek) 유형
+- 기타 정보
 
 ### 개체지향 프로그래밍 1
 - 개체지향 프로그래밍 2

@@ -136,7 +136,7 @@
         // (char*)&record : record 시작주소(1024)를 나타내는 &record를 char 포인터로 캐스팅
         // &record 시작주소는 1024, Record의 사이즈는 44바이트
         // read()함수에 1024와 44바이트를 넘겨주면
-        // 주소 1024부터 바이트 44개를 넣어라는 뜻이다.
+        // 주소 1024부터 바이트 44개를 넣어라는 의미
     }
 
     fin.close();
@@ -204,12 +204,131 @@
 - #### 기타 정보
     - `>>`를 getline()과 같이 쓰지 말 것
         ```C++
-        cin  >> number;
-        getline(cin, line);   // cin에서 공백을 꺼내 감
+        // 입력: 1
+        // 그리고 엔터 (뉴라인이 입력됨)
+        // Cheerios
+        cin >> number; // 그럼 1 들어옴, 그럼 아직도 뉴라인이 남아 있음
+        getline(cin, line);   // 그래서 다음 getline 읽으면 뉴라인을 읽게 된다. 
+                              // Cheerios가 안들어온다.
+                              // cin에서 공백을 꺼내 감
         ```
     - 해결법
         ```C++
         cin >> number;
-        cin >> std::ws;       // 공백을 버림
+        cin >> ws;       // std::ws;  화이트스페이스(공백을 버림)
         getline(cin, line); 
         ```
+
+- #### samples
+    ```C++
+    Record ReadRecord(istream& stream, bool bPrompt)
+	{
+		Record record;
+
+		if (bPrompt)
+		{
+			cout << "First name: ";
+		}
+		stream >> record.FirstName;
+
+		if (bPrompt)
+		{
+			cout << "Last name: ";
+		}
+		stream >> record.LastName;
+
+		if (bPrompt)
+		{
+			cout << "Student ID: ";
+		}
+		stream >> record.StudentID;
+
+		if (bPrompt)
+		{
+			cout << "Score: ";
+		}
+		stream >> record.Score;
+
+		return record;
+	}
+
+	void WriteFileRecord(fstream& outputStream, const Record& record)
+	{
+		outputStream.seekp(0, ios_base::end);
+
+		outputStream << record.FirstName << " "
+			<< record.LastName << " "
+			<< record.StudentID << " "
+			<< record.Score << endl;
+
+		outputStream.flush();
+	}
+
+	void DisplayRecords(fstream& fileStream)
+	{
+		fileStream.seekg(0);
+
+		string line;
+		while (true)
+		{
+			getline(fileStream, line);
+
+			if (fileStream.eof())
+			{
+				fileStream.clear();
+				break;
+			}
+			cout << line << endl;
+		}
+	}
+
+	void ManageRecordsExample()
+	{
+		cout << "+------------------------------+" << endl;
+		cout << "|    Manage Records Example    |" << endl;
+		cout << "+------------------------------+" << endl;
+
+		fstream fileStream;
+		fileStream.open("studentRecords.dat", ios_base::in | ios_base::out);
+
+		bool bExit = false;
+		while (!bExit)
+		{
+			char command = ' ';
+
+			cout << "a: add" << endl
+				<< "d: display" << endl
+				<< "x: exit" << endl;
+
+			cin >> command;
+			cin.ignore(LLONG_MAX, '\n');
+
+			switch (command)
+			{
+			case 'a':
+			{
+				Record record = ReadRecord(cin, true);
+				WriteFileRecord(fileStream, record);
+				break;
+			}
+			case 'd':
+			{
+				DisplayRecords(fileStream);
+				break;
+			}
+			case 'x':
+			{
+				bExit = true;
+				break;
+			}
+			default:
+			{
+				cout << "invalid input" << endl;
+				break;
+			}
+			}
+		}
+
+		fileStream.close();
+	}
+    ```
