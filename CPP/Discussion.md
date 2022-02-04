@@ -27,7 +27,7 @@
 
         if ( ((char*)&i)[0] )
             printf("Little Endian\n"); // Little Endian의 조건은 바이트 단위로 거꾸로 저장된다
-                                    // [0x 04 03 02 00]
+                                       // [0x 04 03 02 00]
         else 
             printf("Big Endian\n");
 

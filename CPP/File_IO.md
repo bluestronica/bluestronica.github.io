@@ -66,7 +66,7 @@
 
         fin.close();
         ```
-    - get(), getline(), >>
+    - get(), getline(), >> (밀어넣기 연산자)
         - 어떤 스트림(예: cin, istringstream)을 넣어도 동일하게 동장
             ```C++
             fin.get(character);
@@ -117,12 +117,13 @@
         getline(cin, line);
         if (!cin.fail())
         {
-            fout << line << endl;
+            fout << line << endl;  // 'n\' 뉴라인을 쓸 경우 플러쉬가 일어나지 않고 endl은 플러쉬가 일어난다. 
         }
 
         fout.close();
         ```
-- 바이너리 파일 읽기
+
+- #### 바이너리 파일 읽기
     ```C++
     ifstream fin("studentRecords.dat", ios_base::in | ios_base::binary);
 
@@ -130,12 +131,85 @@
     {
         Record record;
         fin.read((char*)&record, sizeof(Record));
-
+        
+        // 스택에 record 44바이트 공간이 잡힌다.
         // (char*)&record : record 시작주소(1024)를 나타내는 &record를 char 포인터로 캐스팅
-        // 즉, char 포인터는 가리키는 주소(1024)에 가서 char(1바이트, 8비트) 크기 만큼 읽어 오겠다는 의미이다.
-        // 1024 주소가 가리키는 곳에 가서 char 크기 1바이트 씩 읽겠다는 의미..
-        // record 크기 만큼 읽는 것이 아니라 char 크기 1바이트 씩
+        // &record 시작주소는 1024, Record의 사이즈는 44바이트
+        // read()함수에 1024와 44바이트를 넘겨주면
+        // 주소 1024부터 바이트 44개를 넣어라는 뜻이다.
     }
 
     fin.close();
     ```
+
+- #### 바이너리 파일에 쓰기
+    ```C++
+    ofstream fout("studentRecords.dat", ios_base::out | ios_base::binary);
+
+    if (fout.is_open())
+    {
+        char buffer[20] = "Blues tronica";
+        fout.write(buffer, 20);
+    }
+
+    fout.close();
+    ```
+
+- #### 파일 안에서의 탐색
+    ```C++
+    fstream fs("helloWorld.dat", ios_base::in | ios_base::out | ios_base::binary);
+
+    if (fs.is_open())
+    {
+        fs.seekp(20, ios_base::beg);
+        if (!fs.fail())
+        {
+            // 21번째 위치에서부터 덮어쓰기
+        }
+    }
+
+    fs.close();
+    ```
+
+- #### 탐색(seek) 유형
+    - 절대적
+        - 특정한 위치로 이동
+        - 보통 tellp() / tellg()를 사용해서 기억해 놨던 위치로 돌아갈 때 사용
+    - 상대적
+        - ios_base::beg
+        - ios_base::cur
+        - ios_base::end
+    - 파일 쓰기의 위치 읽기 및 변경
+        - tellp()
+            - 쓰기 포인터의 위치를 구함
+            - ios::pos_type pos = fout.tellp();
+        - seekp()
+            - 절대적
+                - fout.seekp(0);
+                - 처음 위치로 이동
+            - 상대적
+                - fout.seekp(20, ios_base::cur);
+                - 현재 위치로부터 20바이트 뒤로 이동
+    - 파일 읽기의 위치 읽기 및 변경
+        - tellg()
+            - 읽기 포인터의 위치를 구함
+            - ios::pos_type pos = fin.tellg();
+        - seekg()
+            - 절대적
+                - fin.seekg(0);
+                - 처음 위치로 이동
+            - 상대적
+                - fin.seekg(-10, iso_base::end);
+                - 파일의 끝에서부터 10 바이트 앞으로 이동
+- #### 기타 정보
+    - `>>`를 getline()과 같이 쓰지 말 것
+        ```C++
+        cin  >> number;
+        getline(cin, line);   // cin에서 공백을 꺼내 감
+        ```
+    - 해결법
+        ```C++
+        cin >> number;
+        cin >> std::ws;       // 공백을 버림
+        getline(cin, line); 
+        ```
