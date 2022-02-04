@@ -1,3 +1,6 @@
+### [고찰](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Discussion.md)
+- (char*)&vector
+
 ### [출력(Output)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Output.md)
 - namespace
 - using 지시문
