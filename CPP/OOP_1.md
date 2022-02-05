@@ -117,3 +117,57 @@
             Vector b(10, 20);  // OK
         }
         ```
+
+- #### 생성자 오버로딩(Overloading)
+    - 여러 개의 생성자를 만들 수 있다.
+    - 기본 생성자
+        ```C++
+        Vector() : mX(0), mY(0) {}
+        Vector a;  // 기본 생성자 호출
+        ```
+    - 매개변수를 가지는 생성자
+        ```C++
+        // 2개의 매개변수를 가지는 생성자
+        Vector(int x, int y)
+            : mX(x)
+            , mY(y)
+        {            
+        }
+
+        Vector a(1, 3);  // 매개변수 목록이 일치하는 생성자 호출
+        ```
+
+- #### 소멸자(Destructor)
+    - 소멸자는 클래스 안에서 동적으로 할당된 메모리 해제를 위한 것이다.
+        - C++ 클래스는 그 안에서 동적으로 메모리를 할당할 수도 있다.
+        - 그런 경우 필히 `소멸자에서 메모리를 직접 해재`해 줘야 한다.
+    - 개체가 지워질 때 소멸자가 호출되어 처리한다.
+        ```C++
+        // MyString.h
+        Class MyString
+        {
+        public:
+            Mystring();
+            ~MyString();
+        private:
+            Char* mChars;
+            int mLength;
+            int mCapacity;
+        };
+        ```
+        ```C++
+        // MyString.cpp
+        MyString::MyString()
+            : mLength(0)
+            , mCapacity(15)
+        {
+            mChars = new char[mCapacity + 1];  // 클래스 안에서 동적으로 할당된 메모리는
+        }
+
+        MyString::~MyString()    // 개체가 지워질 때 소멸자가 호출되어
+        {
+            delete[] mChars;     // 메모리 해제를 한다.
+            // mCapacity = 0;
+            // mChars = NULL;
+        }
+        ```
