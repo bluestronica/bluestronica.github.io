@@ -252,21 +252,23 @@
 		return record;
 	}
 
+    // 2.studentRecords.dat에 쓰기
 	void WriteFileRecord(fstream& outputStream, const Record& record)
 	{
-		outputStream.seekp(0, ios_base::end);
+		outputStream.seekp(0, ios_base::end);  // 연결된 스트림에서 쓰기 위치 지정
 
 		outputStream << record.FirstName << " "
 			<< record.LastName << " "
 			<< record.StudentID << " "
-			<< record.Score << endl;
+			<< record.Score << endl;   // 스트림을 통해 데이터 밀어 넣기
 
 		outputStream.flush();
 	}
 
+    // 3.studentRecords.dat 읽기
 	void DisplayRecords(fstream& fileStream)
 	{
-		fileStream.seekg(0);
+		fileStream.seekg(0);   // 연결된 스트림에서 읽기 위치 지정
 
 		string line;
 		while (true)
@@ -278,7 +280,7 @@
 				fileStream.clear();
 				break;
 			}
-			cout << line << endl;
+			cout << line << endl;  // 스트림으로 읽어온 내용 cout에 밀어 넣기
 		}
 	}
 
@@ -289,7 +291,7 @@
 		cout << "+------------------------------+" << endl;
 
 		fstream fileStream;
-		fileStream.open("studentRecords.dat", ios_base::in | ios_base::out);
+		fileStream.open("studentRecords.dat", ios_base::in | ios_base::out);  // 1.파일 열어 스트림 연결하기
 
 		bool bExit = false;
 		while (!bExit)
