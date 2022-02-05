@@ -34,7 +34,8 @@
 ### [개체지향 프로그래밍 1](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/OOP_1.md)
 - OOP C++
 
-- 개체지향 프로그래밍 2
+### 개체지향 프로그래밍 2
+
 - 개체지향 프로그래밍 3
 - 캐스팅(형변환, Casting)
 - 인라인 함수(Inline Function)
