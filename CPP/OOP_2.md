@@ -4,6 +4,7 @@
 - #### 복사 생성자
     - 같은 클래스에 속한 다른 개체를 이용하여 새로운 개체를 초기화
     - 즉, 다른 개체의 값을 새로운 개체에 그대로 복사
+    - a를 가져다가 b를 초기화
         ```C++
         Vector(const Vector& other);
 
@@ -54,6 +55,8 @@
         - 클래스에서 동적으로 할당된 메모리 해제를 위한 것
     - 복사 생성자 작성
         - 깊은 복사를 위한 것
+    - 대입 연산자 작성
+        - 복사 생성자를 구현했다면 대입 연산자도 구현해야 한다.
 
 - #### 함수(메서드) 오버로딩
     - 매개변수 목록을 제외하고는 모든 게 동일
@@ -164,3 +167,68 @@
         Vector vector1(10, 20);
         std::cout << vector1 << std::endl;
         ```
+
+- #### 연산자 오버로딩과 const, &
+    ```C++
+    Vector operator+(const Vector& rhs) const;  // 멤버 변수의 값이 바뀌는 것을 방지 하기위해 const 사용
+    std::ostream& operator<<(std::ostream& os, const Vector& rhs);
+    ```
+    - const를 쓰는 이유
+        - 멤버 변수의 값이 바뀌는 것을 방지
+        - 최대한 많은 곳에 const 붙일 것!
+        - 지역(local) 변수 까지도
+    - const &를 사용하는 이유
+        - 불필요한 개체의 사본이 생기는 것을 방지
+        - 멤버 변수가 바뀌는 것도 방지
+    - const를 사용하지 않는 경우도 있다.
+        ```C++
+        vector1 += vector2;
+        vector1 = vector1.operator+=(vector2);
+
+        Vector& operator+=(const Vector& rhs);
+
+        // Vector.cpp
+        Vector& Vector::operator+=(const Vector& rhs)
+        {
+            mX += rhs.mX;
+            mY += rhs.mY;
+
+            return *this;
+        }
+        ```
+    - & 사용하면 무슨 일이 일어나나?
+        ```C++
+        // Vector.cpp
+        Vector Vector::operator+(Vector& rhs) // v2 별칭(내부적으로 v2 주소 2048을 가진다.)
+        {
+            Vector r;
+
+            r.mX = this->mX + rhs.mX;     // 값으로 멤버 접근 rhs.mX
+            r.mY = this->mY + rhs.mY;     // 포인터로 멤접근 this->mY
+
+            return r;  // r 개체를 result 개체에 대입, 값 복사한다.
+        }   // operator+() 함수 영역을 빠져나오면서 그 영역의 데이터는 가비지상태가 된다.
+        ```
+        ```C++
+        // main.cpp
+        Vector v1(10, 20);
+        Vector v2(30, 40);   // v2 개체의 스택 주소는 2048이다.
+
+        Vector result = v1 + v2;
+        ```
+
+- #### 대입(assignment) 연산자
+    - operator=
+    - a를 가져다가 b에 대입
+        - 단, b는 생성되는 과정이 아니라 이미 존재하던 개체
+    - 복사 생성자와 거의 동일
+        - 그러나 대입 연산자는 메모리를 해제해 줄 필요가 있을 수도..
+    - 복사 생성자를 구현했다면 대입 연산자도 구현해야 한다.
+    - 암시적 operator=
+        - operator= 구현이 안 되어 있으면 컴파일러가 operator= 연산자를 자동으로 만들어 준다.
+
+- #### 클래스에 딸려오는 기본 함수들 (컴파일러의 암시적 생성)
+    - 매개변수 없는 생성자
+    - 복사 생성자
+    - 소멸자
+    - 대입(=) 연산자
