@@ -48,3 +48,9 @@
             ClassRecord* classRecordCopy = new ClassRecord(classRecord);
             delete classRecordCopy;
             ```
+
+- #### 클래스 안에서 동적으로 메모리를 할당하고 있다면
+    - 소멸자 작성
+        - 클래스에서 동적으로 할당된 메모리 해제를 위한 것
+    - 복사 생성자 작성
+        - 깊은 복사를 위한 것
