@@ -36,7 +36,7 @@
 - 보통 접근 제어자(Access Modifier) 별로 C++ 멤버들을 그룹 지음
 - 개체 생성
 - 개체 배열(Array)
-- 개체 소멸
+- 개체 소멸(delete)
 - 초기화와 대입의 차이를 이해한다.
 - 기본 생성자
 - 생성자 오버로딩(Overloading)
@@ -46,6 +46,7 @@
 - 구조체에 관한 코딩표준
 
 ### [개체지향 프로그래밍 2](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/OOP_2.md)
+- 복사 생성자
 
 ### 개체지향 프로그래밍 3
 - 캐스팅(형변환, Casting)

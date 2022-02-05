@@ -210,8 +210,8 @@
         - 구조체는 `C 스타일`로 쓰자!
     - struct는 순수하게 데이터뿐이여야 한다.(Plain Old Data, POD)
         - 사용자가 선언한 생성자는 소멸자 X
-        - static 아니 private/protected 멤버 변수 x
-        - 가상함수 x
+        - static 아니 private/protected 멤버 변수 X
+        - 가상함수 X
         - 메모리 카피가 가능
             - memcpy()를 사용하여 struct를 char[]로, 혹은 반대로 복사할 수 있음
         
