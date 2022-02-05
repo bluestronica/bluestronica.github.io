@@ -54,7 +54,7 @@
         delete[] list;  // []를 반드시 넣을 것
         list = NULL;    // 안해도 된다.
         ```
-- #### 초기화와 대입의 차이를 이해하자.
+- #### 초기화와 대입의 차이를 이해한다.
     - 초기화 리스트
         - 실제 개체가 만들어질 때 초기화하는 것을 의미한다.
         - 멤버 변수를 대입(만들어진 후 값을 대입하는 행위) 없이 초기화
@@ -140,7 +140,7 @@
 - #### 소멸자(Destructor)
     - 소멸자는 클래스 안에서 동적으로 할당된 메모리 해제를 위한 것이다.
         - C++ 클래스는 그 안에서 동적으로 메모리를 할당할 수도 있다.
-        - 그런 경우 필히 `소멸자에서 메모리를 직접 해재`해 줘야 한다.
+        - 그런 경우 필히 `소멸자에서 메모리를 직접 해제`해 줘야 한다.
     - 개체가 지워질 때 소멸자가 호출되어 처리한다.
         ```C++
         // MyString.h
@@ -150,7 +150,7 @@
             Mystring();
             ~MyString();
         private:
-            Char* mChars;
+            char* mChars;
             int mLength;
             int mCapacity;
         };
@@ -171,3 +171,47 @@
             // mChars = NULL;
         }
         ```
+
+- #### 클래스의 멤버 함수
+    ```C++
+    // Vector.h
+    class Vector
+    {
+    public:
+        void SetX(int x);
+        void SetY(int y);
+        int GetX() const;
+        int GetY() const;
+        void Add(const Vector& other);
+    private:
+        int mX;
+        int mY;
+    }
+    ```
+
+- #### Const 멤버 함수
+    - 멤버 변수가 변하는 것을 방지
+        ```C++
+        int GetX() const
+        {
+            return mX;     // OK
+        }
+
+        void AddConst(const Vector& other) const
+        {
+            mX = mX + ohter.mX;   // 컴파일 에러
+            mY = mY + ohter.mY;   // 컴파일 에러 
+        }
+        ```
+
+- #### 구조체에 관한 코딩표준
+    - C++에서는 구조체를 클래스처럼 쓸 수 있음
+        - 하지만 절대 그러지 말 것
+        - 구조체는 `C 스타일`로 쓰자!
+    - struct는 순수하게 데이터뿐이여야 한다.(Plain Old Data, POD)
+        - 사용자가 선언한 생성자는 소멸자 X
+        - static 아니 private/protected 멤버 변수 x
+        - 가상함수 x
+        - 메모리 카피가 가능
+            - memcpy()를 사용하여 struct를 char[]로, 혹은 반대로 복사할 수 있음
+        

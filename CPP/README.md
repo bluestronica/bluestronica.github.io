@@ -33,10 +33,21 @@
 
 ### [개체지향 프로그래밍 1](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/OOP_1.md)
 - OOP C++
+- 보통 접근 제어자(Access Modifier) 별로 C++ 멤버들을 그룹 지음
+- 개체 생성
+- 개체 배열(Array)
+- 개체 소멸
+- 초기화와 대입의 차이를 이해한다.
+- 기본 생성자
+- 생성자 오버로딩(Overloading)
+- 소멸자(Destructor)
+- 클래스 멤버 함수
+- Const 멤버 함수
+- 구조체에 관한 코딩표준
 
-### 개체지향 프로그래밍 2
+### [개체지향 프로그래밍 2](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/OOP_2.md)
 
-- 개체지향 프로그래밍 3
+### 개체지향 프로그래밍 3
 - 캐스팅(형변환, Casting)
 - 인라인 함수(Inline Function)
 - static 키워드
