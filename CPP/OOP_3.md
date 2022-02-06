@@ -145,4 +145,207 @@
     - 그래서 상속을 통한 `함수 오버라이딩`이 가능해진다.
 
 - #### 정적 바인딩 - 멤버 함수
-    - C++의 기본 동작이다.
+    - C++의 기본 동작은 정적 바인딩이다.
+    - 생성된 클래스가 아니라 `타입의 각 멤버 함수`가 실행한다.
+        ```C++
+        class Animal
+        {
+        public:
+            void Speak();  // "An animal is speaking"을 출력
+        }
+
+        class Cat : public Animal
+        {
+        public:
+            void speak();  // "Meow"을 출력
+        }
+        ```
+        ```C++
+        // main.cpp
+        Cat* myCat = new Cat();
+        myCat->Speak();  // Meow
+
+        Animal* yourCat = new Cat();
+        yourCat->Speak();  // An animal is speaking
+        ```
+
+- #### 동적 바인딩 - 다형성의 핵심인 가상(virtual) 멤버 함수
+    - 생성된 개체의 멤버 함수가 언제나 호출된다.
+    - 동적 바인딩/늦은 바인딩
+        - 실행 중에 어떤 함수를 호출할지를 결정한다.
+        - 당연히 정적 바인딩보다 느림
+    - 이를 위해 가상 테이블이 생성됨
+        - 모든 가상 멤버 함수의 주소를 포함
+        - 물론 클래스 마다 하나
+        - 실행 중에 어떤 타입이고 어떤 함수 호출할지 그 과정을 처리하는게 가상 테이블이 하는 것이다.
+    - 힙에 개체를 생성할 때, 해당 클래스의 가상 테이블 주소가 함께 저장 된다.
+    - Cat클래스(코드섹션) <- Cat가상테이블 <- MyCat개체(힙)
+    - 컴파일 시
+        - 코드 섹션
+            - Animal 클래스
+                - void Move(Animal* ptr) const {}    
+                - void Speak(Animal* ptr) const {}   
+            - Cat 클래스
+                - void Move(Cat* ptr) const {}  
+                - void Speak(Cat* ptr) const {}  <-    
+        - 가상 테이블
+            - Animal 가상 테이블(Ox009ED0)
+                - Animal::Move()의 주소    
+                - Animal::Speak()의 주소   
+            - Cat 가상 테이블(Ox009ED8)
+                - Cat::Move()의 주소  
+                - Cat::Speak()의 주소  <-
+    - 실행 중
+        - heap
+            - MyCat
+                - mAge 
+                - mName
+                - 가상 테이블 주소(Ox009ED8)  ->
+                    - 개체가 생성되면 개체의 가상 테이블 주소를 가진다.
+                    - Cat 가상 테이블이 Ox009ED8 있으니
+                    - Speak()는 두 번째 함수니깐 Ox009EDC에 가서
+                    - 그기에 저장된 주소가 가리키는 곳에 있겠다는 것을 알 수 있다.
+            - YourCat
+                - mAge
+                - mName
+                - 가상 테이블 주소(Ox009ED8)  ->
+        ```C++
+        class Animal
+        {
+        public:
+            virtual void Move();   // 가상함수 선언, 언제나 생성된 개체의 멤버 함수가 호출된다.
+            virtual void Speak();  // 가상함수 선언, An animal is speaking
+        };
+
+        class Cat : Animal
+        {
+        public:
+            void Move();
+            void Speak();  // Meow
+        }
+        ```
+        ```C++
+        // main.cpp
+        Cat* myCat = new Cat();
+        myCat->Speak();  // Meow , Speak()는 virtual 멤버 함수이기 때문에 힙에 생성된 개체 Cat()의 멤버함수가 호출된다.
+
+        Animal* yourCat = new Cat();
+        yourCat->Speak(); // Meow , Speak()는 virtual 멤버 함수이기 때문에 힙에 생성된 개체 Cat()의 멤버함수가 호출된다.
+        ```
+- #### C++ 다형성의 이해
+    - C++의 기본적인 행동은 `선언한 타입의 멤버 함수`에 접근한다.
+    - 단, virtual 키워드로 멤버 함수를 선언함으로써 타입이 아닌 
+    - 힙에서 생성한 `개체의 멤버 함수`에 접근한다.
+    - 게임에서 부모 몬스터를 상속받은 다양한 종류의 자식 몬스터가 있다.
+    - 이들 모들 모두 동시에 move() 움직이게 하고 싶을 때
+    - 부모 몬스터* 타입의 배열을 만들어 자식 몬스터들을 집어 넣는다.
+    - 그래서 for문을 돌려서 자식 몬스터.move()를 실행한다.
+    - 물론 move() 멤버함수는 virtual함수가 되어야한다.
+    - 왜냐하면 자식 몬스터들 마다 각각 다른 형태의 움직임으로 걷고 이동해야 하기때문에
+    - 자식 몬스터.move() 멤버함수를 호출해야한다.
+
+- #### 가상(virtual) 소멸자
+    - 모든 클래스마다 가상 소멸자 할 것!!
+        - C++ 14/17에 해결책 있음
+    - 가상 함수가 필요 없을 때
+        - 클래스 만들었느데 상속을 받지 않았을 때
+        - 상속을 받았지만 새로운 메모리 할당을 받지 않았을 때
+    ```C++
+    // Animal.h
+    class Animal
+    {
+    public:
+        virtual ~Animal();    // 가상 소멸자 선언
+    private:
+        int mAge;
+    };
+
+    //Cat.h
+    class Cat : public Animal
+    {
+    public:
+        // 여기는 virtual 키워드 생략 가능
+        virtual ~Cat();
+    private:
+        char* mName;
+    };
+    ```
+    ```C++
+    // Cat.cpp
+    Cat::~Cat()
+    {
+        delete mName;
+    }
+    ```
+
+- #### 순수 가상함수
+    - 구현체가 없는 멤버 함수
+    - 파생 클래스가 구현해야 한다.
+    ```C++
+    class Animal
+    {
+    public:
+        virtual void Speak() = 0;      // 순수 가상함수
+        virtual float GetArea() = 0;   // 순수 가상함수
+    private:
+        int mAge;
+    };
+    ```
+
+- #### 추상 클래스
+    - 순수 가상함수를 가지고 있는 베이스 클래스를 추상 클래스라 한다.
+        - 추상 클래스에서 개체를 만들 수 없음
+        - 추상 클래스를 포인터나 참조형으로는 사용 가능
+    ```C++
+    class Animal
+    {
+    public:
+        virtual void Speak() = 0;
+    private:
+        int mAge;
+    };
+    ```
+    ```C++
+    // 추상 클래스를 개체로 만들 수 없음
+    Animal myAnimal;                  // 불가능
+    Animal* myAnimal = new Animal();  // 불가능
+
+    // 추상 클래스를 포인터나 참조의 type으로는 사용 가능
+    Animal* myCat = new Cat();    // OK
+    Animal& myCatRef = *myCat;    // OK
+    ```
+
+- #### 인터페이스
+    - C++은 자체적으로 인터페이스를 지원하지 않은다.
+    - 순수 추상 클래스를 사용하여 java의 인터페이스 흉내
+        - 순수 가상 함수만 가짐
+        - 멤버 변수는 없음
+        ```C++
+        // IFlyable.h
+        class IFlyable
+        {
+        public:
+            virtual void Fly() = 0;
+        };
+
+        // IWalkable.h
+        class IWalkable
+        {
+        public:
+            virtual void Walk() = 0;
+        };
+        ```
+        ```C++
+        class Bat : public IFlyable, public IWalkable
+        {
+        public:
+            void Fly();
+            void Walk();
+        };
+
+        class Cat : public IWalkable
+        {
+        public:
+            void Walk();
+        };
+        ```
