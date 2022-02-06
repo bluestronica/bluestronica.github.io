@@ -93,6 +93,7 @@
             : mAge(0)      // mAge는 0으로 초기화 된다. 2가 입력되지 않는다.
         {
         }
+
         // Animal.cpp
         // 암시적 매개변수 없는 생성자 Animal()을 호출하면 컴파일 에러
         Animal::Animal(int age)  // 매개변수 있는 생성자
@@ -117,3 +118,31 @@
         ```
 
 - #### 다형성과 관련있는 `멤버 함수의 메모리`에 대해 알아보자.
+    - 멤버 함수도 메모리 어딘가에 위치해 있음
+    - 그런데 `각 개체마다` 멤버 함수의 메모리가 잡혀 있을까?
+    - `멤버 함수`는 컴파일 시에 `딱 한 번만 메모리에 할당`된다.
+        - 저수준에서는 멤버 함수는 전역 함수와 그다지 다르지 않다.
+        ```C++
+        // main.cpp
+        myCat->GetName();
+            mov     ecx, dword  ptr[myCat]   // myCat 주소를 저장
+            call    Cat::GetName(0A16C7h)
+
+        yourCat->GetName();
+            mov     ecx, dword ptr[yourCat]  // yourCat 주소를 저장
+            call    Cat::GetName(0A16C7h)
+
+        
+        // myCat 포인터를 ecx에 저장한다.
+        // GetName(0A16C7h)은 코드섹션에 저장된 주소 0A16C7h에 위치한 Cat클래스의 GetName()를 가리킨다.
+        // 그 다음 ecx에 저장된 myCat의 주소를 꺼내서 사용한다.
+        // return ptr->mName;   
+        // myCat의 주소값이 ptr로 사용될 것이다. 그래서 myCat의 mName을 반환한다.
+
+        // yourCat도 똑같이 코드섹션에 저장된 주소 0A16C7h에 위치한 Cat클래스의 GetName()를 가리킨다.
+        // yourCat의 mName이 반환될 것이다.
+        ```
+    - 그래서 상속을 통한 `함수 오버라이딩`이 가능해진다.
+
+- #### 정적 바인딩 - 멤버 함수
+    - C++의 기본 동작이다.
