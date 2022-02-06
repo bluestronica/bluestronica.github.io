@@ -67,4 +67,53 @@
             }
             ```
     - 소멸자 호출 순서
+        - 생성자 호출 순서와 정반대
+        - 파생 클래스 소멸자의 마지막에서 베이스 클래스의 소멸자가 `자동적으로 호출`된다.
+            ```C++
+            // Animal.cpp
+            Animal::~Animal()   // 4. 부모 소멸자 호출
+            {                
+            }
+
+            // Cat.cpp
+            Cat::~Cat()     // 2. 자식 소멸자부터 호출해 지운다.
+            {
+                delete mName;
+                // 3. ~Animal()을 자동적으로 호출
+            }
+
+            // main.cpp
+            delete myCat;  // 1. 할당 해제
+            ```
     - 베이스 클래스와 매개변수 없는 생성자
+        ```C++
+        // Animal.cpp
+        // 암시적 매개변수 없는 생성자 Animal()을 호출하면 mAge는 0으로 초기화
+         Animal::Animal()  // 매개변수 없는 생성자
+            : mAge(0)      // mAge는 0으로 초기화 된다. 2가 입력되지 않는다.
+        {
+        }
+        // Animal.cpp
+        // 암시적 매개변수 없는 생성자 Animal()을 호출하면 컴파일 에러
+        Animal::Animal(int age)  // 매개변수 있는 생성자
+            : mAge(age)           
+        {
+        }
+
+        // Cat.cpp
+        Cat::Cat(int age, const string& name)
+            // 명시적 생성자 호출이 아니라 암시적 Animal()을 호출을 하면   
+            // 컴파일러가 암시적으로 호출할 수 있는 부모 생성자는 Animal()이것 뿐인데
+            // 매개변수가 있는 Animail(int age)를 호출하려니 컴파일 에러가 난다.               
+        {
+            size_t size = strlen(name) + 1;  
+            mName = new char[size];
+            strcpy(mName, name);
+        }
+        ```
+        ```C++
+        // main.cpp
+        Cat* myCat = new Cat(2, "Mew");  
+        ```
+
+- #### 다형성과 관련있는 `멤버 함수의 메모리`에 대해 알아보자.
