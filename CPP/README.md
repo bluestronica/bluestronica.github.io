@@ -52,14 +52,16 @@
 - 연산자
 - 멤버 함수를 이용한 연산자 오버로딩
 - friend 키워드
-- 멤버 아닌 함수를 이용한 연잔사 오버로딩
+- 멤버 아닌 함수를 이용한 연산자 오버로딩
 - 연산자 오버로딩과 const, &
 - 대입(assignment) 연산자
 - 클래스에 딸려오는 기본 함수들 (컴파일러의 암시적 생성)
 - 클래스에 딸려오는 기본 함수들 `지우는` 법
 
-### 개체지향 프로그래밍 3
-- 캐스팅(형변환, Casting)
+### [개체지향 프로그래밍 3](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/OOP_3.md)
+- 상속
+
+### 캐스팅(형변환, Casting)
 - 인라인 함수(Inline Function)
 - static 키워드
 - 예외(Exception)
