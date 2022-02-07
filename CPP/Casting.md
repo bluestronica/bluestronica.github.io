@@ -15,7 +15,7 @@
         - 좀 더 안전하게 컴파일도중에 프로그래머의 실수를 잡아 줄 수 있다.
 
 - #### C++ 명시적 캐스팅
-    - static_cast
+    - **static_cast**
         - 컴파일 도중에 결정이 된다. 즉, 컴파일 시에만 형 체크한다.
         ```C++
         // 값
@@ -24,7 +24,7 @@
         // 개체 포인터
         Cat* myCat = static_cast<Cat*>(myPet);     // Animal* myPet;
         ```
-    - reinterpret_cast
+    - **reinterpret_cast**
         - 연관 없는 두 포인터 형 사이의 변환을 허용
             - Cat*   <->   House*
             - Char*  <->   int*
@@ -42,7 +42,7 @@
             // 결국 signedNumber과 unsignedNumber 둘다 -10을 가리키게 된다.
             // 위험하다!!
             ```
-    - const_cast
+    - **const_cast**
         - const 지워주는 캐스팅이다. 즉, const_cast로 형을 바꿀 수 없음
         - const 또는 volatile 애트리뷰트를 제거할 때 const_cast를 사용한다.
         - const_cast를 사용할 때는 써드파티 라이브러리가 const를 제대로 사용하지 않을 때
@@ -57,7 +57,7 @@
             // const Animal* petPtr;
             Animal* animal = const_cast<Animal*>(petPtr);   // const 제거
             ```
-    - dynamic_cast (C++98, 모던C++)
+    - **dynamic_cast** (C++98, 모던C++)
         - 실행 중에 형을 판단
         - 포인터 똔느 참조형을 캐스팅할 때만 사용할 수 있다.
         - 호환되지 않는 자식형으로 캐스팅하려 하면 NULL을 반환
