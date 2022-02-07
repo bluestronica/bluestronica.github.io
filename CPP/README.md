@@ -88,6 +88,9 @@
 - 정적(static) 멤버 함수
 
 ### [예외(Exception)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Exception.md)
+- C++에서의 예외(Exception)
+- 웹 애플리케이션에서의 에러 처리
+- 적절한 예외 처리 전략
 
 ### 표준 템플릿 라이브러리(STL, Standard Template Library)
 - 템플릿(Template) 프로그래밍
