@@ -69,9 +69,13 @@
 - 추상 클래스
 - 인터페이스
 
-### 캐스팅(형변환, Casting)
-- 인라인 함수(Inline Function)
-- static 키워드
+### [캐스팅(형변환, Casting)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Casting.md)
+- 암시적(Implicit) 캐스팅
+
+### [인라인 함수(Inline Function)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Inline_Function.md)
+- 인라인 함수의 동작 원리
+
+### static 키워드
 - 예외(Exception)
 - 표준 템플릿 라이브러리(STL, Standard Template Library)
 - 템플릿(Template) 프로그래밍
