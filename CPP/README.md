@@ -81,7 +81,11 @@
 - 인라인 함수를 쓸 때 주의점
 
 ### [static 키워드](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Static.md)
-- 
+- static
+- 정적(static) 변수
+- 정적(static) 멤버 변수
+- 정적(static) 멤버 변수 베스트 프랙티스
+- 정적(static) 멤버 함수
 
 ### [예외(Exception)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Exception.md)
 
