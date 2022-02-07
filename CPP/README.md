@@ -70,10 +70,15 @@
 - 인터페이스
 
 ### [캐스팅(형변환, Casting)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Casting.md)
-- 암시적(Implicit) 캐스팅
+- 캐스팅(Casting)
+- C스타일 캐스팅
+- C++ 명시적 캐스팅
+- 캐스팅 규칙
 
 ### [인라인 함수(Inline Function)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Inline_Function.md)
+- 함수 호출할 때
 - 인라인 함수의 동작 원리
+- 인라인 함수를 쓸 때 주의점
 
 ### static 키워드
 - 예외(Exception)

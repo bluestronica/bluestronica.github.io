@@ -1,7 +1,7 @@
 ### [bluestronica.github.io/CPP](https://bluestronica.github.io/CPP)
 
 ### 캐스팅(형변환, Casting)
-- #### Casting
+- #### 캐스팅(Casting)
     - 암시적(Implicit) 캐스팅
         - 컴파일러가 형을 변환해 줌
     - 명시적(Explicit) 캐스팅
