@@ -80,9 +80,12 @@
 - 인라인 함수의 동작 원리
 - 인라인 함수를 쓸 때 주의점
 
-### static 키워드
-- 예외(Exception)
-- 표준 템플릿 라이브러리(STL, Standard Template Library)
+### [static 키워드](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Static.md)
+- 
+
+### [예외(Exception)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Exception.md)
+
+### 표준 템플릿 라이브러리(STL, Standard Template Library)
 - 템플릿(Template) 프로그래밍
 - STL 알고리듬(Algorithm)
 - 새로운 키워드 (C++11 ~)
