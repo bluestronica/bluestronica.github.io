@@ -49,6 +49,58 @@
             ClassRecord* classRecordCopy = new ClassRecord(classRecord);
             delete classRecordCopy;
             ```
+    - Sample Code - Copy Consstructor With char Array
+        ```c++
+        // String.h
+        class String
+        {
+        public:
+            String(const char* str);     // 매개변수 1개 받는 생성자
+            String(const String& str);   // 복사 생성자
+            ~String();                   // 소멸자
+
+            void Print();                // 멤버 함수
+
+        private:
+            char* mString;               // 클래스안에서 힙에 동적으로 할당하는 private 멤버 변수 
+            size_t mSize;
+        };
+        ```
+        ```c++
+        // String.cpp
+        String::String(const char* str)   // 매개변수 1개 받는 생성자
+            : mSize(strlen(str) + 1)      // 초기화 리스트
+        {
+            // 스택에 생성된 mString 포인터 변수는 힙에 할당된 메모리 시작 주소를 담는다.
+            mString = new char[mSize];  // 클래스 안에서 mSize 크기로 동적 메모리 할당
+            memcpy(mString, str, mSize); // str의 값을 할당받은 공간에 복사한다.
+        }
+
+        String::String(const String& str)   // 복사 생성자
+            : mSize(str.mSize)
+        {
+            mString = new char[mSize];
+            memcpy(mString, str.mString, mSize);
+        }
+
+        String::~String()   // 소멸자
+        {
+            delete[] mString;   // 클래스 안에서 할당받은 메모리를 직접 해제
+        }
+
+        void String::Print()
+        {
+            cout << "Member string : " << mString << endl;
+        }
+        ```
+        ```c++
+        // Main.cpp
+        String myName(" John Doe");  // 생성자 호출, myName 개체는 스택에 생성
+		String myNameCopy(myName);   // 복사 생성자 호출
+
+		myName.Print();
+		myNameCopy.Print();
+        ```
 
 - #### 클래스 안에서 동적으로 메모리를 할당하고 있다면 직접 메모리 해제를 하는 코드 작성해야한다.
     - 소멸자 작성
@@ -68,16 +120,16 @@
         int Print(int score);                        // 컴파일 에러 : 반환형은 상관 없음.. 매개변수 목록이 일치해서 에러
         int Print(float gpa);                        // OK
         ```
-    - Sample - Vector Class with Function Overloading
+    - Sample Code - Vector Class with Function Overloading
         ```c++
         // Vector.cpp
-        Vector::Vector()
-            : Vector(0, 0)    // 기본 생성자 초기화 리스트
+        Vector::Vector()       // 기본 생성자
+            : Vector(0, 0)     // 초기화 리스트
         {
         }
 
         Vector::Vector(int x, int y)   // 매개변수 2개인 생성자
-            : mX(x)
+            : mX(x)                    // 초기화 리스트
             , mY(y)
         {
         }
@@ -151,7 +203,7 @@
     - C++에서는 프로그래머가 연산자를 오버로딩할 수 있다.
 
 - #### 멤버 함수를 이용한 연산자 오버로딩
-    - Sample - Vector Class with Operator Overloading
+    - Sample Code - Vector2 Class with Operator Overloading
         ```C++
         // Vector2.cpp
         Vector2::Vector2()
