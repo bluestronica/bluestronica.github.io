@@ -70,12 +70,13 @@
         ```
     - Sample - Vector Class with Function Overloading
         ```c++
+        // Vector.cpp
         Vector::Vector()
-            : Vector(0, 0)  // Why??
+            : Vector(0, 0)    // 기본 생성자 초기화 리스트
         {
         }
 
-        Vector::Vector(int x, int y)
+        Vector::Vector(int x, int y)   // 매개변수 2개인 생성자
             : mX(x)
             , mY(y)
         {
@@ -110,7 +111,7 @@
         {
             Vector result(mX * v.GetX(), mY * v.GetY());
 
-            return result;  // 스택에 클래스 생성?? 함수 반환하면 클래스 주소는 가비지????
+            return result;
         }
 
         Vector Vector::Multiply(int multiplier) const
@@ -150,25 +151,103 @@
     - C++에서는 프로그래머가 연산자를 오버로딩할 수 있다.
 
 - #### 멤버 함수를 이용한 연산자 오버로딩
-    ```C++
-    Vector result = vector1 + vector2;
-    Vector result = vector1.operator+(vector2);
+    - Sample - Vector Class with Operator Overloading
+        ```C++
+        // Vector2.cpp
+        Vector2::Vector2()
+            : Vector2(0, 0)
+        {
+        }
 
-    Vector operator+(const Vector& rhs) const;
-    Vector operator-(const Vector& rhs) const;
-    Vector operator*(const Vector& rhs) const;
-    Vector operator/(const Vector& rhs) const;
+        Vector2::Vector2(int x, int y)
+            : mX(x)
+            , mY(y)
+        {
+        }
 
-    // Vector.cpp
-    Vector Vector::operator+(const Vector& rhs) const
-    {
-        Vector sum;
-        sum.mX = mX + rhs.mX;
-        sum.mY = mY + rhs.mY;
+        int Vector2::GetX() const
+        {
+            return mX;
+        }
 
-        return sum;
-    }
-    ```
+        void Vector2::SetX(int x)
+        {
+            mX = x;
+        }
+
+        void Vector2::SetY(int y)
+        {
+            mY = y;
+        }
+
+        int Vector2::GetY() const
+        {
+            return mY;
+        }
+
+        bool Vector2::operator==(const Vector2& rhs) const
+        {
+            return (mX == rhs.mX && mY == rhs.mY);
+        }
+
+        Vector2 Vector2::operator*(const Vector2& rhs) const
+        {
+            Vector2 result(mX * rhs.mX, mY * rhs.mY);
+
+            return result;
+        }
+
+        Vector2 Vector2::operator*(int multiplier) const
+        {
+            Vector2 result(mX * multiplier, mY * multiplier);
+
+            return result;
+        }
+
+        Vector2 operator*(int multiplier, const Vector2& v)
+        {
+            Vector2 result(v.mX * multiplier, v.mY * multiplier);
+
+            return result;
+        }
+
+        Vector2& Vector2::operator*=(const Vector2& rhs)
+        {
+            mX *= rhs.mX;
+            mY *= rhs.mY;
+
+            return *this;
+        }
+
+        Vector2& Vector2::operator*=(int multiplier)
+        {
+            mX *= multiplier;
+            mY *= multiplier;
+
+            return *this;
+        }
+
+        std::ostream& operator<<(std::ostream& out, const Vector2& v)
+        {
+            out << v.mX << ", " << v.mY << std::endl;
+
+            return out;
+        }
+        ```
+        ```c++
+        // Main.c
+        Vector2 vector1(3, 5);
+		Vector2 vector2(7, 9);
+
+		const int multiplier = 3;
+
+		Vector2 result = vector1 * vector2;
+		result = vector1 * multiplier;
+		result = multiplier * vector1;
+
+		vector1 *= vector2;
+		vector1 *= multiplier;
+        ```
 
 - #### friend 키워드
     - 다른 클래스나 함수가 나의 private 또는 protected 멤버에 접근할 수 있게 허용
