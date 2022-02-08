@@ -49,7 +49,7 @@
             ClassRecord* classRecordCopy = new ClassRecord(classRecord);
             delete classRecordCopy;
             ```
-    - Sample Code - Copy Consstructor With char Array
+    - Sample Code - Copy Constructor With char Array
         ```c++
         // String.h
         class String
@@ -62,7 +62,7 @@
             void Print();                // 멤버 함수
 
         private:
-            char* mString;               // 클래스안에서 힙에 동적으로 할당하는 private 멤버 변수 
+            char* mString;      // 클래스안에서 힙에 동적으로 할당하는 private 멤버 변수 
             size_t mSize;
         };
         ```
