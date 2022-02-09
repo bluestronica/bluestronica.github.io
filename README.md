@@ -1,11 +1,10 @@
 # bluestronica.github.io
 
-| Tag | Link | Link | - |
-|:-:|:-:|:-:|:-:|
-| C | [Document](https://bluestronica.github.io/) | [Source](https://bluestronica.github.io/) | - |
-| CPP | [Document](https://bluestronica.github.io/CPP/) | [Source](https://bluestronica.github.io/) | - |
-| Algorithms | [Document](https://bluestronica.github.io/) | [Source](https://bluestronica.github.io/) | - |
-| Console Games | [Document](https://bluestronica.github.io/) | [Source](https://bluestronica.github.io/) | - |
+
+### | [C](https://bluestronica.github.io/)         | 
+### | [CPP](https://bluestronica.github.io/CPP/)   |
+### | [Algorithms](https://bluestronica.github.io/)|
+### | [SDL2](https://bluestronica.github.io/)      |
 
 
 #
