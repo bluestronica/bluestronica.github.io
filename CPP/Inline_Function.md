@@ -15,7 +15,7 @@
     - 그때 그 해결법으로 **인라인 함수**를 쓴다.
 
 - #### 인라인 함수의 동작 원리
-    - **멤버 아닌 인라인 함수**
+    - 멤버 아닌 **인라인 함수**
         - 매크로(MACRO)와 매우 비슷한 개념 : #define
             ```c++
             inline int Square(int number)
@@ -28,10 +28,8 @@
                 int number = 2;
                 int result = Square(number);
 
-                // 컴파일 과정을 거치면
-                
-                int result = number * number;
-
+                // 컴파일 과정을 거치면                
+                // int result = number * number;
                 // 함수 호출이 되는 것이 아니라
                 // 매크로(MACRO)와 매우 비슷한 개념으로 실행된다.
 
@@ -57,9 +55,8 @@
             Cat* myCat = new Cat(2, "Coco");
             int age = myCat->GetAge();
 
-
             // 컴파일 과정을 거치면
-            int age = myCat->mAge;
+            // int age = myCat->mAge;
             ```
         
 - #### 인라인 함수를 쓸 때 주의점
@@ -76,3 +73,181 @@
         - 동일한 코드를 여러 번 복붙하니까
         - 남용하지 말자!
         - 실행파일이 작을수록 CPU 캐시하고 잘 작동 -> 속도가 빨라질 수 있음
+
+- #### Sample code
+    ```c++
+    // Vector.h
+    	class Vector
+	{
+	public:
+		Vector();
+		Vector(int x, int y);
+
+		inline int GetX() const;
+		inline void SetX(int x);
+
+		inline int GetY() const;
+		inline void SetY(int y);
+
+		inline bool IsEqual(const Vector& v) const;
+		inline Vector Multiply(const Vector& v) const;
+		inline Vector Multiply(int multiplier) const;
+
+		inline void Scale(const Vector& v);
+		inline void Scale(int multiplier);
+
+	private:
+		int mX;
+		int mY;
+	};
+
+	int Vector::GetX() const
+	{
+		return mX;
+	}
+
+	void Vector::SetX(int x)
+	{
+		mX = x;
+	}
+
+	void Vector::SetY(int y)
+	{
+		mY = y;
+	}
+
+	int Vector::GetY() const
+	{
+		return mY;
+	}
+
+	bool Vector::IsEqual(const Vector& v) const
+	{
+		return (mX == v.mX && mY == v.mY);
+	}
+
+	Vector Vector::Multiply(const Vector& v) const
+	{
+		Vector result(mX * v.GetX(), mY * v.GetY());
+
+		return result;
+	}
+
+	Vector Vector::Multiply(int multiplier) const
+	{
+		Vector result(mX * multiplier, mY * multiplier);
+
+		return result;
+	}
+
+	void Vector::Scale(const Vector& v)
+	{
+		mX *= v.mX;
+		mY *= v.mY;
+	}
+
+	void Vector::Scale(int multiplier)
+	{
+		mX *= multiplier;
+		mY *= multiplier;
+	}
+    ```
+    ```c++
+    // Vector2.h
+    	class Vector2
+	{
+	public:
+		Vector2();
+		Vector2(int x, int y);
+
+		inline int GetX() const;
+		inline void SetX(int x);
+
+		inline int GetY() const;
+		inline void SetY(int y);
+
+		inline bool operator==(const Vector2& rhs) const;
+
+		inline Vector2 operator*(const Vector2& rhs) const;
+		inline Vector2 operator*(int multiplier) const;
+		friend inline Vector2 operator*(int multiplier, const Vector2& v);
+
+		inline Vector2& operator*=(const Vector2& rhs);
+		inline Vector2& operator*=(int multiplier);
+
+		friend inline std::ostream& operator<<(std::ostream& out, const Vector2& vector);
+
+	private:
+		int mX;
+		int mY;
+	};
+
+	int Vector2::GetX() const
+	{
+		return mX;
+	}
+
+	void Vector2::SetX(int x)
+	{
+		mX = x;
+	}
+
+	void Vector2::SetY(int y)
+	{
+		mY = y;
+	}
+
+	int Vector2::GetX() const
+	{
+		return mY;
+	}
+
+	bool Vector2::operator==(const Vector2& rhs) const
+	{
+		return (mX == rhs.mX && mY == rhs.mY);
+	}
+
+	Vector2 Vector2::operator*(const Vector2& rhs) const
+	{
+		Vector2 result(mX * rhs.mX, mY * rhs.mY);
+
+		return result;
+	}
+
+	Vector2 Vector2::operator*(int multiplier) const
+	{
+		Vector2 result(mX * multiplier, mY * multiplier);
+
+		return result;
+	}
+
+	Vector2 operator*(int multiplier, const Vector2& v)
+	{
+		Vector2 result(v.mX * multiplier, v.mY * multiplier);
+
+		return result;
+	}
+
+	Vector2& Vector2::operator*=(const Vector2& rhs)
+	{
+		mX *= rhs.mX;
+		mY *= rhs.mY;
+
+		return *this;
+	}
+
+	Vector2& Vector2::operator*=(int multiplier)
+	{
+		mX *= multiplier;
+		mY *= multiplier;
+
+		return *this;
+	}
+
+	std::ostream& operator<<(std::ostream& out, const Vector2& v)
+	{
+		out << v.mX << ", " << v.mY << std::endl;
+
+		return out;
+	}
+    ```
