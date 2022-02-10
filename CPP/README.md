@@ -93,10 +93,15 @@
 - 적절한 예외 처리 전략
 
 ### 표준 템플릿 라이브러리(STL, Standard Template Library)
-- 템플릿(Template) 프로그래밍
-- STL 알고리듬(Algorithm)
-- 새로운 키워드 (C++11 ~)
-- 새로운 자료형
+### 템플릿(Template) 프로그래밍
+### STL 알고리듬(Algorithm)
+### [새로운 키워드 (C++11 ~)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/NewKeywords11-17.md)
+- auto
+- static_assert
+- default / delete
+- final / override
+
+### 새로운 자료형
 - 새로 추가된 STL
 - 스마트(Smart) 포인터
 - 이동 생성자 및 이동 대입 연산자
