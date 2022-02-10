@@ -100,6 +100,7 @@
 - static_assert
 - default / delete
 - final / override
+- offsetof 매크로
 
 ### 새로운 자료형
 - 새로 추가된 STL
