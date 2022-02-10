@@ -336,6 +336,7 @@
         };
         ```
         ```C++
+        // Bat.h
         class Bat : public IFlyable, public IWalkable
         {
         public:
@@ -343,9 +344,39 @@
             void Walk();
         };
 
+        // Cat.h
         class Cat : public IWalkable
         {
         public:
             void Walk();
         };
+        ```
+        ```c++
+        // Bat.cpp
+        void Bat::Fly() const
+        {
+            std::cout << "A bat is flying" << std::endl;
+        }
+
+        void Bat::Walk() const
+        {
+            std::cout << "A bat is walking" << std::endl;
+        }
+
+        // Cat.cpp
+        void Cat::Walk() const
+        {
+            std::cout << "A cat is walking" << std::endl;
+        }
+        ```
+        ```c++
+        // Main.cpp
+        Bat bat;
+		Pig pig;
+
+		bat.Fly();
+		bat.Walk();
+
+		// pig.Fly();
+		pig.Walk();
         ```
