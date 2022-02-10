@@ -77,7 +77,7 @@
 - #### Sample code
     ```c++
     // Vector.h
-    	class Vector
+    class Vector
 	{
 	public:
 		Vector();
@@ -154,7 +154,7 @@
     ```
     ```c++
     // Vector2.h
-    	class Vector2
+    class Vector2
 	{
 	public:
 		Vector2();
