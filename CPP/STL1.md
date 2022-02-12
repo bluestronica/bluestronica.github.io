@@ -1,10 +1,13 @@
 ### [bluestronica.github.io/CPP](https://bluestronica.github.io/CPP)
 
-### 표준 템플릿 라이브러리(STL, Standard Template Library)
+### 표준 템플릿 라이브러리(STL, Standard Template Library) 1
 - #### STL 컨테이너 목록
     - 벡터(Vector)
     - 맵(map)
+    - unordered_map
     - 셋(set)
+    - unordered_set
+    - array
     - 스택(stack)
     - 큐(queue)
     - 리스트(list)
@@ -129,3 +132,89 @@
             - 앞에 것 하나 지우고 뒤에 하나씩 복사해 당겨온다.
             - 복사가 일어난다.
             - 즉, 재할당은 없고 복사는 있다.
+    - 같은 자료형의 두 벡터 교환하기
+        ```c++
+        vector<int> scores;
+        scores.reserve(2);
+
+        scores.push_back(85);
+        scores.push_back(73);  // 85, 73
+
+        vector<int> anotherScores;
+        anotherScores.assign(7, 100) // 100, 100, 100, 100, 100, 100, 100
+
+        scores.swap(anotherScores);  // scores: 100, 100, 100, 100, 100, 100, 100
+                                     // anotherScores: 85, 73
+        ```
+    - vector의 크기 변경
+        - resize(size_t n);
+        - 새 크기가 vector의 기존 크기보다 작은, 초과분이 제거됨
+        - 새 크기가 vector의 용량보다 크면 재할당이 일어남
+    - vector에서 모든 요소 제거 하기
+        - clear();
+        - vector를 싹 지운다.
+        - 크기(size)는 0이 되고, 용량은 변하지 않는다.
+    - 개체를 직접 보관하는 벡터
+        ```c++
+        // Score.h
+        class Score
+        {
+        public:
+            // ...
+
+        pirvate:
+            int mScore;
+            string mClassName;
+        };
+        ```
+        ```c++
+        // Main.cpp
+        vector<Score> scores;
+        scores.reserve(4);
+
+        scores.push_back(Score(30, "C++"));
+        scores.push_back(Score(59, "Algorithm"));
+        scores.push_back(Score(87, "Java"));
+        scores.push_back(Score(41, "Andorid"));
+        ```
+        - 실제 socres안에는 개체의 포인터나 레퍼런스가 아닌
+        - 실제 Score의 개체가 들어가 있는 것이다.
+        - scores의 요소 하나는 개체(Score)의 사이즈 크기인 16바이트 메모리가 잡히게 된다.
+        - 개체를 직접 보관하는 벡터의 문제점
+            - 공간 부족으로 메모리 재할당이 일어난다. 클래스 전부 복사
+            - 이를 해결하기 위해 포인터를 저장
+    - 포인터를 저장하는 벡터
+        ```c++
+        // Main.cpp
+        vector<Score*> scores;
+        scores.reserve(4);
+
+        scores.push_back(new Score(30, "C++"));
+        scores.push_back(new Score(87, "Java"));
+        scores.push_back(new Score(41, "Andorid"));
+
+        scores.clear();
+        ```
+        - 포인터를 저장하는 벡터의 재할당이 일어나는 단점도 있다.
+    - 포인터 벡터 삭제하기
+        ```c++
+        vector<Score*> scores;
+        scores.reserve(4);
+
+        scores.push_back(new Score(30, "C++"));
+        scores.push_back(new Score(87, "Java"));
+
+        for (vector<Score*>::iterator iter = scores.begin(); iter != scores.end(); ++iter)
+        {
+            delete * iter;  // 모든 요소에 대해 delete를 꼭 호출할 것!!!
+        }
+
+        scores.clear();
+        ```
+    - 벡터의 장점
+        - 순서에 상관 없이 요소에 임의적으로 접근 가능
+        - 제일 마지막 위치에 요소를 빠르게 삽입 및 삭제
+    - 벡터의 단점
+        - 중간에 요소 삽입 및 삭제는 느림
+        - 재할당 및 요소 복사에 드는 비용
+    
