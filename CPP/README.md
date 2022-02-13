@@ -113,6 +113,13 @@
 
 ### [템플릿(Template) 프로그래밍](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Template.md)
 - 템플릿이란?
+- 함수 템플릿
+- 템플릿은 어떻게 작동할까?
+- 선언과 구현체가 헤더파일 한 곳에 넣는다.
+- 클래스 템플릿
+- 템플릿 특수화
+- 장점과 단점
+- 템플릿 프로그래밍 베스트 프랙티스
 
 ### STL 알고리듬(Algorithm)
 
