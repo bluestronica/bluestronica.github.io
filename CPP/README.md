@@ -121,7 +121,11 @@
 - 장점과 단점
 - 템플릿 프로그래밍 베스트 프랙티스
 
-### STL 알고리듬(Algorithm)
+### [STL 알고리듬(Algorithm)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/STL_Algorithm.md)
+- STL 알고리듬이란?
+- STL 알고리듬의 유형
+- vector를 다른 vector로 복사하기
+- STL 알고리듬 목록
 
 ### [새로운 키워드 (C++11 ~)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/NewKeywords11-17.md)
 - auto
