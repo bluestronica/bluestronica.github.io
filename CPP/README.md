@@ -111,7 +111,7 @@
 - STL 컨테이너가 더 있다
 - 회사내부에서 만드는 STL 대체품들...
 
-### 템플릿(Template) 프로그래밍
+### [템플릿(Template) 프로그래밍](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Template.md)
 - 템플릿이란?
 
 ### STL 알고리듬(Algorithm)
