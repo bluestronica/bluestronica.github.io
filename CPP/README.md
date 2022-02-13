@@ -15,6 +15,9 @@
 ### [일부 새로운 C++ 기능](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/SomeNewC++Features.md)
 - bool 데이터형
 - 참조자(reference)
+- nullptr
+- 고정 폭 정수형(fixed-width integer types)
+- enum class
 
 ### [문자열(string)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/string.md)
 - std::string 클래스
@@ -134,9 +137,8 @@
 - final / override
 - offsetof 매크로
 
-### 새로운 자료형
-- 새로 추가된 STL
-- 스마트(Smart) 포인터
+### 스마트(Smart) 포인터
+
 - 이동 생성자 및 이동 대입 연산자
 - constexpr
 - 람다 식(Lambda Expression)

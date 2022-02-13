@@ -308,3 +308,11 @@
             // 참조변수로 받더라도 수정을 하고 싶지 않을 때 const를 써라!
         }
         ```
+    - ##### for 반복문
+        ```c++
+        for (int i = 0; i < 3; ++i) {}
+        for (auto it = scoreMap.begin(); it != scoreMap.end(); ++i) {}
+        for (auto score : scoreMap) {}
+        for (auto& score : scoreMap) {}
+        for_each()   // 사용 x
+        ```
