@@ -6,29 +6,29 @@
     - 키는 중복될 수 없음
     - 이진 탐색 트리 기반으로하는 **자동 정렬되는 컨테이너**이다.
         - 순서없이 삽입한 키값들이 자동정렬되어 출력된다.
-    - 장점
+    - ##### 장점
         - std::list나 std::vector보다 탐색 속도가 더 빠름
-    - 단점
+    - ##### 단점
         - 자동으로 정렬됨
         - 그래서, 요소 삽입/제거가 빈번할 경우 성능이 저하됨
         - 해쉬맵이 아니다. 따라서 O(1)이 아님
-    - O()
+    - ##### O()
         - O(logN) : 어떤 것을 할 때 양쪽으로 두 개 나눠서 한쪽씩만 봐 내려간다.
             - 이진트리 기반의 맵은 O(logN)
         - O(N) : for문이 1부터 size까지 돈다.
             - std::list, std::vector
         - O(N^2) : 이중 for문이 돌아간다.
         - O(N^3) : 삼중 for문이 돌아간다.
-    - map 만들기
+    - ##### map 만들기
         ```c++
         std::map<std::string, int> simpleScoreMap;
         std::map<StudentInfo, int> complexScoreMap;
 
         std::map<std::string, int> copiedSimpleScoremap(simpleScoreMap);
         ```
-    - 두 데이터를 한 단위로 저장하는 구조
+    - ##### 두 데이터를 한 단위로 저장하는 구조
         - std::pair<key, value>
-    - 새 요소를 map에 삽입
+    - ##### 새 요소를 map에 삽입
         - std::pair<iterator, bool> insert(const value_type& value)
             - 반복자와 bool 값을 한 쌍으로 반환한다.
             - 반복자는 요소를 가리키고
@@ -41,7 +41,7 @@
             // <iterator, false>를 반환한다.
             simpleScoreMap.insert(std::pair<std::string, int>("Mocha", 0));
             ```
-    - operator[]
+    - ##### operator[]
         - mppped_type& operator[](const key& key);
         - key에 대응하는 값을 참조로 반환한다.
         - map에 키가 없으면 새 요소를 삽입
@@ -56,7 +56,7 @@
         simpleScoreMap["Coco"] = 10;   // 새 요소를 삽입한다.
         simpleScoreMap["Coco"] = 50;   // "Coco"의 값을 덮어쓴다.
         ```
-    - 자동 정렬
+    - ##### 자동 정렬
         ```c++
         simpleScoreMap.insert(std::pair<std::string, int>("Mocha", 100));
         simpleScoreMap.insert(std::pair<std::string, int>("Coco", 50));
@@ -71,7 +71,7 @@
             // 출력은 키값으로 자동정렬되어 나온다.
         }
         ```
-    - 요소 찾기
+    - ##### 요소 찾기
         - iterator find(const key& key);
         - map에서 key를 찾으면 그에 대응하는 값을 가리키는 반복자를 반환한다.
         - 못 찾으면 end()를 반환
@@ -85,9 +85,9 @@
                 it->second = 80;
             }
             ```
-    - 두 map을 스왑
+    - ##### 두 map을 스왑
         - void swap(map& other);
-    - map을 비운다
+    - ##### map을 비운다
         - void clear();
         ```c++
         std::map<std::string, int> ScoreMap;
@@ -97,14 +97,14 @@
 
         anotherScoreMap.clear();  // anotherScoreMap empty
         ```
-    - map의 요소들을 제거
+    - ##### map의 요소들을 제거
         ```c++
         std::map<std::string, int>::iterator foundIt = simpleScoreMap.find("Coco");
         simpleScoreMap.erase(foundIt);
 
         simpleScoreMap.erase("Coco");
         ```
-    - 개체를 키로 사용하기
+    - ##### 개체를 키로 사용하기
         ```c++
         // StudentInfo.h
         class StudenInfo
@@ -124,10 +124,10 @@
 
         // '<' 비교하는 연산자를 만들어야 한다.
         ```
-        - 왜 비교 연산이 필요할까?
+        - ##### 왜 비교 연산이 필요할까?
             - STL map은 항상 정렬된다.
             - 그래서 반드시 두 키를 비교하는 함수를 만들어야 한다.
-        - Operator<()
+        - ##### Operator<()
             ```c++
             bool StudentInfo::operator<(const StudentInfo& other) const
             {
@@ -161,7 +161,7 @@
     - 셋은 맵과 거의 같다.
     - 맵은 키와 값이 들어가 있고
     - 셋은 키만 들어가 있다. 결국 키는 값하고 같은 것이다.
-    - 셋 만들기
+    - ##### 셋 만들기
         ```c++
         std::set<int> scores;
         scores.insert(20);
@@ -172,23 +172,23 @@
             std::cout << *it << std::endl;  // 20\n 100\n
         }
         ```
-    -장점과 단점
+    - ##### 장점과 단점
         - 맵과 같음
         
 - #### unordered_map
     - 키와 값으 쌍들을 저장
     - 키는 중복 불가
-    - 자동으로 정렬되지 않는 컨테이너
+    - ##### 자동으로 정렬되지 않는 컨테이너
         - 요소는 해쉬함수가 생성한느 색인(index)기반의 버킷(bucket)들로 구성됨
         - 해쉬맵이라고도 한다.
-    - 요소 삽입하기
+    - ##### 요소 삽입하기
         - score["Coco"] = 100
         - 키["Coco"]-->해쉬함수-->인덱스[4]
         - 버킷[0 | 1 | 2 | 3 | 4(100) | 5] : 인덱스 4에 값 100이 들어있다.
-    - 해쉬 충돌
+    - ##### 해쉬 충돌
         - 가끔 키가 다른데도 같은 해쉬 값이 나옴
         - 이럴 경우, 하나의 버킷에 둘 이상의 데이터 들어감
-    - 버킷 내용 보여주기
+    - ##### 버킷 내용 보여주기
         ```c++
         std::unordered_map<std::string, int> scores;
 
