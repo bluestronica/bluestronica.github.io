@@ -137,7 +137,8 @@
 - final / override
 - offsetof 매크로
 
-### 스마트(Smart) 포인터
+### [스마트(Smart) 포인터 1](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/SmartPoint1.md)
+- unique_ptr
 
 - 이동 생성자 및 이동 대입 연산자
 - constexpr
