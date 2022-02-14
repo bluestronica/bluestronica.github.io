@@ -151,6 +151,12 @@
 
 ### [스마트(Smart) 포인터 2](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/SmartPointer2.md)
 - 자동 메모리 관리
+- 가비지 컬렉션
+- 참조 카운팅
+- 수동 참조 카운팅
+- 강한(strong) 참조
+- 참조 카운팅의 문제점
+- 가비지 컬렉션 vs 참조 카운팅
 
 ### 이동 생성자 및 이동 대입 연산자
 - constexpr
