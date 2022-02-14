@@ -158,7 +158,7 @@
 - 참조 카운팅의 문제점
 - 가비지 컬렉션 vs 참조 카운팅
 
-### [스마트(Smart) 포인터 3]
+### [스마트(Smart) 포인터 3](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/SmartPointer3.md)
 - 공유 포인터(shared_ptr)
 
 ### 이동 생성자 및 이동 대입 연산자
