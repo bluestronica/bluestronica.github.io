@@ -160,9 +160,13 @@
 
 ### [스마트(Smart) 포인터 3](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/SmartPointer3.md)
 - 공유 포인터(shared_ptr)
+- 약한 포인터(weak_ptr)
+- 정리
 
-### 이동 생성자 및 이동 대입 연산자
-- constexpr
+### [이동 생성자 및 이동 대입 연산자](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Move.md)
+- 값(value)의 분류
+
+### constexpr
 - 람다 식(Lambda Expression)
 - 가변 인자(Variadic) 템플릿
 - 파일시스템(Filesystem), 모듈(Module)시스템
