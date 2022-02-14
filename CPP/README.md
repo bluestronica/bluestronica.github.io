@@ -138,9 +138,21 @@
 - offsetof 매크로
 
 ### [스마트(Smart) 포인터 1](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/SmartPointer1.md)
-- unique_ptr
+- 원시 포인터의 문제점
+- 유니크 포인터(unique_ptr)
+- 유니크 포인터는 다음의 세 경우에 적합하다.
+- 유니크 포인터 만들기 - std::make_unique()
+- 유니크 포인터 재설정하기 - reset()
+- 포인터 가져오기 - get()
+- 포인터 소유권 박탈하기 - release()
+- 포인터 소유권 옮기기 - std::move()
+- std::unique_ptr
+- std::unique_ptr 베스트 프랙티스
 
-- 이동 생성자 및 이동 대입 연산자
+### [스마트(Smart) 포인터 2](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/SmartPointer2.md)
+- 자동 메모리 관리
+
+### 이동 생성자 및 이동 대입 연산자
 - constexpr
 - 람다 식(Lambda Expression)
 - 가변 인자(Variadic) 템플릿
