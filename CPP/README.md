@@ -174,10 +174,17 @@
 - rvalue 최적화
 
 ### [constexpr](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Constexpr.md)
-- 컴파일 도중에 값을 평가하기
+- constexpr의 의도
+- 문자열 해쉬를 컴파일 도중에 만들 수 있다면?
+- const vs constexpr
+- const 변수 vs constexpr 변수
+- cnost 함수 vs constexpr 함수
+- 배열의 길이 정하기
 
-### 람다 식(Lambda Expression)
-- 가변 인자(Variadic) 템플릿
+### [람다 식(Lambda Expression)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/LambdaExpression.md)
+- 람다 식이란?
+
+### 가변 인자(Variadic) 템플릿
 - 파일시스템(Filesystem), 모듈(Module)시스템
 - 쓰레딩(Threading) 라이브러리
 
