@@ -195,7 +195,8 @@
 - 파일시스템
 - 파일시스템 연산
 
-### 쓰레딩(Threading) 라이브러리
-
+### [쓰레딩(Threading) 라이브러리](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Threading.md)
+- 쓰레딩(Threading) 지원 라이브러리
+- std::thread
 
 ### 코드를 중심으로 이야기를 풀어나가는 방식으로!!!
