@@ -188,8 +188,10 @@
 
 ### [가변 인자(Variadic) 템플릿](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Variadic.md)
 - 가변 인자 템플릿
+- 가변 인자 템플릿 함수
+- 가변 인자 템플릿 활용
 
-### 파일시스템(Filesystem), 모듈(Module)시스템v
+### 파일시스템(Filesystem), 모듈(Module)시스템
 - 쓰레딩(Threading) 라이브러리
 
 
