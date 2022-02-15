@@ -165,9 +165,18 @@
 
 ### [이동 생성자 및 이동 대입 연산자](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Move.md)
 - 값(value)의 분류
+- 과거 c++의 문제 (C++11 이전)
+- rvalue 참조 (&&)
+- std::move()
+- 이동 생성자
+- 이동 대입 연산자
+- C++11 이후
+- rvalue 최적화
 
-### constexpr
-- 람다 식(Lambda Expression)
+### [constexpr](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Constexpr.md)
+- 컴파일 도중에 값을 평가하기
+
+### 람다 식(Lambda Expression)
 - 가변 인자(Variadic) 템플릿
 - 파일시스템(Filesystem), 모듈(Module)시스템
 - 쓰레딩(Threading) 라이브러리
