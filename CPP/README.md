@@ -183,9 +183,13 @@
 
 ### [람다 식(Lambda Expression)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/LambdaExpression.md)
 - 람다 식이란?
+- 람다식의 장단점
+- 베스트 프랙티스
 
-### 가변 인자(Variadic) 템플릿
-- 파일시스템(Filesystem), 모듈(Module)시스템
+### [가변 인자(Variadic) 템플릿](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Variadic.md)
+- 가변 인자 템플릿
+
+### 파일시스템(Filesystem), 모듈(Module)시스템v
 - 쓰레딩(Threading) 라이브러리
 
 
