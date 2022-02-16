@@ -50,7 +50,7 @@
         std::thread movedThread(std::move(printThread));
         std::thread copiedThread = movedThread;           // 컴파일 에러 , 복사 불가능 
         ```
-    - **std::thread::join()**
+    - **`std::thread::join()`**
         - 쓰레드 개체가 끝날 때까지 현재 쓰레드를 먼춰 놓는다.
         - 이 함수를 호출한 후 쓰레드 개체를 안전하게 소멸시킬수 있음
             ```c++
