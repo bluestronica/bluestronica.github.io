@@ -57,7 +57,7 @@
             std::thread thread(PrintMessage);
             thread.join();
             ```
-    - std::thread::get_id()
+    - **`std::thread::get_id()`**
         - 쓰레드 ID를 반환한다.
             ```c++
             #include <iostream>
@@ -85,7 +85,7 @@
                 return 0;
             }
             ```
-    - std::thread::detach()
+    - **`std::thread::detach()`**
         - 쓰레드 개체에서 쓰레드를 떼어 낸다.
         - 떼어진 쓰레드는 메인 쓰레드와 무관하게 독립적으로 실행됨
             ```c++
@@ -112,7 +112,7 @@
                 return 0;
             }
             ```
-    - std::thread::joinable()
+    - **`std::thread::joinable()`**
         - 쓰레드가 실행 중인 활성 쓰레드인지 아닌지 확인한다.
             ```c++
             #include <iostream>
@@ -143,7 +143,7 @@
                 return 0;
             }
             ```
-    - std::ref()
+    - **`std::ref()`**
         - T의 참조를 내포한 reference_wrapper 개체를 반환한다.
             - 매개변수를 참조로 전달
             ```c++
