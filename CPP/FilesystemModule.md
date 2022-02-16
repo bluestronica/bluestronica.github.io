@@ -18,3 +18,40 @@
     - 디렉터리에서 파일, 디렉터리 목록 가져오기
     - 파일 권한 읽기 및 설정
     - 파일 상태 읽기 및 설정
+
+- #### 모듈 시스템
+    - C++17까지도 여전히 C++ 표준으로 들어오지 않음
+    - 허나 비주얼 스튜디오에서 /experimental:module 플래그를 활성화해서 사용할 수 있음
+    - 표준이 된다면
+        - 컴파일이 엄청나게 빨라짐
+        - .cpp와 .h 파일로 나눌 필요가 없어짐
+            - 이건 컴파일 속도를 높이기 위한 것이었음
+        - java의 패키지처럼 작동
+    - 여전히 앞에 시련이 놓여 있음
+        - .cpp와 .h 둘 다 있는 레거시 코드는 어떻게 처리할까?
+        - 만약 #define을 너무 많이 쓰고 있다면?
+    - 모듈 시스템을 적용한 코드
+        ```c++
+        // Math.ixx
+        module Math;
+
+        export int Add(int a, int b)
+        {
+            return a + b;
+        }
+
+        export int Multiply(int a, int b)
+        {
+            return a * b;
+        }
+        ```
+        ```c++
+        // Main.cpp
+        import Math;
+
+        int main()
+        {
+            std::cout << Add(1, 2) << std::endl;
+            std::cout << Multiply(3, 2) << std::endl;
+        }
+        ```
