@@ -1,1 +1,1 @@
-# bluestronica.ConsoleGames
+### [맨땅헤딩 개발일지](https://github.com/bluestronica/bluestronica.github.io/blob/main/ConsoleGames/DevelopmentLog.md)
