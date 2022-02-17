@@ -1,3 +1,3 @@
-### [맨땅헤딩 Console Game 개발 일지](https://github.com/bluestronica/bluestronica.github.io/blob/main/ConsoleGames/DevelopmentLog.md)
-- #### 의도
-- #### 움직이기
+### Console 창에서 실행되는 소소한 Game 개발 일지
+- #### [windows.h](https://github.com/bluestronica/bluestronica.github.io/blob/main/ConsoleGames/Windows.md)
+- #### Move
