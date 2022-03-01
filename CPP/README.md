@@ -2,6 +2,11 @@
 - (char*)&vector
 
 ### [비트플래그(Bitflag)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Bitflag.md)
+- 비트 플래그 정의
+- 비트 켜기
+- 비트 끄기
+- 비트 토글
+- 비트 상태 확인
 
 ### [출력(Output)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Output.md)
 - namespace
