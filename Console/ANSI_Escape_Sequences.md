@@ -13,5 +13,5 @@
 
 |ESC Code Sequence|Description|
 |:---|:---|
-|ESC[{line};{column}H
-ESC[{line};{column}f|moves cursor to line #, column #|
+|`ESC[H`|(0, 0) 위치로 커서 이동|
+|ESC[{line};{column}H ESC[{line};{column}f|moves cursor to line #, column #|
