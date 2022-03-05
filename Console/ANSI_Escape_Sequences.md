@@ -14,15 +14,15 @@
     - 생략되거나 0이면 1로 처리된다.
     - 음수일 수 없다.
 
-|ESC Code Sequence|Example|Description|
+|ESC Code Sequence|Description|Example|
 |:---|:---|:---|
-|`ESC[H`|`printf(CSI, "H");`|(0, 0) 위치로 커서 이동|
-|`ESC[{line};{column}H`|`printf(CSI, "4;5H");`|moves cursor to line #, column #|
-|`ESC[{line};{column}f`|`printf(CSI, "%d;%df", line, column);`|moves cursor to line #, column #|
+|`ESC[H`|(0, 0) 위치로 커서 이동|`printf(CSI, "H");`|
+|`ESC[{line};{column}H`|moves cursor to line #, column #|`printf(CSI, "4;5H");`|
+|`ESC[{line};{column}f`|moves cursor to line #, column #|`printf(CSI, "%d;%df", line, column);`|
 |-|-|-|
-|`ESC[#A`|`printf(CSI, "%dA", line);`|# 라인만큼 커서를 UP|
-|`ESC[#B`|`printf(CSI, "%dB", down);`|# 라인만큼 커서를 DOWN|
-|`ESC[#C`|`printf(CSI, "%dC", right);`|# 라인만큼 커서를 RIGHT|
-|`ESC[#D`|`printf(CSI, "%dD", left);`|# 라인만큼 커서를 LEFT|
+|`ESC[#A`|# 라인만큼 커서를 UP|`printf(CSI, "%dA", line);`|
+|`ESC[#B`|# 라인만큼 커서를 DOWN|`printf(CSI, "%dB", down);`|
+|`ESC[#C`|# 라인만큼 커서를 RIGHT|`printf(CSI, "%dC", right);`|
+|`ESC[#D`|# 라인만큼 커서를 LEFT|`printf(CSI, "%dD", left);`|
 |-|-|-|
-|`ESC[#E`|`printf(CSI, "%dE", line);`|# 라인만큼 커서를 UP|
+|`ESC[#E`|# 라인만큼 커서를 UP|`printf(CSI, "%dE", line);`|
