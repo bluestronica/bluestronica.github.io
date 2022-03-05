@@ -11,7 +11,7 @@
 - #define CSI "ESC["
 
 |ESC Code Sequence|Example|Description|
-|:---|:---|
+|:---|:---|:---|
 |`ESC[H`|`printf(CSI, "H");`|(0, 0) 위치로 커서 이동|
 |`ESC[{line};{column}H`|`printf(CSI, "4;5H");`|moves cursor to line #, column #|
 |`ESC[{line};{column}f`|`printf(CSI, "%d;%df", line, column);`|moves cursor to line #, column #|
