@@ -70,7 +70,7 @@
 |`ESC[8m`|**숨김(hidden/invisible)** 모드를 설정|`printf(CSI, "8m");`|
 |`ESC[9m`|**취소선(strikethrough)** 모드를 설정|`printf(CSI, "9m");`|
 
-- Color codes
+
 |Color Name|Foreground Color Code|Background Color Code|
 |:---|:---|:---|
 |Black|30|40|
