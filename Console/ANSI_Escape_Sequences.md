@@ -129,10 +129,43 @@ printf("World");
 
 |ESC Code Sequence|Description|Example|
 |:---|:---|:---|
-|`ESC[38;2;{r};{g};{b}m`|Set foreground color as RGB.|`printf(CSI, "38;5;1m");`|
-|`ESC[48;2;{r};{g};{b}m`|Set background color as RGB.|`printf(CSI, "48;5;256m");`|    
+|`ESC[38;2;{r};{g};{b}m`|Set foreground color as RGB.|`printf(CSI, "38;2;5;77;120m");`|
+|`ESC[48;2;{r};{g};{b}m`|Set background color as RGB.|`printf(CSI, "48;2;3;44;100m");`|    
 
 
 
 ### Screen Modes
 - `#define CSI "ESC["`
+
+|ESC Code Sequence|Description|Example|
+|:---|:---|:---|
+|`ESC[={value}h`|화면의 width, type을 값으로 지정된 모드로 변경한다.|`printf("ESC[=0h");`|
+|`ESC[=0h`|40 x 25 흑백(monochrome) (text)|`printf(CSI, "=0h");`|
+|`ESC[=1h`|40 x 25 칼라(color) (text)|`printf(CSI, "=1h");`|
+|`ESC[=2h`|80 x 25 흑백(monochrome) (text)|`printf(CSI, "=2h");`|
+|`ESC[=3h`|80 x 25 칼라(color) (text)|`printf(CSI, "=3h");`|
+|`ESC[=4h`|320 x 200 4-color (graphics) (text)|`printf(CSI, "=4h");`|
+|`ESC[=5h`|320 x 200 monochrome (graphics) (text)|`printf(CSI, "=5h");`|
+|`ESC[=6h`|640 x 200 monochrome (graphics) (text)|`printf(CSI, "=6h");`|
+|`ESC[=7h`|줄 바꿈 활성화|`printf(CSI, "=7h");`|
+|`ESC[=13h`|320 x 200 color (graphics)|`printf(CSI, "=13h");`|
+|`ESC[=14h`|640 x 200 color (16-color graphics)|`printf(CSI, "=14h");`|
+|`ESC[=15h`|640 x 350 monochrome (2-color graphics)|`printf(CSI, "=15h");`|
+|`ESC[=16h`|640 x 350 color (16-color graphics)|`printf(CSI, "=16h");`|
+|`ESC[=17h`|640 x 480 monochrome (2-color graphics)|`printf(CSI, "=17h");`|
+|`ESC[=18h`|640 x 480 color (16-color graphics)|`printf(CSI, "=18h");`|
+|`ESC[=19h`|320 x 200 color (256-color graphics)|`printf(CSI, "=19h");`|
+|`ESC[={value}l`|설정 모드에서 사용하는 동일한 값을 사용하여 모드를 재설정한다.|`printf("ESC[=0l");`|
+
+
+- Common Private Modes
+    - l은 L의 소문자   
+
+|ESC Code Sequence|Description|Example|
+|:---|:---|:---|
+|`ESC[?25l`|커서를 보이지 않게 하기|`printf(CSI, "?25l");`|
+|`ESC[?25h`|커서를 보이게 하기|`printf(CSI, "?25h");`|
+|`ESC[?47l`|화면 복원|`printf(CSI, "?471");`|
+|`ESC[?47h`|화면 저장|`printf(CSI, "?47h");`|
+|`ESC[?1049h`|대체 버퍼 활성화|`printf(CSI, "?1049h");`|
+|`ESC[?1049l`|대체 버퍼 비활성화|`printf(CSI, "?10491");`|
