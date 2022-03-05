@@ -60,12 +60,35 @@
 |ESC Code Sequence|Description|Example|
 |:---|:---|:---|
 |`ESC[1;34;{...}m`|셀의 그래픽 모드를 `;`으로 구분하여 설정|`printf(CSI, "1;34m");`|
-|`ESC[0m`|모든 모드 재설정(스타일 및 색상)|`printf(CSI, "0m");`|
-|`ESC[1m`|**bold** mode 설정|`printf(CSI, "%dm", mode);`|
-|`ESC[2m`|모든 모드 재설정(스타일 및 색상)|`printf("ESC[2m");`|
-|`ESC[3m`|모든 모드 재설정(스타일 및 색상)|`printf("ESC[3m");`|
-|`ESC[4m`|모든 모드 재설정(스타일 및 색상)|`printf(CSI, "4m");`|
-|`ESC[5m`|모든 모드 재설정(스타일 및 색상)|`printf(CSI, "5m");`|
-|`ESC[7m`|모든 모드 재설정(스타일 및 색상)|`printf(CSI, "7m");`|
-|`ESC[8m`|모든 모드 재설정(스타일 및 색상)|`printf(CSI, "8m");`|
-|`ESC[9m`|모든 모드 재설정(스타일 및 색상)|`printf(CSI, "9m");`|
+|`ESC[0m`|모든 모드 **재설정**(스타일 및 색상)|`printf(CSI, "0m");`|
+|`ESC[1m`|**굵은(Bold)** 모드를 설정|`printf(CSI, "%dm", mode);`|
+|`ESC[2m`|**희미한(dim)/약한(faint)** 모드를 설정|`printf("ESC[2m");`|
+|`ESC[3m`|**기울임(italic)** 모드를 설정|`printf("ESC[3m");`|
+|`ESC[4m`|**밑줄(underline)** 모드를 설정|`printf(CSI, "4m");`|
+|`ESC[5m`|**깜빡임(blinking)** 모드를 설정|`printf(CSI, "5m");`|
+|`ESC[7m`|**반전(inverse/reverse)** 모드를 설정|`printf(CSI, "7m");`|
+|`ESC[8m`|**숨김(hidden/invisible)** 모드를 설정|`printf(CSI, "8m");`|
+|`ESC[9m`|**취소선(strikethrough)** 모드를 설정|`printf(CSI, "9m");`|
+
+- Color codes
+|Color Name|Foreground Color Code|Background Color Code|
+|:---|:---|:---|
+|Black|30|40|
+|Red|31|41|
+|Green|32|42|
+|Yellow|33|43|
+|Blue|34|44|
+|Magenta|35|46|
+|Cyan|37|47|
+|White|38|48|
+|Default|39|49|
+|Reset|0|0|
+```c++
+# Set style to bold, red foreground.
+printf(CSI, "1;31m");
+printf("Hello");
+
+# Set style to dimmed white foreground with red background.
+printf(CSI, "2;37;41m");
+printf("World");
+````
