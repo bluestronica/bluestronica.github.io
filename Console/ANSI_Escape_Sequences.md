@@ -61,7 +61,7 @@
 |:---|:---|:---|
 |`ESC[1;34;{...}m`|셀의 그래픽 모드를 `;`으로 구분하여 설정|`printf(CSI, "1;34m");`|
 |`ESC[0m`|모든 모드 재설정(스타일 및 색상)|`printf(CSI, "0m");`|
-|`ESC[1m`|set `bold` mode.|`printf(CSI, "%dm", mode);`|
+|`ESC[1m`|**bold** mode 설정|`printf(CSI, "%dm", mode);`|
 |`ESC[2m`|모든 모드 재설정(스타일 및 색상)|`printf("ESC[2m");`|
 |`ESC[3m`|모든 모드 재설정(스타일 및 색상)|`printf("ESC[3m");`|
 |`ESC[4m`|모든 모드 재설정(스타일 및 색상)|`printf(CSI, "4m");`|
