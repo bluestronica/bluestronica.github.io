@@ -71,6 +71,8 @@
 |`ESC[9m`|**취소선(strikethrough)** 모드를 설정|`printf(CSI, "9m");`|
 
 
+- 8-16 Colors  
+
 |Color Name|Foreground Color Code|Background Color Code|
 |:---|:---|:---|
 |Black|30|40|
@@ -107,9 +109,30 @@ printf("World");
 
 
 - 256 Colors
+    - `;38`과 `;48`은 16색 시퀀스에 해당하며
+    - 터미널에서 해석하여 전경색과 배경색을 각각 설정한다.ㅕ
+    - `;5`는 색상 형식을 설정한다.
     - {ID}는 색상표의 0에서 255사이의 색상 인덱스로 대체 되어야 한다.   
 
 |ESC Code Sequence|Description|Example|
 |:---|:---|:---|
-|`ESC[38;5;{ID}m`|Set foreground color.|`printf(CSI, "38;5;m");`|
-|`ESC[48;5;{ID}m`|Set background color.|`printf(CSI, "48;5;m");`|
+|`ESC[38;5;{ID}m`|Set foreground color.|`printf(CSI, "38;5;1m");`|
+|`ESC[48;5;{ID}m`|Set background color.|`printf(CSI, "48;5;256m");`|
+
+
+- RGB Colors
+    - 최신 터미널은 RGB를 사용하여 전경색과 배경색을 설정할 수 있는
+    - Truecolor(24-bit RGB)를 지원한다.   
+    - `;38`과 `;48`은 16색 시퀀스에 해당하며
+    - 터미널에서 해석하여 전경색과 배경색을 각각 설정한다.
+    - `;2`는 색상 형식을 설정한다.
+
+|ESC Code Sequence|Description|Example|
+|:---|:---|:---|
+|`ESC[38;2;{r};{g};{b}m`|Set foreground color as RGB.|`printf(CSI, "38;5;1m");`|
+|`ESC[48;2;{r};{g};{b}m`|Set background color as RGB.|`printf(CSI, "48;5;256m");`|    
+
+
+
+### Screen Modes
+- `#define CSI "ESC["`
