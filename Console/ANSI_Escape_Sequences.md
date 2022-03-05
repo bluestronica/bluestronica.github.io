@@ -78,17 +78,38 @@
 |Green|32|42|
 |Yellow|33|43|
 |Blue|34|44|
-|Magenta|35|46|
-|Cyan|37|47|
-|White|38|48|
+|Magenta|35|45|
+|Cyan|36|46|
+|White|37|47|
 |Default|39|49|
 |Reset|0|0|
+
 ```c++
 # Set style to bold, red foreground.
 printf(CSI, "1;31m");
 printf("Hello");
 
-# Set style to dimmed white foreground with red background.
+# Set style to dimmed, white foreground with red background.
 printf(CSI, "2;37;41m");
 printf("World");
 ````
+
+|Color Name|Foreground Color Code|Background Color Code|
+|:---|:---|:---|
+|Bright Black|90|100|
+|Bright Red|91|101|
+|Bright /Green|92|102|
+|Bright Yellow|93|103|
+|Bright Blue|94|104|
+|Bright Magenta|95|105|
+|Bright Cyan|96|106|
+|Bright White|97|107|
+
+
+- 256 Colors
+    - {ID}는 색상표의 0에서 255사이의 색상 인덱스로 대체 되어야 한다.   
+
+|ESC Code Sequence|Description|Example|
+|:---|:---|:---|
+|`ESC[38;5;{ID}m`|Set foreground color.|`printf(CSI, "38;5;m");`|
+|`ESC[48;5;{ID}m`|Set background color.|`printf(CSI, "48;5;m");`|
