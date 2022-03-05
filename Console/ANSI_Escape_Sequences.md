@@ -8,10 +8,10 @@
 - `OSC` - Operating System Command: sequence starting with `ESC]` or OSC (`\x9D`)
 
 ### Cursor Controls
-- (0, 0) 위치로 커서 이동
-    - `ESC[H`
+- #define CSI "ESC["
 
-|ESC Code Sequence|Description|
+|ESC Code Sequence|Example|Description|
 |:---|:---|
-|`ESC[H`|(0, 0) 위치로 커서 이동|
-|ESC[{line};{column}H ESC[{line};{column}f|moves cursor to line #, column #|
+|`ESC[H`|`printf(CSI, "H");`|(0, 0) 위치로 커서 이동|
+|`ESC[{line};{column}H`|`printf(CSI, "4;5H");`|moves cursor to line #, column #|
+|`ESC[{line};{column}f`|`printf(CSI, "%d;%df", line, column);`|moves cursor to line #, column #|
