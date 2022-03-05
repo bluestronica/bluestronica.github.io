@@ -1,13 +1,13 @@
 [bluestronica.github.io/Console](https://bluestronica.github.io/Console)
 
 # ANSI Escape Sequences
-### Sequences
+## Sequences
 - `ESC` - sequence starting with `ESC` (`\x1B`)
 - `CSI` - Control Sequence Introducer: sequence starting with `ESC[` or CSI (`\x9B`)
 - `DCS` - Device Control String: sequence starting with `ESCP` or DCS (`\x90`)
 - `OSC` - Operating System Command: sequence starting with `ESC]` or OSC (`\x9D`)
 
-### Cursor Controls
+## Cursor Controls
 - `#define CSI "ESC["`
 - `#`은 매개 변수
     - 이동할 거리를 나타내며 선택적 매개변수
@@ -37,7 +37,7 @@
 |`ESC[8`|커서를 마지막으로 저장된 위치로 복원|`printf(CSI, "8");`|
 
 
-### Erase Funcions
+## Erase Funcions
 - `#define CSI "ESC["`
 - 줄을 지워도 커서가 이동하지 않는다.
 - 즉, 커서는 줄이 지워지기 전의 마지막 위치에 유지된다.
@@ -54,7 +54,7 @@
 |`ESC[2K`|라인 전체 지우기|`printf(CSI, "0K");`|
 
 
-### Colors / Graphics Mode
+## Colors / Graphics Mode
 - `#define CSI "ESC["`
 
 |ESC Code Sequence|Description|Example|
@@ -134,7 +134,7 @@ printf("World");
 
 
 
-### Screen Modes
+## Screen Modes
 - `#define CSI "ESC["`
 
 |ESC Code Sequence|Description|Example|
@@ -159,6 +159,7 @@ printf("World");
 
 
 - Common Private Modes
+    - `#define CSI "ESC["`
     - l은 L의 소문자   
 
 |ESC Code Sequence|Description|Example|
@@ -173,4 +174,4 @@ printf("World");
 
 
 
-### Keyboard Strings
+## Keyboard Strings
