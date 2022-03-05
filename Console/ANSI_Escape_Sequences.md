@@ -1,6 +1,6 @@
-#### [bluestronica.github.io/Console](https://bluestronica.github.io/Console)
+[bluestronica.github.io/Console](https://bluestronica.github.io/Console)
 
-## ANSI Escape Sequences
+# ANSI Escape Sequences
 ### Sequences
 - `ESC` - sequence starting with `ESC` (`\x1B`)
 - `CSI` - Control Sequence Introducer: sequence starting with `ESC[` or CSI (`\x9B`)
