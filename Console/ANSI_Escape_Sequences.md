@@ -25,7 +25,7 @@
 |`ESC[#C`|# 라인만큼 커서를 RIGHT|`printf("ESC[%5C");`|
 |`ESC[#D`|# 라인만큼 커서를 LEFT|`printf(CSI, "7D");`|
 |-|-|-|
-|`ESC[#E`|# 라인 아래로(DOWN) 다음 라인의 시작 부분으로 커서 이동|`printf(CSI, "%dE", line);`|
+|`ESC[#E`|# 라인 아래(DOWN) 라인의 시작 부분으로 커서 이동|`printf(CSI, "%dE", line);`|
 |`ESC[#F`|# 라인 이전(UP) 라인의 시작 부분으로 커서 이동|`printf(CSI, "%dF", line);`|
 |`ESC[M`|커서를 한 라인 위로 이동하고 필요한 경우 스크롤한다.|`printf(CSI, "M");`|
 |-|-|-|
@@ -35,3 +35,37 @@
 |-|-|-|
 |`ESC[7`|커서 위치 저장|`printf(CSI, "7");`|
 |`ESC[8`|커서를 마지막으로 저장된 위치로 복원|`printf(CSI, "8");`|
+
+
+### Erase Funcions
+- `#define CSI "ESC["`
+- 줄을 지워도 커서가 이동하지 않는다.
+- 즉, 커서는 줄이 지워지기 전의 마지막 위치에 유지된다.
+- 줄을 지운 후 `\r`을 사용하여 커서를 현재 줄의 시작 부분으로 되돌릴 수 있다.
+
+|ESC Code Sequence|Description|Example|
+|:---|:---|:---|
+|`ESC[0J`|현재 커서 위치에서 화면 끝까지|`printf(CSI, "0J");`|
+|`ESC[1J`|현재 커서 위치에서 화면 시작까지|`printf(CSI, "1J");`|
+|`ESC[2J`|전체 화면 지우기|`printf("ESC[2J");`|
+|-|-|-|
+|`ESC[0K`|현재 커서 위치에서 라인 끝까지|`printf(CSI, "0K");`|
+|`ESC[1K`|현재 커서 위치에서 라인 시작까지|`printf(CSI, "0K");`|
+|`ESC[2K`|라인 전체 지우기|`printf(CSI, "0K");`|
+
+
+### Colors / Graphics Mode
+- `#define CSI "ESC["`
+
+|ESC Code Sequence|Description|Example|
+|:---|:---|:---|
+|`ESC[1;34;{...}m`|셀의 그래픽 모드를 `;`으로 구분하여 설정|`printf(CSI, "1;34m");`|
+|`ESC[0m`|모든 모드 재설정(스타일 및 색상)|`printf(CSI, "0m");`|
+|`ESC[1m`|set `bold` mode.|`printf(CSI, "%dm", mode);`|
+|`ESC[2m`|모든 모드 재설정(스타일 및 색상)|`printf("ESC[2m");`|
+|`ESC[3m`|모든 모드 재설정(스타일 및 색상)|`printf("ESC[3m");`|
+|`ESC[4m`|모든 모드 재설정(스타일 및 색상)|`printf(CSI, "4m");`|
+|`ESC[5m`|모든 모드 재설정(스타일 및 색상)|`printf(CSI, "5m");`|
+|`ESC[7m`|모든 모드 재설정(스타일 및 색상)|`printf(CSI, "7m");`|
+|`ESC[8m`|모든 모드 재설정(스타일 및 색상)|`printf(CSI, "8m");`|
+|`ESC[9m`|모든 모드 재설정(스타일 및 색상)|`printf(CSI, "9m");`|
