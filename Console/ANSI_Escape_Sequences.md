@@ -169,3 +169,8 @@ printf("World");
 |`ESC[?47h`|화면 저장|`printf(CSI, "?47h");`|
 |`ESC[?1049h`|대체 버퍼 활성화|`printf(CSI, "?1049h");`|
 |`ESC[?1049l`|대체 버퍼 비활성화|`printf(CSI, "?10491");`|
+
+
+
+
+### Keyboard Strings
