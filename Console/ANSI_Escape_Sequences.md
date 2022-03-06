@@ -29,7 +29,7 @@
 |`ESC[#F`|현재 위치에서 # 라인만큼 이전(UP)으로 이동한 후 라인 시작 부분으로 커서 이동|`printf(CSI, "%dF", line);`|
 |`ESC[M`|커서를 한 라인 위로 이동하고 필요한 경우 스크롤한다.|`printf(CSI, "M");`|
 |-|-|-|
-|`ESC[#G`|현재 라인의 첫 열부터 # 카운터하는 가로의 절대값|`printf(CSI, "%dG, column);`|
+|`ESC[#G`|현재 라인의 첫 열(column)부터 # 카운터하는 가로의 절대값|`printf(CSI, "%dG, column);`|
 |`ESC[#d`|현재 열(column)에서 첫 라인부터 # 카운터하는 세로의 절대값|`printf(CSI, "5d");`|
 |-|-|-|
 |`ESC[6n`|커서 위치 보고 : reports as `ESC[#;#R`|`printf(CSI, "6n");`|
@@ -162,9 +162,13 @@ printf("World");
 - Common Private Modes
     - `#define CSI "ESC["`
     - l은 L의 소문자   
+    - 사양(specification)에 정의되어 있지 않지만 대부분의 터미널에서 구현되는
+    - pritvate mode의 몇 가지 예이다.
 
 |ESC Code Sequence|Description|Example|
 |:---|:---|:---|
+|`ESC[?12l`|커서 깜박임 사용 안함|`printf(CSI, "?25l");`|
+|`ESC[?12h`|커서 깜박임 사용|`printf(CSI, "?25h");`|
 |`ESC[?25l`|커서를 보이지 않게 하기|`printf(CSI, "?25l");`|
 |`ESC[?25h`|커서를 보이게 하기|`printf(CSI, "?25h");`|
 |`ESC[?47l`|화면 복원|`printf(CSI, "?471");`|
