@@ -20,13 +20,13 @@
 |`ESC[{line};{column}H`|moves cursor to line #, column #|`printf(CSI, "4;5H");`|
 |`ESC[{line};{column}f`|moves cursor to line #, column #|`printf(CSI, "%d;%df", line, column);`|
 |-|-|-|
-|`ESC[#A`|# 라인만큼 커서를 UP|`printf(CSI, "%dA", line);`|
-|`ESC[#B`|# 라인만큼 커서를 DOWN|`printf("ESC[%dB", down);`|
-|`ESC[#C`|# 만큼 커서를 RIGHT|`printf("ESC[%5C");`|
-|`ESC[#D`|# 만큼 커서를 LEFT|`printf(CSI, "7D");`|
+|`ESC[#A`|커서의 현재 위치에서 # 라인만큼 커서를 UP|`printf(CSI, "%dA", line);`|
+|`ESC[#B`|커서의 현재 위치에서 # 라인만큼 커서를 DOWN|`printf("ESC[%dB", down);`|
+|`ESC[#C`|커서의 현재 위치에서 # 만큼 커서를 RIGHT|`printf("ESC[%5C");`|
+|`ESC[#D`|커서의 현재 위치에서 # 만큼 커서를 LEFT|`printf(CSI, "7D");`|
 |-|-|-|
-|`ESC[#E`|현재 위치에서 # 라인만큼 아래(DOWN)로 이동해서 **라인 시작 부분으로 커서 이동**|`printf(CSI, "%dE", line);`|
-|`ESC[#F`|현재 위치에서 # 라인만큼 이전(UP)으로 이동해서 **라인의 시작 부분으로 커서 이동**|`printf(CSI, "%dF", line);`|
+|`ESC[#E`|현재 위치에서 # 라인만큼 아래(DOWN)로 이동한 후 **라인 시작 부분으로 커서 이동**|`printf(CSI, "%dE", line);`|
+|`ESC[#F`|현재 위치에서 # 라인만큼 이전(UP)으로 이동한 후 **라인 시작 부분으로 커서 이동**|`printf(CSI, "%dF", line);`|
 |`ESC[M`|커서를 한 라인 위로 이동하고 필요한 경우 스크롤한다.|`printf(CSI, "M");`|
 |-|-|-|
 |`ESC[#G`|# 열(column)로 커서 이동|`printf(CSI, "%dG, column);`|
