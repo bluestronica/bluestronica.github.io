@@ -38,6 +38,17 @@
 |`ESC[8`|커서를 마지막으로 저장된 위치로 복원|`printf(CSI, "8");`|
 
 
+## Text Modification
+
+|ESC Code Sequence|Description|Example|
+|:---|:---|:---|
+|`ESC[#@`|**문자 삽입** : 현재 커서 위치에 공백을 #개 삽입하고, 기존 텍스트는 오른쪽으로 이동|`printf(CSI, "1@");`|
+|`ESC[#P`|**문자 삭제** : 현재 커서 위치에서 #개 문자 삭제하고, 공백 문자를 안쪽으로 이동|`printf(CSI, "1P");`|
+|`ESC[#X`|**문자 지우기** : 문자를 공백 문자로 덮어쓰는 방식으로 현재 커서 위치에서 #개 문자를 지운다.|`printf(CSI, "1X");`|
+|`ESC[#L`|**라인 삽입** : 현재 커서의 버퍼에 #개 라인을 삽입하고, 커서가 있는 라인과 그 아래 줄은 아래로 이동|`printf(CSI, "1L");`|
+|`ESC[#M`|**라인 삭제** : 현재 커서가 있는 행부터 시작하여 버퍼에서 #개 라인을 삭제한다.|`printf(CSI, "1M");`|
+
+
 ## Erase Funcions
 - `#define CSI "ESC["`
 - 줄을 지워도 커서가 이동하지 않는다.
@@ -65,9 +76,11 @@
 |`ESC[1m`|**굵은(Bold)** 모드를 설정|`printf(CSI, "%dm", mode);`|
 |`ESC[2m`|**희미한(dim)/약한(faint)** 모드를 설정|`printf("ESC[2m");`|
 |`ESC[3m`|**기울임(italic)** 모드를 설정|`printf("ESC[3m");`|
-|`ESC[4m`|**밑줄(underline)** 모드를 설정|`printf(CSI, "4m");`|
+|`ESC[4m`|**밑줄(underline) 추가** 모드를 설정|`printf(CSI, "4m");`|
+|`ESC[24m`|**밑줄(underline) 제거** 모드를 설정|`printf(CSI, "24m");`|
 |`ESC[5m`|**깜빡임(blinking)** 모드를 설정|`printf(CSI, "5m");`|
-|`ESC[7m`|**반전(inverse/reverse)** 모드를 설정|`printf(CSI, "7m");`|
+|`ESC[7m`|**반전(inverse/reverse)** 모드를 설정; 전경색과 배경색 바꾸기|`printf(CSI, "7m");`|
+|`ESC[27m`|**반전(inverse/reverse)** 모드를 설정; 전경/배경 기본으로 되돌리기|`printf(CSI, "27m");`|
 |`ESC[8m`|**숨김(hidden/invisible)** 모드를 설정|`printf(CSI, "8m");`|
 |`ESC[9m`|**취소선(strikethrough)** 모드를 설정|`printf(CSI, "9m");`|
 
@@ -167,8 +180,8 @@ printf("World");
 
 |ESC Code Sequence|Description|Example|
 |:---|:---|:---|
-|`ESC[?12l`|커서 깜박임 사용 안함|`printf(CSI, "?25l");`|
-|`ESC[?12h`|커서 깜박임 사용|`printf(CSI, "?25h");`|
+|`ESC[?12l`|커서 깜박임 사용 안함|`printf(CSI, "?12l");`|
+|`ESC[?12h`|커서 깜박임 사용|`printf(CSI, "?12h");`|
 |`ESC[?25l`|커서를 보이지 않게 하기|`printf(CSI, "?25l");`|
 |`ESC[?25h`|커서를 보이게 하기|`printf(CSI, "?25h");`|
 |`ESC[?47l`|화면 복원|`printf(CSI, "?471");`|
