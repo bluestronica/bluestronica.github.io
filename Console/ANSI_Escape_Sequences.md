@@ -359,11 +359,12 @@ printf("World");
 
 ## Input Sequences
 - `#define CSI "ESC["`
-- SetConsoleMode 플래그를 사용하여 입력 버퍼 핸들에 ENABLE_VIRTUAL_TERMINAL_INPUT 플래그가 설정된 경우 
+- SetConsoleMode 플래그를 사용하여 입력 버퍼 핸들에 
+- ENABLE_VIRTUAL_TERMINAL_INPUT 플래그가 설정된 경우 
 - 입력 스트림의 콘솔 호스트에서 다음 터미널 시퀀스를 내보낸다.
 
 
-- 커서 키
+### 커서 키
 |ESC Code Sequence|Description|Example|
 |:---|:---|:---|
 |`ESC[A`|위쪽 화살표|`printf(CSI, "A");`|
@@ -380,7 +381,7 @@ printf("World");
 |`ESC[1;5D`|Ctrl + 왼쪽 화살표|`printf(CSI, "1;5D");`|
 
 
-- Numpad & 함수 키
+### Numpad & 함수 키
 |ESC Code Sequence|Description|Example|
 |:---|:---|:---|
 |`0x7f`|백스페이스|`printf("0x7f");`|
