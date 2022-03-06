@@ -25,11 +25,12 @@
 |`ESC[#C`|커서의 현재 위치에서 # 만큼 커서를 RIGHT|`printf("ESC[%5C");`|
 |`ESC[#D`|커서의 현재 위치에서 # 만큼 커서를 LEFT|`printf(CSI, "7D");`|
 |-|-|-|
-|`ESC[#E`|현재 위치에서 # 라인만큼 아래(DOWN)로 이동한 후 **라인 시작 부분으로 커서 이동**|`printf(CSI, "%dE", line);`|
-|`ESC[#F`|현재 위치에서 # 라인만큼 이전(UP)으로 이동한 후 **라인 시작 부분으로 커서 이동**|`printf(CSI, "%dF", line);`|
+|`ESC[#E`|현재 위치에서 # 라인만큼 아래(DOWN)로 이동한 후 라인 시작 부분으로 커서 이동|`printf(CSI, "%dE", line);`|
+|`ESC[#F`|현재 위치에서 # 라인만큼 이전(UP)으로 이동한 후 라인 시작 부분으로 커서 이동|`printf(CSI, "%dF", line);`|
 |`ESC[M`|커서를 한 라인 위로 이동하고 필요한 경우 스크롤한다.|`printf(CSI, "M");`|
 |-|-|-|
-|`ESC[#G`|# 열(column)로 커서 이동|`printf(CSI, "%dG, column);`|
+|`ESC[#G`|현재 라인의 첫 열부터 # 카운터하는 가로의 절대값|`printf(CSI, "%dG, column);`|
+|`ESC[#d`|현재 열(column)에서 첫 라인부터 # 카운터하는 세로의 절대값|`printf(CSI, "5d");`|
 |-|-|-|
 |`ESC[6n`|커서 위치 보고 : reports as `ESC[#;#R`|`printf(CSI, "6n");`|
 |-|-|-|
