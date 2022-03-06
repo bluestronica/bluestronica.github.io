@@ -42,12 +42,59 @@
 
 |ESC Code Sequence|Description|Example|
 |:---|:---|:---|
-|`ESC[#@`|**문자 삽입** : 현재 커서 위치에 공백을 #개 삽입하고, 기존 텍스트는 오른쪽으로 이동, 화면밖 텍스트 지워짐|`printf(CSI, "1@");`|
+|`ESC[#@`|**문자 삽입** : 현재 커서 위치에 공백을 #개 삽입하고, 기존 텍스트는 오른쪽으로 이동, 화면 밖 텍스트 지워짐|`printf(CSI, "1@");`|
 |`ESC[#P`|**문자 삭제** : 현재 커서 위치에서 #개 문자 삭제하고, 그 사이 공백은 공백 문자를 안쪽으로 이동, 공백 없음|`printf(CSI, "1P");`|
-|`ESC[#X`|**문자 지우기** : 문자를 공백 문자로 덮어쓰는 방식으로 현재 커서 위치에서 #개 문자를 지운다. 공백이 생긴다.|`printf(CSI, "1X");`|
+|`ESC[#X`|**문자 지우기** : 문자를 공백 문자로 덮어쓰는 방식으로 현재 커서 위치에서 #개 문자를 지운다. 공백이 생김|`printf(CSI, "1X");`|
 |-|-|-|
 |`ESC[#L`|**라인 삽입** : 현재 커서의 버퍼에 #개 라인을 삽입하고, 커서가 있는 라인과 그 아래 줄은 아래로 이동|`printf(CSI, "1L");`|
 |`ESC[#M`|**라인 삭제** : 현재 커서가 있는 행부터 시작하여 버퍼에서 #개 라인을 삭제한다.|`printf(CSI, "1M");`|
+
+
+
+## Tab
+- `#define ESC "ESC"`
+- `#define CSI "ESC["`
+- 콘솔 창 내에서 tab stop locations를 설정하고, 제거하고, 탭 정지 위치 간에 탐색할 수 있다.
+
+|ESC Code Sequence|Description|Example|
+|:---|:---|:---|
+|`ESCH`|가로 탭 설정 : 커서가 있는 현재 열(column)에서 탭 정지를 설정|`printf(ESC "H");`|
+|`ESC[#I`|커서 가로 탭(오른쪽) 설정 : 탭 정지가 있으면 # 열(column)만큼 커서 오른쪽 이동, 탭 정지가 더 이상 없으면 라인의 마지막 열로 이동한다.|`printf(ESC "#I");`|
+|`ESC[#Z`|커서 가로 탭(왼쪽) 설정 : 탭 정지가 있으면 # 열(column)만큼 커서 왼쪽 이동, 탭 정지가 더 이상 없으면 라인의 마지막 열로 이동한다. 커서가 첫 번째 열에 있으면 커서는 이동하지 않는다.|`printf(ESC "#Z");`|
+|-|-|-|
+|`ESC[0g`|탭 지우기(현재 열) : 현재 열의 탭 정지를 지운다. 탭 정지가 없으면 아무 작업도 수행하지 않는다.|`printf(ESC "0g");`|
+|`ESC[3g`|탭 지우기(모든 열) : 현재 설정된 탭 정지를 모두 지운다.|`printf(ESC "3g");`|
+
+
+
+## Designate Character Set
+- `#define ESC "ESC"`
+- 다음 시퀀스를 사용하여 프로그램에서 활성 문자 세트 매핑을 변경할 수 있다.
+- 이를 통해 프로그램에서는 7비트 ASCII 문자를 내보내고, 
+- 터미널 화면 자체에 다른 문자 모양으로 표시할 수 있다.
+- 현재 지원되는 두 가지 문자 세트는 ASCII(기본값) 및 DEC 특수 그래픽 문자 세트이다.
+
+|ESC Code Sequence|Description|Example|
+|:---|:---|:---|
+|`ESC(0`|문자 세트 지정 - DEC 선 그리기 모드 사용|`printf(ESC "(0");`|
+|`ESC(B`|문자 세트 지정 - ASCII 모드 사용|`printf(ESC "(B");`|
+
+
+- DEC 선 그리기 모드는 콘솔 애플리케이션에서 테두리를 그리는 데 사용된다. 
+- 다음 표에서는 어떤 ASCII 문자가 어떤 선 그리기 문자에 매핑되는지 보여준다.
+|Hex|ASCII|DEC 선 그리기|
+|:---|:---|:---|
+|`0x6a`|j|`┘`|
+|`0x6b`|k|`┐`|
+|`0x6c`|I|`┌`|
+|`0x6d`|분|`└`|
+|`0x6e`|n|`┼`|
+|`0x71`|q|`─`|
+|`0x74`|t|`├`|
+|`0x75`|u|`┤`|
+|`0x76`|v|`┴`|
+|`0x77`|w|`┬`|
+|`0x78`|x|`│`|
 
 
 ## Erase Funcions
@@ -115,7 +162,7 @@ printf("World");
 |:---|:---|:---|
 |Bright Black|90|100|
 |Bright Red|91|101|
-|Bright /Green|92|102|
+|Bright Green|92|102|
 |Bright Yellow|93|103|
 |Bright Blue|94|104|
 |Bright Magenta|95|105|
@@ -144,7 +191,7 @@ printf("World");
 
 |ESC Code Sequence|Description|Example|
 |:---|:---|:---|
-|`ESC[38;2;{r};{g};{b}m`|Set foreground color as RGB.|`printf(CSI, "38;2;5;77;120m");`|
+|`ESC[38;2;{r};{g};{b}m`|Set foreground color as RGB.|`printf(CSI, "38;2;5;24;86m");`|
 |`ESC[48;2;{r};{g};{b}m`|Set background color as RGB.|`printf(CSI, "48;2;3;44;100m");`|    
 
 
@@ -181,12 +228,18 @@ printf("World");
 
 |ESC Code Sequence|Description|Example|
 |:---|:---|:---|
+|`ESC[?3l`|콘솔창 너비를 열 80개로 설정|`printf(CSI, "?3l");`|
+|`ESC[?3h`|콘솔창 너비를 열 132개로 설정|`printf(CSI, "?3h");`|
+|-|-|-|
 |`ESC[?12l`|커서 깜박임 사용 안함|`printf(CSI, "?12l");`|
 |`ESC[?12h`|커서 깜박임 사용|`printf(CSI, "?12h");`|
+|-|-|-|
 |`ESC[?25l`|커서를 보이지 않게 하기|`printf(CSI, "?25l");`|
 |`ESC[?25h`|커서를 보이게 하기|`printf(CSI, "?25h");`|
+|-|-|-|
 |`ESC[?47l`|화면 복원|`printf(CSI, "?471");`|
 |`ESC[?47h`|화면 저장|`printf(CSI, "?47h");`|
+|-|-|-|
 |`ESC[?1049h`|대체 버퍼 활성화|`printf(CSI, "?1049h");`|
 |`ESC[?1049l`|대체 버퍼 비활성화|`printf(CSI, "?10491");`|
 
@@ -301,3 +354,51 @@ printf("World");
 |- (keypad)|45|45|(0;149)|(0;164)|
 |+ (keypad)|43|43|(0;150)|(0;55)|
 |5 (keypad)|(0;76)|53|(0;143)|--|
+
+
+
+## Input Sequences
+- `#define CSI "ESC["`
+- SetConsoleMode 플래그를 사용하여 입력 버퍼 핸들에 ENABLE_VIRTUAL_TERMINAL_INPUT 플래그가 설정된 경우 
+- 입력 스트림의 콘솔 호스트에서 다음 터미널 시퀀스를 내보낸다.
+
+
+- 커서 키
+|ESC Code Sequence|Description|Example|
+|:---|:---|:---|
+|`ESC[A`|위쪽 화살표|`printf(CSI, "A");`|
+|`ESC[B`|아래쪽 화살표|`printf(CSI, "B");`|
+|`ESC[C`|오른쪽 화살표|`printf(CSI, "C");`|
+|`ESC[D`|왼쪽 화살표|`printf(CSI, "D");`|
+|-|-|-|
+|`ESC[H`|HOME|`printf(CSI, "H");`|
+|`ESC[F`|END|`printf(CSI, "F");`|
+|-|-|-|
+|`ESC[1;5A`|Ctrl + 위쪽 화살표|`printf(CSI, "1;5A");`|
+|`ESC[1;5B`|Ctrl + 아래쪽 화살표|`printf(CSI, "1;5B");`|
+|`ESC[1;5C`|Ctrl + 오른쪽 화살표|`printf(CSI, "1;5C");`|
+|`ESC[1;5D`|Ctrl + 왼쪽 화살표|`printf(CSI, "1;5D");`|
+
+
+- Numpad & 함수 키
+|ESC Code Sequence|Description|Example|
+|:---|:---|:---|
+|`0x7f`|백스페이스|`printf("0x7f");`|
+|`0x1a`|일시 중지|`printf("0x1a");`|
+|`0x1b`|이스케이프|`printf("0x1b");`|
+|`ESC[2~`|삽입|`printf(CSI, "2~");`|
+|`ESC[3~`|삭제|`printf(CSI, "3~");`|
+|`ESC[5~`|Page Up|`printf(CSI, "5~");`|
+|`ESC[6~`|Page Down|`printf(CSI, "6~");`|
+|`ESCOP`|F1|`printf(CSI, "OP");`|
+|`ESCOQ`|F2|`printf(CSI, "OQ");`|
+|`ESCOR`|F3|`printf(CSI, "OR");`|
+|`ESCOS`|F4|`printf(CSI, "OS");`|
+|`ESC[15`|F5|`printf(CSI, "15");`|
+|`ESC[17`|F6|`printf(CSI, "17");`|
+|`ESC[18`|F7|`printf(CSI, "18");`|
+|`ESC[19`|F8|`printf(CSI, "19");`|
+|`ESC[20`|F9|`printf(CSI, "20");`|
+|`ESC[21`|F10|`printf(CSI, "21");`|
+|`ESC[23`|F11|`printf(CSI, "23");`|
+|`ESC[24`|F12|`printf(CSI, "24");`|
