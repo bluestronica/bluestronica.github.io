@@ -22,11 +22,11 @@
 |-|-|-|
 |`ESC[#A`|# 라인만큼 커서를 UP|`printf(CSI, "%dA", line);`|
 |`ESC[#B`|# 라인만큼 커서를 DOWN|`printf("ESC[%dB", down);`|
-|`ESC[#C`|# 라인만큼 커서를 RIGHT|`printf("ESC[%5C");`|
-|`ESC[#D`|# 라인만큼 커서를 LEFT|`printf(CSI, "7D");`|
+|`ESC[#C`|# 만큼 커서를 RIGHT|`printf("ESC[%5C");`|
+|`ESC[#D`|# 만큼 커서를 LEFT|`printf(CSI, "7D");`|
 |-|-|-|
-|`ESC[#E`|# 라인 아래(DOWN) 라인의 시작 부분으로 커서 이동|`printf(CSI, "%dE", line);`|
-|`ESC[#F`|# 라인 이전(UP) 라인의 시작 부분으로 커서 이동|`printf(CSI, "%dF", line);`|
+|`ESC[#E`|현재 위치에서 # 라인만큼 아래(DOWN)로 이동해서 **라인 시작 부분으로 커서 이동**|`printf(CSI, "%dE", line);`|
+|`ESC[#F`|현재 위치에서 # 라인만큼 이전(UP)으로 이동해서 **라인의 시작 부분으로 커서 이동**|`printf(CSI, "%dF", line);`|
 |`ESC[M`|커서를 한 라인 위로 이동하고 필요한 경우 스크롤한다.|`printf(CSI, "M");`|
 |-|-|-|
 |`ESC[#G`|# 열(column)로 커서 이동|`printf(CSI, "%dG, column);`|
@@ -180,7 +180,7 @@ printf("World");
     - `code`는 아래 표에 나열된 값 중 하나 이상이다.
     - `string`은 단일 문자에 대한 ASCII 코드 이거나
     - 따옴표로 묶인 문자열이다.
-    - 예를 들어, **65**와 **"A"**는 모두 **대문자 A**를 나타내는 데 사용할 수 있다.
+    - 예를 들어, **65**와 "A"는 모두 **대문자 A**를 나타내는 데 사용할 수 있다.
 
 |Key|Code|SHIFT+code|CTRL+code|ALT+code|
 |:---|:---|:---|:---|:---|
