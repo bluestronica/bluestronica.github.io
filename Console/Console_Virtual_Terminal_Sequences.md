@@ -13,6 +13,7 @@
 
 
 ###
+
 ## Output Sequences
 - **SetConsoleMode()** 함수를 사용하여 
 - 화면 버퍼 핸들(screen buffer handle)에 
@@ -23,6 +24,7 @@
 
 
 ###
+
 ## Input Sequences
 - **SetConsoleMode()** 함수를 사용하여
 - 입력 버퍼 핸들(input buffer handle)에
@@ -31,6 +33,7 @@
 
 
 ###
+
 ## Example of Enabling Virtual Terminal Processing
 - 애플리케이션에 가상 터미널 처리를 사용하도록 설정하는 방법
     - 기존 모드는 항상 GetConsoleMode()를 통해 검색하여 분석한 후
