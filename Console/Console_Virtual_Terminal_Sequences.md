@@ -12,6 +12,7 @@
 - GetConsoleMode() 및 SetConsoleMode() 함수를 사용하여 이 동작을 구성할 수 있다.  
 
 
+###
 ## Output Sequences
 - **SetConsoleMode()** 함수를 사용하여 
 - 화면 버퍼 핸들(screen buffer handle)에 
@@ -21,6 +22,7 @@
 - 다른 터미널 에뮬레이터의 커서 위치 지정 및 스크롤 동작을 에뮬레이트하는 데에도 유용할 수 있다.
 
 
+###
 ## Input Sequences
 - **SetConsoleMode()** 함수를 사용하여
 - 입력 버퍼 핸들(input buffer handle)에
@@ -28,6 +30,7 @@
 - 콘솔 호스트는 입력 스트림의 터미널 시퀀스를 내보낸다.
 
 
+###
 ## Example of Enabling Virtual Terminal Processing
 - 애플리케이션에 가상 터미널 처리를 사용하도록 설정하는 방법
     - 기존 모드는 항상 GetConsoleMode()를 통해 검색하여 분석한 후
@@ -37,7 +40,7 @@
     - GetLastError()의 반환이 0 되는지 여부를 확인하는 것은 
     - 하위 수준 시스템에서 실행할 때를 확인하는 현재 메커니즘입니다.
 
-```c
+```c++
 #include <stdio.h>
 #include <wchar.h>
 #include <windows.h>
