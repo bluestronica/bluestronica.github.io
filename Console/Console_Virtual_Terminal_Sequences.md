@@ -32,12 +32,12 @@
 - 애플리케이션에 가상 터미널 처리를 사용하도록 설정하는 방법
     - 기존 모드는 항상 GetConsoleMode()를 통해 검색하여 분석한 후
     - SetConsoleMode()로 설정되어야 한다.
-###
+    ###
     - SetConsoleMode()가 ERROR_INVALID_PARAMETER 반환하고 
     - GetLastError()의 반환이 0 되는지 여부를 확인하는 것은 
     - 하위 수준 시스템에서 실행할 때를 확인하는 현재 메커니즘입니다.
 
-```c++
+```c
 #include <stdio.h>
 #include <wchar.h>
 #include <windows.h>
