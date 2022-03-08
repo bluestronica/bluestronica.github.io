@@ -1,15 +1,25 @@
 [bluestronica.github.io/Console](https://bluestronica.github.io/Console)
 
-# Console Virtual Terminal Sequences
+# Class Window Console API VS Console Virtual Terminal Sequences
+- Windows에서 현재 진행 중인 개발과 모든 신규 개발에서 터미널과 
+- 상호 작용하는 방식으로 가상 터미널 시퀀스를 사용하는 것이 좋다. 
+- 그러면 Windows 명령줄 클라이언트 애플리케이션이 다른 모든 플랫폼에서 애플리케이션 프로그래밍 스타일과 융합된다.
 ###
-- 가상 터미널 시퀀스(Virtual terminal sequences)는 출력 스트림에 쓸 때   
-- 커서 이동, 색/글꼴 모드 및 기타 작업을 제어할 수 있는 제어 문자 시퀀스(control character sequences)이다.  
-###
-- 출력 스트림 쿼리 정보 시퀀스에 대한 응답으로  
-- 입력 스트림에서 시퀀스를 수신하거나 적절한 모드가 설정된 경우  
-- 사용자 입력의 인코딩으로 시퀀스를 수신할 수도 있다.  
-###
-- GetConsoleMode() 및 SetConsoleMode() 함수를 사용하여 이 동작을 구성할 수 있다.  
+- Class Window Console API
+    - Window에서만 지원된다.
+    - 로컬 머신에서만 엑세스할 수 있다.
+### 
+- Console Virtual Terminal Sequences
+    - 표준 입력 및 표준 출력 스트림에 포함된 명령 언어로 정의된다. 
+    - 가상 터미널 시퀀스는 인쇄할 수 없는 이스케이프 문자를 사용하여 
+    - 인쇄 가능한 일반 텍스트로 인터리브된 명령에 신호를 보낸다.
+    ###
+    - 가상 터미널 시퀀스(Virtual terminal sequences)는 출력 스트림에 쓸 때   
+    - 커서 이동, 색/글꼴 모드 및 기타 작업을 제어할 수 있는 제어 문자 시퀀스(control character sequences)이다.  
+    - 출력 스트림 쿼리 정보 시퀀스에 대한 응답으로  
+    - 입력 스트림에서 시퀀스를 수신하거나 적절한 모드가 설정된 경우  
+    - 사용자 입력의 인코딩으로 시퀀스를 수신할 수도 있다.  
+    - GetConsoleMode() 및 SetConsoleMode() 함수를 사용하여 이 동작을 구성할 수 있다.  
 
 
 
