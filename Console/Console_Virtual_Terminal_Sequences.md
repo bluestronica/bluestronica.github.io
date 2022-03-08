@@ -1,7 +1,7 @@
 [bluestronica.github.io/Console](https://bluestronica.github.io/Console)
 
 # Class Window Console API VS Console Virtual Terminal Sequences
-- Windows에서 현재 진행 중인 개발과 모든 신규 개발에서 터미널과 상호 작용하는 방식으로 가상 터미널 시퀀스를 사용하는 것이 좋다. 
+- Windows에서 현재 진행 중인 개발과 모든 신규 개발에서 터미널과 상호 작용하는 방식으로 **가상 터미널 시퀀스**를 사용하는 것이 좋다. 
 - 그러면 Windows 명령줄 클라이언트 애플리케이션이 다른 모든 플랫폼에서 애플리케이션 프로그래밍 스타일과 융합된다.
 ###
 - **Class Window Console API**
@@ -20,7 +20,19 @@
     - 사용자 입력의 인코딩으로 시퀀스를 수신할 수도 있다.  
     - GetConsoleMode() 및 SetConsoleMode() 함수를 사용하여 이 동작을 구성할 수 있다.  
 
-
+###
+- **Windows Console API 사용의 예외**
+    - 프로세스의 표준 핸들은 계속해서 GetStdHandle() 및 SetStdHandle() 을 통해 제어된다.
+    - 가상 터미널 시퀀스 지원을 옵트인하는 핸들의 콘솔 모드 구성은 GetConsoleMode 및 SetConsoleMode 를 통해 처리된다.
+    - 코드 페이지 또는 UTF-8 지원 선언은 SetConsoleOutputCP 및 SetConsoleCP 메서드를 통해 수행된다.
+    - 콘솔 디바이스 세션에 참가하거나 세션에서 나가려면 AllocConsole, AttachConsole 및 FreeConsole을 사용하여 약간의 전체 프로세스 관리를 수행해야 할 수도 있다.
+    - 신호 및 신호 처리는 계속해서 SetConsoleCtrlHandler, HandlerRoutine 및 GenerateConsoleCtrlEvent를 통해 수행된다.
+    - 콘솔 디바이스 핸들과의 통신은 WriteConsole 및 ReadConsole을 통해 수행할 수 있다. 다음과 같은 형식의 프로그래밍 언어 런타임을 통해 활용할 수도 있다. 
+        - C 런타임(CRT): printf, scanf, putc, getc 같은 스트림 I/O 또는 다른 수준의 I/O 함수. 
+        - C++ 표준 라이브러리(STL): cout 및 cin 같은 iostream. 
+        - .NET 런타임: Console.WriteLine 같은 System.Console.
+    - 창 크기 변경을 인식해야 하는 애플리케이션은 계속해서 ReadConsoleInput을 사용하여 키 이벤트로 인터리브된 변경 내용을 수신해야 한다. ReadConsole 단독으로 사용하면 변경 내용이 취소된다.
+    - 열 또는 그리드를 그리거나 화면을 채우려고 시도하는 애플리케이션에 대해서는 GetConsoleScreenBufferInfo를 사용하여 창 크기 찾기를 계속 수행해야 한다. 창 및 버퍼 크기는 pseudoconsole 세션에서 매칭된다.
 
 ## Output Sequences
 - **SetConsoleMode()** 함수를 사용하여 
