@@ -12,7 +12,6 @@
 - GetConsoleMode() 및 SetConsoleMode() 함수를 사용하여 이 동작을 구성할 수 있다.  
 
 
-###
 
 ## Output Sequences
 - **SetConsoleMode()** 함수를 사용하여 
@@ -23,7 +22,6 @@
 - 다른 터미널 에뮬레이터의 커서 위치 지정 및 스크롤 동작을 에뮬레이트하는 데에도 유용할 수 있다.
 
 
-###
 
 ## Input Sequences
 - **SetConsoleMode()** 함수를 사용하여
@@ -32,7 +30,6 @@
 - 콘솔 호스트는 입력 스트림의 터미널 시퀀스를 내보낸다.
 
 
-###
 
 ## Example of Enabling Virtual Terminal Processing
 - 애플리케이션에 가상 터미널 처리를 사용하도록 설정하는 방법
@@ -44,18 +41,20 @@
     - 하위 수준 시스템에서 실행할 때를 확인하는 현재 메커니즘입니다.
 
 ```c++
+// Set output mode to handle virtual terminal sequences
 #include <stdio.h>
 #include <wchar.h>
 #include <windows.h>
 
 int main()
 {
-    // Set output mode to handle virtual terminal sequences
+    // 1. 화면 버퍼 핸들을 가져온다.
     HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
     if (hOut == INVALID_HANDLE_VALUE)
     {
         return false;
     }
+    // 2. 입력 버퍼 핸들을 가져온다.
     HANDLE hIn = GetStdHandle(STD_INPUT_HANDLE);
     if (hIn == INVALID_HANDLE_VALUE)
     {
@@ -64,19 +63,23 @@ int main()
 
     DWORD dwOriginalOutMode = 0;
     DWORD dwOriginalInMode = 0;
+    // 화면 버퍼에 대한 콘솔모드를 가져온다..
     if (!GetConsoleMode(hOut, &dwOriginalOutMode))
     {
         return false;
     }
+    // 입력 버퍼에 대한 콘솔모드를 가져온다.
     if (!GetConsoleMode(hIn, &dwOriginalInMode))
     {
         return false;
     }
-
+    
     DWORD dwRequestedOutModes = ENABLE_VIRTUAL_TERMINAL_PROCESSING | DISABLE_NEWLINE_AUTO_RETURN;
     DWORD dwRequestedInModes = ENABLE_VIRTUAL_TERMINAL_INPUT;
 
+    // 가져온 화면 버퍼에 대한 콘솔 모드에 가상 터미널 처리 사용을 위한 세팅
     DWORD dwOutMode = dwOriginalOutMode | dwRequestedOutModes;
+    // 콘솔 모드 적용
     if (!SetConsoleMode(hOut, dwOutMode))
     {
         // we failed to set both modes, try to step down mode gracefully.
@@ -89,7 +92,9 @@ int main()
         }
     }
 
+    // 가져온 입력 버퍼에 대한 콘솔 모드에 가상 터니멀 처리 사용을 위한 세팅
     DWORD dwInMode = dwOriginalInMode | ENABLE_VIRTUAL_TERMINAL_INPUT;
+    // 콘솔 모드 적용
     if (!SetConsoleMode(hIn, dwInMode))
     {
         // Failed to set VT input mode, can't do anything here.
