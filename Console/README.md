@@ -1,5 +1,7 @@
 # [bluestronica.github.io](https://bluestronica.github.io/)
 
+### [Definitions](https://github.com/bluestronica/bluestronica.github.io/blob/main/Console/Definitions.md)
+
 ### [ANSI Escape Sequences](https://github.com/bluestronica/bluestronica.github.io/blob/main/Console/ANSI_Escape_Sequences.md)
 - Sequences
 - Cursor Controls
