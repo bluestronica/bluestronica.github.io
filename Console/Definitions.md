@@ -2,20 +2,20 @@
 
 # Definitions
 - Microsoft의 현재 콘솔/터미널은 
-- Windows 플랫폼의 개발자에게 직접 최고 수준의 터미널 환경을 제공하는 클래식 Windows Console API를 단계적으로 폐지하고, 
-- pseudoconsole을 활용하여 가상 터미널 시퀀스로 대체하는 것이다.
+- Windows 플랫폼의 개발자에게 직접 최고 수준의 터미널 환경을 제공하는 **클래식 Windows Console API**를 단계적으로 폐지하고, 
+- pseudoconsole을 활용하여 **가상 터미널 시퀀스**로 대체하는 것이다.
 
 ### Definitions
 - **Command Line Applications**
     - **Console Application** 또는 **clients** 이라고 한다.
     - 주로 텍스트 또는 문자 정보 스트림에서 작동하는 프로그램을 뜻한다.
     ###
-    - 명령줄 애플리케이션은 
+    - 명령줄 애플리케이션(Command Line Applications)은 
     - 사용자의 키보드 입력을 나타내는 표준 입력 STDIN 핸들에서 텍스트 스트림을 수신하고, 해당 정보를 처리한 다음,
     - 표준 출력 STDOUT 에 있는 텍스트 스트림으로 응답하여 사용자의 모니터에 다시 표시한다.
 
 - **Standard Handles**
-    - 표준 핸들은 일련의 **STDIN**, **STDOUT** 핸들이며 **STDERR**은 시작 시 프로세스 공간의 일부로 도입된다.
+    - 표준 핸들(Standard Handles)은 일련의 **STDIN**, **STDOUT** 핸들이며 **STDERR**은 시작 시 프로세스 공간의 일부로 도입된다.
     - 명령줄 애플리케이션의 경우 애플리케이션이 시작될 때 항상 존재해야 한다.
 
 - **Clients and Servers**
