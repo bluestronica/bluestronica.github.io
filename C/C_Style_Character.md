@@ -1,8 +1,6 @@
 [bluestronica.github.io/Console](https://bluestronica.github.io/C)
 
-# Output
-
-### C-Style 문자열
+# C-Style 문자열
 - #### char[]로만 구성
 
 - #### 문자열이 끝나는 곳에 널 문자(`\0`)를 붙인다
@@ -37,4 +35,3 @@
         - 한 가지 데이터형으로 문자열과 길이를 다 표현!
     - 단점
         - 어떤 문자열의 길이를 알려면 배열을 끝까지 훑어야 함. O(N)
-
