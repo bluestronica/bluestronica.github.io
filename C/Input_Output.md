@@ -59,8 +59,8 @@
 - **puts()**
     - **문자열**을 **stdout**에 출력
     - 마지막에 줄도 바꿔줌: `\n`
-    - **`fputs(str, stdout)`**와 매우 비슷
+    - **`fputs(str, stdout)`** 와 매우 비슷
 
 - **putchr()**
     - **문자**를 **stdout**에 출력
-    - **`fputc(ch, stdout)`**하고 같음
+    - **`fputc(ch, stdout)`** 하고 같음
