@@ -25,8 +25,8 @@
     - 프로세스의 표준 핸들은 계속해서 **GetStdHandle** 및 **SetStdHandle** 을 통해 제어된다.
     - 가상 터미널 시퀀스 지원을 옵트인하는 핸들의 콘솔 모드 구성은 **GetConsoleMode** 및 **SetConsoleMode** 를 통해 처리된다.
     - 코드 페이지 또는 UTF-8 지원 선언은 **SetConsoleOutputCP** 및 **SetConsoleCP** 메서드를 통해 수행된다.
-    - 콘솔 디바이스 세션에 참가하거나 세션에서 나가려면 **AllocConsole**, **AttachConsole** 및 **FreeConsole을** 사용하여 약간의 전체 프로세스 관리를 수행해야 할 수도 있다.
-    - 신호 및 신호 처리는 계속해서 **SetConsoleCtrlHandler**, **HandlerRoutine** 및 **GenerateConsoleCtrlEvent를** 통해 수행된다.
+    - 콘솔 디바이스 세션에 참가하거나 세션에서 나가려면 **AllocConsole**, **AttachConsole** 및 **FreeConsole**을 사용하여 약간의 전체 프로세스 관리를 수행해야 할 수도 있다.
+    - 신호 및 신호 처리는 계속해서 **SetConsoleCtrlHandler**, **HandlerRoutine** 및 **GenerateConsoleCtrlEvent**를 통해 수행된다.
     - 콘솔 디바이스 핸들과의 통신은 WriteConsole 및 ReadConsole을 통해 수행할 수 있다. 다음과 같은 형식의 프로그래밍 언어 런타임을 통해 활용할 수도 있다. 
         - C 런타임(CRT): **printf**, scanf, putc, **getc** 같은 스트림 I/O 또는 다른 수준의 I/O 함수. 
         - C++ 표준 라이브러리(STL): cout 및 cin 같은 iostream. 
