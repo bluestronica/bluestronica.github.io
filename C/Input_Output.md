@@ -251,6 +251,12 @@ while (fgets(line, LINE_LENGTH, stdin) != NULL)
         - 그냥 num을 넣으면 복사된 매개변수를 넣어봐야
         - 함수 속에서 바꾸어도 반환 시 사라지게 된다.
 
+- **fscanf()**
+    - 파일 스트림으로부터 읽음
+
+- **sscanf()**
+    - C-style 문자열로부터 읽음
+
 - **scanf()는 문자열 읽을 때 쓰면 별로임**
     - 숫자만 읽어야 하는데 문자를 읽으면...
     - 그 뿐만 아니라 다른 자료형 읽을 때도 툭하면 무한 루프에 빠질 위험도 큼
@@ -280,13 +286,99 @@ while (fgets(line, LINE_LENGTH, stdin) != NULL)
             {
                 sum += num;
             }
-        }
-            
+        }            
         ```
 
-- **fscanf()**
-    - 파일 스트림으로부터 읽음
+- **버퍼 오버플로 문제 없이 문자열 읽기**
+    - **문자열 읽기**에서 이 방법으로 아주 기본적으로
+    - 많이 사용하니 익숙해지도록 익혀두자!!
+```c
+#include <stdio.h>
 
-- **sscanf()**
-    - C-style 문자열로부터 읽음
+#define LENGTH (4096)
+
+// 문자열을 읽을 때도 버퍼 오버플로를 막기위해
+// word에서 읽어올때 이 word 길이를 한 줄 읽어오는 길이랑 일치시켜버린다.
+// 그래서 4096보다 긴 문자열이 들어오면 그냥 짤리는게 전부이다.
+char line[LENGTH];
+char word[LENGTH];
+
+// 입력 스트림(stdin): 10a\n
+while (TRUE)
+{     
+    if (fgets(line, LENGTH, stdin) == NULL)  // line : 문자열 길이만큼\n\0
+    {
+        clearerr(stdin);
+        break;
+    }
+
+    if (sscanf(line, "%s", word) == 1) // line에서 읽어와서 word에 문자열 입력
+    {
+        printf("%s\n", word);
+    }
+}            
+```
+
+- 한 데이터씩 읽는 방법이 유용한 경우
+    - 텍스트를 다른 자료형으로 곧바로 읽어오는 가장 간단한 방법
+    - 사용자 입력 받을 때(그리고 여러 데이터가 혼용된 텍스트 파일을 읽어올 때) 가장 많이 쓰는 방법
+
+### 한 블록 읽기
+- **fread()**
+    - `size_t fread(void* buffer, size_t size, size_t count, FILE* stream);`
+    - size 바이트짜리 데이터를 총 count 개수만큼 읽음
+    - 그래서 buffer에 저장
+    - EOF 만나면 당연히 멈춤
+    - 실제로 읽은 개수를 반환
+    ```c
+    int nums[64];      // int 블록 총 64개 
+    size_t num_read;   // 총 몇 바이트? 64 * sizeof(int)
+    FILE* fstream;
+
+    num_read = fread(nums, sizeof(nums[0]), 64, fstream);
+    fwrite(nums, sizeof(nums[0]), 64, fstream);
+    ```
+- 한 블록씩 읽는 방법이 유용한 경우
+    - 가장 중요한 건 이진 데이터 읽기 위해
+    - 이진 데이터를 하나씩 읽을 수 있지만 한꺼번에 읽으면 성능 향상
+- 주의 할점
+    - 기본 데이터형의 크기는 시스템마다 다름
+    - 따라서 이런 일을 하려면 정확히 파일에 저장할 데이터 크기를 고정해 두는게 좋음
+
+### 파일 열기
+- C에서 파일 다루기 정말 귀찮음!!
+    - 따라서, C에서 파일 관련 연산은 다 이렇게 흐름이다
+        - 파일을 열어서 파일 스트림을 가져온다
+        - 그 파일 스트림을 사용해서 하고 싶은 걸 한다
+        - 그 파일을 닫아 준다
+- `FILE* fopen(const char* filename, const char* mode);`
+    - filename으로 지정된 파일을 연다
+    - 열 때 사용하는 모드(읽기전용, 이진파일 등)는 mode로 지정
+        - r : 파일을 읽기 전용
+        - w : 파일을 쓰기 전용
+        - a : 파일에 이어 쓴다
+        - b를 붙이면 이진 모드로 파일을 연다.
+            - rb, wb, ab, r+b, w+b, a+b
+        - 이진 모드란
+            - 사실 유닉스 계열에는 아무 차이가 없다 (rb나 r이나 동일)
+            - 윈도우에서 새 줄 문자 처리하는 것만 달라짐
+                - 프로그램에서 **텍스트 모드**로 열었을 때 : `|H|e|l|l|o|\n|`
+                - 프로그램에서 **이진 모드**로 열었을 때 : `|H|e|l|l|o|\r|\n|`
+    - 반환값은 파일 스트림 포인터!
+    ```c
+    #include <stdio.h>
+
+    #define LENGTH (1024)
+
+    FILE* stream;
+    char list[LENGTH];
+
+    stream = fopen("hello.txt", "r");
+
+    if (fgets(list, LENGTH, stream) != NULL)
+    {
+        printf("%s", list);
+    }
+    ```
+
 
