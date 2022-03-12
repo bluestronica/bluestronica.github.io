@@ -217,7 +217,7 @@ while (fgets(line, LINE_LENGTH, stdin) != NULL)
 - 한 줄씩 읽는 방법이 유용한 경우
     - 일단 단어 하나씩 읽는 것보단 한 줄씩 읽는게 빠름
     - CPU를 벗어나 외부 구성요소로부터 뭔가를 읽어올 때는 한 번에 많이 읽어오는게 빠르기 때문
-    - 따라서 버퍼 크기느 충분히 큰게 좋다
+    - 따라서 버퍼 크기는 충분히 큰게 좋다
 
 
 ### 한 데이터씩 읽기
@@ -252,36 +252,36 @@ while (fgets(line, LINE_LENGTH, stdin) != NULL)
         - 함수 속에서 바꾸어도 반환 시 사라지게 된다.
 
 - **scanf()는 문자열 읽을 때 쓰면 별로임**
-        - 숫자만 읽어야 하는데 문자를 읽으면...
-        - 그 뿐만 아니라 다른 자료형 읽을 때도 툭하면 무한 루프에 빠질 위험도 큼
-        - **해결법?**
-            - 앞에 배웠던 fgets()와 sscanf()함수를 같이 쓰는 게 좋음
-            - fgets()로 읽어온 어떤 string 버퍼를
-            - sscanf()로 사용해서 거기서 읽어온다.
-            ```c
-            #include <stdio.h>
+    - 숫자만 읽어야 하는데 문자를 읽으면...
+    - 그 뿐만 아니라 다른 자료형 읽을 때도 툭하면 무한 루프에 빠질 위험도 큼
+    - **해결법?**
+        - 앞에 배웠던 fgets()와 sscanf()함수를 같이 쓰는 게 좋음
+        - fgets()로 읽어온 어떤 string 버퍼를
+        - sscanf()로 사용해서 거기서 읽어온다.
+        ```c
+        #include <stdio.h>
 
-            #define LINE_LENGTH (1024)
+        #define LINE_LENGTH (1024)
 
-            int sum = 0;
-            int num;
-            char line[LINE_LENGTH];
+        int sum = 0;
+        int num;
+        char line[LINE_LENGTH];
 
-            while (TRUE)
+        while (TRUE)
+        {
+            if (fgets(line, LINE_LENGTH, stdin) == NULL)
             {
-                if (fgets(line, LINE_LENGTH, stdin) == NULL)
-                {
-                    clearerr(stdin);
-                    break;
-                }
-
-                if (sscanf(line, "%d", &num) == 1)
-                {
-                    sum += num;
-                }
+                clearerr(stdin);
+                break;
             }
-                
-            ```
+
+            if (sscanf(line, "%d", &num) == 1)
+            {
+                sum += num;
+            }
+        }
+            
+        ```
 
 - **fscanf()**
     - 파일 스트림으로부터 읽음
