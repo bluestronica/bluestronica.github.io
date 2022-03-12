@@ -5,4 +5,8 @@
 - 문자열 함수들 (정리 해야함)
 
 ### [Inuput / Output](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Input_Output.md)
-- (char*)&vector
+- 출력 (Output)
+- 입력 (Input)
+
+### [getchar(), getch(), getche()](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/getchar_getch_getche.md)
+- 차이점
