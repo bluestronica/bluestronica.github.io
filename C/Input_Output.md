@@ -267,15 +267,16 @@ while (fgets(line, LINE_LENGTH, stdin) != NULL)
         int num;
         char line[LINE_LENGTH];
 
+        // 입력 스트림(stdin): 10a\n
         while (TRUE)
-        {
-            if (fgets(line, LINE_LENGTH, stdin) == NULL)
+        {     
+            if (fgets(line, LINE_LENGTH, stdin) == NULL)  // line : 10a\n\0
             {
                 clearerr(stdin);
                 break;
             }
 
-            if (sscanf(line, "%d", &num) == 1)
+            if (sscanf(line, "%d", &num) == 1) // line에서 숫자 10만 읽어와서 num에 10 입력
             {
                 sum += num;
             }
