@@ -62,7 +62,7 @@ while (c != EOF)
 
 ### 차이점
 |비교|putchar()|putch()|
-|---|---|---|---|
+|---|---|---|
 |버퍼 사용|O|X|
 |#include <>|stdio.h|conio.h|
 

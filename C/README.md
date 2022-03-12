@@ -8,5 +8,6 @@
 - 출력 (Output)
 - 입력 (Input)
 
-### [getchar(), getche(), getch()](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/getchar_getche_getch.md)
-- 차이점
+### [getchar(), getche(), getch(), putchar(), putch()](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/getchar_getche_getch.md)
+- getchar(), getche(), getch()
+- putchar(), putch()
