@@ -56,3 +56,20 @@ while (c != EOF)
 ### getche()
 - getche()는 getch()와 동일하지만
 - **입력 값을 화면에 출력**하는 차이가 있다.
+
+
+# putchar(), putch()
+
+### 차이점
+|비교|putchar()|putch()|
+|---|---|---|---|
+|버퍼 사용|O|X|
+|#include <>|stdio.h|conio.h|
+
+### putchar()
+- **문자**를 **stdout**에 출력
+- **`fputc(ch, stdout)`** 하고 같음
+
+### putch()
+- 출력 버퍼를 사용하지 않고
+- 문자 하나를 콘솔(표준 출력)에 바로 출력한다.
