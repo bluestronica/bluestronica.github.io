@@ -32,15 +32,39 @@
     }
     ```
   
+
 ### 데이터가 메모리에 저장되는 방식
 - C에서 다루는 데이터(-, +, 정수, 실수, 문자, 문자열)가 컴파일 된 후에는 2진수 표기법으로 컴퓨터 안에서 값이 저장되어 표현된다.
-- unsigned(-), signed(+)
-    - C는 unsigned라는 단어 
-- 정수
-- 실수
-- 문자
-- 문자열  
-- 테이터의 값을 바꿀 수 없는 상수의 형태와 데이터는 값을 바꿀 수 있는 변수의 형태가 있다.
+- 테이터의 값을 바꿀 수 없는 상수의 형태와 값을 바꿀 수 있는 변수의 형태가 있다.
+
+
+### 기본 자료형(primitive types)
+- unsigned, signed
+    - C는 unsigned, signed라는 단어를 자료형 이름 앞에 넣어줘야 함
+    - unsigned, signed를 생략하면 부호있음(signed)이 된다.
+        - int default_int = -10000;
+    - 부호가 없을 때, unsigned를 사용한다.
+        - unsigend char unsigned_char = 255;
+        - unsigned int unsigned_int = 23456;   
+- char
+    - 크기 : 8비트
+    - 부호(unsigned/signed)를 생략할 경우 : signed
+        - char signed_char = -1;
+    - 범위
+        - 부호 없는 경우(unsigned char) : 0~255
+        - 부호 있는 경우(signed char) : -128~127
+- char와 ASCII 문자
+    - char는 ASCII 문자를 표현하기에 충분하다
+    - ASCII는 0~127인 숫자이다 
+    - 덧셈 가능
+    ```
+    char ch_a = 'a';        // 97
+    char ch_b = ch_a + 1;   // 98
+    char ch_c = 99;         // 99
+    
+    // 값 97이 컴파일되면 2진수 표기법으로 char 크기(8비트)만큼 공간을 차지하고 저장된다.
+    // 정수로 출력하면 97, 문자로 출력하면 'a'(ASCII 값 97이 'a'로 대응) 
+    ```
 
 
 
