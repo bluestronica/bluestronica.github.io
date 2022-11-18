@@ -45,6 +45,7 @@
         - int default_int = -10000;
     - 부호가 없을 때, unsigned를 사용한다.
         - unsigend char unsigned_char = 255;
+        - 포팅 문제 없는 범위 = 0~127
         - unsigned int unsigned_int = 23456;   
 - char
     - 크기 : 8비트
@@ -68,6 +69,24 @@
     // 2진수 표기법으로 char 크기(8비트)만큼 공간을 차지하고 값이 저장된다.
     // 정수로 출력하면 97, 문자로 출력하면 'a'(ASCII 값 97이 'a'로 대응) 
     ```
+- short
+    - 최소 16비트이고 char의 크기 이상인 정수
+    - 기본 정수형 int 보다 짧음
+    - 그러나 int 대신 short를 사용할 경우 성능이 느려질 수도 있다.
+- int
+    - int는 기본 정수(integer)
+    - 크기 : 32비트(4바이트)
+    - 범위
+        - 부호 없는 경우(unsigned) : 0~4,294,967,295
+        - 부호 있는 경우(signed) : -2,147,483,648~2,147,483,647
+        - 부호 있는 수의 최댓값보다 큰 값을 unsigned int에 대입할 경우 int의 리터럴 'u' 혹은 'U'를 붙여야 함
+        ```
+        int signed_int = -1024;
+        
+        unsigned int unsigned_int1 = 394;
+        unsigned int unsigned_int2 = 2147483648;    // 경고
+        unsigned int unsigned_int3 = 2147483648u;    // 경고 없음, 대문자 U도 
+        ```
 
 
 
