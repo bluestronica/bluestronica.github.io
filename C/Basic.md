@@ -50,9 +50,11 @@
     - 크기 : 8비트
     - 부호(unsigned/signed)를 생략할 경우 : signed
         - char signed_char = -1;
-    - 범위
+    - char로 표현 가능한 숫자의 범위(표준)
         - 부호 없는 경우(unsigned char) : 0~255
         - 부호 있는 경우(signed char) : -128~127
+    - char의 부호 여부를 판단하는 방법
+        - `<limists.h>`헤더 파일에서 CHAR_MIN을 보면 **부호 식별자가 없는 char**가 signed인지 unsigned인지 알 수 있음
 - char와 ASCII 문자
     - char는 ASCII 문자를 표현하기에 충분하다
     - ASCII는 0~127인 숫자이다 
@@ -62,7 +64,8 @@
     char ch_b = ch_a + 1;   // 98
     char ch_c = 99;         // 99
     
-    // 값 97이 컴파일되면 2진수 표기법으로 char 크기(8비트)만큼 공간을 차지하고 저장된다.
+    // 값 97이 컴파일되면 
+    // 2진수 표기법으로 char 크기(8비트)만큼 공간을 차지하고 값이 저장된다.
     // 정수로 출력하면 97, 문자로 출력하면 'a'(ASCII 값 97이 'a'로 대응) 
     ```
 
