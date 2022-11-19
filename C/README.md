@@ -1,7 +1,7 @@
 [bluestronica.github.io](https://bluestronica.github.io/)
 
-### [Bit](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Bit.md)
-- 비트
+### [Bitwise_Operators_In_C](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Bitwise_Operators_In_C.md)
+- 비트 시프트 연산자
 
 ### [Basic](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Basic.md)
 - main(void) 함수: (void)
