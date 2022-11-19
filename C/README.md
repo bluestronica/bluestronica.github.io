@@ -1,5 +1,8 @@
 [bluestronica.github.io](https://bluestronica.github.io/)
 
+### [Bit](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Bit.md)
+- 비트
+
 ### [Basic](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Basic.md)
 - main(void) 함수: (void)
 - 데이터가 메모리에 저장되는 방식
