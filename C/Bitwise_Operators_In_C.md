@@ -9,6 +9,25 @@ https://www.programiz.com/c-programming/bitwise-operators
 - `& 연산자`
   - 둘 중 하나라도 0이면 결과가 0이 되는 특성이 있다.
   - 이 특성을 이용하면 특정 비트를 0으로 변경할 수 있다.
+  ```
+  12 = 00001100 (In Binary)
+  25 = 00011001 (In Binary)
+
+  Bit Operation of 12 and 25
+    00001100
+  & 00011001
+    ________
+    00001000  = 8 (In decimal)
+  ```
+  ```c
+  int main()
+  {
+    int a = 12, b = 25;
+    printf("Output = %d", a & b);    // Output = 8
+    
+    return 0;
+  }
+  ```
 - `| 연산자`
   - 둘 중 하나라도 1이면 결과가 1이 되는 특성이 있다.
   - 이 특성을 이용하면 특정 비트를 1로 변경할 수 있다.
