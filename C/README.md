@@ -1,7 +1,11 @@
 [bluestronica.github.io](https://bluestronica.github.io/)
 
 ### [Basic](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Basic.md)
-- 문법
+- main(void) 함수: (void)
+- 데이터가 메모리에 저장되는 방식
+- 기본 자료형(primitive types)
+- 연산자
+- 조건과 반복
 
 ### [C-Style Character](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/C_Style_Character.md)
 - C-Style 문자열
