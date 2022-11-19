@@ -255,7 +255,7 @@
         
         siwtch (fruit)
         {
-            cae FRUIT_APPLE:
+            case FRUIT_APPLE:
                 printf("Breakfast\n");
                 /* intentional fallthrough */
                 // 의도를 가지고 'break;'를 사용하지 않을 경우에 반드시 주석을 붙이자
