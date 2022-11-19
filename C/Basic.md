@@ -140,7 +140,7 @@
     ```
     int is_student(const int id)
     {
-        if(/* 조건 */)
+        if(/* 조건 : 참 */)
         {
             return 1;
         }
