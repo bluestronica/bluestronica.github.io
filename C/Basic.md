@@ -66,7 +66,7 @@
     - char는 ASCII 문자를 표현하기에 충분하다
     - ASCII는 0~127인 숫자이다 
     - 덧셈 가능
-    ```
+    ```c
     char ch_a = 'a';        // 97
     char ch_b = ch_a + 1;   // 98
     char ch_c = 99;         // 99
@@ -88,7 +88,7 @@
         - 부호 없는 경우(unsigned) : 0~4,294,967,295
         - 부호 있는 경우(signed) : -2,147,483,648~2,147,483,647
         - 부호 있는 수의 최댓값보다 큰 값을 unsigned int에 대입할 경우 int의 리터럴 'u' 혹은 'U'를 붙여야 함
-        ```
+        ```c
         int signed_int = -1024;
         
         unsigned int unsigned_int1 = 394;
@@ -102,7 +102,7 @@
     - 다른 언어에서는 long이 보통 64비트
     - C89에는 64비트 정수형은 없음
     - 포팅 안전한 범위 : -2,147,483,648~2,147,483,647    
-    ```
+    ```c
     unsigned long unsigned_int2 = 2147483648;      // 경고
     unsigned long unsigned_int3 = 2147483648ul;    // 경고 없음
     
@@ -141,7 +141,7 @@
 - **코딩 표준** : 참, 거짓을 반환해야 할 때는
     - 거짓일 때는 0을 반환
     - 참일 때는 1을 반환
-    ```
+    ```c
     int is_student(const int id)
     {
         if(/* 조건 : 참 */)
@@ -154,7 +154,7 @@
     
 - enum
     - C에서의 열거형은 그냥 정수에 별명 붙이는 수준
-    ```
+    ```c
     enum day { DAY_MONDAY, DAY_TUESDAY, DAY_WEDNESDAY, };
     enum month { MONTH_JANUARY, MONTH_FEBRUARY, MONTH_MARCH, };
 
@@ -165,7 +165,7 @@
 - 변수 선언 위치
     - 변수 선언은 반드시 블럭의 시작에서만 해야함
     - 코드 중간에 사용하는 변수는 블록 시작에서 선언하고 뒤에 대입
-    ```
+    ```c
     int main(void)
     {
         int num1 = 10;      // 선언 대입
@@ -186,7 +186,7 @@
 - 연산자 순위
 - 조건 연산자
     - 삼항 연산자라고 부르는게 보통
-    ```
+    ```c
     int num1 = 10;
     int num2 = 56;
     int min = num1 < num2 ? num1 : num2;
@@ -204,7 +204,7 @@
         - 실행 중이 아니라 컴파일 도중에 크기를 찾음
         - char 형을 넣으면 반드시 1이 반환
         - sizeof() 연산자가 반환하는 값은 부호 없는 정수형의 상수로 size_t 형이다.
-        ```
+        ```c
         char ch = 'a';
         char num = 100;
         
@@ -228,7 +228,7 @@
         - true : 0이 아닌 것(따라서, 음수도 포함)
     - 메모리 주소(포인터)나 float 형(3.14f)도 마찬가지
         - 모든 비트패턴이 0이면 false 아니면 true
-    ```
+    ```c
     float num = 0.0f;
     
     if (num)    // false : 0
@@ -249,7 +249,7 @@
     - case에 가능한 데이터형
         - C는 정수형(int, char, enum)만 가능
     - case 안에서 break를 빼먹으면 곧바로 탈출하지 않고 그 아래 있는 코드를 계속 실행
-        ```
+        ```c
         enum fruit { FRUIT_APPLE, FRUIT_MANGO };
         enum fruit fruit = FRUIT_APPLE;
         
@@ -271,7 +271,7 @@
 - for
     - for문의 초기화 코드에 size_t i = 0을 못 씀
         - 변수 선언은 제일 위에서 해야하기 때문
-        ```
+        ```c
         int sum = 0;
         size_t i; 
         
@@ -285,7 +285,7 @@
     - 조건식은 bool형 대신 1, 0을 반환
     - 그래서 그냥 counter 변수를 넣는 경우가 있는데 좋은 습관이 아니다.
     - `== 0` 혹은 `!= 0`을 넣는다.
-    ```
+    ```c
     int day = 5;
     while (day-- != 0)
     { 
@@ -295,7 +295,7 @@
     
 - for, while, do-while 실행 도중 
     - 탈출하려면 `break`
-    ```
+    ```c
     size_t num = 30;
     
     while (num > 0)
@@ -310,7 +310,7 @@
     }
     ```
     - 다음 회차로 넘어가려면 `continue`
-    ```
+    ```c
     size_t num = 10;
     
     while (num > 0)
