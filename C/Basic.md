@@ -47,6 +47,7 @@
         - unsigend char unsigned_char = 255;
         - 포팅 문제 없는 범위 = 0~127
         - unsigned int unsigned_int = 23456;   
+
 - char
     - 크기 : 8비트
     - 부호(unsigned/signed)를 생략할 경우 : signed
@@ -56,6 +57,7 @@
         - 부호 있는 경우(signed char) : -128~127
     - char의 부호 여부를 판단하는 방법
         - `<limists.h>`헤더 파일에서 CHAR_MIN을 보면 **부호 식별자가 없는 char**가 signed인지 unsigned인지 알 수 있음
+
 - char와 ASCII 문자
     - char는 ASCII 문자를 표현하기에 충분하다
     - ASCII는 0~127인 숫자이다 
@@ -69,10 +71,12 @@
     // 2진수 표기법으로 char 크기(8비트)만큼 공간을 차지하고 값이 저장된다.
     // 정수로 출력하면 97, 문자로 출력하면 'a'(ASCII 값 97이 'a'로 대응) 
     ```
+
 - short
     - 최소 16비트이고 char의 크기 이상인 정수
     - 기본 정수형 int 보다 짧음
     - 그러나 int 대신 short를 사용할 경우 성능이 느려질 수도 있다.
+
 - int
     - int는 기본 정수(integer)
     - 크기 : 32비트(4바이트)
@@ -84,9 +88,79 @@
         int signed_int = -1024;
         
         unsigned int unsigned_int1 = 394;
-        unsigned int unsigned_int2 = 2147483648;    // 경고
+        unsigned int unsigned_int2 = 2147483648;     // 경고
         unsigned int unsigned_int3 = 2147483648u;    // 경고 없음, 대문자 U도 
         ```
+
+- long
+    - int가 16비트일 때 그것보다 2배 큰 자료형이 필요했음
+    - 따라서, long은 최소 32비트이고 int 이상의 크기를 가지니다.
+    - 다른 언어에서는 long이 보통 64비트
+    - C89에는 64비트 정수형은 없음
+    - 포팅 안전한 범위 : -2,147,483,648~2,147,483,647    
+    ```
+    unsigned long unsigned_int2 = 2147483648;      // 경고
+    unsigned long unsigned_int3 = 2147483648ul;    // 경고 없음
+    
+    // l은 long
+    // u는 unsigned
+    // ul은 unsigned long
+    ```
+
+- float
+    - 부동 소수점 자료형
+    - 크기는 32비트
+    - 범위는 IEEE754 Single
+    - 실수는 소수점 형태와 지수 형태로 표현할 수 있다.
+        - 소수점 형태
+            - 0.0000314
+        - 지수 형태
+            - 3.14*10^-5
+            - **C언어 표기법**
+                - 3.14e-5
+                - 0.314E-4
+    - unsigned형 없음
+    - float의 리터럴은 3.14f
+
+- double
+    - 부동 소수점 자료
+    - 크기는 64비트
+    - 범위는 IEE754 Double
+    - unsigned형 없음
+
+- bool 형을 안쓰는 이유
+    - 정수로 대신 쓸 수 있음
+    - 0이면 false, 0이 아니면 true
+    - 하드웨어에서도 실제 bool이 없음
+    - 0이냐 아니냐만 있
+
+- 코딩 표준 : 참, 거짓을 반환해야 할 때는
+    - 거짓일 때는 0을 반환
+    - 참일 때는 1을 반환
+    ```
+    int is_student(const int id)
+    {
+        if(/* 조건 */)
+        {
+            return 1;
+        }
+        return 0;
+    }
+    ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
