@@ -134,7 +134,7 @@
     - 하드웨어에서도 실제 bool이 없음
     - 0이냐 아니냐만 있
 
-- 코딩 표준 : 참, 거짓을 반환해야 할 때는
+- **코딩 표준** : 참, 거짓을 반환해야 할 때는
     - 거짓일 때는 0을 반환
     - 참일 때는 1을 반환
     ```
@@ -147,10 +147,174 @@
         return 0;
     }
     ```
+    
+- enum
+    - C에서의 열거형은 그냥 정수에 별명 붙이는 수준
+    ```
+    enum day { DAY_MONDAY, DAY_TUESDAY, DAY_WEDNESDAY, };
+    enum month { MONTH_JANUARY, MONTH_FEBRUARY, MONTH_MARCH, };
 
+    enum day hump_day = DAY_WEDNESDAY;
+    enum month birth_month = hump_day;  // 컴파일이 된다. 태어난 달이 '수요일'
+    ```
 
+- 변수 선언 위치
+    - 변수 선언은 반드시 블럭의 시작에서만 해야함
+    - 코드 중간에 사용하는 변수는 블록 시작에서 선언하고 뒤에 대입
+    ```
+    int main(void)
+    {
+        int num1 = 10;      // 선언 대입
+        int num2 = 1234;    // 선언 대입
+        int result;         // 선언
+        
+        printf("num1 = %d, num2 = %d", num1, num2);
+        
+        result = add(num1, num2);   // 대입
+        
+        printf("%d + %d = %d", num1, num2, result);
+        
+        return 0;
+    }
+    ```
 
+## 연산자
+- 연산자 순위
+- C에서 새로 만나는 연산자
+    - `sizeof()`
+        - 함수가 아니다
+        - 피연산자의 크기를 바이트로 반환해주는 **연산자**
+        - 실행 중이 아니라 컴파일 도중에 크기를 찾음
+        - char 형을 넣으면 반드시 1이 반환
+        - sizeof() 연산자가 반환하는 값은 부호 없는 정수형의 상수로 size_t 형이다.
+        ```
+        char ch = 'a';
+        char num = 100;
+        
+        size_t size_char = sizeof(ch);  // 1
+        size_t size_int = sizeof(num);  // 4
+        ```
+        - size_t
+            - 부호 없는 정수형이나 실제 데이터형은 아님
+            - _t는 typedef(다른 자료형에 별칭을 붙이는 것)를 했다는 힌트
+            - 반복문이나 배열에 접근할 때 사용 (음수가 필요없으니까)
+            
+    - 역 참조 연산자 `*`
+    - 주소 연산자 `&`
+    - 구조체와 공용 맴버 접근자 `.` 과 `->`
+    
+## 조건
+- 조건 연산자
+    - 삼항 연산자라고 부르는게 보통
+    ```
+    int num1 = 10;
+    int num2 = 56;
+    int min = num1 < num2 ? num1 : num2;
+    ```
 
+- if문과 불 표현식(Boolean expression)
+    - 숫자를 if문의 조건식에 넣어도 곧바로 판단이 가능
+        - false : 0
+        - true : 0이 아닌 것(따라서, 음수도 포함)
+    - 메모리 주소(포인터)나 float 형(3.14f)도 마찬가지
+        - 모든 비트패턴이 0이면 false 아니면 true
+    ```
+    float num = 0.0f;
+    
+    if (num)    // false : 0
+    {
+        printf("%f\n", num);
+    }
+    
+    
+    float num = 3.14f;
+    
+    if (num)    // true : 3.14f
+    {
+        printf("%f\n", num);
+    {
+    ```
+    
+- switch
+    - case에 가능한 데이터형
+        - C는 정수형(int, char, enum)만 가능
+    - case 안에서 break를 빼먹으면 곧바로 탈출하지 않고 그 아래 있는 코드를 계속 실행
+        ```
+        enum fruit { FRUIT_APPLE, FRUIT_MANGO };
+        enum fruit fruit = FRUIT_APPLE;
+        
+        siwtch (fruit)
+        {
+            cae FRUIT_APPLE:
+                printf("Breakfast\n");
+                /* intentional fallthrough */
+                // 의도를 가지고 'break;'를 사용하지 않을 경우에 반드시 주석을 붙이자
+            case FRUIT_MANGO:
+                printf("Lunch\n");
+                break;
+            default:
+                printf("Unknown food\n");
+                break;
+        }
+        ```
+        
+- for
+    - for문의 초기화 코드에 size_t i = 0을 못 씀
+        - 변수 선언은 제일 위에서 해야하기 때문
+        ```
+        int sum = 0;
+        size_t i; 
+        
+        for (i = 0; i < 10; ++i)    // ++i 전위증감 습관들이기 
+        {
+            sum += i;
+        }
+        ```
+
+- while
+    - 조건식은 bool형 대신 1, 0을 반환
+    - 그래서 그냥 counter 변수를 넣는 경우가 있는데 좋은 습관이 아니다.
+    - `== 0` 혹은 `!= 0`을 넣는다.
+    ```
+    int day = 5;
+    while (day-- != 0)
+    { 
+        printf("%d\n", day);
+    }
+    ```
+    
+- for, while, do-while 실행 도중 
+    - 탈출하려면 `break`
+    ```
+    size_t num = 30;
+    
+    while (num > 0)
+    {
+        printf("Count down...%d\n", num);
+        --num;
+        
+        if (num < 15)
+        {
+            break;
+        }
+    }
+    ```
+    - 다음 회차로 넘어가려면 `continue`
+    ```
+    size_t num = 10;
+    
+    while (num > 0)
+    {
+        if (num == 5)
+        {
+            --num;
+            continue;
+        }
+        
+        printf("Count down...%d\n", num);
+        --num;
+    }
+    ```
 
 
 
