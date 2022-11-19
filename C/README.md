@@ -1,6 +1,6 @@
 [bluestronica.github.io](https://bluestronica.github.io/)
 
-### [Bitwise_Operators_In_C](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Bitwise_Operators_In_C.md)
+### [Bitwise Operators In C](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Bitwise_Operators_In_C.md)
 - 비트 시프트 연산자
 
 ### [Basic](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Basic.md)
