@@ -106,7 +106,7 @@ https://www.programiz.com/c-programming/bitwise-operators
     for (size_t i = 0; i < 6; ++i)
     {
       data[i] ^= key[i];
-      // DEC:36 BIN  0010 0100
+      // DEC:36  BIN 0010 0100
       // DEC:108 BIN 0110 1100
       // ^           0100 1000  DEC:72, ASIIC 코드 72은 `H`
     }
@@ -118,6 +118,15 @@ https://www.programiz.com/c-programming/bitwise-operators
 - `~ 연산자`
   - 모든 비트가 반전되는 특성이 있다.
   - 이 특성을 이용하면 보수를 구할 수 있고, 보수를 이용해 덧셈으로 뺄셈을 구현할 수 있다.
+  - Bitwise Complement of Any Number N is -(N+1)
+  ```
+  Decimal            Binary          
+    35              00100011
+    
+  35의 비트 보수 연산
+  ~ 00100011
+    11011100   =  Decimal 220
+  ```
   
 ### 비트 시프트 연산자
 
