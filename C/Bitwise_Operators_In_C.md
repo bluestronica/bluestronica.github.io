@@ -142,9 +142,9 @@ https://www.programiz.com/c-programming/bitwise-operators
   ```c
   int main(void)
   {
-    char aValue = 0x86;	    // 1000 0110  DEC 134가 아니라 -122 
+    char aValue = 0x86;     // 1000 0110  DEC 134가 아니라 -122 
                             // signed char 이기 때문에 숫자 범위는 -128~127
-    char bValue = 0x1d;	    // 0001 1101  DEC 29
+    char bValue = 0x1d;     // 0001 1101  DEC 29
     char cValue = ~bValue;  // 1110 0010  DEC -30 = -(29+1) = -(N+1) = ~29
 
     printf("aValue - bValue = %d\n", aValue - bValue);  // -151
