@@ -142,13 +142,20 @@ https://www.programiz.com/c-programming/bitwise-operators
   ```c
   int main(void)
   {
-    char aValue = 0x86;	 // 1000 0110  DEC 134가 아니라 -122 
-                         // signed char 이기 때문에 숫자 범위는 -128~127
-    char bValue = 0x1d;	 // 0001 1101  DEC 29
+    char aValue = 0x86;	    // 1000 0110  DEC 134가 아니라 -122 
+                            // signed char 이기 때문에 숫자 범위는 -128~127
+    char bValue = 0x1d;	    // 0001 1101  DEC 29
+    char cValue = ~bValue;  // 1110 0010  DEC -30 = -(29+1) = -(N+1) = ~29
 
     printf("aValue - bValue = %d\n", aValue - bValue);  // -151
+    
+    // C에서 보수를 이용해 덧셈으로 뺄셈을 구현 = (~N + 1)
     printf("aValue + (~bValue + 1) = %d\n", aValue + (~bValue + 1)); // -151
 
+
+    printf("Output = %d\n", ~35);   // Output = -36
+    printf("Output = %d\n", ~-12);  // Output = 11
+    
     return 0;
   }
   ```
