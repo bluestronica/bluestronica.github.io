@@ -56,7 +56,7 @@
     - 크기 : 8비트
     - 부호(unsigned/signed)를 생략할 경우 : signed
     - 단, 8비트 정수형으로 쓰려고 할 때는 반드시 char 앞에 signed나 unsigned를 넣어주는게 좋다.
-        - char signed_char = -1;
+        - signed char signed_char = -1;
         - unsigned char unsigned_char = 255;
     - char로 표현 가능한 숫자의 범위(표준)
         - 부호 없는 경우(unsigned char) : 0~255
