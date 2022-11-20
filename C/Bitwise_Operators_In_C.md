@@ -117,17 +117,41 @@ https://www.programiz.com/c-programming/bitwise-operators
   ```
 - `~ 연산자`
   - 모든 비트가 반전되는 특성이 있다.
+  ```
+  35 = 00100011 (In Binary)
+
+  Bitwise complement Operation of 35
+  ~ 00100011 
+    ________
+    11011100  = 220 (In decimal)
+  ```
   - 이 특성을 이용하면 보수를 구할 수 있고, 보수를 이용해 덧셈으로 뺄셈을 구현할 수 있다.
-  - Bitwise Complement of Any Number N is -(N+1)
+    1. The bitwise complement of 35 is 220 (in decimal). 
+    2. The 2's complement of 220 is -36.
+    3. Hence, the output is -36 instead of 220.
+    4. Bitwise Complement of Any Number N is **-(N+1)**
   ```
-  Decimal            Binary          
-    35              00100011
-    
-  35의 비트 보수 연산
-  ~ 00100011
-    11011100   =  Decimal 220
+   Decimal        Binary          2's complement 
+     0           00000000          -(11111111+1) = -00000000 = -0(decimal)
+     1           00000001          -(11111110+1) = -11111111 = -256(decimal)
+     12          00001100          -(11110011+1) = -11110100 = -244(decimal)
+     220         11011100          -(00100011+1) = -00100100 = -36(decimal)
+
+  Note: Overflow is ignored while computing 2's complement.
   ```
-  
+  ```c
+  int main(void)
+  {
+    char aValue = 0x86;	 // 1000 0110  DEC 134가 아니라 -122 
+                         // signed char 이기 때문에 숫자 범위는 -128~127
+    char bValue = 0x1d;	 // 0001 1101  DEC 29
+
+    printf("aValue - bValue = %d\n", aValue - bValue);  // -151
+    printf("aValue + (~bValue + 1) = %d\n", aValue + (~bValue + 1)); // -151
+
+    return 0;
+  }
+  ```
 ### 비트 시프트 연산자
 
 ### 비트 필드
