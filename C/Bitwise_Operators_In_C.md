@@ -8,7 +8,7 @@ https://www.programiz.com/c-programming/bitwise-operators
 ### 비트 연산자
 - `& 연산자`
   - 둘 중 하나라도 0이면 결과가 0이 되는 특성이 있다.
-  - 이 특성을 이용하면 특정 비트를 0으로 변경할 수 있다.
+  - 이 특성을 이용하면 **특정 비트를 0으로 변경**할 수 있다.
   ```
   12 = 00001100 (In Binary)
   25 = 00011001 (In Binary)
@@ -20,17 +20,41 @@ https://www.programiz.com/c-programming/bitwise-operators
     00001000  = 8 (In decimal)
   ```
   ```c
-  int main()
+  int main(void)
   {
     int a = 12, b = 25;
-    printf("Output = %d", a & b);    // Output = 8
+    
+    unsigned char data = 0xFF;  // 1111 1111
+    unsigned char mask = 0x01;  // 0000 0001
+    
+    printf("Output = %d", a & b);       // Output = 8
+    printf("Output = %d", data & mask); // 0000 0001 Output = 1
     
     return 0;
   }
   ```
 - `| 연산자`
   - 둘 중 하나라도 1이면 결과가 1이 되는 특성이 있다.
-  - 이 특성을 이용하면 특정 비트를 1로 변경할 수 있다.
+  - 이 특성을 이용하면 **특정 비트를 1로 변경**할 수 있다.
+  ```
+  12 = 00001100 (In Binary)
+  25 = 00011001 (In Binary)
+
+  Bitwise OR Operation of 12 and 25
+    00001100
+  | 00011001
+    ________
+    00011101  = 29 (In decimal)
+  ```
+  ```c
+  int main(void) 
+  {
+    int a = 12, b = 25;
+    printf("Output = %d", a | b); // Output = 29
+
+    return 0;
+  }
+  ```
 - `^ 연산자`
   - 두 개가 같으면 0, 다르면 1인 특성이 있다.
   - 이 특성을 이용하여 초기화, not 연산 구현, 암호화 및 복호화가 가능하다.
