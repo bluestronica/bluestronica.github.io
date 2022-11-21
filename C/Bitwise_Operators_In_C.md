@@ -304,6 +304,24 @@ int main()
         result2 = data<<3 + data<<1       // error
         result2 = (data<<3) + (data<<1)   // ok
         ```
+- 비트마스크 연산
+```c
+#include<stdio.h>
+
+int main() 
+{
+	int x = 10; // 이진수 표현: 1010
+	int bitmask = (1 << 0) | (1 << 1); // 첫 번째 비트와 두 번째 비트가 1인 숫자
+
+	printf("%d\n", x & bitmask); //특정 비트 추출, 결과: 0010 (출력값: 2)
+	printf("%d\n", x | bitmask); //특정 비트를 1로 변환, 결과: 1011 (출력값: 11)
+	printf("%d\n", x & ~bitmask); //특정 비트를 0으로 변환, 결과: 1000 (출력값: 8)
+	printf("%d\n", x ^ bitmask); //특정 비트를 반전, 결과: 1001 (출력값: 9)
+
+	return 0;
+}
+```
+
 
 ### 비트 필드
 
