@@ -250,24 +250,50 @@ int main()
                 printf("결과는 %d로 같다\n", data << i); // 18,36,72 순으로 출력
             }
         }
+        
+        return 0;
     }
     ```
     - 곱연산 대신 시프트연산 사용하기 - 임의의 정수의 곱
-    ```
+    ```c
     int main(void){
         unsigned char data = 0x09; // 0000 1001 (9)
         int result1, result2;
         
         result1 = data * 10; // 10 = 2^3 + 2^1
         result2 = (data<<3) + (data<<1); // 2^3은 <<3, 2^1은 <<1
+        
         if( result1 == result2 )
+        {
             printf("결과는 %d로 같다\n", result1); // 90 출력
+        }
+        
         return 0;
     }    
     ```
     - 나눗셈연산 대신 시프트 연산 사용하기 - 부호가 없는 자료형
-    ```
-    
+    ```c
+    int main(void)
+    {
+        int result1, result2;
+        unsigned char data = 0x99; // 1001 1001 (153)
+
+        result1 = data / 4;
+        result2 = data >> 2;
+        if (result1 == result2)
+        {
+            printf("결과는 %d로 같다.\n", result1); // 38 출력
+        }
+
+        result1 = data / 16;
+        result2 = data >> 4;
+        if (result1 == result2)
+        {
+            printf("결과는 %d로 같다.\n", result1); // 9 출력
+        }
+
+        return 0;
+    }    
     ```
 
 ### 비트 필드
