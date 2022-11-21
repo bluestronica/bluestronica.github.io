@@ -6,7 +6,7 @@ v
 
 
 ### 비트 연산자
-- `Bitwise AND Operator &`
+- Bitwise AND Operator **`&`**
   - 둘 중 하나라도 0이면 결과가 0이 되는 특성이 있다.
   - 이 특성을 이용하면 **특정 비트를 0으로 변경**할 수 있다.
   ```
@@ -33,7 +33,7 @@ v
     return 0;
   }
   ```
-- `Bitwise OR Operator |`
+- Bitwise OR Operator **`|`**
   - 둘 중 하나라도 1이면 결과가 1이 되는 특성이 있다.
   - 이 특성을 이용하면 **특정 비트를 1로 변경**할 수 있다.
   ```
@@ -60,7 +60,7 @@ v
     return 0;
   }
   ```
-- `Bitwise XOR (exclusive OR) Operator ^`
+- Bitwise XOR (exclusive OR) Operator **`^`**
   - 두 개가 같으면 0, 다르면 1인 특성이 있다.
   - 이 특성을 이용하여 **초기화, not 연산 구현, 암호화 및 복호화**가 가능하다.
   ```
@@ -115,7 +115,7 @@ v
     return 0;
   }
   ```
-- `Bitwise Complement Operator ~`
+- Bitwise Complement Operator **`~`**
   - 모든 비트가 반전되는 특성이 있다.
   ```
   35 = 00100011 (In Binary)
@@ -180,7 +180,23 @@ v
   ```
 - 시프트 연산의 결과로 비어있는 부분은 채워지고 넘치는 부분은 손실이 생긴다.
 ```c
-
+int main()
+{
+  unsigned char data;
+  
+  data = 0x55;  // 0101 0101  (85)
+  data <<= 1;   // 1010 1010  (170)
+  data <<= 2;   // 1010 1000  (168)   overflow 발생
+  data <<= 3;   // 0100 0000  (64)    overflow 발생
+  
+  
+  data = 0xAA;  // 1010 1010 (170)
+  data >>= 1;   // 0101 0101 (85)
+  data >>= 2;   // 0001 0101 (21)   underflow 발생
+  data >>= 3;   // 0000 0010 (2)    underflow 발생 
+  
+  return 0;
+}
 ```
 
 
