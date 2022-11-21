@@ -1,12 +1,12 @@
 [bluestronica.github.io/C](https://bluestronica.github.io/C)
 https://turtlog.tistory.com/8
-https://www.programiz.com/c-programming/bitwise-operators
+v
 
 # Bitwise Operators In C
 
 
 ### 비트 연산자
-- `& 연산자`
+- `Bitwise AND Operator &`
   - 둘 중 하나라도 0이면 결과가 0이 되는 특성이 있다.
   - 이 특성을 이용하면 **특정 비트를 0으로 변경**할 수 있다.
   ```
@@ -33,7 +33,7 @@ https://www.programiz.com/c-programming/bitwise-operators
     return 0;
   }
   ```
-- `| 연산자`
+- `Bitwise OR Operator |`
   - 둘 중 하나라도 1이면 결과가 1이 되는 특성이 있다.
   - 이 특성을 이용하면 **특정 비트를 1로 변경**할 수 있다.
   ```
@@ -60,7 +60,7 @@ https://www.programiz.com/c-programming/bitwise-operators
     return 0;
   }
   ```
-- `^ 연산자`
+- `Bitwise XOR (exclusive OR) Operator ^`
   - 두 개가 같으면 0, 다르면 1인 특성이 있다.
   - 이 특성을 이용하여 **초기화, not 연산 구현, 암호화 및 복호화**가 가능하다.
   ```
@@ -115,7 +115,7 @@ https://www.programiz.com/c-programming/bitwise-operators
     return 0;
   }
   ```
-- `~ 연산자`
+- `Bitwise Complement Operator ~`
   - 모든 비트가 반전되는 특성이 있다.
   ```
   35 = 00100011 (In Binary)
@@ -160,6 +160,8 @@ https://www.programiz.com/c-programming/bitwise-operators
   }
   ```
 ### 비트 시프트 연산자
+  - `Right Shift Operator >>`
+  - `Left Shift Operator <<`
 
 ### 비트 필드
 
