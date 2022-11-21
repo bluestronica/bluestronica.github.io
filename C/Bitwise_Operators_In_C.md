@@ -1,6 +1,7 @@
-[bluestronica.github.io/C](https://bluestronica.github.io/C)
+[bluestronica.github.io/C]
+(https://bluestronica.github.io/C)
 https://turtlog.tistory.com/8
-v
+https://post.naver.com/viewer/postView.naver?volumeNo=23072744&memberNo=25379965&vType=VERTICAL
 
 # Bitwise Operators In C
 
@@ -304,14 +305,21 @@ int main()
         result2 = data<<3 + data<<1       // error
         result2 = (data<<3) + (data<<1)   // ok
         ```
+
 - 비트마스크 연산
+  - 비트마스크는 특정 위치의 비트 값을 뽑아내거나 조작하는데 사용되는 개념이다.
+  - 특정 비트 추출
+  	- 비트별 논리 연산(&)을 한다.
+  - 특정 조작
+  	- 비트별 
 ```c
 #include<stdio.h>
 
 int main() 
 {
 	int x = 10; // 이진수 표현: 1010
-	int bitmask = (1 << 0) | (1 << 1); // 첫 번째 비트와 두 번째 비트가 1인 숫자
+	int bitmask = (1 << 0) | (1 << 1); // 첫 번째 비트와 두 번째 비트가 1인 숫자: 0011
+	// 0011의 으미는 첫 번째와 두 번째 비트 값만 알고 싶고 나머지 비트는 0으로 처리
 
 	printf("%d\n", x & bitmask); //특정 비트 추출, 결과: 0010 (출력값: 2)
 	printf("%d\n", x | bitmask); //특정 비트를 1로 변환, 결과: 1011 (출력값: 11)
