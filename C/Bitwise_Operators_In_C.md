@@ -178,7 +178,7 @@ v
   212<<0 = 11010100 (Shift by 0)
   212<<4 = 110101000000 (In binary) =3392(In decimal)
   ```
-- 시프트 연산의 결과로 비어있는 부분은 채워지고 넘치는 부분은 손실이 생긴다.
+- 시프트 연산의 결과로 비어있는 부분은 채워지고 **넘치는 부분은 손실**이 생긴다.
 ```c
 int main()
 {
@@ -186,19 +186,89 @@ int main()
   
   data = 0x55;  // 0101 0101  (85)
   data <<= 1;   // 1010 1010  (170)
-  data <<= 2;   // 1010 1000  (168)   overflow 발생
-  data <<= 3;   // 0100 0000  (64)    overflow 발생
+  data <<= 2;   // 1010 1000  (168)   overflow 발생 - 데이터 손실
+  data <<= 3;   // 0100 0000  (64)    overflow 발생 - 데이터 손실
   
   
   data = 0xAA;  // 1010 1010 (170)
   data >>= 1;   // 0101 0101 (85)
-  data >>= 2;   // 0001 0101 (21)   underflow 발생
-  data >>= 3;   // 0000 0010 (2)    underflow 발생 
+  data >>= 2;   // 0001 0101 (21)   underflow 발생 - 데이터 손실
+  data >>= 3;   // 0000 0010 (2)    underflow 발생 - 데이터 손실
   
   return 0;
 }
 ```
+- 시프트 연산자를 사용하는 방법은 2가지가 있다.
+  - 특정 위치의 비트 값을 뽑아내거나 조작하는데 사용한다.
+  ```c
+  int main(void)
+  {
+    unsigned char data;
 
+    // data에서 3번 비트만 볼 때
+    data = 0x75;	// 0101 0101 (85)
+    data <<= 4;		// 0101 0000 (80) 
+    data >>= 7;		// 0000 0000 (0)
+    printf("3번 비트 : %d\n", data);		// 0
+
+
+    // data에서 6번 비트만 볼 때
+    data = 0x55;// 0101 0101 (85);
+    data <<= 1; // 1010 0000
+    data >>= 7; // 0000 0001
+    printf("6번 비트 : %d\n", data);   // 1
+    
+    return 0;
+  }  
+  ```
+  - data의 특정 값을 곱셈 혹은 나누셈을 하고 싶은 경우 시프트 연산자를 이용할 수 있다.
+    - `a<<b`는 `a * pow(2,b)`와 결과값이 완전히 같다.
+      - a<<b = a의 특정 값이 2의 b승 만큼 이동한 값 = a * pow(2,b)
+      - `pow(x,y)` 함수는 x를 y제곱한 값을 구하는 함수
+    - `a>>b`는 `a * pow(2,-b)`와 결과값이 완전히 같다.
+      - a>>b = a의 특정 값이 2의 -b승 만큼 이동한 값 = a * pow(2,-b)
+    - 곱연산 대신 시시트연산 사용하기 - 2의 n승의 곱
+    ```c  
+    int IntegerPow(int bottom, int idx) 
+    {
+        while (idx-- != 0) 
+        {
+            bottom *= 2;  // data * 2^i = pow(2,i)
+        }
+        return bottom;
+    }
+
+    int main(void) 
+    {
+        unsigned char data = 0x09; // 0000 1001 (9)
+
+        for (int i = 1; i <= 3; i++) 
+        {
+            if ((data << i) == IntegerPow(data, i))
+            {
+                //data<<1, data<<2, data<<3
+                printf("결과는 %d로 같다\n", data << i); // 18,36,72 순으로 출력
+            }
+        }
+    }
+    ```
+    - 곱연산 대신 시프트연산 사용하기 - 임의의 정수의 곱
+    ```
+    int main(void){
+        unsigned char data = 0x09; // 0000 1001 (9)
+        int result1, result2;
+        
+        result1 = data * 10; // 10 = 2^3 + 2^1
+        result2 = (data<<3) + (data<<1); // 2^3은 <<3, 2^1은 <<1
+        if( result1 == result2 )
+            printf("결과는 %d로 같다\n", result1); // 90 출력
+        return 0;
+    }    
+    ```
+    - 나눗셈연산 대신 시프트 연산 사용하기 - 부호가 없는 자료형
+    ```
+    
+    ```
 
 ### 비트 필드
 
