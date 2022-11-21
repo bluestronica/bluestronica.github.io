@@ -159,9 +159,30 @@ v
     return 0;
   }
   ```
-### 비트 시프트 연산자
-  - `Right Shift Operator >>`
-  - `Left Shift Operator <<`
+
+### 시프트 연산자
+- Right Shift Operator **`>>`**
+  - 모든 비트를 지정된 비트만큼 오른쪽으로 이동
+  ```
+  212 = 11010100 (In binary)
+  212 >> 2 = 00110101 (In binary) [Right shift by two bits]
+  212 >> 7 = 00000001 (In binary)
+  212 >> 8 = 00000000 
+  212 >> 0 = 11010100 (No Shift)
+  ```
+- Left Shift Operator **`<<`**
+  - 모든 비트를 지정된 비트만큼 왼쪽으로 이동
+  ```
+  212 = 11010100 (In binary)
+  212<<1 = 110101000 (In binary) [Left shift by one bit]
+  212<<0 = 11010100 (Shift by 0)
+  212<<4 = 110101000000 (In binary) =3392(In decimal)
+  ```
+- 시프트 연산의 결과로 비어있는 부분은 채워지고 넘치는 부분은 손실이 생긴다.
+```c
+
+```
+
 
 ### 비트 필드
 
