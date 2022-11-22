@@ -7,7 +7,7 @@ https://post.naver.com/viewer/postView.naver?volumeNo=23072744&memberNo=25379965
 
 
 ### 비트 연산자
-- Bitwise AND Operator **`&`**
+- Bitwise `AND` Operator **`&`**
   - 둘 중 하나라도 0이면 결과가 0이 되는 특성이 있다.
   - 이 특성을 이용하면 **특정 비트를 0으로 변경**할 수 있다.
   ```
