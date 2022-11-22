@@ -317,7 +317,7 @@ int main()
       - x | 0011 의미는 바꾸자 하는 비트를 1로 두고 비트별 논리합 연산(|)을 한다. x의 해당 비트가 0이든 1이든 결과 값으로 1이 나오게 하기 위해서는 1과 논리합 연산을 해야한다.
     - 특정 비트를 0으로 변환
       - x & 1100 의미는 x의 해당 비트가 0이든 1이든 결과값으로 0이 나오게 하기 위해서는 0과 논리곱 연산을 해야한다.
-- 특정 비트를 반전
+- 특정 비트 반전
 ```c
 #include<stdio.h>
 
@@ -337,7 +337,57 @@ int main()
 
 
 ### 비트 필드
+- 비트필드 구조체
+```c
+// 구조체를 선언한 경우 구조체의 크기는 8바이트가 아닌 1바이트가 된다. 
+// unsigned char는 1바이트 공간을 가진다. 멤버 뒤의 숫자는 비트 수를 의미한다. 
+// 즉 1바이트라는 메모리 공간을 각각 멤버들이 1비트씩 나눠가진 것이다.
 
+struct TBool
+{
+    unsigned char a : 1;	
+    unsigned char b : 1;
+    unsigned char c : 1;
+    unsigned char d : 1;
+    unsigned char e : 1;
+    unsigned char f : 1;
+    unsigned char g : 1;
+    unsigned char h : 1;    
+};
+```
+```c
+// 비트수는 자유롭게 나눌 수 있다. 
+// 멤버는 int 4바이트, short 2바이트 등 여러 자료형을 쓸 수 있는데, 
+// 여기서 자료형은 단순히 비트 수의 크기만 지정하는 데에 의미가 있다.
+
+struct file_access {
+    unsigned short other     : 3; // rwx
+    unsigned short group     : 3; // rwx
+    unsigned short owner     : 3; // rwx
+    unsigned short type      : 3;
+    unsigned short egroup    : 1;
+    unsigned short euser     : 1;
+};
+```
+```c
+// 구조체의 크기는 가장 큰 필드 타입을 따라간다.
+
+struct option {
+    unsigned char  flag1 : 1;
+    unsigned short flag2 : 1;
+};
+```
+```c
+// 가장 큰 필드 타입보다 더 많은 데이터가 있는 경우,
+// 구조체의 크기가 모든 데이터를 담을 수 있을 만큼 N배 커진다.
+// option_large는 3 + 6 = 9 비트의 크기이므로,
+// char(8bit) * 2 만큼 커진다.
+
+struct option_large {
+    unsigned char opt1 : 3;
+    unsigned char opt2 : 6;
+};
+```
 
 
 
