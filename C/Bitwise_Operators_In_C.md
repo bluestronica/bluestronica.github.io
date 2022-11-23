@@ -1,7 +1,6 @@
 [bluestronica.github.io/C]
 (https://bluestronica.github.io/C)
-https://turtlog.tistory.com/8
-https://post.naver.com/viewer/postView.naver?volumeNo=23072744&memberNo=25379965&vType=VERTICAL
+
 
 # Bitwise Operators In C
 
