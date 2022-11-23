@@ -1,5 +1,4 @@
-[bluestronica.github.io/C]
-(https://bluestronica.github.io/C)
+[bluestronica.github.io/C](https://bluestronica.github.io/C)
 
 
 # Bitwise Operators In C
