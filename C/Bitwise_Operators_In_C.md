@@ -291,7 +291,7 @@ int main()
 - 비트 추출(분리)
   ```c
   const unsigned int greenBits = 0x00FF0000;    // green 영역
-  unsigned int pixel = 0xFF7F3300;  		// 7F 추출하기
+  unsigned int pixel = 0xFF7F3300;              // 7F 추출하기
   
   // pixel의 green 값을 추출(분리)해서 16bit 만큼 오른쪽으로 이동
   // use bitwise AND to isolate green pixels, 
@@ -299,7 +299,7 @@ int main()
   unsigned char green = (pixel & greenBits) >> 16; 
   
   printf("%d of 255 green\n", green); // 127(7F)
-  ``
+  ```
 
 ### 비트 필드
 - 비트필드 구조체
