@@ -24,6 +24,10 @@
 - C프로그램의 빌드 과정
 - 정리
 
+### [포인터 1](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Pointer1.md)
+- C프로그램의 빌드 과정
+- 주소 연산자 &
+
 ### [C-Style Character](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/C_Style_Character.md)
 - C-Style 문자열
 - 문자열 함수들(정리 해야함)
