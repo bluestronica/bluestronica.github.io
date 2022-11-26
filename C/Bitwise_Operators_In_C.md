@@ -6,52 +6,40 @@
 
 ### 비트 연산자
 - Bitwise **`AND`** Operator **`&`**
-  - 둘 중 하나라도 0이면 결과가 0이 되는 특성이 있다.
-  - 이 특성을 이용하면 **특정 비트를 0으로 변경**할 수 있다.
-  ```
-  12 = 00001100 (In Binary)
-  25 = 00011001 (In Binary)
-
-  Bit Operation of 12 and 25
-    00001100
-  & 00011001
-    ________
-    00001000  = 8 (In decimal)
-  ```
+  - **둘 중 하나라도 0이면 결과가 0**이 되는 특성이 있다.
+  - 특정 비트가 커져(1) 있는지 확인
+  - 즉, 비트의 상태를 알 수 있다.
   ```c
   int main(void)
   {
     int a = 12, b = 25;
     
     unsigned char data = 0xFF;  // 1111 1111
-    unsigned char mask = 0x01;  // 0000 0001
+    unsigned char mask = 0x01;  // 0000 0001 
+				// data 1번 비트가 커져있는지 상태 확인
     
-    printf("Output = %d", a & b);       // Output = 8
-    printf("Output = %d", data & mask); // 0000 0001 Output = 1
+    if(data & mask) // 상태 확인을 위해 & 연산
+    {
+       printf("data has mask set\n");
+    }
+    else
+    {
+       printf("data does not have mask set\n");
+    }
     
     return 0;
   }
   ```
 - Bitwise **`OR`** Operator **`|`**
-  - 둘 중 하나라도 1이면 결과가 1이 되는 특성이 있다.
-  - 이 특성을 이용하면 **특정 비트를 1로 변경**할 수 있다.
-  ```
-  12 = 00001100 (In Binary)
-  25 = 00011001 (In Binary)
-
-  Bitwise OR Operation of 12 and 25
-    00001100
-  | 00011001
-    ________
-    00011101  = 29 (In decimal)
-  ```
+  - **둘 중 하나라도 1이면 결과가 1**이 되는 특성이 있다.
+  - 비트를 켤(1) 수 있다.
   ```c
   int main(void) 
   {
     int a = 12, b = 25;
     
     unsigned char data = 0x00;  // 0000 0000
-    unsigned char mask = 0x01;  // 0000 0001
+    unsigned char mask = 0x01;  // 0000 0001 , data 1번 비트 켜기
     
     printf("Output = %d", a | b); // Output = 29
     printf("Output = %d", data | mask); // 0000 0001 Output = 1
@@ -60,28 +48,11 @@
   }
   ```
 - Bitwise **`XOR`** (exclusive OR) Operator **`^`**
-  - 두 개가 같으면 0, 다르면 1인 특성이 있다.
-  - 이 특성을 이용하여 **초기화, not 연산 구현, 암호화 및 복호화**가 가능하다.
-  ```
-  12 = 00001100 (In Binary)
-  25 = 00011001 (In Binary)
-
-  Bitwise XOR Operation of 12 and 25
-    00001100
-  ^ 00011001
-    ________
-    00010101  = 21 (In decimal)
-  ```
-  ```c
-  int main(void) 
-  {
-    int a = 12, b = 25;
-    
-    printf("Output = %d", a ^ b); // Output = 21
-
-    return 0;
-  }
-  ```
+  - **두 개가 같으면 0**, 다르면 1인 특성이 있다.
+  - 비트를 토글(toggle)할 수 있다.
+    - 토글(toggle): 비트가 커져 있으면 끄고, 꺼져 있으면 켜는 방법
+  - not 연산 구현, 
+  - 암호화 및 복호화
   ```c
   #include <stdio.h>
   #define DATA_SIZE 6
@@ -116,6 +87,7 @@
   ```
 - Bitwise **`Complement`** Operator **`~`**
   - 모든 비트가 반전되는 특성이 있다.
+  - 연산자(&)와 연산자(~)를 이용해서 비트를 끌 수 있다.
   ```
   35 = 00100011 (In Binary)
 
@@ -304,35 +276,30 @@ int main()
         result2 = (data<<3) + (data<<1)   // ok
         ```
 
-### 비트마스크 연산
-- 비트마스크는 특정 위치의 비트 값을 뽑아내거나 조작하는데 사용되는 개념이다.
-- 특정 비트 추출
-  - 비트별 논리 연산(&)을 한다.
-    - x & 0011 의미는 x의 값이 무엇이든 결과값의 세 번째 비트와 네 번째 비트는 항상 0이 될것이고, **첫 번째와 두 번째 비트 값만 알고 싶고**(추출) 나머지 비트는 0으로 처리해서 의미가 없는 값이 되는 것이다. 
-- 특정 비트 조작
-    - 해당 비트 값이 무없인지 모르지만 무조건 1 또는 0으로 만들거나, 비트를 반전시키는 용도로 사용
-    - 특정 비트를 1로 변환
-      - x | 0011 의미는 바꾸자 하는 비트를 1로 두고 비트별 논리합 연산(|)을 한다. x의 해당 비트가 0이든 1이든 결과 값으로 1이 나오게 하기 위해서는 1과 논리합 연산을 해야한다.
-    - 특정 비트를 0으로 변환
-      - x & 1100 의미는 x의 해당 비트가 0이든 1이든 결과값으로 0이 나오게 하기 위해서는 0과 논리곱 연산을 해야한다.
-- 특정 비트 반전
-```c
-#include<stdio.h>
-
-int main() 
-{
-	int x = 10; // 이진수 표현: 1010
-	int bitmask = (1 << 0) | (1 << 1); // 첫 번째 비트와 두 번째 비트가 1인 숫자: 0011
-
-	printf("%d\n", x & bitmask);  //특정 비트 추출, 결과: 0010 (출력값: 2)
-	printf("%d\n", x | bitmask);  //특정 비트를 1로 변환, 결과: 1011 (출력값: 11)
-	printf("%d\n", x & ~bitmask); //특정 비트를 0으로 변환, 결과: 1000 (출력값: 8)
-	printf("%d\n", x ^ bitmask);  //특정 비트를 반전, 결과: 1001 (출력값: 9)
-
-	return 0;
-}
-```
-
+### 정리
+- 비트 켜기
+  - `myflags |= bitmask;`
+- 비트 끄기
+  - `myflags &= ~bitmask;`
+  - `myflags &= ~(bitmask1 | bitmask2); ` 여러 비트 동시에 끄기
+- 비트 뒤집기(반전)
+  - `myflags ^= bitmask;`
+  - `myflags ^= (bitmask1 | bitmask2);` 여러 비트 동시에 뒤집기
+- 비트 상태 확인
+  - 특정 비트 커져 있는 확인
+  - `if(myflags & bitmask)`
+- 비트 추출(분리)
+  ```c
+  const unsigned int greenBits = 0x00FF0000;    // green 영역
+  unsigned int pixel = 0xFF7F3300;  		// 7F 추출하기
+  
+  // pixel의 green 값을 추출(분리)해서 16bit 만큼 오른쪽으로 이동
+  // use bitwise AND to isolate green pixels, 
+  // then right shift the value into the range 0-255
+  unsigned char green = (pixel & greenBits) >> 16; 
+  
+  printf("%d of 255 green\n", green); // 127(7F)
+  ``
 
 ### 비트 필드
 - 비트필드 구조체
