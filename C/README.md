@@ -14,18 +14,22 @@
 - 조건과 반복
 
 ### [기본 문법 2](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Function.md)
-- 함수
+- 함수(Function)
+- 평가 순서
+- 범위(scope)
+- const 베스트 프랙티스
+- 배열(array)
 
 ### [기본 문법 3 Build](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Build.md)
 - C프로그램의 빌드 과정
 
 ### [C-Style Character](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/C_Style_Character.md)
 - C-Style 문자열
-- 문자열 함수들 (정리 해야함)
+- 문자열 함수들(정리 해야함)
 
 ### [Inuput / Output](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Input_Output.md)
-- 출력 (Output)
-- 입력 (Input)
+- 출력(Output)
+- 입력(Input)
 
 ### [getchar(), getche(), getch(), putchar(), putch()](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/getchar_getche_getch.md)
 - getchar(), getche(), getch()
