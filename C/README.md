@@ -22,6 +22,7 @@
 
 ### [기본 문법 3 Build](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Build.md)
 - C프로그램의 빌드 과정
+- 정리
 
 ### [C-Style Character](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/C_Style_Character.md)
 - C-Style 문자열
