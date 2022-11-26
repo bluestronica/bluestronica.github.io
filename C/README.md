@@ -3,7 +3,7 @@
 ### [Bitwise Operators In C](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Bitwise_Operators_In_C.md)
 - 비트 연산자
 - 시프트 연산자
-- 비트마스크 연산자
+- 정리
 - 비트필드
 
 ### [기본 문법 1](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Basic.md)
