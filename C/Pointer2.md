@@ -71,11 +71,119 @@
   - `int num = *p++;` p++가 우선순위
   - `int num = *(p++);` 와 같다.
 - 포인터 연산자 평가 및 실행 (1)
-  - `int num = *(p++);`
+  - `int num = *(p++);` 평가 후 실행
     - 1. p++ : p로 평가, 아직 p = p + 1 실행 안 함
-    - 2. *p와 동일 : p의 값(0x104)이 가리키는 주소의 값(134)에 접근
+    - 2. *(p++)은 *p와 동일 : p의 값(0x104)이 가리키는 주소의 값(134)에 접근
     - 3. = : num에 값(134)을 대입
     - 4. p++ : p = p + 1 실행, 0x108이 p에 저장
+- 포인터 연산자 평가 및 실행 (2)
+  - `int num = *(++p);`
+    - 1. ++p : p = p + 1 실행 후 평가
+    - 2. *(++p) : p의 값(0x108)이 가리키는 주소의 값(68)에 접근
+    - 3. = : num에 값(68)을 대입
+- 포인터 연산자 우선순위 및 결합(2)
+  - `int num = ++*p;`
+  - `int num = ++(*p);`
+    - 1. (*p) : p의 값(0x104)이 가리키는 값(134)에 접근
+    - 2. ++ : 접근한 값을 1증가, 134 + 1 = 135
+    - 3. = : num에 135를 대입 
+- 포인터 연산자 우선순위 및 결합(3)
+  - `int num = (*p)++;`
+    - 1. (*p) : p의 값(0x104)이 가리키는 값(134)에 접근
+    - 2. ++ : 평가하고 대입, 아직 1을 더하진 않음
+    - 3. = : num에 134를 대입 
+    - 4. ++ : 실행, 134 + 1 = 135, p의 값(0x104)이 가리키는 값(135)
+- 조금 더 빠른 배열의 요소 더하기
+  - *p++ 이렇게 접근하는게 배열보다 더 빠름
+  - 배열은 언제나 첫 주소 + 요소 위치까지의 오프셋
+  - 포인터는 이미 다음 주소에 가 있기에 그대로 참조
+  ```c
+  int sum(int* data, const size_t length)
+  {
+    int result = 0;
+    size_t i;
+    
+    for (i = 0; i < length; ++i)
+    {
+      result += data[i];
+    }
+    
+    return result;
+    
+    // &data[0] + (0 * 4)
+    // &data[0] + (1 * 4)
+    // &data[0] + (2 * 4)
+    // &data[0] + (3 * 4)
+    // &data[0] + (4 * 4)
+    // 배열은 언제나 첫 주소 + 요소 위치까지의 오프셋
+  }
+  ```
+  ```c
+  int sum(int* start, int* end)
+  {
+    int result = 0;
+    int* p = start;
+    
+    while (p < end)
+    {
+      result += *p++;
+    }
+    
+    return result;
+    
+    // p = p + 4    
+    // p = p + 4
+    // p = p + 4
+    // p = p + 4
+    // p = p + 4
+    // 포인터는 이미 다음 주소에 가 있기에 그대로 참조
+  }
+  ```
+  
+### 포인터와 const
+- **주소를 보호하는 const 포인터**
+  - **`int* const p = &num;`**
+  - "p is a const pointer to int"
+  - const 변수
+    - 생성과 동시에 초기화해야함
+    - 초기화 이후 다른 값으로 변경 불가
+    - const가 아닌 변수에 대입은 가능
+    - `const int 변수`
+    - `int* const 변수`
+- **그 주소가 가리키는 값을 보호하는 const를 가리키는 포인터**
+  - **`const int* p = &num;`**
+  - "p is a pointer to int, which is const"
+  - 실수가 있을 경우 함수 내에서 뿐만 아니라 전역적으로 문제가 발생
+  - **그래서 이게 바로 전의 주소 보호 보다 더 중요!!**
+  ```c
+  int display_user(const int* id, const char* name)
+  {
+    int result;
+    
+    // id를 읽기 전용으로 막 사용
+    // name을 읽기 전용으로 막 사용
+        
+    return result;
+  }
+  ```
+- 두 const의 정리  
+  - 주소를 보호하는 const 포인터
+    - **`int* const p = &num;`**  
+  - 주소가 가리키는 값을 보호하는 cosnt 포인터
+    - **`const int* p = &num;`**
+  - 주소에 저장되어 있는 값을 보호하는 const가 더 중요함!
+- 두 cosnt 합체!
+  - **`const int* const p = &num;`**
+  - "p is a const pointer to const int"
+  - 초기화된 후 절대 바뀌지 않는 변수가 있을 때 정도만 유용할 듯
+    - 전역변수, 구조체 멤버 변수
+- const 베스트 프랙티스
+  - const는 최대한 다 붙이는게 좋음
+  - const 캐스팅은 하지 말 것
+  
+### 포인터의 용도
+  - 
+    
   
   
   
