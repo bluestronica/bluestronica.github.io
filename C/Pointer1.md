@@ -125,8 +125,9 @@ void increase_price(int* current_price)
   - 함수가 널 포인터를 반환할 수 있다면,
   - 함수 이름 끝에 '_or_null'을 붙인다.
   ```c
-  const char* get_name_or_null(const it id)
+  const char* get_name_or_null(const int id)
   {
+    // 코드 생략
     return NULL:
   }
   ```
