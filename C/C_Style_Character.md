@@ -13,7 +13,7 @@
     - 16진수로 표현
         - `0x00000000 ~ 0xFFFFFFFF`
         - `0xFF00abcd`위치의 주소가 1바이트 증가하면 `0xFF00abce`
-    - <img src="Img/address2.png">
+    - <img src="Img/address.png">
     - adf
 # C-Style 문자열
 - #### char[]로만 구성
