@@ -155,7 +155,47 @@ const char* msg1 = "AB";
 const char* msg2 = "AC";
 int result = compare_string(msg1, msg2);
 int result2 = compare_string2(msg1, msg2);
+int result3 = strcmp(msg1, msg2);
 ```
+
+### strcpy() : 문자열 복사
+```c
+char* strcpy(char* dest, const char* src);
+```
+- 위험할 수 있는 함수
+- dest 크기 < src 크기
+    - 잘못된 메모리 쓰기 발생
+- 두 크기를 확실히 통제 가능하다면 안전
+
+### strncpy() : 비교적 안전한 문자열 복사
+```c
+char* strncpy(char* dest, const char* src, size_t count);
+```
+- 최대 count만큼 복사
+- 널 문자(`\0`)를 먼저 만나면 그전에 끝냄
+- src가 count보다 짦으면
+    - 남은 걸 다 0(`\0`)으로 채워줌
+    - dest |H|i|\0|\0|\0|
+- src가 count보다 길거나 같다면
+    - count만큼 복사함
+    - 널 문자를 붙일 곳이 없음
+    - 따라서 안 붙여줌
+        - dest |L|u|l|
+    - 그래서 프로그래머가 언제가 이렇게 코드 한줄을 추가
+        - dest |L|u|\0|
+    ```c
+    strncpy(dest, src, DEST_SIZE);
+    dest[DEST_SIZE -1] = '\0';
+    ```    
+- strcpy()보다 안전
+- 덜 빠름
+    - dest의 남은 요소를 0으로 채우기 때문
+- 여전히 위험한 경우가 있음
+    - count보다 src가 길 경우
+        - 다 복사하고 널 문자가 없음
+        - 프로그래머가 널 문자를 붙여줘야 함
+- C11에서 이보다 안전한 strcpy_s(), strncpy_s() 함수가 있음!
+
 
 
 
