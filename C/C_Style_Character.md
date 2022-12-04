@@ -114,10 +114,10 @@ size_t strlen(const char* str);
 int compare_string(const char* str0, const char* str1);
 ```
 - 사전식 순서로 어떤 문자의 아스키코드가 더 작음/같음/큼을 판별
-    - ABCD < ABCE : return -1;
-    - abcd > ABCD
-    - ABC < ABCEFG
-    - abcd = abcd
+    - ABCD < ABCE    : return -1;
+    - abcd > ABCD    : return 1;
+    - ABC < ABCEFG   : return -1;
+    - abcd = abcd    : return 0;
 - 반환값
     - 같으면 `0`           : return 0;
     - 좌항이 작으면 `< 0`  : return -1;
