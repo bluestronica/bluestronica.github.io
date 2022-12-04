@@ -92,6 +92,7 @@ int main(void)
 - strcat() /strncat()
 - strtok()
 - 그 외 다수 
+
 ### 특징
 - 꽤 많은 함수들이 문자열을 절대 변경하지 않는다!
     - 매개변수에 **`const char*`** 붙인다.
@@ -101,3 +102,39 @@ int main(void)
 - 절대 새로운 문자열(즉, 연속된 char 메모리)을 만들어 주지 않는다!
     
 ### strlen()
+- `size_t strlen(const char* str);`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
