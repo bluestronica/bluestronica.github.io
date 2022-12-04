@@ -102,7 +102,9 @@ int main(void)
 - 절대 새로운 문자열(즉, 연속된 char 메모리)을 만들어 주지 않는다!
     
 ### strlen() : 문자열 길이 구하는 함수
-```c size_t strlen(const char* str);```
+```c 
+size_t strlen(const char* str);
+```
 - 널캐릭터 없는 문자열을 무작정 읽으면 위험한 일이 일어날 수 있다.
 - 그래서, 외부에서 들어오는 문자열 읽을 때 조심해서 읽어야 한다.
 - C11의 **`strlen_s()`** 함수가 이 문제를 해결하기도
