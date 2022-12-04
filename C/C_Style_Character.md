@@ -109,9 +109,9 @@ size_t strlen(const char* str);
 - 그래서, 외부에서 들어오는 문자열 읽을 때 조심해서 읽어야 한다.
 - C11의 **`strlen_s()`** 함수가 이 문제를 해결하기도
 
-### compare_string() : 두 문자열 비교하는 함수
+### strcmp() : 문자열 비교 함수
 ```c 
-int compare_string(const char* str0, const char* str1);
+int strcmp(const char* lhs, const char* rhs);
 ```
 - 사전식 순서로 어떤 문자의 아스키코드가 더 작음/같음/큼을 판별
     - ABCD < ABCE    : return -1;
@@ -123,8 +123,39 @@ int compare_string(const char* str0, const char* str1);
     - 좌항이 작으면 `< 0`  : return -1;
     - 좌항이 크면 `> 0`    : return 1;
     - 음수도 반환하니 반환형은 `int`
+```c
+int compare_string(const *char str0, const char* str1)
+{
+    while (*str0 != '\0' && *str0 == *str1)
+    {
+        ++str0;
+        ++str1;
+    }
+    
+    return *str0 - *str1;
+}
 
+int compare_string2(const *char str0, const char* str1)
+{
+    while (*str0 != '\0' && *str0 == *str1)
+    {
+        ++str0;
+        ++str1;
+    }
+    
+    if (*str0 == *str1)
+    {
+        return 0;
+    }
+    
+    return *str0 > *str1 ? 1: -1;
+}
 
+const char* msg1 = "AB";
+const char* msg2 = "AC";
+int result = compare_string(msg1, msg2);
+int result2 = compare_string2(msg1, msg2);
+```
 
 
 
