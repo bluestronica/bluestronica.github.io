@@ -102,7 +102,7 @@ int main(void)
 - 절대 새로운 문자열(즉, 연속된 char 메모리)을 만들어 주지 않는다!
     
 ### strlen()
-- #### `size_t strlen(const char* str);`
+- **`size_t strlen(const char* str);`**
 
 
 
