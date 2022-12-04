@@ -43,6 +43,38 @@
         - `|'a'|'b'|'c'|'\0'|`
         - 문자열의 길이는 3;
         - 배열의 길이는 4;
+    - 효율적인 문자열 길이 구하기
+    ```c
+    #include <stdio.h>
+
+    size_t get_string_length(const char* str)
+    {
+        const char* p = str;	// const는 그 주소가 가리키는 값을 보호
+                                // 그래서 포인터 p가 가리키는 값을 변경하지 않으니 에러 나지않고
+                                // 포인터 p는 p = p + 1; 이 가능							
+
+        while (*p++ != '\0')		
+        {
+            // 단지, 포인터 p의 주소를 1만큼 증가 시키는 연산이기 때문에 
+            // const char* p는 에러 없이 실행된다.
+            // 하지만 *p의 값을 변경하려면 에러가 난다. 
+            // 왜냐하면, const char* p는 그 주소가 가리키는 값의 변경을 보호하기 때문이다.
+            // 참고로, int* const p = str;은 포인터 p가 가리키는 주소를 보호한다.
+        }
+        return p - str - 1;	 // 두 주소 간의 사칙연산은 뺄셈만 지원한다.
+    }
+
+    int main(void)
+    {
+        char str[] = "abcd";  // 00 ef f8 14
+
+        size_t count = get_string_length(str);
+
+        printf("count: %d", count);
+
+        return 0;
+    }
+    ```
 
 - #### C-Style 문자열의 장단점
     - 장점
