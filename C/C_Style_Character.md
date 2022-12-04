@@ -47,7 +47,7 @@
     ```c
     #include <stdio.h>
 
-    size_t get_string_length(const char* str)
+    size_t get_string_length(const char* str) // 읽기 전용으로 str 시작주소를 받음
     {
         const char* p = str;    // const char* p는 그 주소가 가리키는 값을 보호  
 
