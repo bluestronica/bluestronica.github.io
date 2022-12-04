@@ -196,8 +196,35 @@ char* strncpy(char* dest, const char* src, size_t count);
         - 프로그래머가 널 문자를 붙여줘야 함
 - C11에서 이보다 안전한 strcpy_s(), strncpy_s() 함수가 있음!
 
+### strcat() : 문자열 합치기
+```c
+char* strcat(char* dest, const char* src);
+```
+- src의 문자열을 dest 뒤에 덧붙이는 함수
+    - dest의 널 문자가 들어있는 위치부터 src의 문자열 추가
+    - 바꿔 말하면 dest의 널 문자가 src[0]로 교체
+- dest의 길이가 충분해야 함
+    - 이 길이를 쓸 경우 정의되지 않느 결과 발생
+    - dest 범위를 넘어선 곳까지 데이타가 복사
 
-
+## strncat() : 비교적 안전한 문자열 합치기
+```c
+char* strncat(char* dest, const char* src, size_t count);
+```
+- count 개의 문자를 복사한 뒤, 널 문자를 가장 마지막에 붙여줌
+- 따라서, 최대 count + 1 개의 문자를 덮어 씀
+- dest의 길이보다 길게 쓰면 마찬가지로 정의되지 않은 결과 발생
+    - 그러나 count로 이러한 경우가 발생하지 않도록 프로그래머가 제어 가능
+    - 따라서 strcat()보다는 조금 더 안전
+    ```c
+    #deifn DEST_COUNT (20)
+    
+    const char* src = "HELLO";
+    char dest[DEST_COUNT] = "Hi ";
+    
+    strncat(dest, src DEST_COUNT - strlen(dest) - 1);
+    ```
+- C11에서 이보다 안전한 strcat_s(), strncat_s()함수가 있다!
 
 
 
