@@ -277,8 +277,8 @@ while (TRUE)
         break;
     }
 
-    if (sscanf(line, "%d", &num) == 1) // line에서 숫자 10만 읽어와서 num에 10 입력
-    {
+    if (sscanf(line, "%d", &num) == 1) // line에서 숫자 10만 읽어와서
+    {                                  // num에 10 입력
         sum += num;
     }
 }            
