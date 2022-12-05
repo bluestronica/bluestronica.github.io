@@ -277,8 +277,9 @@ while (TRUE)
         break;
     }
 
-    if (sscanf(line, "%d", &num) == 1) // line에서 숫자 10만 읽어와서
-    {                                  // num에 10 입력
+    if (sscanf(line, "%d", &num) == 1) // line에서 숫자만 읽어옴
+    {                                  // 한 개 읽었으므로 통과!
+                                       // num에 10 입력
         sum += num;
     }
 }            
@@ -295,6 +296,9 @@ while (TRUE)
 // 문자열을 읽을 때도 버퍼 오버플로를 막기위해
 // word에서 읽어올때 이 word 길이를 한 줄 읽어오는 길이랑 일치시켜버린다.
 // 그래서 4096보다 긴 문자열이 들어오면 그냥 짤리는게 전부이다.
+// fgets()가 최대 LENGTH(4096) char 읽어 오는데 
+// 그거를 다시 4096 char 길이만큼 char 배열에 읽는다고 해서 문제가 생길 수 없다.
+
 char line[LENGTH];
 char word[LENGTH];
 
@@ -303,7 +307,7 @@ while (TRUE)
 {     
     if (fgets(line, LENGTH, stdin) == NULL)  // line : 문자열 길이만큼\n\0
     {
-        clearerr(stdin);
+        clearerr(stdin);  // 오류 표시자 지워주는 함수 
         break;
     }
 
@@ -318,22 +322,24 @@ while (TRUE)
 - 텍스트를 다른 자료형으로 곧바로 읽어오는 가장 간단한 방법
 - 사용자 입력 받을 때(그리고 여러 데이터가 혼용된 텍스트 파일을 읽어올 때) 가장 많이 쓰는 방법
 
-### 한 블록 읽기
-- **fread()**
-    - `size_t fread(void* buffer, size_t size, size_t count, FILE* stream);`
-    - size 바이트짜리 데이터를 총 count 개수만큼 읽음
-    - 그래서 buffer에 저장
-    - EOF 만나면 당연히 멈춤
-    - 실제로 읽은 개수를 반환
-    ```c
-    int nums[64];      // int 블록 총 64개 
-    size_t num_read;   // 총 몇 바이트? 64 * sizeof(int)
-    FILE* fstream;
+### 한 블록 읽기 - fread()
+```c
+size_t fread(void* buffer, size_t size, size_t count, FILE* stream);
+```
+- size 바이트짜리 데이터를 총 count개수만큼 읽음
+- 그래서 buffer에 저장
+- EOF 만나면 당연히 멈춤
+- 실제로 읽은 개수를 반환
+```c
+int nums[64];      // int 블록 총 64개 
+size_t num_read;   // 총 몇 바이트? 64 * sizeof(int)
+FILE* fstream;
 
-    num_read = fread(nums, sizeof(nums[0]), 64, fstream);
-    fwrite(nums, sizeof(nums[0]), 64, fstream);
-    ```
-- 한 블록씩 읽는 방법이 유용한 경우
+num_read = fread(nums, sizeof(nums[0]), 64, fstream);
+fwrite(nums, sizeof(nums[0]), 64, fstream);
+```
+
+### 한 블록씩 읽는 방법이 유용한 경우
     - 가장 중요한 건 이진 데이터 읽기 위해
     - 이진 데이터를 하나씩 읽을 수 있지만 한꺼번에 읽으면 성능 향상
 - 주의 할점
