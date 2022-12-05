@@ -242,15 +242,15 @@ int fscanf(FILE* stream, const char* format, ...);
 int sscanf(const char* buffer, const char* format, ...);
 ```
 - **scanf()**    
-- 키보드(stdin)로부터 입력을 받아 변수에 저장
-- `scanf("%d", &num);`
-    - 참조에 의한 전달 흉내 중
-    - 그냥 num을 넣으면 복사된 매개변수를 넣어봐야
-    - 함수 속에서 바꾸어도 반환 시 사라지게 된다.
+    - 키보드(stdin)로부터 입력을 받아 변수에 저장
+    - `scanf("%d", &num);`
+        - 참조에 의한 전달 흉내 중
+        - 그냥 num을 넣으면 복사된 매개변수를 넣어봐야
+        - 함수 속에서 바꾸어도 반환 시 사라지게 된다.
 - **fscanf()**
     - 파일 스트림으로부터 읽음
 - **sscanf()**
-    - C-style 문자열로부터 읽음
+    - C-Style 문자열로부터 읽음
     
 ### scanf()는 문자열 읽을 때 쓰면 별로임
 - 숫자만 읽어야 하는데 문자를 읽으면...
