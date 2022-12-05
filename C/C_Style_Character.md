@@ -207,7 +207,7 @@ char* strcat(char* dest, const char* src);
     - 이 길이를 쓸 경우 정의되지 않느 결과 발생
     - dest 범위를 넘어선 곳까지 데이타가 복사
 
-## strncat() : 비교적 안전한 문자열 합치기
+### strncat() : 비교적 안전한 문자열 합치기
 ```c
 char* strncat(char* dest, const char* src, size_t count);
 ```
@@ -226,9 +226,39 @@ char* strncat(char* dest, const char* src, size_t count);
     ```
 - C11에서 이보다 안전한 strcat_s(), strncat_s()함수가 있다!
 
+### strstr() : 문자열 속에 문자열 찾기
+```c
+char* strstr(const char* str, const char* substr);
+```
+- 반환값
+    - cahr 포인터
+    - substr이 str에 있다면 : 해당 substr이 시작하는 주소
+    - substr이 str에 없다면 : 널 포인터(NULL)
+- 반환값으로 메모리 주소를 돌려주는 이유
+    - 새로운 문자열을 만들어 반환할 경우 메모리 관리 측면에서 효율적이지 못하고 실수할 수 있음
+- 그럼 어디에 그 새로운 문자열을 저장할까?
+    - 새 문자열을 반환하려면 메모리 '어딘가'에 그 문자열을 복사해야 한다.
+    - 복사하는 위치가 스택이면
+        - 함수 끝나면 사라짐 -> 반환값이 더 이상 유효하지 않은 메모리 주소
+    - 복사하는 위치가 힙이면(동적 메모리 할당)
+        - 메모리 할당을 운영체제에게 부탁해야 하므로 느림
+        - 그리고 더 이상 사용 안 할 경우 프로그래머가 직접 메모리 해제 함수를 호출해야 하는데 깜박 잊고 안할 수도 있음
+    - 그래서 그냥 원본에서 찾고자 하는 문자열이 시작하는 주소를 반환하는 걸로 간단하게 해결
+        - 추가적으로 메모리를 쓰지도 않고
+        - 사람이 저지를 수 있는 실수도 줄일 수 있다.
+```c
+#include <string.h>
 
-
-
+int main(void)
+{
+    char msg[] = "I love string! I love C!";
+    
+    char* result = strstr(msg, "string");
+    printf("result: %s\n", result == NULL ? "(null)" : result);
+    
+    return 0;
+}
+```
 
 
 
