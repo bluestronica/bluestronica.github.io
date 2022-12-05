@@ -15,8 +15,8 @@
     int a = 12, b = 25;
     
     unsigned char data = 0xFF;  // 1111 1111
-    unsigned char mask = 0x01;  // 0000 0001 
-		                // data 1번 비트가 커져있는지 상태 확인
+    unsigned char mask = 0x01;  // 0000 0001
+                                // data 1번 비트가 커져있는지 상태 확인
     
     if(data & mask) // 상태 확인을 위해 & 연산
     {
