@@ -4,14 +4,14 @@
 
 ### 서식 지정(formatted) 출력
 - **C에서 출력을 논할 때 가장 기본이 되는 함수**
-    - **`printf()`** : 콘솔창(stdout)에 출력
+    - **`printf()`** : **콘솔창(stdout)에 출력**
         ```c
         const char* msg = "Hello World";
 
         printf("%s\n", msg);
         printf("Hello World)";
         ```
-    - **`fprintf()`** : 스트림에 출력
+    - **`fprintf()`** : **스트림에 출력**
         ```c
         const char* msg = "Hello World";
 
@@ -19,7 +19,7 @@
         fprintf(stdout, "Hello World\n");
         fprintf(stderr, "Error!!\n");
         ```
-    - **`sprintf()`** : 문자열에 출력
+    - **`sprintf()`** : **문자열에 출력**
         - 출력은 char 배열에!!
         - 정말 많이 씀!
         - 심지어 C++에서 string 클래스가 있는데도 이걸 대신 많이 씀
