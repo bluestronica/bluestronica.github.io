@@ -262,26 +262,22 @@ int main(void)
 }
 ```
 
+### strtok() : 문자열을 토큰화하기
+```c
+char* strtok(char* str, const char* delims);
+```
+- 토큰화하는 문자열은 const가 아니다! 원본이 바뀜
+```c
+char msg[] = "Hi, there. Hello. Bye";
+const char delims[] = ",.";   // 구분 문자 배열로 넣어줌
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+char* token = strtok(msg, delims);
+while (token != NULL)
+{
+    printf("%s\n", token);
+    token = strtok(NULL, delims);
+}
+```
 
 
 
