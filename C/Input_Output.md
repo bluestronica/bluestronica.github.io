@@ -136,13 +136,13 @@ while (c != EOF)
 // getchar() 한번으로 줄이기
 int c;
 
-while ((c = getchar()) != EOF) // 한 줄로 줄이는 건 실수하기 쉬움!! 괄호빼먹으면 큰일 남
+while ((c = getchar()) != EOF) // 한 줄로 줄이는 건 실수하기 쉬움!! 괄호빼먹을 수도
 {
     putchar(c);
 }
 ```
 - EOF 키는 ctrl키와 다른 키를 조합해서 넣음
-    - 윈도우 : ctrl + z
+    - 윈도우 : **ctrl + z**
     - 유닉스 같은 시스템들 : ctrl + d
 
 - 한 글자씩 읽는 방법이 유용한 경우
