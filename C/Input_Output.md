@@ -340,46 +340,122 @@ fwrite(nums, sizeof(nums[0]), 64, fstream);
 ```
 
 ### 한 블록씩 읽는 방법이 유용한 경우
-    - 가장 중요한 건 이진 데이터 읽기 위해
-    - 이진 데이터를 하나씩 읽을 수 있지만 한꺼번에 읽으면 성능 향상
-- 주의 할점
-    - 기본 데이터형의 크기는 시스템마다 다름
-    - 따라서 이런 일을 하려면 정확히 파일에 저장할 데이터 크기를 고정해 두는게 좋음
+- 가장 중요한 건 이진 데이터 읽기 위해
+- 이진 데이터를 하나씩 읽을 수 있지만 한꺼번에 읽으면 성능 향상
 
-### 파일 열기
-- C에서 파일 다루기 정말 귀찮음!!
-    - 따라서, C에서 파일 관련 연산은 다 이렇게 흐름이다
-        - 파일을 열어서 파일 스트림을 가져온다
-        - 그 파일 스트림을 사용해서 하고 싶은 걸 한다
-        - 그 파일을 닫아 준다
-- `FILE* fopen(const char* filename, const char* mode);`
-    - filename으로 지정된 파일을 연다
-    - 열 때 사용하는 모드(읽기전용, 이진파일 등)는 mode로 지정
-        - r : 파일을 읽기 전용
-        - w : 파일을 쓰기 전용
-        - a : 파일에 이어 쓴다
-        - b를 붙이면 이진 모드로 파일을 연다.
-            - rb, wb, ab, r+b, w+b, a+b
-        - 이진 모드란
-            - 사실 유닉스 계열에는 아무 차이가 없다 (rb나 r이나 동일)
-            - 윈도우에서 새 줄 문자 처리하는 것만 달라짐
-                - 프로그램에서 **텍스트 모드**로 열었을 때 : `|H|e|l|l|o|\n|`
-                - 프로그램에서 **이진 모드**로 열었을 때 : `|H|e|l|l|o|\r|\n|`
-    - 반환값은 파일 스트림 포인터!
-    ```c
-    #include <stdio.h>
+### 한 블록씩 읽을 때 주의할 점
+- 기본 데이터형의 크기는 시스템마다 다름
+- 따라서 이런 일을 하려면 정확히 파일에 저장할 데이터 크기를 고정해 두는게 좋음
 
-    #define LENGTH (1024)
+### 파일 입출력
+- C에서 파일 관련 연산은 다 이렇다.
+    - 파일을 열어서 파일 스트림을 가져온다
+    - 그 파일 스트림을 사용해서 하고 싶은 걸 한다
+    - 그 파일을 닫아 준다
 
+### 파일 열기 - fopen()
+```c
+FILE* fopen(const char* filename, const char* mode);
+```
+- filename으로 지정된 파일을 연다.
+- 열 때 사용하는 모드(읽기전용, 이진파일 등)는 mode로 지정
+    - r : 파일을 읽기 전용
+    - w : 파일을 쓰기 전용
+    - a : 파일에 이어 쓴다
+    - b를 붙이면 이진 모드로 파일을 연다.
+        - rb, wb, ab, r+b, w+b, a+b
+    - 이진 모드란
+        - 사실 유닉스 계열에는 아무 차이가 없다 (rb나 r이나 동일)
+        - 윈도우에서 새 줄 문자 처리하는 것만 달라짐
+            - 프로그램에서 **텍스트 모드**로 열었을 때 : `|H|e|l|l|o|\n|`
+            - 프로그램에서 **이진 모드**로 열었을 때 : `|H|e|l|l|o|\r|\n|`
+- 반환값은 파일 스트림 포인터!
+```c
+#include <stdio.h>
+
+#define LENGTH (1024)
+
+FILE* stream;
+char list[LENGTH];
+
+stream = fopen("hello.txt", "r");
+
+if (fgets(list, LENGTH, stream) != NULL)
+{
+    printf("%s", list);
+}
+```
+
+### 파일에 쓰기 - fwrite()
+```c
+size_t fwrite(const void* buffer, size_t size, size_t count, FILE* stream);
+```
+- `const void* buffer`
+    - 첫 번째 인자로 buffer가 char*도 아니고 int*도 아니고 float*도 아닌 그냥 void*임
+    - 즉 fwrite() 입장에서는 그냥 비트패턴이 줄줄이 들어온다
+        - char*로 들어오면 1바이트 단위로 읽어서 아스키코드로 인식하지만
+        - void*기 때문에 숫자에 의미가 없어진다.
+    - 0x0A가 fwrite() 입장에서는 '\n'를 의미하는 건지 정수 '10'을 의미하는 건지 아니면 부동소수점의 일부인지 알 수가 없음
+    - 따라서 fflush() 만이 유일한 해결
+- 바로 파일에 쓰려면? fflush() 호출
+```c
+FILE* stream;
+int scores[LENGTH] = { 20, 73, 33, 44, 55 };
+
+stream = fopen(filename, "wb");
+
+fwrite(scores, sizeof(scores[0], LENGTH, stream);
+fflush(stream);
+```
+
+### 파일 읽기
+```c
+#include <stdio.h>
+#include <string.h>
+
+#define LENGTH (6)
+
+void read_file(const char* filenmae)
+{
     FILE* stream;
-    char list[LENGTH];
-
-    stream = fopen("hello.txt", "r");
-
-    if (fgets(list, LENGTH, stream) != NULL)
+    char data[LENGTH];
+    
+    stream = fopen(filename, "rb");
+    
+    while (TRUE)
     {
-        printf("%s", list);
+        if (fgets(data, LENGTH, stream) == NULL)
+        {
+            break;
+        }
+        printf("%s\n", data);
     }
-    ```
+}
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
