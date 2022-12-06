@@ -25,20 +25,35 @@
 - 정리
 
 ### [포인터 1](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Pointer1.md)
-- C프로그램의 빌드 과정
 - 주소 연산자 &
+- 포인터(pointer)
+- 역 참조 연산자 *
+- 포인터 변수 선언 vs 역 참조
+- 포인터와 함수 반환값
+- 널(NULL) 포인터
+- 포인터의 비교
+- 포인터의 크기
+- 포인터와 배열
 
 ### [포인터 2](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Pointer2.md)
-- C프로그램의 빌드 과정
-- 주소 연산자 &
+- 포인터와 배열의 차이
+- 포인터 산술 연산
+- 포인터와 const
+- 포인터의 용도
+- 포인터 배열
 
 ### [C-Style Character](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/C_Style_Character.md)
+- 메모리 주소
 - C-Style 문자열
-- 문자열 함수들(정리 해야함)
+- C 문자열 함수들
+
 
 ### [Inuput / Output](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Input_Output.md)
-- 출력(Output)
-- 입력(Input)
+- 출력 (Output)
+- 입력 (Input)
+- 파일 입출력
+- 스트림의 위치
+- 입출력 리디렉션(IO redirection)
 
 ### [getchar(), getche(), getch(), putchar(), putch()](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/getchar_getche_getch.md)
 - getchar(), getche(), getch()
