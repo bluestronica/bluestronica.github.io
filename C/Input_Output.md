@@ -453,29 +453,151 @@ void append_file(const char* filenmae)
 
 append_file("hello.txt");
 ```
+```c
+#include <stdio.h>
+#include <string.h>
+
+#define LENGTH (1024)
+
+void open_file(const char* filenmae)
+{
+    FILE* stream;
+    char data[LENGTH];
+    
+    stream = fopen(filename, "rb");   
+    if (stream == NULL)  // fopen()는 실패하면 NULL 포인터를 반환
+    {                    // // 실패 시 오류 메시지 출력
+        fprintf(stderr, "error while opening %s", filename);
+        
+        // 오류메시지 처리해주는 함수 perror() 사용 예시:
+        perror("error while opening"); 
+        
+        return;        
+    }
+    
+    if (fgets(data, LENGTH, stream) == NULL)
+    {
+        printf("%s", data);
+    }
+    
+    if (fclose(stream) != 0)  // 파일을 닫음, 성공하면 0, 실패하면 EOF
+    {
+        fprintf(stderr, "error while closing"); // 실패 시 오류 메시지 출력
+    }
+}
+
+int main(void)
+{
+    open_file("hello.txt");
+    
+    return 0;
+}
+```
+
+### 스트림의 위치
+- EOF 표시자
+- 오류 표지사
+- 파일 위치 표시자
+
+### 스트림 위치를 시작(처음)으로 돌리기
+```c
+void rewind(FILE* stream);
+```
+
+### 스트림 위치를 임의의 위치로 옮기기
+```c
+int fseek(FILE* stream, long offset, int origin);
+```
+- 파일 위치 표시자를 origin으로부터 offset만큼 이동
+- 위치 이동에 성공하면 0을 반환
+- 실패하면 0이 아닌 수를 반환
+- origin
+    - SEEK_SET : 파일의 시작
+    - SEEK_CUR : 현재 파일의 위치
+    - SEEK_END : 파일의 끝
+- offset
+    - 어떤 기준점으로부터 얼마만큼 떨어져있나 표현
+    - 기준점(origin)부터 3바이트 뒤는 오프셋 3
+    - 기준점부터 3바이트 전은 오프셋 -3
 
 
+### 파일 위치 표시자의 현재 위치를 알고 싶다면
+```c
+long ftell(FILE* stream);
+```
+- 파일 위치 표시자의 현재 위치를 알려주는 함수
+- 실패하면 -1 반환 
 
 
+### 입출력 리디렉션(IO redirection)
+- 입출력 리디렉션은 C의 기능이 아니라 커맨드 라인 또는 shell의 기능이다.
+- 입력이나 출력이 들어오고 나가는 방향을 다른 데로 돌려줌
+- 입력 리디렉션
+    - 텍스트 파일을 열어 stdin에 대신 타이핑 쳐주는 기능
+    - `stdin: <`
+- 출력 리디렉션
+    - stdout 또는 stderr에 출력되는 것을 화면에 보여주는 대신 텍스트 파일에 저장
+    - `stout: >`
+    - `stderr: 2>` (두 번째 출력)
+` > a.exe < input.txt > output.txt 2> error.txt `
+
+- 빈 input.txt를 읽을 때
+```c
+// 코드 생략
+
+if (fgets(filename, FILE_LENGTH, stdin) == NULL)
+{
+    fprintf(stderr, "no input\n");
+    return;
+}
+
+// 코드 생략
+```
+` > a.exe < input.txt > output.txt 2> error.txt `
+    - input.txt : 빈 데이타
+    - output.txt : 빈 데이타
+    - error.txt : no input
+    
+- input.txt의 숫자를 출력하기
+```c
+int score;
+
+while (scanf("%d", &score) == 1)
+{
+    printf("%d ", score);
+}
+```
+` > a.exe < input.txt > output.txt 2> error.txt `
+    - input.txt : 65 57 53 34 32 36 23
+    - output.txt : 65 57 53 34 32 36 23
+    - error.txt : 빈 데이터
+
+- 타이핑 안치고 파일로 stdin으로 전달 가능!
+- 이렇게 stderr하고 stdout가 분리 가능!
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### 커맨드 라인에서 프로그램 실행할 때 인자들을 넣어주는 방법
+- 매개변수를 안 받는 메인 함수
+```c
+int main(void)
+{
+}
+```
+- 매개변수를 받는 메인 함수
+```c
+int main(int argc, const char* argv[])
+{
+}
+```
+    - argc는 들어온 인자의 수
+        - 이 수는 실행한 팡리의 이름까지 포함
+        - `> fliecopy.exe a.txt b2.txt`
+        - 위의 경우 argc는 3이다.
+    - argv는 char 포인터 배열
+        - argv[argc + 1]로 생성된다.
+        - 커맨드 라인 인자들의 시작 주소들을 argv[] 배열에 넣는다.
+        - argv[0] : 첫 번째 요소에서 실행 파일의 이름
+        - argv[1] ~ argv[argc-1] :  커맨드 라인 인자들이 순차적으로 들어옴
+        - argv[argc] : NULL
+        
 
