@@ -466,7 +466,7 @@ void open_file(const char* filenmae)
     
     stream = fopen(filename, "rb");   
     if (stream == NULL)  // fopen()는 실패하면 NULL 포인터를 반환
-    {                    // // 실패 시 오류 메시지 출력
+    {                    // 실패 시 오류 메시지 출력
         fprintf(stderr, "error while opening %s", filename);
         
         // 오류메시지 처리해주는 함수 perror() 사용 예시:
@@ -539,7 +539,7 @@ long ftell(FILE* stream);
     - stdout 또는 stderr에 출력되는 것을 화면에 보여주는 대신 텍스트 파일에 저장
     - `stout: >`
     - `stderr: 2>` (두 번째 출력)
-` > a.exe < input.txt > output.txt 2> error.txt `
+- ` > a.exe < input.txt > output.txt 2> error.txt `
 
 - 빈 input.txt를 읽을 때
 ```c
@@ -553,7 +553,7 @@ if (fgets(filename, FILE_LENGTH, stdin) == NULL)
 
 // 코드 생략
 ```
-` > a.exe < input.txt > output.txt 2> error.txt `
+- ` > a.exe < input.txt > output.txt 2> error.txt `
     - input.txt : 빈 데이타
     - output.txt : 빈 데이타
     - error.txt : no input
@@ -567,7 +567,7 @@ while (scanf("%d", &score) == 1)
     printf("%d ", score);
 }
 ```
-` > a.exe < input.txt > output.txt 2> error.txt `
+- ` > a.exe < input.txt > output.txt 2> error.txt `
     - input.txt : 65 57 53 34 32 36 23
     - output.txt : 65 57 53 34 32 36 23
     - error.txt : 빈 데이터
@@ -589,15 +589,15 @@ int main(int argc, const char* argv[])
 {
 }
 ```
-    - argc는 들어온 인자의 수
-        - 이 수는 실행한 팡리의 이름까지 포함
-        - `> fliecopy.exe a.txt b2.txt`
-        - 위의 경우 argc는 3이다.
-    - argv는 char 포인터 배열
-        - argv[argc + 1]로 생성된다.
-        - 커맨드 라인 인자들의 시작 주소들을 argv[] 배열에 넣는다.
-        - argv[0] : 첫 번째 요소에서 실행 파일의 이름
-        - argv[1] ~ argv[argc-1] :  커맨드 라인 인자들이 순차적으로 들어옴
-        - argv[argc] : NULL
+- argc는 들어온 인자의 수
+    - 이 수는 실행한 팡리의 이름까지 포함
+    - `> fliecopy.exe a.txt b2.txt`
+    - 위의 경우 argc는 3이다.
+- argv는 char 포인터 배열
+    - argv[argc + 1]로 생성된다.
+    - 커맨드 라인 인자들의 시작 주소들을 argv[] 배열에 넣는다.
+    - argv[0] : 첫 번째 요소에서 실행 파일의 이름
+    - argv[1] ~ argv[argc-1] :  커맨드 라인 인자들이 순차적으로 들어옴
+    - argv[argc] : NULL
         
 
