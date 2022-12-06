@@ -431,9 +431,29 @@ void read_file(const char* filenmae)
         printf("%s\n", data);
     }
 }
-
-
 ```
+```c
+#include <stdio.h>
+#include <string.h>
+
+#define LENGTH (1024)
+
+void append_file(const char* filenmae)
+{
+    FILE* stream;
+    char data[LENGTH];
+    
+    stream = fopen(filename, "ab");   
+
+    if (fgets(data, LENGTH, stream) == NULL)
+    {
+        fwrite(data, strlen(data), 1, stream);
+    }    
+}
+
+append_file("hello.txt");
+```
+
 
 
 
