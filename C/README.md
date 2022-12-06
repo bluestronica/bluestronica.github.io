@@ -44,8 +44,7 @@
 - getchar(), getche(), getch()
 - putchar(), putch()
 
-### [구조체, 공용체]
-(https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Structure_Union.md)
+### [구조체 / 공용체](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Structure_Union.md)
 - 구조체(Structure)
 - 공용체(Union)
 
