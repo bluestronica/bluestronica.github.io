@@ -445,7 +445,7 @@ void append_file(const char* filenmae)
     
     stream = fopen(filename, "ab");   
 
-    if (fgets(data, LENGTH, stream) == NULL)
+    if (fgets(data, LENGTH, stdin) != NULL)
     {
         fwrite(data, strlen(data), 1, stream);
     }    
@@ -475,7 +475,7 @@ void open_file(const char* filenmae)
         return;        
     }
     
-    if (fgets(data, LENGTH, stream) == NULL)
+    if (fgets(data, LENGTH, stream) != NULL)
     {
         printf("%s", data);
     }
