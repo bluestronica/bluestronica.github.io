@@ -404,7 +404,7 @@ int scores[LENGTH] = { 20, 73, 33, 44, 55 };
 
 stream = fopen(filename, "wb");
 
-fwrite(scores, sizeof(scores[0], LENGTH, stream);
+fwrite(scores, sizeof(scores[0]), LENGTH, stream);
 fflush(stream);
 ```
 
