@@ -263,7 +263,7 @@ bitflags_t flags = { 0, };
 - 앞의 예보다 덜 유용
 - 사용하기 어렵고 실수하기도 쉽다.
 ```c
-value calculate(value_t lhs, value_t rhs, op_t op)
+value_t calculate(value_t lhs, value_t rhs, op_t op)
 {
   value_t result;
   
