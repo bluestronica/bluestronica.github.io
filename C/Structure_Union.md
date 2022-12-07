@@ -271,7 +271,7 @@ value_t calculate(value_t lhs, value_t rhs, op_t op)
   {
     result.ivalue = lhs.ivalue + rhs.ivalue;
   }
-  else if ( op == OP_DOUBLEADD )
+  else if (op == OP_DOUBLEADD)
   {
     result.dvalue = lhs.dvalue + rhs.dvalue;
   }
