@@ -67,7 +67,13 @@
 - 구조체(Structure)
 - 공용체(Union)
 
+### [가변 인자 함수](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Variadic_Function.md)
+- 구조체(Structure)
+- 공용체(Union)
 
+### [올바른 오류처리 방법](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Error_Handling.md)
+- 구조체(Structure)
+- 공용체(Union)
 
 
 
