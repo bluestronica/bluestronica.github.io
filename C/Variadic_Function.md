@@ -132,7 +132,7 @@ val = *(int*)ap.data;
   - **`va_start(ap, count);  =>  ap.data = (char*)&count + sizeof(int);`**
 - 메모리 :  **`| add_ints() 스택 프레임 | 돌아올 주소 | 4(count) | 1 | 2 | 3 | 4 |`**
 - count의 시작주소를 char*로 캐스팅해야 순수하게 바이트로 4바이트씩 이동할 수 있다.
-- **`count의 시작주소 ->| 1byte | 1byte | 1byte | 1byte |1(4byte) | 2(4byte) | 3(4byte) | 4(4byte) |`**
+- **`count의 시작주소 ->| 1byte | 1byte | 1byte | 1byte | 1(4byte) | 2(4byte) | 3(4byte) | 4(4byte) |`**
 - count의 시작주소에서 이 count의 길이만큼 바이트 수(int:4byte)를 옮기면 된다.
 - count의 길이는 sizeof(int)이다. 왜냐하면 int형이 들어온 걸 알고 있으니까.
 - 실체 코드에서는 sizeof(count)를 쓸 일이 많다. 변수를 가져다 sizeof()에 넣어도 똑같다.
