@@ -127,7 +127,7 @@ val = *(int*)ap.data;
 - 메모리 :  **`| add_ints() 스택 프레임 | 돌아올 주소 | 4 | 1 | 2 | 3 | 4 |`**
 
 ### 가변 인자 함수는 이렇게 인자를 읽어온다!
-- **`va_start(ap, count)`** 에서 가변 인자 시작 직전 매개변수(int 형)에 기초해서 
+- **`va_start(ap, count);`** 에서 가변 인자 시작 직전 매개변수(int 형)에 기초해서 
 - 가변 인자 목록의 시작 메모리 주소를 계산한다.
   - **`va_start(ap, count);  =>  ap.data = (char*)&count + sizeof(int);`**
 - 메모리 :  **`| add_ints() 스택 프레임 | 돌아올 주소 | 4(count) | 1 | 2 | 3 | 4 |`**
@@ -136,28 +136,12 @@ val = *(int*)ap.data;
 - count의 시작주소에서 sizeof(count)만큼 바이트 수(int: 4바이트)를 옮기면 된다.
 - count의 길이는 sizeof(int)이다. 왜냐하면 int형이 들어온 걸 알고 있으니까.
 - 실체 코드에서는 sizeof(count)를 쓸 일이 많다. 변수를 가져다 sizeof()에 넣어도 똑같다.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- **`va_arg(ap, int);`** 가 호출 될 때마다 int 크기만큼 더해가며 읽을 위치를 변경하면 된다.
+ - **`va_arg(ap, int);  =>  val = *(int*)ap.data; ((int*)ap.data)++;
+  - 만약 ap.data가 1이 들어있는 메모리를 가리킨다면
+  - 거기서 int 크기만큼 읽어 val에 저장하고
+  - 자기 자신을 int 크기만큼 증가 시킴
+- 따라서 va_list는 스택 메모리에서 위치를 가리키는 포인터 같은 것을 가지고 있을 수 밖에 
 
 
 
