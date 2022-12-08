@@ -31,7 +31,6 @@ int add_ints(const size_t count, ...)
   
   return sum;
 }
-```
 
 int main(void)
 {
