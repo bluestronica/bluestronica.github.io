@@ -137,7 +137,7 @@ val = *(int*)ap.data;
 - count의 길이는 sizeof(int)이다. 왜냐하면 int형이 들어온 걸 알고 있으니까.
 - 실체 코드에서는 sizeof(count)를 쓸 일이 많다. 변수를 가져다 sizeof()에 넣어도 똑같다.
 - **`va_arg(ap, int);`** 가 호출 될 때마다 int 크기만큼 더해가며 읽을 위치를 변경하면 된다.
- - **`va_arg(ap, int);  =>  val = *(int*)ap.data; ((int*)ap.data)++;
+ - **`va_arg(ap, int);  =>  val = *(int*)ap.data; ((int*)ap.data)++;`**
   - 만약 ap.data가 1이 들어있는 메모리를 가리킨다면
   - 거기서 int 크기만큼 읽어 val에 저장하고
   - 자기 자신을 int 크기만큼 증가 시킴
