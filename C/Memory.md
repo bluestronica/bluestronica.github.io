@@ -19,3 +19,4 @@
 - 1개의 명령 포인터
 - 등등
 ![img](Img/assem.png)
+![img](Img/register1.png)
