@@ -18,4 +18,4 @@
 - 1개의 플래그 레지스터
 - 1개의 명령 포인터
 - 등등
-- ![img](Img/asem.png)
+- ![img](Img/assem.png)
