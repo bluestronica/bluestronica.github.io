@@ -20,3 +20,7 @@
 - 등등
 ![img](Img/assem.png)
 ![img](Img/register1.png)
+![img](Img/register2.png)
+![img](Img/register3.png)
+![img](Img/register4.png)
+![img](Img/register5.png)
