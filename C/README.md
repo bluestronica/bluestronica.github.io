@@ -75,7 +75,7 @@
 - 구조체(Structure)
 - 공용체(Union)
 
-### [레지스터, 스택, & 힙](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Memory.md)
+### [레지스터, 스택 & 힙](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Memory.md)
 - 구조체(Structure)
 - 공용체(Union)
 
