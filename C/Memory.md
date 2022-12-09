@@ -19,8 +19,8 @@
 - 1개의 명령 포인터
 - 등등
 ![img](Img/assem.png)
-![img](Img/register1.png)
-![img](Img/register2.png)
-![img](Img/register3.png)
-![img](Img/register4.png)
-![img](Img/register5.png)
+![img](Img/register01.png)
+![img](Img/register02.png)
+![img](Img/register03.png)
+![img](Img/register04.png)
+![img](Img/register05.png)
