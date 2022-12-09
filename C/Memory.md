@@ -24,3 +24,8 @@
 ![img](Img/register03.png)
 ![img](Img/register04.png)
 ![img](Img/register05.png)
+
+
+### 스택 메모리의 단점 - 수명
+- 함수가 반환하면 그 안에 있던 데이터가 다 날아감
+  - 즉, 함수 안에 있는 변수의 수명(lifecycle)은 함수가 끝날 때까지
