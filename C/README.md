@@ -64,8 +64,13 @@
 - 공용체(Union)
 
 ### [함수 포인터](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Function_Pointer.md)
-- 구조체(Structure)
-- 공용체(Union)
+- 함수도 어디다 저장해 둔 뒤 매개변수로 잔달할 수 없을까?
+- 함수 포인터 선언
+- 함수 포인터 변수의 선언과 사용
+- 함수 포인터 매개변수의 선언과 사용
+- 함수 포인터 읽는 방법
+- 포인터 함수를 담는 배열
+- void*
 
 ### [가변 인자 함수](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Variadic_Function.md)
 - 구조체(Structure)
