@@ -94,7 +94,7 @@ nums = NULL;    // 해제 후 NULL 대입해서 초기화
 - 모든 바이트를 0으로 초기화 해 줌
 - 잘 안 씀
 - **calloc() 대신 malloc() + memset()를 조합해서 쓴다.**
- - memset()을 쓰면 0 외의 값으로도 초기화 가능
+  - memset()을 쓰면 0 외의 값으로도 초기화 가능
 
 ### 메모리 할당 초기화 함수: memset()
 - `void* memset(void* dest, int ch, size_t count);`
@@ -130,28 +130,171 @@ free(nums);
 nums = NULL;
 ```
 - 다름 과 같은 경우 결과가 정의되지 않는다.
- - count가 dest의 영역을 넘어설 경우(소유하지 않은 메모리에 쓰기)
- - dest가 널 포인터일 경우( 널 포인터 역참조)
+  - count가 dest의 영역을 넘어설 경우(소유하지 않은 메모리에 쓰기)
+  - dest가 널 포인터일 경우(널 포인터 역참조)
+
+### 메모리 재할당 함수: realloc()
+- **`void* realloc(void* ptr, size_t new_size);`**
+- 이미 존재하는 메모리(ptr)의 크기를 new_size 바이트로 변경
+- 새로운 크기가 허용하는 한 기존 데이트를 그대로 유지
+- 반환값
+  - 성공 시, 새롭게 할당된 메모리의 시작 주소를 반환하며 기본 메모리는 해제됨
+  - 실패 시, NULL을 반환하지만 기본 메모리는 해제되지 않는다. 메모리 누수 발생!!
+- 올바른 재할당 방법
+```c
+void * nums;
+void* tmp;
+
+// LENGTH: 4, nums: 10
+nums = malloc(LENGTH);;
+
+tmp = realloc(nums, 2 * LENGTH);
+if (tmp != nULL)
+{
+  nums = tmp;
+}
+
+free(nums);
+```
+- realloc()은 malloc() + momcpy() + free()와 유사함
+```c
+void * nums;
+void* tmp;
+
+// LENGTH: 4, nums: 10
+nums = malloc(LENGTH);;
+
+tmp = malloc(2 * LENGTH);
+if (tmp != nULL)
+{
+  memcpy(tmp, nums, LENGTH);
+  free(nums);
+  nums = tmp;
+}
+
+free(nums);
+```
+
+### 메모리 복사 함수: memcpy()
+- **`void* memcpy(void* dest, const void* src, size_t count);`**
+- src의 데이터를 count 바이트 만큼 dest에 복사
+- 다음과 같은 경우 결과가 정의되지 않음
+  - dest의 영역 뒤에 데이터를 복사할 경우 (소유하지 않은 메모리에 쓰기)
+  - src나 dest가 널 포인터일 경우 (널 포인터 역참조)
 
 
+### 메모리 누수 안 나게 코드를 작성할 것!
+- realloc()을 쓸 때는 정말 정말 조심해야 함
+- 그래서 차라리 mallock() + memcpy() + free()로 좀더 명시적으로 드러나게 코딩하는 게 나을지도
+- 그냥 신경 안 쓰고 realloc()을 쓰는 경우도 많음
+  - 메모리 시작 주소가 변하지 않는 경우 데이터 복사를 하지 않아 성능상 이득
+  - 그리고 메모리가 없어서 널 포인터를 반환하는 상황에 어떻게 대처할것인가?
+  - malloc()에서 실패하는 일이 없다고 가정하고 코딩하는 경우가 많은 이유도 마찬가지
+  
+### realloc()의 특수한 경우
+- **` nums = realloc(NULL, LENGTH); `**
+- 새로운 메모리 할당
+- **`malloc(LENGTH)`** 와 동일
+
+### 메모리 비교하는 함수: memcmp()
+- **` int memcmp(const void* lhs, const void* rhs, size_t count); `**
+- 첫 count 바이트 만큼의 메모리를 비교하는 함수
+- strcmp()와 매우 비슷
+- 단, 널 문자를 만나도 계속 진행
+- 다음의 경우 결과가 정의되지 않음
+  - lhs과 rhs의 크기를 넘어서서 비교할 경우 (소유하지 않은 메모리에 쓰기)
+  - lhs이나 rhs이 널 포인터일 경우 (널 포인터 역참조)
 
 
+### 구조체 두 개를 비교할 때 유용
+```c
+typedef struct 
+{
+  char firstname[64];
+  char lastname[64];
+  unsigned int id;
+} student_t;
+
+student_t s1 = { "Lulu", "Kim", 12345 };
+student_t s2 = { "Teemo", "Park", 12349 };
+student_t s3 = { "Lulu", "Choi", 12350 };
+student_t s4 = { "Teemo", "Park", 12340 };
+
+int reuslt;
+
+result = memcmp(&s1, &s2, sizeof(student_t));  // -1 , L < T
+result = memcmp(&s1, &s3, sizeof(student_t));  // 1 , K > C
+result = memcmp(&s2, &s4, sizeof(student_t));  // 1 , 9 > 0
+
+```
+- 단, 구조체가 포인터 변수를 가질 경우에는 값이 같아도 주소가 달라 다룰 수 있음
 
 
+### 구조체 멤버 변수 - 배열 vs 포인터
+- 고정된 길이인 배열
+```c
+typedef struct 
+{
+  char firstname[NAME_LEN];
+  char lastname[NAME_LEN];
 
+} name_fixed_t;
+```
+  - 그대로 대입 가능
+  - 파일에 곧바로 저장 가능
+  - memcpy()를 곧바로 사용 가능
+  - 낭비하는 용량이 있음
+  - 메모리 할당/해제 속도 빠름
+- 동적 메모리를 사용하는 포인터
+```c
+typedef struct
+{
+  char* firstname;
+  char* lastname;
+} name_dynamic_t;
+```
+  - 그대로 대입 불가
+    - 이 경우는 얕은 복사가 되어버림
+  - 파일에 곧바로 저장 불가능
+  - memcpy() 곧바로 사용 불가
+  - 낭비하는 용량 없음
+  - 메모리 할당/해제 속도 느림
+- 실제 크기를 어느 정도로 제한할 수 있으면 배열 방식을 더 많이 쓴다.
+- 헐씬 빠른 방법이기때문에
+- 그래서 정적 메모리를 우선적으로 사용할 것
+- 안 될 때만 동적 메모리 사용 
 
+### 정리
+- malloc() 작성한 뒤에 곧바로 free()도 추가하자
+  - free()를 절대 까먹으면 안 됨!!
+- 동적 할당을 한 메모리 주소를 저장하는 포인터 변수와 포인터 연산에 사용하는 포인터 변수를 분리해 사용하자
+  - 원래 포인터 변수를 사용할 경우, 주소를 잃어버려서 해제를 못할 수 있음
+- 메모리 해제 후, 널 포인터 대입하자
+- 정적 메모리를 우선 사용하고 어쩔 수 없을 때만 동적 메모리를 사용하자.
+- 동적 메모리 할당을 할 경우, 변수와 함수 일므에 그 사실을 알리자
+   - 함수 안에서 할당을 반환하는 패터이 없으면 없을 수록 좋은거다.
+```c
+const char* combine_string_malloc(const char* str1, const char* str2)
+{
+  void* pa_str;
+  char* p;
+  
+  pa_str = malloc(size);
+  p = pa_str;
+  
+  // 문자를 합치는 코드
+  
+  return pa_str;
+}
+```
 
-
-
-
-
-
-
-
-
-
-
-
+# 이중 포인터
+```c
+int num = 10;
+int* p = &num;
+int** pp = &p;   // (int*)* => int 포인터를 저장하는 포인터
+```
+- 포인터 변수의 주소를 저장하느 변수를 이중 포인터라고 한다.
 
 
 
