@@ -81,13 +81,57 @@ free(nums);
 nums = NULL;    // 해제 후 NULL 대입해서 초기화
 ```
 
-### 
-
-
-
-
+### free()는 몇 바이트를 해제할 지 어떻게 알까?
+- 구현마다 다르지만 보통 malloc(32)하면 그것보다 조금 큰 메모리를 할당한 뒤, 제일 앞부분에 어떤 데이터들 채워 놓음
+  - `| ... | 어떤 데이터 | 32바이트짜리 메모리 | ... |`
+- 그리고 그만큼 오프셋을 더한 값을 주소로 돌려줌
+  - 만약 '어떤 데이터'의 크기가 4바이트면 0x100에 4만큼 더한 0x104를 돌려줌
+- 나중에 그 주소를 해제 요청하면 free()가 다시 오스펫만큼 빼서 그 앞 주소를 본 뒤, 실제 몇 바이트가 할당됐는지 확인('어떤 데이터' 내용을 확인) 후 해제 
 
 ### 메모리 할당 함수: calloc()
+- `void* calloc(size_t num, size_t size);`
+- 메모리르 할당할 때 자료형의 크기(size)와 수(num)를 따로 지정
+- 모든 바이트를 0으로 초기화 해 줌
+- 잘 안 씀
+- **calloc() 대신 malloc() + memset()를 조합해서 쓴다.**
+ - memset()을 쓰면 0 외의 값으로도 초기화 가능
+
+### 메모리 할당 초기화 함수: memset()
+- `void* memset(void* dest, int ch, size_t count);`
+  - dest는 메모리 시작 위치, count는 메모리 총 바이트, ch는 초기화할 값 
+- 무조건 char로 초기화(1바이트 씩)됨
+```c
+void* nums;
+
+nums = malloc(LENGTH * sizeof(int));
+memset(nums, 1000, LENGTH * sizeof(int));  // 1000의 값은 16진수로 0x3E8
+
+free(nums);
+nums = NULL:
+
+// ch의 값(1000)이 1바이트를 넘어 선다. 
+// 그래서 03은 날아가고 E8 값으로 초기화 된다.
+```
+- 그 외의 자료형으로 초기화하려면 직접 for 문을 써야함
+```c
+void* nums;
+int* p;
+size_t i;
+
+nums = malloc(LENGTH * sizeof(int));
+p = nums;
+
+for (i = 0; i < LENGTH; ++i)
+{
+  *p++ = 1000;   // (int)4바이트 씩 초기화 값 03E800 들어간다.
+}
+
+free(nums);
+nums = NULL;
+```
+- 다름 과 같은 경우 결과가 정의되지 않는다.
+ - count가 dest의 영역을 넘어설 경우(소유하지 않은 메모리에 쓰기)
+ - dest가 널 포인터일 경우( 널 포인터 역참조)
 
 
 
