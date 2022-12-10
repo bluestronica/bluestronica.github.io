@@ -73,8 +73,11 @@
 - void*
 
 ### [가변 인자 함수](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Variadic_Function.md)
-- 구조체(Structure)
-- 공용체(Union)
+- va_arg()는 매크로 함수
+- 어떻게 다른 수의 매개변수를 스택에 넣을까?
+- 첫 번째 매개변수가 저장된 스택 메모리 위치는?
+- 가변 인자 함수는 이렇게 인자를 읽어온다!
+- 
 
 ### [올바른 오류처리 방법](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Error_Handling.md)
 - 구조체(Structure)
