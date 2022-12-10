@@ -43,10 +43,23 @@
 - 포인터 배열
 
 ### [C-Style Character](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/C_Style_Character.md)
-- 메모리 주소
+- x86(32bit) 운영체제 용
 - C-Style 문자열
+- char[]로만 구성
+- 보통 C-Style 문자열이라 하면 널 문자(null character)로 끝나는 char 배열을 말한다.
+- 문자열의 길이는 3, 배열의 길이는 4
+- C-Style 문자열의 장단점
 - C 문자열 함수들
-
+- `<string.h>` 에 있는 문자열 함수들
+- 특징
+- strlen() : 문자열 길이 구하는 함수
+- strcmp() : 문자열 비교 함수
+- strcpy() : 문자열 복사
+- strcpy() : 비교적 안전한 문자열 복사
+- strcat() : 문자열 합치기
+- strncat() : 비교적 안전안 문자열 합치기
+- strstr() : 문자열 속에 문자열 찾기
+- strtok() : 문자열을 토큰화하기 
 
 ### [Inuput / Output](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Input_Output.md)
 - 출력 (Output)
