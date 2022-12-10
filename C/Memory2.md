@@ -288,20 +288,43 @@ const char* combine_string_malloc(const char* str1, const char* str2)
 }
 ```
 
-# 이중 포인터
+# 다중 포인터
 ```c
 int num = 10;
 int* p = &num;
 int** pp = &p;   // (int*)* => int 포인터를 저장하는 포인터
 ```
-- 포인터 변수의 주소를 저장하느 변수를 이중 포인터라고 한다.
+- 포인터 변수의 주소를 저장하는 변수를 이중 포인터라고 한다.
 ![img](Img/pointer2.png)
 
+### 이중 포인터 사용
+- 2차원 배열은 이중 포인터와 비슷!
+- 메인 함수의 매개변수에도 있다
+  - **` int main(int argc, char* argv[]); `**
+  - **` int main(int argc, char** argv); `**
+- 2차원 공간을 다루는 분야에서는 3차원 배열 사용
+- 따라서, 역시 삼중 포인터 사용
+- 포인터 변수를 서로 교체하기
+```c
+void swap(int** n1, int** n2)
+{
+  int* tmp = *n1;
+  
+  *n1 = *n2;
+  *n2 = tmp;
+}
 
+int num1 = 10;
+int num2 = 20;
 
+int* p;
+int* q;
 
+p = &num1;
+q = &num2;
 
-
+swap(&p, &q);
+```
 
 
 
