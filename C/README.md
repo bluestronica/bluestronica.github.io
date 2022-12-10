@@ -79,9 +79,15 @@
 - 가변 인자 함수는 이렇게 인자를 읽어온다!
 - 
 
-### [올바른 오류처리 방법](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Error_Handling.md)
-- 구조체(Structure)
-- 공용체(Union)
+### [C에서 올바른 오류처리 방법](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Error_Handling.md)
+- C에서 오류처리
+- 어서트
+- 널 포인터를 허용한다면 함수나 변수에 명시!
+- 실행 중 오류 처리는?
+- 오류 코드를 반환하자!
+- 모든 오류 코드를 하나의 enum으로 만들자!
+- 올바른 오류 처리 전략 정리
+- 그런대도 프로그램이 오작동하면?
 
 ### [레지스터, 스택 & 힙](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Memory.md)
 - 구조체(Structure)
