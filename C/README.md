@@ -60,8 +60,24 @@
 - putchar(), putch()
 
 ### [구조체 / 공용체](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Structure_Union.md)
-- 구조체(Structure)
-- 공용체(Union)
+- C에서 구조체는?
+- 구조체 선언
+- 새로운 별명을 지어주는 typedef
+- 구조체에 typedef 적용
+- 커스텀 자료형에 typedef를 쓰자! 
+- 구조체 포인터에 멤버의 값에 접근하기
+- 구조체 매개변수 베스트 프랙티스
+- 함수 반환값으로서의 구조체
+- 구조체로 배열도 만들수 있다.
+- 얕은 복사
+- 깊은 복사
+- 파일을 읽고 쓸 때도 비슷한 문제가 발생한다.
+- 그래서 포인터 대신 배열로 구조체 작성
+- 바이트 정렬 요구사항
+- 구조체와 비트 플래그
+- 공용체
+- 똑같은 메모리 위치를 다른 변수로 접근하는 방법
+- 공용체 안에 있는 여러 변수들이 같은 메모리를 공유 
 
 ### [함수 포인터](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Function_Pointer.md)
 - 함수도 어디다 저장해 둔 뒤 매개변수로 잔달할 수 없을까?
