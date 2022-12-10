@@ -93,7 +93,7 @@
 - 공용체 안에 있는 여러 변수들이 같은 메모리를 공유 
 
 ### [함수 포인터](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Function_Pointer.md)
-- 함수도 어디다 저장해 둔 뒤 매개변수로 잔달할 수 없을까?
+- 함수도 어디다 저장해 둔 뒤 매개변수로 전달할 수 없을까?
 - 함수 포인터 선언
 - 함수 포인터 변수의 선언과 사용
 - 함수 포인터 매개변수의 선언과 사용
