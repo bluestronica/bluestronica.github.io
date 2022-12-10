@@ -1,6 +1,6 @@
 [bluestronica.github.io/C](https://bluestronica.github.io/C)
 
-# 올바른 오류처리 방법
+# C에서 올바른 오류처리 방법
 
 ### C에서의 오류처리
 - C 언어는 예외(exception)을 지원하지 않음
