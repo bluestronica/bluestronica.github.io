@@ -32,9 +32,9 @@
 |VOID|`#define VOID void`|모든 유형|
 |WINAPI|`#define WINAPI __stdcall`|시스템 함수에 대한 호출 규칙 / CALLBACK, WINAPI 및 APIENTRY 는 모두 __stdcall 호출 규칙을 사용하여 함수를 정의하는 데 사용된다.|
 |WORD|`typedef unsigned short WORD;`|16비트 부호 없는 정수 / 범위는 0에서 65535 10진수|
-|WPARAM|`typedef UINT_PTR WPARAM;`|메시지 매개 변수|
+|WPARAM|`typedef UINT_PTR WPARAM;`|프로지서에 전달되는 메시지 매개 변수 혹은 콜백함수|
 |UINT_PTR|-|WIN64 이면 unsigned __int64 UINT_PTR, 아니면 unsigned int UINT_PTR|
-|LPARAM|`typedef LONG_PTR LPARAM;`|메시지 매개 변수|
+|LPARAM|`typedef LONG_PTR LPARAM;`|프로지서에 전달되는 메시지 매개 변수 혹은 콜백함수|
 |LONG_PTR|-|WIN64이면 typedef __int64 LONG_PTR, 아니면 typedef long LONG_PTR|
 |-|-|-|
 
