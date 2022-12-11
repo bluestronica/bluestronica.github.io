@@ -16,18 +16,37 @@
 |-|-|-|
 |PVOID|`typedef void* PVOID;`|'P'는 pointer를 의미/ unsigned int / 모든 형식에 대한 포인터(데이터 형이 없는 메모리 주소를 저장하는 데이터형) / **`핸들에 관련된 데이터형은 PVOID => void* => unsigned int => 32bit 이다.`**|
 |HANDLE|`typedef PVOID HANDLE;`|unsigned int / 오브젝트 핸들|
-|HDC|`typedef HANDLE HDC;`|DC( 디바이스 컨텍스트 )에 대한 핸들|
-|HGDIOBJ|`typedef HANDLE HGDIOBJ;`|GDI 개체에 대한 핸들|
-|HINSTANCE|`typedef HANDLE HINSTANCE;`|unsigned int / 인스턴스에 대한 핸들 / 메모리에 있는 모듈의 기본 주소|
-|HWND|`typedef HANDLE HWND;`|unsigned int / 윈도우에 대한 핸들|
+|HDC|`typedef HANDLE HDC;`|'H'는 HANDLE을 의미 / DC( 디바이스 컨텍스트 )에 대한 핸들|
+|HGDIOBJ|`typedef HANDLE HGDIOBJ;`|'H'는 HANDLE을 의미 / GDI 개체에 대한 핸들|
+|HINSTANCE|`typedef HANDLE HINSTANCE;`|'H'는 HANDLE을 의미 / unsigned int / 인스턴스에 대한 핸들 / 메모리에 있는 모듈의 기본 주소|
+|HWND|`typedef HANDLE HWND;`|'H'는 HANDLE을 의미 / unsigned int / 윈도우에 대한 핸들|
 |LPVOID|`typedef void* LPVOID;`|모든 형식에 대한 포인터|
 |LPWORD|`typedef WORD* LPWORD;`|WORD에 대한 포인터|
+|-|-|-|
+|LPSTR|`typedef CHAR* LPSTR;`|ANSI(8비트 Windows) 문자의 null로 끝나는 문자열에 대한 포인터|
+|LPWSTR|`typedef WCHAR* LPWSTR;`|16비트 유니코드 문자의 null로 끝나는 문자열에 대한 포인터|
+|LPTSTR|`#ifdef UNICODE
+ typedef LPWSTR LPTSTR;
+#else
+ typedef LPSTR LPTSTR;
+#endif`|유니코드가 정의되면 LPWSTR, 그렇지 않으면 LPSTR|
+|TCHAR|``|유니코드가 정의되면 WCHAR이고, 그렇지 않으면 CHAR|
 ||``||
 ||``||
-||``||
-||``||
-||``||
-||``||
-||``||
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
