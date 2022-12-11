@@ -1,8 +1,31 @@
+[bluestronica.github.io/C](https://bluestronica.github.io/WindowsAPI)
 
 
+# Windows Data Types
 
-|ESC Code Sequence|Description|Example|
+
+### 목록
+
+| 데이터형 | 정의 | 의미 |
 |:---|:---|:---|
-|`ESC[H`|(0, 0) 위치로 커서 이동|`printf(CSI, "H");`|
-|`ESC[{line};{column}H`|moves cursor to line #, column #|`printf(CSI, "4;5H");`|
-|`ESC[{line};{column}f`|moves cursor to line #, column #|`printf(CSI, "%d;%df", line, column);`|
+|BYTE|||
+|**BOOL**|||
+|`CHAR`|||
+|**`COLORREF`**|||
+|DWORD|||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+||||
+
+
