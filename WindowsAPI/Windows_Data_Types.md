@@ -23,7 +23,7 @@
 |LPVOID|`typedef void* LPVOID;`|모든 형식에 대한 포인터|
 |LPWORD|`typedef WORD* LPWORD;`|WORD에 대한 포인터|
 |-|-|-|
-|LPSTR|`typedef CHAR* LPSTR;`|'STR은 string'ANSI(8비트 Windows) 문자의 null로 끝나는 문자열에 대한 포인터|
+|LPSTR|`typedef CHAR* LPSTR;`|'STR은 string 문자열' ANSI(8비트 Windows) 문자의 null로 끝나는 문자열에 대한 32bit 포인터|
 |LPWSTR|`typedef WCHAR* LPWSTR;`|'W는 유니코드 의미' 16비트 유니코드 문자의 null로 끝나는 문자열에 대한 포인터|
 |LPTSTR|-|유니코드가 정의되면 LPWSTR, 그렇지 않으면 LPSTR|
 |TCHAR|-|유니코드가 정의되면 WCHAR이고, 그렇지 않으면 CHAR|
