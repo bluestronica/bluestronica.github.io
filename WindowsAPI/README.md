@@ -2,7 +2,7 @@
 
 ### [Windows Data Types](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Windows_Data_Types.md)
 
-### [핸들(Handle)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Handle.md)
+### [Handle](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Handle.md)
 
 
 
