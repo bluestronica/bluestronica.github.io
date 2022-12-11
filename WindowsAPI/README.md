@@ -4,5 +4,5 @@
 
 ### [Handle](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Handle.md)
 
-
+### [Windows API의 기본 구조](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Basic_Structures.md)
 
