@@ -8,11 +8,11 @@
 
 | 데이터형 | 정의 | 의미 |
 |:---|:---|:---|
-|BYTE|typedef unsigned char BYTE;||
-|BOOL|typedef int BOOL;||
-|CHAR|typedef char CHAR||
-|COLORREF|typedef DWORD COLORREF||
-|DWORD|typedef unsigned long DWORD||
+|BYTE|unsigned char BYTE|바이트(8비트)입니다.|
+|BOOL|int BOOL|부울 변수( TRUE 또는 FALSE)|
+|CHAR|char CHAR|ANSI(8비트 Windows) 문자|
+|COLORREF|DWORD COLORREF|빨강, 녹색, 파랑(RGB) 색 값(32비트)|
+|DWORD|unsigned long DWORD|32bit unsigned int / 세그먼트의 주소 혹은 offset|
 ||||
 ||||
 ||||
