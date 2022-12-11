@@ -8,11 +8,11 @@
 
 | 데이터형 | 정의 | 의미 |
 |:---|:---|:---|
-|BYTE|||
-|**BOOL**|||
-|`CHAR`|||
-|**`COLORREF`**|||
-|DWORD|||
+|BYTE|typedef unsigned char BYTE;||
+|BOOL|typedef int BOOL;||
+|CHAR|typedef char CHAR||
+|COLORREF|typedef DWORD COLORREF||
+|DWORD|typedef unsigned long DWORD||
 ||||
 ||||
 ||||
