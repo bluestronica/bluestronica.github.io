@@ -105,6 +105,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance,
     - 파라미터로 받은 인스턴스의 핸들을 전역 변수에 저장하는 것이다.
   
 ### 윈도우 클래스의 정의
+- WNDCLASS 구조체의 멤버변수에 값을 저장하는 모습을 볼 수 있다.
 ```c
 WndClass.cbClsExtra = 0;
 WndClass.cbWndExtra = 0;
@@ -123,7 +124,7 @@ WndClass.style = CS_HREDRAW | CS_VREDRAW;
 | hbrBackground | 윈도우 배경 색상을 정한다. / 배경 색상을 브러쉬로 칠하기 때문에 br이란 접두사가 붙는다. |
 | hCursor / hIcon | 윈도우가 사용할 커서와 아이콘을 정한다. |
 | hInstance | 해당 윈도우 클래스를 등록하는 프로그램의 번호 |
-| lpfnWndProc | 해당 윈도우에서 발생하는 메세지를 처리하는 함수를 지정한다. |
+| lpfnWndProc | 해당 윈도우에서 발생하는 모든 메세지를 처리하는 전용 함수를 지정한다. |
 | lpszClassName | 윈도우 클래스의 이름을 정의 |
 | lpszMenuName | 만들어질 프로그램의 사용할 메뉴를 지정한다. |
 | style | 윈도우의 형태를 지정한다. (or)을 사용하 여러개를 사용한다. |
