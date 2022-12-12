@@ -39,7 +39,7 @@ LPCTSTR lpszClass = _T("Turtle Rabbit");
 - ` HINSTANCE g_hInst; `
   - 접두사로 'H'는 Handle(핸들)을 의미한다. 'g_'는 global, 전역변수
   - 즉, g_hInst는 인스턴스의 핸들이다.
-  - 인스턴스는 프로그램에 대한 정보를 담고 있는데 매번 매개변수로 전달하는 것은 비효율적이기 때눔에 전역 변수로 생성해서 관리 및 사용한다.
+  - 인스턴스는 프로그램에 대한 정보를 담고 있는데 매번 매개변수로 전달하는 것은 비효율적이기 때문에 전역 변수로 생성해서 관리 및 사용한다.
 - ` HWND hWndMain; `
   - WND는 Window의 약자이고 hWndMain은 메인 윈도우의 핸들을 나타낸다.
 - ` LPCTSTR lpszClass = _T("Knowlege Pool"); `
