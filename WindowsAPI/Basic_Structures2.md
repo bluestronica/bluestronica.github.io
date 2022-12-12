@@ -24,3 +24,32 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance,
 ```
 
 ### WinMain 함수의 역할
+- WinMain 함수는 다음과 같이 5개의 기능을 한다.
+  - **`WndClass 정의 >> WndClass 등록 >> 윈도우 생성 >> 윈도우 출력 >> 메세지 루프`**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
