@@ -48,6 +48,18 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance,
   - WinMain에 메세지가 발생할 때까지 메세지 루프를 돌다가, 메세지가 발생하면 해당 메세지를 메세지 처리 전용 함수(윈도우 프로시저, WndProc)로 메세지를 전달한다. 메세지 큐에 쌓여 있는 메세지를 꺼내와 WndProc에 전달하게 된다.
   
 ### WinMain의 파라미터와 변수 선언
+```c
+int APIENTRY WinMain(_In_ HINSTANCE hInstance, 
+                     _In_opt_ HINSTANCE hPrevInstance, 
+                     _In_ LPSTR lpszCmdParam, 
+                     _In_ int nCmdShow)
+{
+	HWND hWnd;
+	MSG Message;
+	WNDCLASS WndClass;
+	g_hInst = hInstance;
+}
+```
 - **APIENTRY**
   - APIENTRY는 윈도우 표준 호출 규약인 `_stdcall`을 사용한다는 의미이다.
   - `_stdcall` 의 특징은 파라미터의 처리를 호출된 쪽에서 한다는 것이다.
