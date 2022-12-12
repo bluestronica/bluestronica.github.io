@@ -15,7 +15,7 @@
 |DWORD|`typedef unsigned long DWORD;`|32bit unsigned int / 범위는 0부터 4294967295 소수|
 |LONG|`typedef long LONG;`|32bit signed int|
 |-|-|-|
-|PVOID|`typedef void* PVOID;`|'P'는 pointer를 의미/ unsigned int / 모든 형식에 대한 포인터(데이터 형이 없는 메모리 주소를 저장하는 데이터형) / **`핸들에 관련된 데이터형은 PVOID => void* => unsigned int => 32bit 이다.`**|
+|PVOID|`typedef void* PVOID;`|접두어 'P'는 pointer를 의미/ unsigned int 32bit / 모든 형식에 대한 포인터(데이터 형이 없는 메모리 주소를 저장하는 데이터형) / **`핸들에 관련된 데이터형은 PVOID => void* => unsigned int => 32bit 이다.`**|
 |HANDLE|`typedef PVOID HANDLE;`|unsigned int / 오브젝트 핸들|
 |HDC|`typedef HANDLE HDC;`|'H'는 HANDLE을 의미 / DC( 디바이스 컨텍스트 )에 대한 핸들|
 |HGDIOBJ|`typedef HANDLE HGDIOBJ;`|'H'는 HANDLE을 의미 / GDI 개체에 대한 핸들|
