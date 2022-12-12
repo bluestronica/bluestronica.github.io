@@ -117,8 +117,16 @@ WndClass.lpszClassName = lpszClass;
 WndClass.lpszMenuName = NULL;
 WndClass.style = CS_HREDRAW | CS_VREDRAW;
 ```
-
-
+| 속성 이름 | 의미 |
+|:---|:---|
+| cbClsExtra / cbWndExtra| 특수한 목적으로 사용하는 윈도우 예약 영역 / 사용하지 않을 때는 0으로 지정 |
+| hbrBackground | 윈도우 배경 색상을 정한다. / 배경 색상을 브러쉬로 칠하기 때문에 br이란 접두사가 붙는다. |
+| hCursor / hIcon | 윈도우가 사용할 커서와 아이콘을 정한다. |
+| hInstance | 해당 윈도우 클래스를 등록하는 프로그램의 번호 |
+| lpfnWndProc | 해당 윈도우에서 발생하는 메세지를 처리하는 함수를 지정한다. |
+| lpszClassName | 윈도우 클래스의 이름을 정의 |
+| lpszMenuName | 만들어질 프로그램의 사용할 메뉴를 지정한다. |
+| style | 윈도우의 형태를 지정한다. (or)을 사용하 여러개를 사용한다. |
 
 
 
