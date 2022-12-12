@@ -77,7 +77,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance,
   - 원래 우리가 함수를 사용할 때, 인수를 포함한 함수를 사용할 때 처리된 값을 넣어서 함수를 호출하게 된다.
   - 반면, `_stdcall` 을 사용하는 WinMain은 발생한 메세지를 전달만하고 메세지에 대한 처리는 메세지 처리 젼용 함수인 WndProc에서 하게 되는 것이다.
 - **인수**
-  - _In_과 _In_opt_ 
+  - `_In_` 과 `_In_opt_` 
     - 이것은 Visual Studio가 2019로 넘어오면서 파라미터에 접두사를 추가해서 작성하는 것을 권장하기 때문에 사용하는 것이다. 
 - **HINSTANCE hInstance**
   - 프로그램의 인스턴스 핸들이다.
