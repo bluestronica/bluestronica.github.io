@@ -153,7 +153,32 @@ hWnd = CreateWindow(lpszClass, lpszClass, WS_OVERLAPPEDWINDOW,
 HWND CreateWindow(lpszClassName, lpszWindowName, dwStyle, 
 	x, y, nWidth, nHeight, hWndParent, hMennu, hInst, lpvParam)
 ```
-
+- lpszClassName
+  - 생성하는 윈도우 클래스를 지정하는 문자열이다. 
+  - 전역 변수 lpszClass에 클래스 이름(Turtle Rabbit)을 넣었다.
+- opszWindowName
+  - 생성되는 윈도우의 타이틀 바에 나타나는 문자열
+- dwStyle
+  - 윈도우 형태를 지정한다.
+  - WS_OVERLAPPEDWINDOW는 메모장과 유사한 형태로 가장 무난한 윈도우 스타일이다.
+  - 이렇게 윈도우 스타일은 접두사로 `WS_` 가 붙는 모습이다.
+- x, y, nWidth, nHeight
+  - 생성되는 윈도우의 x, y 좌표와 넓이 높이를 나타낸다.
+  - CW_USEREFAULT라는 값은 운영체제가 판단하길 가장 적합한 위치와 크기를 맞춰서 출력한다.
+- hWndParent
+  - 생성되는 윈도우의 부모 윈도우를 나타낸다.
+  - 지금은 메인 윈도우를 생성하고 있기 때문에 부모 윈도우가 존재하지 않아 NULL 값을 전달했다.
+  - 하지만, 컨트롤과 같은 부모 윈도우를 가지는 차일드 윈도우를 생성할 때는 부모 윈도우를 넣어주게 된다.
+- hMenu
+  - 윈도우에서 사용할 메뉴의 핸들을 나타낸다.
+  - 메뉴의 핸들 값을 HMENU로 형변환해서 넣어주게 된다. 
+  - 예제는 NULL 값이 들어가는데, 이는 윈도우 클래스의 속성을 정의할 때 정한 메뉴를 사용하는 것이다.
+- hInst
+  - 윈도우를 만들어주는 주체인 프로그램의 핸들을 지정한다. 
+  - WinMain 함수의 매개변수 받은 hInstance를 넣는다.
+- lpvParam
+  - CREATESTRUCT 라는 구조체의 주소로, 특별한 목적이 있을 때만 사용한다.
+  - 보통은 NULL 값을 사용한다.
 
 
 
