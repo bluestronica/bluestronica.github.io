@@ -5,7 +5,6 @@
 ### [Handle](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Handle.md)
 
 ### [Windows API의 기본 구조 1](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Basic_Structures.md)
-- WinMain, WndProc 함수로 구성
 - 헤더(header) : `<windows.h>` 와 `<TCHAR.h>`
 - WndProc(윈도우 프로시저) 함수
 - 전역 변수 선언
