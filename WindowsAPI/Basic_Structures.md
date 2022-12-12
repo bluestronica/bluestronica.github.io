@@ -3,7 +3,6 @@
 
 # Windows API의 기본 구조 1
 
-### WinMain, WndProc 함수로 구성
 ```c
 #include <Windows.h>
 #include <TCHAR.h>
