@@ -32,6 +32,12 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance,
 	WndClass.lpszClassName = lpszClass;
 	WndClass.lpszMenuName = NULL;
 	WndClass.style = CS_HREDRAW | CS_VREDRAW;	
+	
+	RegisterClass(&WndClass);
+	
+	hWnd = CreateWindow(lpszClass, lpszClass, WS_OVERLAPPEDWINDOW,
+		CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
+		NULL, (HMENU)NULL, hInstance, NULL);
 }
 ```
 
@@ -129,8 +135,22 @@ WndClass.style = CS_HREDRAW | CS_VREDRAW;
 | lpszMenuName | 만들어질 프로그램의 사용할 메뉴를 지정한다. |
 | style | 윈도우의 형태를 지정한다. (or)을 사용하 여러개를 사용한다. |
 
+### 윈도우 클래스 등록
+- 위에서 정의한 윈도우 클래스를 커널에 등록하는 과정을 거칠 차례이다.
+- **` RegisterClass(&WndClass); `**
 
 
+### 윈도우 생성
+- 등록된 윈도우를 메모리에 생성하는 과정이다.
+- 함수의 결과를 미선 선언되어 있던 hWnd(윈도우 핸들)에 저장한다.
+```c
+hWnd = CreateWindow(lpszClass, lpszClass, WS_OVERLAPPEDWINDOW,
+	CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
+	NULL, (HMENU)NULL, hInstance, NULL);
+```
+- CreateWindow 함수의 원형
+- `HWND CreateWindow(lpszClassName, lpszWindowName, dwStyle, 
+	x, y, nWidth, nHeight, hWndParent, hMennu, hInst, lpvParam)`
 
 
 
