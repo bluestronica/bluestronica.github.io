@@ -105,7 +105,18 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance,
     - 파라미터로 받은 인스턴스의 핸들을 전역 변수에 저장하는 것이다.
   
 ### 윈도우 클래스의 정의
-
+```c
+WndClass.cbClsExtra = 0;
+WndClass.cbWndExtra = 0;
+WndClass.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
+WndClass.hCursor = LoadCursor(NULL, IDC_ARROW);
+WndClass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
+WndClass.hInstance = hInstance;
+WndClass.lpfnWndProc = WndProc;
+WndClass.lpszClassName = lpszClass;
+WndClass.lpszMenuName = NULL;
+WndClass.style = CS_HREDRAW | CS_VREDRAW;
+```
 
 
 
