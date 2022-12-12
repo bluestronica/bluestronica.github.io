@@ -149,8 +149,10 @@ hWnd = CreateWindow(lpszClass, lpszClass, WS_OVERLAPPEDWINDOW,
 	NULL, (HMENU)NULL, hInstance, NULL);
 ```
 - CreateWindow 함수의 원형
-- `HWND CreateWindow(lpszClassName, lpszWindowName, dwStyle, 
-	x, y, nWidth, nHeight, hWndParent, hMennu, hInst, lpvParam)`
+```c
+HWND CreateWindow(lpszClassName, lpszWindowName, dwStyle, 
+	x, y, nWidth, nHeight, hWndParent, hMennu, hInst, lpvParam)
+```
 
 
 
