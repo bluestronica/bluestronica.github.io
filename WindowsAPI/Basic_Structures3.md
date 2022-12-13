@@ -102,7 +102,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
   - WM_DESTROY : 응용 프로그램의 오른쪽 위에 있는 X표시를 누르게 되면 WM_DESTROY 메세지가 발생되어 윈도우가 종료된다. 
 - 윈도우 핸등레 대한 정보는 있지만, 프로그램에 대한 정보가 인수로 없는 이유는 전역변수(g_hInst)를 선언해 프로그램 정보를 어느 함수에서도 접근할 수 있기 때문이다.
 - 메세지 처리 순서도(Flow Chart)
-
+![img](Img/FlowChart.png)
 
 
 
