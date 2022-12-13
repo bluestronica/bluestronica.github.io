@@ -13,3 +13,5 @@
 
 ### [Windows API의 기본 구조 3](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Basic_Structures3.md)
 
+### [Device Context / 문자열 출력하기](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Basic_Structures3.md)
+
