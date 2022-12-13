@@ -62,3 +62,37 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
 }
 ```
+
+### 윈도우 프로시저(Window Procedure, WndProc 함수)
+- WinMain 함수에서 메세지 루프를 통해서 발생한 메세지를 큐에 저장한다. 
+- 해당 메세지를 처리하기 위해서 메세지 처리 전용 함수로 전달되어야 한다. 
+- 이 때, 메세지 처리 전용 함수는 윈도우 프로시저이다. 
+- 윈도우 프로시저는 WinMain 함수와는 별도로 WndProc 함수의 형태로 존재한다.
+
+### 윈도우 프로시저의 특징
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
