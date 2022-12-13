@@ -11,3 +11,5 @@
 
 ### [Windows API의 기본 구조 2](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Basic_Structures2.md)
 
+### [Windows API의 기본 구조 3](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Basic_Structures3.md)
+
