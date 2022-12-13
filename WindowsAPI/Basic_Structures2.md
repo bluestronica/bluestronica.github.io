@@ -41,6 +41,13 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance,
 	
 	hWndMain = hWnd;
 	ShowWindow(hWnd, nCmdShow);
+	
+	while (GetMessage(&Message, NULL, 0, 0))
+	{
+		TranslateMessage(&Message);
+		DispatchMessage(&Message);
+	}
+	return (int)Message.wParam;
 }
 ```
 
@@ -202,19 +209,26 @@ ShowWindow(hWnd, nCmdShow);
       - SW_MINIMIZE(윈도우 최소화 및 활성화하지 않음)
     
 ### 메세지 루프
-
-
-
-
-
-
-
-
-
-
-
-
-
+```c
+while (GetMessage(&Message, NULL, 0, 0))
+{
+	TranslateMessage(&Message);
+	DispatchMessage(&Message);
+}
+return (int)Message.wParam;
+```
+- WinMain의 마지막 역할인 메세지 루프이다. 윈도우가 생성되고, 등록되고, 출력되면 사용자가 사용할 수 있다. 이 때 발생하는 메세지(이벤트)를 받기 위해 루프를 계속 돌고, 메세지가 발생하면 윈도우 프로시저로 전달한다.
+- **메세지 루프 진입 - GetMessage 함수**
+  - 메세지 큐에서 메세지를 읽어 들여서 첫번째 인수가 지정하는 메세지 구조체에 저장하게 된다.
+  - 첫 번째 인수는 위에서 미리 선언한 MSG 구조체인 Message의 메모리 시작 주소를 넘겨준다.
+  - 두 번째 인수는 메세지를 전달 받을 윈도우의 정보
+  - 3~4번째 인수는 메세지 필터와 관련된 정보이다
+  - 첫 번째 인수 외에는 잘 사용되지 않는 경향이 있다.
+- **메세지 전달 - TranslateMessage 함수, DispatchMessage 함수**
+  - 메세지 루프에 들어오게 되면 두 개의 함수가 보인다.
+  - TranslateMessage는 문자열이 들어오면 문자열 처리를 위한 메세지를 발생시키는 역할을 한다.
+  - DispatchMessage는 들어온 메세지를 윈도우 프로시저로 전달하는 역할을 한다.
+  - TranslateMessage는 꼭 필요한 함수는 아니지만 DispatchMessage는 꼭 필요한 함수이다.
 
 
 
