@@ -38,6 +38,9 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance,
 	hWnd = CreateWindow(lpszClass, lpszClass, WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
 		NULL, (HMENU)NULL, hInstance, NULL);
+	
+	hWndMain = hWnd;
+	ShowWindow(hWnd, nCmdShow);
 }
 ```
 
@@ -179,6 +182,28 @@ HWND CreateWindow(lpszClassName, lpszWindowName, dwStyle,
 - lpvParam
   - CREATESTRUCT 라는 구조체의 주소로, 특별한 목적이 있을 때만 사용한다.
   - 보통은 NULL 값을 사용한다.
+
+### 윈도우 정보 전달 및 윈도우 출력
+```c
+hWndMain = hWnd;
+ShowWindow(hWnd, nCmdShow);
+```
+- 생성된 윈도우의 정보를 미리 선언한 전역변수 hWnd에 전달해줘야한다.
+  - 메인 윈도우의 핸들을 전역변수로 선언한 이유는 다른 API 함수들도 윈도우 핸들의 정보가 필요한 경우가 있기 때문이다.
+- 전역 변수에 윈도우 핸들을 전달하고 나면 화면에 출력할 차례이다.
+  - ShowWindow 함수에는 두 개의 인수가 들어가는데, 
+  - 첫 번째 인수는 hWnd로, 출력될 윈도우의 핸들이다.
+    - CreateWindow를 통해서 생성된 윈도우의 핸들을 넘겨주면 된다.
+  - 두 번째 인수는 nCmdShow이다.
+    - WinMain의 네 번째 파리미터로 받은 이 변수는 윈도우를 화면에 출력하는 방법을 지정하는 역할을 한다. 
+    - 다양한 매크로 상수들이 정의되어 있다.
+      - SW_HIDE(윈도우를 숨김)
+      - SW_SHOW(윈도우를 활성화해 보여줌)
+      - SW_MINIMIZE(윈도우 최소화 및 활성화하지 않음)
+    
+### 메세지 루프
+
+
 
 
 
