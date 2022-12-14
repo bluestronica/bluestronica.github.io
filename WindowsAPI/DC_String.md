@@ -32,7 +32,8 @@
 
 # 문자열 출력하기
 ```c
-LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
+	WPARAM wParam, LPARAM lParam)
 {
 	HDC hdc;
 	switch (iMessage)
