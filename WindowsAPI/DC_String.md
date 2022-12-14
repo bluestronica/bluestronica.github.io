@@ -31,6 +31,7 @@
 
 
 # 문자열 출력하기
+### TextOUt 프로젝트 1
 ```c
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
 	WPARAM wParam, LPARAM lParam)
@@ -51,13 +52,31 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 }
 ```
 
+### 윈도우 프로시저에서 사용할 변수 선언
+- 메세지 처리 전용 함수인 WndProc 함수에 위와 같이 메세지 처리 함수를 작성
+- HDC는 Handle Device Context의 약자
+- DC를 다루는 핸들 구조체인 hdc를 선언
+- 그리고 2개의 메세지를 처리
+
+### WM_LBUTTONDOWN 메세지
+- WM는 Window Message의 약자이다. 윈도우에서 발생한 메세지인데, 
+- L BUTTON DOWN, 왼쪽 버튼 마우스가 눌렸을 때 발생하는 메세지이다. 
+- GetDC(hWnd) 함수를 통해 해당 윈도우의 DC를 얻을 수 있다.
+- 윈도우의 DC를 얻는 함수는 GetDC, BeginPaint 2개가 있다.
+  - BeginPaint 함수는 WM_PAINT 메세지에서만 사용할 수 있고
+  - GetDC 함수는 그 외 메세지에서 사용된다.
+- TextOut(DC, X좌표, Y좌표, 문자열, 문자열길이)함수를 통해 해당 텍스트를 출력할 수 있다.
+- 문자열 출력을 마치면 ReleaseDC를 통해 DC를 반환해야한다.
+- GetDC와 ReleaseDC는 세트라고 생각하면 편하고, 이는 메모리 낭비를 막기 위해 사용된다. 
+- 이후, return 0;를 통해 메세지 처리를 종료한다. 
+- lParam, wParam의 정보에 따라 메세지 내부에 switch문을 또 사용하는 경우가 있는데, 이 때 break;로 구분하고 메세지 종료는 return 으로 구분한다.
+
+### WM_DESTROY 메세지
+- 해당 메세지는 오른쪽 위에 X표시를 누를 경우 발생하는 메세지다. 프로그램이 종료할 때 발생하는 메세지이며 PostQuitMessage(0)을 통해 종료 메세지를 전송한다. 
+- 메세지 처리가 완료된 후, 처리 결과를 다시 반환한다.(LRESULT형)
 
 
-
-
-
-
-
+### TextOUt 프로젝트 2
 
 
 
