@@ -27,12 +27,28 @@
 - 이처럼 화면에 무언가를 출력하기 위해서는 개발자가 신경써야 할 부분이 많기때문에 Device Context를 이용해서 화면에 출력하는 과정을 거친다.
   - Device Context를 사용한 실제 API 코드는 다음과 같다. 
   - `LineTo(hdc, X, Y);` 선이 그어질 위치만 알려주면, 그 외의 정보들은 Device Context에 저장된 정보를 기반으로 자동으로 처리하는 것을 알 수 있다.
-- 그 외에도, 윈도우가 실행되는 환경은 여러 개의 프로그램이 동시에 실행되는 멀티 태스킹 스트템이기 때문에, 다른 프로그램과의 상태에도 영향을 받는다. Device Context를 통해서 운영체제가 인지하여 처리하도록 다른 프로그램의 윈도우끼리 출력 결과가 서로 방해하지 않도록 완충하는 역활도 하고 있다.
+- 그 외에도, 윈도우가 실행되는 환경은 여러 개의 프로그램이 동시에 실행되는 멀티 태스킹 스트템이기 때문에, 다른 프로그램과의 상태에도 영향을 받는다. Device Context를 통해서 운영체제가 인지하여 처리하도록 다른 프로그램의 윈도우끼리 출력 결과가 서로 방해하지 않도록 완충하는 역할도 하고 있다.
 
 
 # 문자열 출력하기
-
-
+```c
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+	switch (iMessage)
+	{
+	case WM_LBUTTONDOWN:
+		hdc = GetDC(hWnd);
+		TextOut(hdc, 100, 100, _T("Bluestronica!!"), 15);
+		ReleaseDC(hWnd, hdc);
+		return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
+```
 
 
 
