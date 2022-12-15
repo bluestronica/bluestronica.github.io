@@ -24,7 +24,7 @@
 - WndProc 함수
 
 ### [Device Context / 문자열 출력하기 / 문자열 정렬](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/DC_String.md)
-- Device Context
+- Device Context(DC)란?
 - Device Context가 필요한 이유?
 - 문자열 출력하기
 - TextOut 프로젝트 1
