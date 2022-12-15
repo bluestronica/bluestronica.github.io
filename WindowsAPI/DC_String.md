@@ -77,6 +77,76 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 
 
 ### TextOUt 프로젝트 2
+```c
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
+	WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+	PAINTSTRUCT ps;
+
+	switch (iMessage)
+	{
+	case WM_PAINT:
+		hdc = BeginPaint(hWnd, &ps);
+		TextOut(hdc, 100, 100, _T("BluesTronica!!"), 15);
+		EndPaint(hWnd, &ps);
+		return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
+```
+- 윈도우를 최소화했다 다시 켜도, 사이즈를 바꿔도 문자열이 사라지지 않는다.
+
+### WM_PAINT 메세지
+- 화면에 출력하는 메시지이다.
+- WM_PAINT 메세지가 발생하는 시점이 여러 개가 있는데, 그 중에 프로그램이 실행되었을 때도 WM_PAINT 메세지가 발생한다. 
+- 프로그램이 시작되면 발생하는 메세지를 처리하고, 윈도우를 띄우기 위해서 WM_PAINT 메세지가 발생하는 것이다. 그래서 윈도우를 시작하자마자 문자열이 출력되는 것이다.
+
+### BeginPaint() VS GetDC()
+- BeginPaint()
+  - WM_PAINT 메세지에서만 사용하는 함수이다.
+  - BeginPaint는 윈도우의 Clipping Region을 자동으로 파악하는 특징이 있다. 
+  - Clipping Region이란, 클라이언트 영역의 특정 부분에 그리기를 한정하는 영역을 의미한다. 
+  - 위에서 메모장 겹치는 것을 보았듯이, 뒤에 가려져있는 메모장을 클릭하게 되면 가려져 있던 부분을 업데이트해야한다. 
+  - 이렇게 윈도우가 생성되거나, 움직이거나, 사이즈가 바뀌거나, 스크롤 되는 등 윈도우의 화면 상의변화하는 부분을 Clipping Region이라고 한다. 
+  - 일부 메세지는 화면의 변화가 아니기 때문에 화면의 변화를 감지하지 못한다. 
+  - 예를 들어, 위에서 본 TextOut 프로젝트에서 LBUTTONDOWN 메세지가 발생하면, TextOut함수를 통해서 문자열을 출력해야하는데, 마우스가 클릭된 것은 화면의 변화가 아니기 때문에 WM_PAINT 메세지가 발생하지 않습니다. 프로그램을 최소화했다가 다시 띄우면 윈도우를 그리는 WM_PAINT만 발생하고, WM_LBUTTONDOWN 메세지가 발생하지 않기 때문에 문자열이 출력되지 않는 것이다. 
+  -그래서 우리는 화면의 변화가 있다고 윈도우에 알리기 위해 InvalidateRect() 혹은 InvalidateRgn() 함수를 사용한다. 이에 대한 자세한 내용은 추후에 다룰 예정이다.
+- GetDC()
+  - WM_PAINT 외에 메세지에서 출력을 하기 위해 해당 Client 영역의 Device Context를 얻는 함수다.
+  - TextOut 프로젝트에서 LBUTTONDOWN 메세지가 발생하면 바로 출력하는 것처럼 즉각적인 출력이 이루진다. 하지만, 일시적인 출력 방법으로 그 이후의 변화에는 책임지지 않는다. 
+  - 그래서, 윈도우가 최소화되었다가 띄워지거나, 윈도우의 사이즈가 변경되는 경우 문자열을 다시 출력하지 않는 것이다. 
+  - 그래서 GetDC함수는 배경과 관계없이 특정 출력을 일시적(즉각적)으로 반영하고자하는 경우 사용하곤 한다. 여담으로, 윈도우의 타이틀바 영역에 대한 DC를 얻기 위해서는 GetWindowDC() 함수를 사용한다. 
+  
+### BeginPaint()는 정적(Static) 출력, GetDC()는 동적(Dynamic) 출력
+- BeginPaint() 함수는 정적(Static) 출력을 하기 위해 사용한다. 윈도우의 틀이 출력되는 것처럼 기본적으로 출력할 수 있는 것이다. 
+- 반대로, GetDC() 함수는 동적(Dynamic) 출력을 하기 위해 사용한다. 마우스의 동작에 따라, 혹은 키보드의 입력에 따라 동작할 때 GetDC 함수를 사용하여 바로 출력하곤한다. 
+- 일시적인 출력이기 때문에, 다른 윈도우에 의해 가려지거나 윈도우가 변화하면 지워진다.(이후 변화는 책임지지 않기 때문이다.)
+- 두 함수 모두, 사용이 끝나면 메모리를 반환하기 위해서 EndPaint(BeginPaint를 사용한 경우),ReleaseDC(GetDC를 사용한 경우)를 꼭 사용해야한다.
+
+### PAINTSTRUCT 구조체
+- HDC, rcPaint와 같은 출력에 관한 정보를 담고있는 구조체이다.
+- 이 구조체의 주소를 두번째 매개변수로 사용하여 정적 출력을 진행할 수 있다.
+
+
+# 문자열 정렬
+- 출력하는 문자열을 정렬하기 위해 다음과 같은 함수를 사용한다.
+- 대부분 요소들에 대한 설정은 함수와 OR연산을 통해서 세팅할 수 있다.
+- **` UINT SetTextAlign(HDC hdc, UINT fMode); `**
+
+
+
+
+
+
+
+
+
+
+
 
 
 
