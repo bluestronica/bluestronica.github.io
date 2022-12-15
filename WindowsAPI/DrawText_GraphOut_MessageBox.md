@@ -62,8 +62,18 @@ typedef struct _RECT
   	- RECT 구조체의 주소를 넣어 사각형 영역 정보를 알려준다.
   - UINT uFormat : 옵션(사각형 안에서 문자열을 정렬하는 것에 대한 정보)
   	- Win32 API에서 옵션이 여려 개가 있을 경우 `|`(OR) 연산을 통해 동시에 사용할 수 있다.
+- DrawText 옵션
 
-
+| 값 | 기능 |
+|:---|:---|
+|DT_LEFT|수평 왼쪽 정렬|
+|DT_RIGHT|수평 오른쪽정렬|
+|DT_CENTER|수평 중앙 정렬|
+|DT_BOTTOM|사각 영역의 바닥에 문자열 출력|
+|DT_VCENTER|사각 영역의 수직 중앙에 문자열 출력|
+|DT_WORDBREAK|사각 영역의 오른쪽 끝에서 자동으로 개행|
+|DT_SINGLELINE|한 줄로 출력|
+|DT_NOCLIP|사각 영역의 겨예를 벗어나도 문자열을 자르지 않고 출력|
 
 
 
