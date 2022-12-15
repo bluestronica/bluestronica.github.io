@@ -31,7 +31,7 @@
 
 
 # 문자열 출력하기
-### TextOUt 프로젝트 1
+### TextOut 프로젝트 1
 ```c
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
 	WPARAM wParam, LPARAM lParam)
@@ -76,7 +76,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 - 메세지 처리가 완료된 후, 처리 결과를 다시 반환한다.(LRESULT형)
 
 
-### TextOUt 프로젝트 2
+### TextOut 프로젝트 2
 ```c
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
 	WPARAM wParam, LPARAM lParam)
@@ -147,6 +147,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 |TA_UPDATECP|지정한 좌표가 CP(Current Position)를 사용, 출력 후 CP변경|
 |TA_NOUPDATECP|CP(Current Position)를 사용하지 않고 좌표사용, CP 변경하지 않음|
 
+### TextOut 프로젝트 3
 ```c
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
 	WPARAM wParam, LPARAM lParam)
@@ -209,23 +210,4 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 // 출력 후 CP를 문자열의 다음 위치로 옮긴다.
 // 그렇기 때문에, 한 줄로 출력되는 것이다.
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
