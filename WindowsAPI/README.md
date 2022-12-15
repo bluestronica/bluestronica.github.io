@@ -23,5 +23,7 @@
 - 윈도우 프로시저의 특징
 - WndProc 함수
 
-### [Device Context / 문자열 출력하기](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/DC_String.md)
+### [Device Context / 문자열 출력하기 / 문자열 정렬](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/DC_String.md)
+
+### [긴 문자열, 도형, 메세지박스 출력하기](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/DrawText_GraphOut_MessageBox.md)
 
