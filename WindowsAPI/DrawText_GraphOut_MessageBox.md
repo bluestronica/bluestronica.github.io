@@ -4,6 +4,7 @@
 # 긴 문자열 출력하기
 
 ### DrawText 프로젝트
+- 사각형 안에 문자열을 그리는 DrawText 함수를 활용해서 긴 문자열 출력
 ```c
 LRESULT CALLBACK WndProc(HWND hWnd, 
   	UINT iMessage, WPARAM wParam, LPARAM lParam)
@@ -11,8 +12,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,
 	HDC hdc;
 	PAINTSTRUCT ps;
 	RECT rt = { 50, 20, 350, 220 };
-	LPCTSTR str = 
-		_T("이전 포스팅에서 문자열을 출력하기 위해 TextOut 함수를 사용했다.")
+	LPCTSTR str = _T("문자열을 출력하기 위해 TextOut 함수를 사용했다.")
 		_T("말 그대로 문자열을 출력하는 함수다.")
 		_T("이번에는 사각형 안에 문자열을 그리는 DrawText 함수를 활용해서")
 		_T("긴 문자열을 출력하도록 하겠다.");
@@ -31,3 +31,58 @@ LRESULT CALLBACK WndProc(HWND hWnd,
 	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
 }
 ```
+
+### 윈도우 프로시저에서 사용할 변수 선언
+- 출력을 위해 HDC 구조체와 PAINTSTRUCT를 선언한다.
+- DrawText함수는 사각형 안에 문자열을 출력하기 때문에, 사각형 정보를 정의할 필요가 있다.
+- 따라서, RECT구조체를 선언하고 사각형 정보를 정의한다.
+```c
+typedef struct _RECT
+{
+	LONG left;
+	LONG top;
+	LONG right;
+	LONG bottom;
+} RECT;
+```
+- 차례대로 { 왼쪽 위, 오른쪽 위, 오른쪽 아래, 왼쪽 아래 }이다.
+- 사각형의 왼쪽 위 꼭지점에서 시계방으로 돈다고 생각하면된다.
+- RECT 구조체는 상당히 많이 사용하기 때문에 유심히 볼 필요가 있다.
+- 이후, 문자열 정의하는데 각 문장 사이에 콤마가 없다.
+- 이렇게 긴 문자열을 선언할 때, 콤마를 찍지 않고 마지막 문자열 끝에 세미콜론을 적어주면 된다.
+
+### WM_PAINT 메세지
+- DC를 얻기 위해 BeginPaint함수를 사용했고, DrawText함수를 통해 긴 문자열을 출력한다.
+- **`DrawText(HDC hDC, LPCTSTR lpString, int nCount, LPRECT lpRect, UINT uFormat);`**
+  - HDC hDC : Device Context의 핸들
+  - LPCTSTR lpString : 출력될 문자 포인터
+  - int nCount : 출력될 문자열의 길이 (-1이면 NULL 종류 문자열로 간주)
+  	- _tcslen(문자열) 함수를 통해 문자열의 길이를 구했다.	
+  - LPRECT lpRect : 출력될 사각영역 RECT 구조체 포인터
+  	- RECT 구조체의 주소를 넣어 사각형 영역 정보를 알려준다.
+  - UINT uFormat : 옵션(사각형 안에서 문자열을 정렬하는 것에 대한 정보)
+  	- Win32 API에서 옵션이 여려 개가 있을 경우 `|`(OR) 연산을 통해 동시에 사용할 수 있다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
