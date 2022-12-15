@@ -38,6 +38,6 @@
 - PAINTSTRUCT 구조체
 - 문자열 정렬
 - TextOUt 프로젝트 3
-- TextOUt 프로젝트 4
+
 ### [긴 문자열 / 도형 / 메세지박스 출력하기](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/DrawText_GraphOut_MessageBox.md)
 
