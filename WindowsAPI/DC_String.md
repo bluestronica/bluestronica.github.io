@@ -136,6 +136,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 - 출력하는 문자열을 정렬하기 위해 다음과 같은 함수를 사용한다.
 - 대부분 요소들에 대한 설정은 함수와 OR연산을 통해서 세팅할 수 있다.
 - **` UINT SetTextAlign(HDC hdc, UINT fMode); `**
+| 값 | 기능 |
+|:---|:---|
+|TA_TOP|지정한 좌표가 상단에 위치|
+|TA_BOTTOM|지정한 좌표가 하단에 위치|
+|TA_CENTER|지정한 좌표가 수평 중앙 좌표|
+|TA_LEFT|지정한 좌표가 수평 왼쪽|
+|TA_RIGHT|지정한 좌표가 수평 오른쪽|
+|TA_UPDATECP|지정한 좌표가 CP(Current Position)를 사용, 출력 후 CP변경|
+|TA_NOUPDATECP|CP(Current Position)를 사용하지 않고 좌표사용, CP 변경하지 않음|
+
 
 
 
