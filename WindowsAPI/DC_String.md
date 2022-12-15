@@ -147,8 +147,68 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 |TA_UPDATECP|지정한 좌표가 CP(Current Position)를 사용, 출력 후 CP변경|
 |TA_NOUPDATECP|CP(Current Position)를 사용하지 않고 좌표사용, CP 변경하지 않음|
 
+```c
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
+	WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+	PAINTSTRUCT ps;
 
+	switch (iMessage)
+	{
+	case WM_PAINT:
+		hdc = BeginPaint(hWnd, &ps);
+		TextOut(hdc, 100, 60, _T("BluesTronica"), 12);
+		TextOut(hdc, 100, 80, _T("is My"), 5);
+		TextOut(hdc, 100, 100, _T("Lovely home Country"), 19);
+		EndPaint(hWnd, &ps);
+		return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
 
+// 결과 :  
+//      BluesTronica
+//      is My
+//      Lovely home Country
+// 정렬하기 전, 각 좌표에 맞게 해당 문자열이 출력된다. 
+// X좌표는 동일하고, Y좌표가 20씩 커지면서 아랫 줄에 출력된다.
+```
+```c
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
+	WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+	PAINTSTRUCT ps;
+
+	switch (iMessage)
+	{
+	case WM_PAINT:
+		hdc = BeginPaint(hWnd, &ps);
+		SetTextAling(hdc, TA_UPDATECP);
+		TextOut(hdc, 100, 60, _T("BluesTronica"), 12);
+		TextOut(hdc, 100, 80, _T("is My"), 5);
+		TextOut(hdc, 100, 100, _T("Lovely home Country"), 19);
+		EndPaint(hWnd, &ps);
+		return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
+
+// 결과 :  
+//      BluesTronica is My Lovely home Country
+// TA_UPDATECP 옵션으로 정렬하니 한 줄로 출력되는 모습을 확인할 수 있다.
+// 해당 옵션은 출력 위치를 지정하는 인수를 무시하고,
+// 항상 CP(Current Position)의 위치에 문자열을 출력하고,
+// 출력 후 CP를 문자열의 다음 위치로 옮긴다.
+// 그렇기 때문에, 한 줄로 출력되는 것이다.
+```
 
 
 
