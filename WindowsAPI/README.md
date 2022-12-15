@@ -24,6 +24,20 @@
 - WndProc 함수
 
 ### [Device Context / 문자열 출력하기 / 문자열 정렬](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/DC_String.md)
-
-### [긴 문자열, 도형, 메세지박스 출력하기](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/DrawText_GraphOut_MessageBox.md)
+- Device Context
+- Device Context가 필요한 이유?
+- 문자열 출력하기
+- TextOUt 프로젝트 1
+- 윈도우 프로시저에서 사용할 변수 선언
+- WM_LBUTTONDOWN 메세지
+- WM_DESTROY 메세지
+- TextOUt 프로젝트 2
+- WM_PAINT 메세지
+- BeginPaint() VS GetDC()
+- BeginPaint()는 정적(Static) 출력, GetDC()는 동적(Dynamic) 출력
+- PAINTSTRUCT 구조체
+- 문자열 정렬
+- TextOUt 프로젝트 3
+- TextOUt 프로젝트 4
+### [긴 문자열 / 도형 / 메세지박스 출력하기](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/DrawText_GraphOut_MessageBox.md)
 
