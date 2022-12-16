@@ -40,6 +40,14 @@
 - TextOut 프로젝트 3
 
 ### [긴 문자열 / 도형 / 메세지박스 출력하기](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/DrawText_GraphOut_MessageBox.md)
+- 긴 문자열 출력하기
+- DrawText 프로젝트
+- 윈도우 프로시저에서 사용할 변수 선언
+- WM_PAINT 메세지
+- 다양한 그래픽(도형) 출력하기
+- GraphOut 프로젝트
+- 메세지 박스(Message Box) 출력하기
+- WM_LBUTTON 메세지
 
 ### [키보드 입력하기 / 사용자가 입력한 문자 출력 ](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/KeyBoard.md)
 
