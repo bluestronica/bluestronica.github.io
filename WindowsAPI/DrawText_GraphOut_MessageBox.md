@@ -84,7 +84,7 @@ typedef struct _RECT
   - X, Y 좌표, 색깔 정보
 - 선의 시작점
   - **`DWORD MoveToEx(hdc, x, y, lpPoint)`**
-  - 선의 시작점의 X, Y 좌표, 이전 Ex 좌표
+  - 선 시작점의 X, Y 좌표, 이전 Ex 좌표
 - 선의 끝
   - **`BOOL LineTo(hdc, xEnd, yEnd)`**
   - 선 끝 점의 X, Y 좌표
@@ -94,22 +94,78 @@ typedef struct _RECT
 - 원
   - **`BOOL Ellipse(hdc, nLeftRect, nTopRect, nRightRect, nBottomRect)`**
   - 사각형 내부에 원을 그림
-  
+- 출력을 위해 Device Context의 핸들 정보인 HDC는 공통으로 들어간다.
+- 선을 긋는 것은 조금 특이하다. 두 개의 함수를 같이 사용한다.
+  - MoveToEX 함수로 현재 위치를 시작점으로 이동해서,
+  - LineTo 함수를 통해 끝 점으로 이동하면서 선을 긋는 윈리이다.
+- 원은 사각형 영역 정보를 입력하면, 그 사각형에 내접하는 원을 그리는 원리이다.
 
+### GraphOut 프로젝트
+```c
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
+	WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+	PAINTSTRUCT ps;
 
+	switch (iMessage)
+	{
+	case WM_PAINT:
+		hdc = BeginPaint(hWnd, &ps);
+		SetPixel(hdc, 10, 10, RGB(255, 0, 0));
+		MoveToEx(hdc, 50, 50, NULL);  // 이전 위치가 없기 때문에 NULL
+		LineTo(hdc, 300, 90);
+		Rectangle(hdc, 50, 100, 200, 180);
+		Ellipse(hdc, 220, 100, 400, 200);
+		EndPaint(hWnd, &ps);
+		return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
+```
 
+# 메세지 박스(Message Box) 출력하기
 
+### MessageBox 프로젝트
+```c
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
+	WPARAM wParam, LPARAM lParam)
+{
+	switch (iMessage)
+	{
+	case WM_LBUTTONDOWN:
+		MessageBox(hWnd, _T("Click Mouse Left Button!"), _T("Message Box!!"), MB_OK);
+		return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
+```
 
-
-
-
-
-
-
-
-
-
-
+### WM_LBUTTON 메세지
+- **`int MessageBox(1. HWND hWnd, 2. LPCTSTR lpText, 3. LPCTSTR lpCaption, 4. UINT uType);`**
+  - HWND hWnd : 
+    - 메세지 박스의 Owner윈도우(부모 윈도우)
+    - 사실 메세지 박스(팍업창)은 자식 윈도우다.
+  - LPCTSTR lpText : 메세지 박스 안에 출력할 문자열
+  - LPCTSTR lpCaption : 메세지 박스 타이틀에 출력할 문자열
+  - UINT uType : 메세지 박스의 종류
+  - 반환형은 int
+    - 해당 반환값을 변수에 저장해놓고 있다가 조건문 등을 활용해 그에 맞는 대처를 할 수 있다.
+  - 메세지 박스에 예/아니오 뿐만 아니라, 다양한 버튼을 추가 할 수 있다.
+| 값 | 기능 |
+|:---|:---|
+|MB_ABORTRETRYIGNORE|Abort, Retry,Ignore 3개의 버튼이 나타난다.|
+|MB_OK|OK 버튼 하나만 나타난다.|
+|MB_OKCANCLE|OK, CANCLE 두 개의 버튼이 나타난다.|
+|MB_RETRYCANCLE|Rerty Cancle 두 개의 버튼이 나타난다.|
+|MB_YESNO|Yes, No 두개의 버튼이 나타난다.|
+|MB_YESCONCLE|Yes, No, Cancle 세 개의 버튼이 나타난다.|
 
 
 
