@@ -79,8 +79,22 @@ typedef struct _RECT
 # 다양한 그래픽(도형) 출력하기
 
 ### Win32 API는 픽셀 하나부터, 선, 원, 사각형 등 다양한 도형을 그릴 수 있는 함수를 지원한다.
-
-
+- 픽셀
+  - **`COLORREF SetPixel(hdc, nXPos, nYPos, corref)`**
+  - X, Y 좌표, 색깔 정보
+- 선의 시작점
+  - **`DWORD MoveToEx(hdc, x, y, lpPoint)`**
+  - 선의 시작점의 X, Y 좌표, 이전 Ex 좌표
+- 선의 끝
+  - **`BOOL LineTo(hdc, xEnd, yEnd)`**
+  - 선 끝 점의 X, Y 좌표
+- 사각형
+  - **`BOOL Rectangle(hdc, nLeftRect, nTopRect, nRightRect, nBottomRect)`**
+  - 왼쪽 위부터 시계방향
+- 원
+  - **`BOOL Ellipse(hdc, nLeftRect, nTopRect, nRightRect, nBottomRect)`**
+  - 사각형 내부에 원을 그림
+  
 
 
 
