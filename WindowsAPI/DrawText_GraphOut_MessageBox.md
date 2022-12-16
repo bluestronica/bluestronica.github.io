@@ -148,7 +148,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 ```
 
 ### WM_LBUTTON 메세지
-- **`int MessageBox(1. HWND hWnd, 2. LPCTSTR lpText, 3. LPCTSTR lpCaption, 4. UINT uType);`**
+- **`int MessageBox(HWND hWnd, LPCTSTR lpText, LPCTSTR lpCaption, UINT uType);`**
   - HWND hWnd : 
     - 메세지 박스의 Owner윈도우(부모 윈도우)
     - 사실 메세지 박스(팍업창)은 자식 윈도우다.
