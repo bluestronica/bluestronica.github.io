@@ -158,6 +158,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
   - 반환형은 int
     - 해당 반환값을 변수에 저장해놓고 있다가 조건문 등을 활용해 그에 맞는 대처를 할 수 있다.
   - 메세지 박스에 예/아니오 뿐만 아니라, 다양한 버튼을 추가 할 수 있다.
+  
 | 값 | 기능 |
 |:---|:---|
 |MB_ABORTRETRYIGNORE|Abort, Retry,Ignore 3개의 버튼이 나타난다.|
