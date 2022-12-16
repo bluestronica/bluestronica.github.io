@@ -41,3 +41,5 @@
 
 ### [긴 문자열 / 도형 / 메세지박스 출력하기](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/DrawText_GraphOut_MessageBox.md)
 
+### [키보드 입력하기 / 사용자가 입력한 문자 출력 ](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/KeyBoard.md)
+
