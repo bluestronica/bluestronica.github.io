@@ -161,12 +161,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
   
 | 값 | 기능 |
 |:---|:---|
-|MB_ABORTRETRYIGNORE|Abort, Retry,Ignore 3개의 버튼이 나타난다.|
+|MB_ABORTRETRYIGNORE|Abort, Retry, Ignore 3개의 버튼이 나타난다.|
 |MB_OK|OK 버튼 하나만 나타난다.|
-|MB_OKCANCLE|OK, CANCLE 두 개의 버튼이 나타난다.|
-|MB_RETRYCANCLE|Rerty Cancle 두 개의 버튼이 나타난다.|
+|MB_OKCANCEL|Ok, Cancel 두 개의 버튼이 나타난다.|
+|MB_RETRYCANCEL|Rerty Cancel 두 개의 버튼이 나타난다.|
 |MB_YESNO|Yes, No 두개의 버튼이 나타난다.|
-|MB_YESCONCLE|Yes, No, Cancle 세 개의 버튼이 나타난다.|
+|MB_YESCONCEL|Yes, No, Cancel 세 개의 버튼이 나타난다.|
 
 
 
