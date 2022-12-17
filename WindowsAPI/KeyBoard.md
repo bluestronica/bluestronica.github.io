@@ -174,7 +174,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 			y += 8;
 			break;
 		}
-		InvalidateRect(hWnd, NULL, TRUE);  // 출력을 위한 무효영역 무호화
+		InvalidateRect(hWnd, NULL, TRUE);  // 출력을 위한 무효영역 무효화
 		return 0;
 	case WM_PAINT:
 		hdc = BeginPaint(hWnd, &ps);
