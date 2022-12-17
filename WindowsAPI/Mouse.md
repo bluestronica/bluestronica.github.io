@@ -71,7 +71,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance,
 	WndClass.lpfnWndProc = WndProc;
 	WndClass.lpszClassName = lpszClass;
 	WndClass.lpszMenuName = NULL;
-	WndClass.style = CS_HREDRAW | CS_VREDRAW | CS_DBLCLKS;  // 더블클릭 인식!!
+	WndClass.style = CS_HREDRAW | CS_VREDRAW | CS_DBLCLKS;  // 더블클릭 인식!
 
 	RegisterClass(&WndClass);
 
@@ -91,7 +91,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance,
 }
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
-  WPARAM wParam, LPARAM lParam)
+  	WPARAM wParam, LPARAM lParam)
 {
 	HDC hdc;
 	static int x;
