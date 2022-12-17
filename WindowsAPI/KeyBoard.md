@@ -49,7 +49,40 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 ### Key 프로젝트
 - 사용작 문자를 입력하면 화면에 출력하고, 스페이스 바를 입력하면 다 지워지는 프로그램이다.
 ```c
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
+  WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+	PAINTSTRUCT ps;
+	static TCHAR str[256] = _T("");
+	int len;
 
+	switch (iMessage)
+	{
+	case WM_CHAR:
+		if (wParam == 32)
+		{
+			str[0] = 0;
+		}
+		else
+		{
+			len = _tcslen(str);
+			str[len] = wParam;
+			str[len + 1] = 0;
+		}
+		InvalidateRect(hWnd, NULL, TRUE);
+		return 0;
+	case WM_PAINT:
+		hdc = BeginPaint(hWnd, &ps);
+		TextOut(hdc, 50, 50, str, _tcslen(str));
+		EndPaint(hWnd, &ps);
+		return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
 ```
 
 
