@@ -129,6 +129,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 - KeyDown 프로젝트는 화면에 네모를 출력해 방향키를 통해서 이동시키는 것을 진행한다.
 
 ### 가상 키 코드(Virtual Key Code)
+- 가상 키 코드라는 범용적인 코드값을 정해놨다. 해당 코드값은 wParam에 전달된다.
 
 | 가상키 코드 | 값 | 키 |
 |:---|:---|:---|
@@ -144,8 +145,49 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 |VK_SPACE| 20 |Space|
 |VK_LEFT| 25 |좌측 이동키|
 
+### KeyDown 프로젝트
+- 가상 키 코드를 활용해 메세지를 처리할 수 있다.
+```c
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
+	WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+	PAINTSTRUCT ps;
+	static int x = 100;
+	static int y = 100;
 
-
+	switch (iMessage)
+	{
+	case WM_KEYDOWN:
+		switch (wParam)  // 가상키 처리
+		{
+		case VK_LEFT:
+			x -= 8;
+			break;
+		case VK_RIGHT:
+			x += 8;
+			break;
+		case VK_UP:
+			y -= 8;
+			break;
+		case VK_DOWN:
+			y += 8;
+			break;
+		}
+		InvalidateRect(hWnd, NULL, TRUE);  // 출력을 위한 무효영역 무호화 처리
+		return 0;
+	case WM_PAINT:
+		hdc = BeginPaint(hWnd, &ps);
+		TextOut(hdc, x, y, _T("■"), 1);   // 출력
+		EndPaint(hWnd, &ps);
+		return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
+```
 
 
 
