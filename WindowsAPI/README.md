@@ -51,4 +51,27 @@
 - WM_LBUTTON 메세지
 
 ### [키보드 입력하기 / 사용자가 입력한 문자 출력 ](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/KeyBoard.md)
+- 개요
+- Wind32 API 입력
+- 포커스와 컨트롤
+- 키보드 입력
+- key 프로젝트
+- 변수 선언
+- WM_CHAR 메세지
+- InvalidateRect 함수와 무효 영역(Invalid Region)
+- 무효 영역(Invalid Region)
+- InvalidateRect 함수
+- 방향키를 통해서 이동하기
+- 가상 키 코드(Virtual Key Code)
+- KeyDown 프로젝트
+
+### [마우스 입력하기 ](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Mouse.md)
+
+
+
+
+
+
+
+
 
