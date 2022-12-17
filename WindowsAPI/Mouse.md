@@ -20,7 +20,7 @@
 - 이 때, 마우스가 클릭된 위치나 조합키의 상태(Shif, Ctrl 등)와 같은 부가 정보가 메세지와 함께 윈도우 프로시저로 전달된다.
 - **`LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)`**
 - 부가 정보는 WPARAM, LPARAM에 담겨서 전달된다.
-
+![img](Img/lparam.png)
 
 
 
