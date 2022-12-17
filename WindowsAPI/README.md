@@ -66,14 +66,17 @@
 - KeyDown 프로젝트
 
 ### [마우스 입력](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Mouse.md)
+- 개요
+- 마우스 입력시 발생하는 메세지
+- LPARAM lParam
+- WPARAM wParam
+- 자유 곡선 그리기
+- Mouse 프로젝트
+- 변수 선언
+- WM_LBUTTONDOWN, WM_MOUSEMOVE 메세지
+- WM_LBUTTONUP, WM_LBUTTONDBLCLK 메세지
 
 ### [타이머를 활용해 시계 만들기 1](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Timmer.md)
-
-
-
-
-
-
 
 
 
