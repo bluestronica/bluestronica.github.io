@@ -20,11 +20,35 @@
 - 이 때, 마우스가 클릭된 위치나 조합키의 상태(Shif, Ctrl 등)와 같은 부가 정보가 메세지와 함께 윈도우 프로시저로 전달된다.
 - **`LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)`**
 - 부가 정보는 WPARAM, LPARAM에 담겨서 전달된다.
+
+### LPARAM lParam
+- 이 구조체는 WORD형 구조체이다. 4byte로 이루어져 있고, 
+- 상위 2byte는 HIWORD, 하위 2byte는 LOWORD라고 한다.
 ![img](Img/lparam.png)
+- 위 그림처럼, 마우스의 위치 정보는 LPARAM의 HIWORD에 Y좌표, LOWORD에 X좌표가 담겨 윈도우 프로시저로 전달된다. 실제로 사용할 땐 (LOWORD(lParam), HIWORD(lParam))과 같이 사용할 수 있다.
+
+### WPARAM wParam
+- 마우스 버튼의 상태와 키보드 조합키의 상태가 전달된다.
+- 상태값들의 비트 연산을 통해 여러 개의 조합키가 눌려도 윈도우가 이를 인식하고 알맞은 처리를 할 수 있는 것이다.
+
+| 값 | 내용 |
+|:---|:---|
+| MK_CONTROL | Ctrl 키가 눌려있다. |
+| MK_LBUTTON | 마우스 왼쪽 버튼이 눌려있다. |
+| MK_RBUTTON | 마우스 오른쪽 버튼이 눌려있다. |
+| MK_MBUTTON | 마우스 가운데 버튼이 눌려있다. |
+| MK_SHIFT | Shift 키가 눌려있다. |
 
 
+# 자유 곡선 그리기
+- 마우스를 클릭해 글미을 그릴 수 있는 프로그램 작성
 
-
+### Mouse1 프로젝트
+- 마우스를 클릭하면, 마우스의 위치 정보를 최신화한다.
+- 마우스를 움직이면 MoveToEx함수를 통해 최신화한 마우스의 위치 정보로 이동 한 뒤,
+- 현재 위치로 LineTo함수를 통해 선을 그린다.
+- 더블클릭 메세지
+  - WindMain 함수에서 윈도우를 생성할 
 
 
 
