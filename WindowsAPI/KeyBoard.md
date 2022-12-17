@@ -26,8 +26,8 @@
 ```c
 while(GetMessage(&Message, NULL, 0, 0))
 {
-  TranslateMessage(&Message);
-  DispatchMessage(&Message);
+	TranslateMessage(&Message);
+	DispatchMessage(&Message);
 }
 ```
 - 문자를 입력할 때, 확인해야 할 함수는 TranslateMessage 함수다.
@@ -50,7 +50,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 - 사용작 문자를 입력하면 화면에 출력하고, 스페이스 바를 입력하면 다 지워지는 프로그램이다.
 ```c
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
-  WPARAM wParam, LPARAM lParam)
+  	WPARAM wParam, LPARAM lParam)
 {
 	HDC hdc;
 	PAINTSTRUCT ps;
