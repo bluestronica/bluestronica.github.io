@@ -110,7 +110,25 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 
 # InvalidateRect 함수와 무효 영역(Invalid Region)
 
+### 무효 영역(Invalid Region)
+- 1번 메모장의 내용이 2번 메모장에 의해 일부 가려져 보이지 않는다. 1번 메모장의 내용을 확인하기 위해 2번 메모장을 이동하면,
+- 윈도우는 이를 판단하고 WM_PAINT 메세지를 발생시켜 다시 출력하게 된다.
+- 이처럼, 다른 응용 프로그램에 의해 일부 가려져 있는 부분을 무효 영역이라고 한다.
 
+### InvalidateRect 함수
+- 위의 소스에서 WM_CHAR 메세지를 처리하는 것처럼 내부적인 문자 입력은 화면에 보여지는 것인지 단순 내부적인 계산, 전송인지 운영체제가 판단할 수 없다.
+- 이 때, InvalidateRect 혹은 InvalidateRgn 함수를 사용해서 윈도우의 작업 영역을 무효화하여 운영체제로 하여금 WM_PAINT 메세지를 해당 윈도우로 보내도록 하는 것이다.
+- **`BOOL InvalidateRect(HWND hWnd, CONST RECT RECT *lpRect, BOOL bErase);`**
+- HWND hWnd : 무효화 시킬 윈도우(윈도의 핸들)
+- CONST RECT RECT *lpRect : 무효화할 영역 지적(NULL이면 전체 영역 무효화)
+- BOOL bErase : TRUE이면 지우고 다시 그리고, FALSE이면 지우지 않고 덮어쓴다.
+- InvalidateRect 함수를 통해서 화면의 변화가 있다고 운영체제에게 알린 뒤, WM_PAINT 메세지가 발생해 화면에 문자열을 출력하는 것이다.
+
+# 방향키를 통해서 이동하기
+- 대부분의 게임은 화살표 방향키를 통해서 상,하,좌,우로 이동하곤 한다. 
+- KeyDown 프로젝트는 화면에 네모를 출력해 방향키를 통해서 이동시키는 것을 진행한다.
+
+### 가상 키 코드(Virtual Key Code)
 
 
 
