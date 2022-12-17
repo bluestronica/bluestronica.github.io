@@ -39,15 +39,15 @@
 - 문자열 정렬
 - TextOut 프로젝트 3
 
-### [긴 문자열 / 도형 / 메세지박스 출력](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/DrawText_GraphOut_MessageBox.md)
-- 긴 문자열 출력하기
+### [긴 문자열 출력 / 도형 / 메세지박스 출력](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/DrawText_GraphOut_MessageBox.md)
+- 긴 문자열 출력
 - DrawText 프로젝트
 - 윈도우 프로시저에서 사용할 변수 선언
 - WM_PAINT 메세지
-- 다양한 그래픽(도형) 출력하기
+- 다양한 그래픽(도형) 출력
 - Win32 API는 픽셀 하나부터, 선, 원, 사각형 등 다양한 도형을 그릴 수 있는 함수를 지원한다.
 - GraphOut 프로젝트
-- 메세지 박스(Message Box) 출력하기
+- 메세지 박스(Message Box) 출력
 - WM_LBUTTON 메세지
 
 ### [키보드 입력 / 사용자가 입력한 문자 출력](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/KeyBoard.md)
@@ -61,7 +61,7 @@
 - InvalidateRect 함수와 무효 영역(Invalid Region)
 - 무효 영역(Invalid Region)
 - InvalidateRect 함수
-- 방향키를 통해서 이동하기
+- 방향키를 통해서 이동
 - 가상 키 코드(Virtual Key Code)
 - KeyDown 프로젝트
 
