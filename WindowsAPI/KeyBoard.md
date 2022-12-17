@@ -130,6 +130,20 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 
 ### 가상 키 코드(Virtual Key Code)
 
+| 가상키 코드 | 값 | 키 |
+|:---|:---|:---|
+|VK_BACK| 08 |Backspace|
+|VK_TAB| 09 |Tab|
+|VK_RETURN| 0D |Enter|
+|VK_SHIFT| 10 |Shift|
+|VK_CONTROL| 11 |Ctrl|
+|VK_MENU| 12 |Alt|
+|VK_PAUSE| 13 |Pause|
+|VK_CAPITAL| 14 |Caps Lock|
+|VK_ESCAPE| 1B |Esc|
+|VK_SPACE| 20 |Space|
+|VK_LEFT| 25 |좌측 이동키|
+
 
 
 
