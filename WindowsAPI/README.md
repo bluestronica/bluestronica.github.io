@@ -67,6 +67,8 @@
 
 ### [마우스 입력](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Mouse.md)
 
+### [타이머를 활용해 시계 만들기 1](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Timmer.md)
+
 
 
 
