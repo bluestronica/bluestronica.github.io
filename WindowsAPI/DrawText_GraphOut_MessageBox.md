@@ -1,7 +1,7 @@
 [bluestronica.github.io/WindowsAPI](https://bluestronica.github.io/WindowsAPI)
 
 
-# 긴 문자열 출력하기
+# 긴 문자열 출력
 
 ### DrawText 프로젝트
 - 사각형 안에 문자열을 그리는 DrawText 함수를 활용해서 긴 문자열 출력
@@ -76,7 +76,7 @@ typedef struct _RECT
 |DT_NOCLIP|사각 영역의 겨예를 벗어나도 문자열을 자르지 않고 출력|
 
 
-# 다양한 그래픽(도형) 출력하기
+# 다양한 그래픽(도형) 출력
 
 ### Win32 API는 픽셀 하나부터, 선, 원, 사각형 등 다양한 도형을 그릴 수 있는 함수를 지원한다.
 - 픽셀
@@ -127,7 +127,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 }
 ```
 
-# 메세지 박스(Message Box) 출력하기
+# 메세지 박스(Message Box) 출력
 
 ### MessageBox 프로젝트
 ```c
