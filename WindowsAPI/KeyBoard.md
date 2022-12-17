@@ -44,7 +44,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 - UINT iMessage : 전달되는 메세지(여기서는 WM_CHAR)
 - WPARAM wParam : 입력 받은 문자 정보(어떤 키를 입력했는지)
 - LPARAM lParam : 부가 정보(키 반복 횟수, 이전 키 상태 등)
-- TranslateMessage 함수에서 WM_CHAR 메세지를 발생시키면 wParam에 어떤 키를 눌렀는지에 대한 정보를 전달하는 것이다. 이 메세지를 프로시저 내 switch문에서 처리하면 된다.
+- **TranslateMessage 함수에서 WM_CHAR 메세지를 발생시키면 wParam에 어떤 키를 눌렀는지에 대한 정보를 전달하는 것이다.** 이 메세지를 프로시저 내 switch문에서 처리하면 된다.
 
 ### Key 프로젝트
 - 사용작 문자를 입력하면 화면에 출력하고, 스페이스 바를 입력하면 다 지워지는 프로그램이다.
