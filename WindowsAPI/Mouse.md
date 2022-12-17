@@ -130,8 +130,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 ```
 
 ### 변수 선언
-- 위치 정보를 저장할 x, y와 마우스가 눌려있는 상태인지 확인하기 위한 토글인 bNowDraw 변수가 
-- static으로 선언되어 있다.
+- 위치 정보를 저장할 x, y와 마우스가 눌려있는 상태인지 확인하기 위한 토글인 bNowDraw 변수가 static으로 선언되어 있다.
 - 위치 정보와 토글 정보는 해당 윈도우 프로시저가 종료되고 다음 메세지를 처리하기 위한 윈도우 프로시저가 실행되어도 해당 정보를 기억하고 있어야 하기 때문에 static으로 선언해, 함수가 종료되어도 메모리에서 삭제되지 않도록 하는 것이다.
 
 ### WM_LBUTTONDOWN, WM_MOUSEMOVE 메세지
