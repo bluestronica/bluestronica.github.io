@@ -174,7 +174,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 			y += 8;
 			break;
 		}
-		InvalidateRect(hWnd, NULL, TRUE);  // 출력을 위한 무효영역 무호화 처리
+		InvalidateRect(hWnd, NULL, TRUE);  // 출력을 위한 무효영역 무호화
 		return 0;
 	case WM_PAINT:
 		hdc = BeginPaint(hWnd, &ps);
@@ -188,18 +188,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
-
+- 문자열을 static으로 선언한 것과 같이, x, y 좌표도 static으로 선언한 것을 볼 수 있다.
+- 그리고 가상키 코드를 활용해 좌표를 이동하면서 메세지를 출력한다.
+- 만약, InvalidateRect 함수의 세번째 인수를 FALSE로 선언했다면,
+- `InvalidateRect(hWnd, NULL, FALSE)` 
+  - 사각형이 이동하면서 잔상을 남기는 결과를 볼 수 있다. 
 
 
 
