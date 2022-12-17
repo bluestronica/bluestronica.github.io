@@ -124,7 +124,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 - BOOL bErase : TRUE이면 지우고 다시 그리고, FALSE이면 지우지 않고 덮어쓴다.
 - InvalidateRect 함수를 통해서 화면의 변화가 있다고 운영체제에게 알린 뒤, WM_PAINT 메세지가 발생해 화면에 문자열을 출력하는 것이다.
 
-# 방향키를 통해서 이동하기
+# 방향키를 통해서 이동
 - 대부분의 게임은 화살표 방향키를 통해서 상,하,좌,우로 이동하곤 한다. 
 - KeyDown 프로젝트는 화면에 네모를 출력해 방향키를 통해서 이동시키는 것을 진행한다.
 
