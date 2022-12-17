@@ -130,6 +130,36 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 }
 ```
 
+### 변수 선언
+- 위치 정보를 저장할 x, y와 마우스가 눌려있는 상태인지 확인하기 위한 토글인 bNowDraw 변수가 
+- static으로 선언되어 있다.
+- 위치 정보와 토글 정보는 해당 윈도우 프로시저가 종료되고 다음 메세지를 처리하기 위한 윈도우 프로시저가 실행되어도 해당 정보를 기억하고 있어야 하기 때문에 static으로 선언해, 함수가 종료되어도 메모리에서 삭제되지 않도록 하는 것이다.
+
+### WM_LBUTTONDOWN, WM_MOUSEMOVE 메세지
+- WM_LBUTTONDOWN
+  - 왼쪽 마우스를 클릭하면 lParam에 저장되어 있는 위치 정보를 변수에 저장한다.
+  - 그리고, 마우스가 눌렸기 때문에 bNowDraw를 TRUE로 최신화한다.
+- WM_MOUSEMOVE
+  - 마우스가 눌려있는 것과 상관없이, 마우스가 움직이면 항상 발생한다.
+  - 따라서 조건문을 통해 마우스가 눌러 있을 때만 코드를 실행하게 한다.
+  - 즉, 마우스가 눌려있는 상태(bNowDraw가 TRUE이면)면 선을 그린다.
+- 선을 화면에 출력하기 위해서 Device Context가 필요하다.
+- WM_PAINT 메세지가 아니기 때문에, GetDC를 통해 Device Context를 얻는다.
+- 그리고, MoveToEX 함수를 통해 기존에 저장되어 있는 위치로 이동한다.
+- 그리고 나서 위치 정보를 최신화 한 뒤에 LineTo 함수를 통해 선을 그리는 것이다.
+- 출력이 끝나면 ReleaseDC 함수를 통해 Device Context를 종료한다.
+
+### WM_LBUTTONUP, WM_LBUTTONDBLCLK 메세지
+- WM_LBUTTONUP
+  - 눌려있떤 왼쪽 마우스를 떼면 WM_LBUTTONUP 메세지가 발생한다.
+  - 누르고 있던 마우스를 뗏으므로 bNowDraw를 FALSE로 변경한다.
+- WM_LBUTTONDBLCLK
+  - 더블 클릭을 하면 그러져 있던 선들을 앲애야 한다.
+  - InvalidateRect 함수를 통해 구현할 수 있다. 
+  - 화면의 무효영역을 설정해 일부 영역을 최신화 하는 것이다.
+  - InvalidateRect 함수의 세번째 매개변수를 TRUE로 설정하면 기존에 있던 것은 모두 지우는 것이다. 
+  - 따라서, 그려져 있던 곡선을 지울 수 있다.
+  
 
 
 
