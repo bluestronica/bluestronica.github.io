@@ -151,7 +151,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 
 ### WM_LBUTTONUP, WM_LBUTTONDBLCLK 메세지
 - WM_LBUTTONUP
-  - 눌려있떤 왼쪽 마우스를 떼면 WM_LBUTTONUP 메세지가 발생한다.
+  - 눌려있던 왼쪽 마우스를 떼면 WM_LBUTTONUP 메세지가 발생한다.
   - 누르고 있던 마우스를 뗏으므로 bNowDraw를 FALSE로 변경한다.
 - WM_LBUTTONDBLCLK
   - 더블 클릭을 하면 그러져 있던 선들을 앲애야 한다.
