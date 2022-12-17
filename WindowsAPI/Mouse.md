@@ -10,3 +10,8 @@
 - 왼쪽 버튼을 눌렀는지, 오른쪽 버튼을 눌렀는지에 따라 각각의 메세지가 발생한다. 
 - 마우스와 관련된 메세지는 다음과 같다.
 
+| 버튼 | 누름 | 놓음 | 더블 클릭 |
+|:---|:---|:---|:---|
+| 왼쪽 버튼 | WM_LBUTTONDOWN | WM_LBUTTONUP | WM_LBUTTONDBLCLK |
+| 오른쪽 버튼 | WM_RBUTTONDOWN | WM_RBUTTONUP | WM_RBUTTONDBLCLK |
+| 중앙 버튼 | WM_MBUTTONDOWN | WM_MBUTTONUP | WM_MBUTTONDBLCLK |
