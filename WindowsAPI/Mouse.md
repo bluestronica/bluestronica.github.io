@@ -47,9 +47,9 @@
 - 마우스를 클릭하면, 마우스의 위치 정보를 최신화한다.
 - 마우스를 움직이면 MoveToEx함수를 통해 최신화한 마우스의 위치 정보로 이동 한 뒤,
 - 현재 위치로 LineTo함수를 통해 선을 그린다.
-- 더블클릭 메세지
+- 더블클릭 설정(CS_DBLCLKS)
   - **WindMain 함수에서 윈도우를 생성할 때, 더블클릭을 인식할 수 있도록 스타일을 설정해야한다.**
-  - 해당 설정을 안하면, 아무리 빨리 클릭을 하더라도 LBUTTONDOWN, RBUTTONDOWN 메세지가 많이 발생할 뿐, 더블 클릭 메세지가 발생하지 않는다.
+  - 해당 설정을 안하면, 아무리 빨리 클릭을 하더라도 LBUTTONDOWN, RBUTTONDOWN 메세지가 많이 발생할 뿐, 더블클릭 메세지가 발생하지 않는다.
 ```c
 int APIENTRY WinMain(_In_ HINSTANCE hInstance, 
                      _In_opt_ HINSTANCE hPrevInstance, 
