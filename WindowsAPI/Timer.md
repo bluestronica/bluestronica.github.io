@@ -19,7 +19,7 @@
     - 함수를 호출할 수 있지만, NULL 값을 넣을 경우 WM_TIMER 메세지를 발생시킨다.
 - **`SetTimer(hWnd, 1, 1000, NULL);`**
   - 초마다 WM_TIMER 메세지를 발생 -> ID값 1
-- 사용이 끝난 타이머는 반드시 제거해야 한다. 타이머를 제거할 때는 KillTimer() 함수를 사용한다.
+- 사용이 끝난 타이머는 반드시 제거해야 한다. 타이머를 제거할 때는 KillTimer 함수를 사용한다.
   - **`KillTimer(HWND, TimerID)`**  
 
 ### SetTime() 함수와 KillTimer() 함수의 위치?
@@ -28,13 +28,13 @@
   - 해당 메세지에서 실행에 필요한 메모리 할당, 전역 변수 초기값 등 프로그램 시작 시 꼭 한 번만 초기화해야 하는 것들을 처리 할 수 있다.
 - WM_DESTORY
   - 프로그램이 종료할 때 발생하는 메세지이다.
-  - WM_DESTROY 메세지에서 생성된 타이머를 KillTimer() 함수를 통해 제거할 수 있다.
+  - WM_DESTROY 메세지에서 생성된 타이머를 KillTimer 함수를 통해 제거할 수 있다.
 
 # 타이머를 활용해 시계 만들기
 
 ### MY_TIMER 프로젝트
 - 화면에 현재 시간을 출력하는 프로젝트이다.
-- 현재 시간을 구하기 위한 SYSTEMTIME 구조체와 GetLocalTime() 함수
+- 현재 시간을 구하기 위한 SYSTEMTIME 구조체와 GetLocalTime 함수
 
 | 멤버 변수 이름 | 내용 |
 |:---|:---|
