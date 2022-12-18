@@ -17,12 +17,12 @@
   - TIMERPROC lpTimerFunc
     - 타이머가 발생하면 호출될 전용 함수이다.
     - 함수를 호출할 수 있지만, NULL 값을 넣을 경우 WM_TIMER 메세지를 발생시킨다.
-  - **`SetTimer(hWnd, 1, 1000, NULL);`**
-    - 초마다 WM_TIMER 메세지를 발생 -> ID값 1
+- **`SetTimer(hWnd, 1, 1000, NULL);`**
+  - 초마다 WM_TIMER 메세지를 발생 -> ID값 1
 - 사용이 끝난 타이머는 반드시 제거해야 한다. 타이머를 제거할 때는 KillTimer() 함수를 사용한다.
   - **`KillTimer(HWND, TimerID)`**  
 
-### SetTime() 함수와 KillTimer() 함수의 위치? - WM_CREATE, WM_DESTROY 메세지
+### SetTime() 함수와 KillTimer() 함수의 위치?
 - WM_CREATE 메세지
   - WM_CRATE 메세지는 윈도우가 처음 생성될 때 발생하는 메세지이다. 
   - 해당 메세지에서 실행에 필요한 메모리 할당, 전역 변수 초기값 등 프로그램 시작 시 꼭 한 번만 초기화해야 하는 것들을 처리 할 수 있다.
@@ -36,7 +36,20 @@
 - 화면에 현재 시간을 출력하는 프로젝트이다.
 - 현재 시간을 구하기 위한 SYSTEMTIME 구조체와 GetLocalTime() 함수
 
+| 멤버 변수 이름 | 내용 |
+|:---|:---|
+| wYear | 현재 연도를 지정 |
+| wMonth | 현재 월을 지정 |
+| wDayOfWeek | 현재 요일을 지정(일=0, 월=1, 화=2 ... |
+| wDay | 현재 날짜를 지정 |
+| wHour | 현재 시간을 지정 |
+| wMinute | 현재 분을 지정 |
+| wSecond | 현재 초를 지정 |
+| wMilliseconds | 현재 밀리초를 지 |
 
+```c
+
+```
 
 
 
