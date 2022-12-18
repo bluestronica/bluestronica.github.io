@@ -76,7 +76,7 @@
 - WM_LBUTTONDOWN, WM_MOUSEMOVE 메세지
 - WM_LBUTTONUP, WM_LBUTTONDBLCLK 메세지
 
-### [타이머를 활용해 시계 만들기 1](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Timmer.md)
+### [타이머를 활용해 시계 만들기 1](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Timer.md)
 
-
+### [타이머를 활용해 시계 만들기 2](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Timer2.md)
 
