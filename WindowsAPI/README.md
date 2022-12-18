@@ -77,6 +77,14 @@
 - WM_LBUTTONUP, WM_LBUTTONDBLCLK 메세지
 
 ### [타이머를 활용해 시계 만들기 1](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Timer.md)
+- 개요
+- 타이머 설치와 제거
+- SetTime() 함수와 KillTimer() 함수의 위치?
+- 타이머를 활용해 시계 만들기
+- MY_TIMER 프로젝트
+- 메세지 처리
+- 문제점
+- 정리 
 
 ### [타이머를 활용해 시계 만들기 2](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Timer2.md)
 
