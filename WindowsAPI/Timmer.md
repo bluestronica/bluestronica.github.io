@@ -51,12 +51,12 @@
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
     	WPARAM wParam, LPARAM lParam)
 {
-	HDC hdc;        // 출력을 위한 Device Context의 핸들
-	PAINTSTRUCT ps; // 출력을 위한 구조체
-	SYSTEMTIME st;  // 시간 정보를 저장하기 위한 구조체
-	static TCHAR sTime[128] = _T("");  // 시간 정보를 출력하기 위한 문자열
-	static RECT rt = { 100, 100, 400, 120 }; // 문자열을 출력할 사각 영역
-	                                         // (사각 영역 내부에 출력)
+	HDC hdc;          // 출력을 위한 Device Context의 핸들
+	PAINTSTRUCT ps;   // 출력을 위한 구조체
+	SYSTEMTIME st;    // 시간 정보를 저장하기 위한 구조체
+	static TCHAR sTime[128] = _T("");    // 시간 정보를 출력하기 위한 문자열
+	static RECT rt = { 100, 100, 400, 120 };   // 문자열을 출력할 사각 영역
+	                                           // (사각 영역 내부에 출력)
 
 	switch (iMessage)
 	{
