@@ -49,13 +49,14 @@
 
 ```c
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
-    WPARAM wParam, LPARAM lParam)
+    	WPARAM wParam, LPARAM lParam)
 {
-	HDC hdc;
-	PAINTSTRUCT ps;
-	SYSTEMTIME st;
-	static TCHAR sTime[128] = _T("");
-	static RECT rt = { 100, 100, 400, 120 };
+	HDC hdc;        // 출력을 위한 Device Context의 핸들
+	PAINTSTRUCT ps; // 출력을 위한 구조체
+	SYSTEMTIME st;  // 시간 정보를 저장하기 위한 구조체
+	static TCHAR sTime[128] = _T("");  // 시간 정보를 출력하기 위한 문자열
+	static RECT rt = { 100, 100, 400, 120 }; // 문자열을 출력할 사각 영역
+	                                         // (사각 영역 내부에 출력)
 
 	switch (iMessage)
 	{
@@ -70,7 +71,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 		return 0;
 	case WM_TIMER:
 		GetLocalTime(&st);
-		_stprintf_s(sTime, _T("지금 시간은 %d:%d:%d입니다."), st.wHour, st.wMinute, st.wSecond);
+		_stprintf_s(sTime, _T("지금 시간은 %d:%d:%d입니다."), 
+			    st.wHour, st.wMinute, st.wSecond);
 		InvalidateRect(hWnd, &rt, FALSE);
 		return 0;
 	case WM_DESTROY:
