@@ -47,7 +47,7 @@ LPCTSTR lpszClass = _T("Turtle Rabbit");
     - LP는 long Pointer
     - C는 const
     - TSTR은 T형STR, 즉 T형 문자열
-    - T문자열의 long형 포인터를 상수화(const)해서 갖고 있겠다는 으미이다.
+    - T문자열의 long형 포인터를 상수화(const)해서 갖고 있겠다는 의미이다.
   - lpszClass
     - lpsz도 포인터로 문자열을 가리킨다는 의미
     - 윈도우를 생성하는 클래스를 관리하는 변수 
