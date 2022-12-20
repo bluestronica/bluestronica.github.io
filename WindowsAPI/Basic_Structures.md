@@ -21,13 +21,13 @@ LPCTSTR lpszClass = _T("Turtle Rabbit");
 ### WndProc(윈도우 프로시저) 함수
 - ` LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM); `
 - Windows API로 작성된 프로그램에서 가장 중요한 역할을 하는 WndPorc() 함수이다.
-- WndProc는 메세지(이벤트)가 발생하면 이 메시를 전달받아 처리하는 역할을 한다.
+- WndProc는 메세지(이벤트)가 발생하면 이 메세지를 전달받아 처리하는 역할을 한다.
 - wndProc가 메시지를 처리하고 반환할 때는 (반환형) LRESULT 타입으로 반환한다.
 - LRESULT
   - 'L' 접두사는 long타입을 의미
   - `typedef LONG_PTR LRESULT;`
   - LRESULT는 long타입의 새로운 이름일 뿐이다. 메세지 처리 결과를 알려준다는 것을 조금 더 직관적으로 나타내기 위해서 이런 변수명을 만들었다.
-  - LRESULT 타입은 Win32 환경에서 메세지 처리를 마친 후 운영체제에 신호를 주기 위한 값(long type)이다. 즉, 윈도우 프로시저가 메세지 처리를 끝냈다고 운영체제에게 알려주는 값이다.
+  - LRESULT 타입은 Win32 환경에서 **메세지 처리를 마친 후 운영체제에 신호를 주기 위한 값(long type)이다.** 즉, 윈도우 프로시저가 메세지 처리를 끝냈다고 운영체제에게 알려주는 값이다.
 - CALLBACK 함수
   - LRESULT란 반환형 다음에 CALLBACK이라고 적혀있다.
   - CALLBACK 함수는 사용자가 호출하는 함수가 아닌, 특정 트리거(이벤트)에 의해 운영체제가 자동으로 실행하는 함수이다.
