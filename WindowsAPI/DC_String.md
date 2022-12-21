@@ -125,7 +125,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 - BeginPaint 함수는 정적(Static) 출력을 하기 위해 사용한다. 윈도우의 틀이 출력되는 것처럼 기본적으로 출력할 수 있는 것이다. 
 - 반대로, GetDC 함수는 동적(Dynamic) 출력을 하기 위해 사용한다. 마우스의 동작에 따라, 혹은 키보드의 입력에 따라 동작할 때 GetDC 함수를 사용하여 바로 출력하곤한다. 
 - 일시적인 출력이기 때문에, 다른 윈도우에 의해 가려지거나 윈도우가 변화하면 지워진다.(이후 변화는 책임지지 않기 때문이다.)
-- 두 함수 모두, 사용이 끝나면 메모리를 반환하기 위해서 EndPaint(BeginPaint를 사용한 경우),ReleaseDC(GetDC를 사용한 경우)를 꼭 사용해야한다.
+- 두 함수 모두, 사용이 끝나면 메모리를 반환하기 위해서 EndPaint(BeginPaint를 사용한 경우), ReleaseDC(GetDC를 사용한 경우)를 꼭 사용해야한다.
 
 ### PAINTSTRUCT 구조체
 - HDC, rcPaint와 같은 출력에 관한 정보를 담고있는 구조체이다.
