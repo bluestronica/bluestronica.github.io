@@ -62,7 +62,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 - WM는 Window Message의 약자이다. 윈도우에서 발생한 메세지인데, 
 - L BUTTON DOWN, 왼쪽 버튼 마우스가 눌렸을 때 발생하는 메세지이다. 
 - GetDC(hWnd) 함수를 통해 해당 윈도우의 DC를 얻을 수 있다.
-- 윈도우의 DC를 얻는 함수는 GetDC, BeginPaint 2개가 있다.
+- **윈도우의 DC를 얻는 함수는 GetDC, BeginPaint 2개가 있다.**
   - BeginPaint 함수는 WM_PAINT 메세지에서만 사용할 수 있고
   - GetDC 함수는 그 외 메세지에서 사용된다.
 - TextOut(DC, X좌표, Y좌표, 문자열, 문자열길이)함수를 통해 해당 텍스트를 출력할 수 있다.
