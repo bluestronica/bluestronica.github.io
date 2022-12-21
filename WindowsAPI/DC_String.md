@@ -105,8 +105,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 - WM_PAINT 메세지가 발생하는 시점이 여러 개가 있는데, 그 중에 프로그램이 실행되었을 때도 WM_PAINT 메세지가 발생한다. 
 - 프로그램이 시작되면 발생하는 메세지를 처리하고, 윈도우를 띄우기 위해서 WM_PAINT 메세지가 발생하는 것이다. 그래서 윈도우를 시작하자마자 문자열이 출력되는 것이다.
 
-### BeginPaint() VS GetDC()
-- BeginPaint()
+### BeginPaint VS GetDC
+- BeginPaint
   - WM_PAINT 메세지에서만 사용하는 함수이다.
   - BeginPaint는 윈도우의 Clipping Region을 자동으로 파악하는 특징이 있다. 
   - Clipping Region이란, 클라이언트 영역의 특정 부분에 그리기를 한정하는 영역을 의미한다. 
@@ -114,16 +114,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
   - 이렇게 윈도우가 생성되거나, 움직이거나, 사이즈가 바뀌거나, 스크롤 되는 등 윈도우의 화면 상의 변화하는 부분을 Clipping Region이라고 한다. 
   - 일부 메세지는 화면의 변화가 아니기 때문에 화면의 변화를 감지하지 못한다. 
   - 예를 들어, 위에서 본 TextOut 프로젝트에서 LBUTTONDOWN 메세지가 발생하면, TextOut함수를 통해서 문자열을 출력해야하는데, 마우스가 클릭된 것은 화면의 변화가 아니기 때문에 WM_PAINT 메세지가 발생하지 않는다. 프로그램을 최소화했다가 다시 띄우면 윈도우를 그리는 WM_PAINT만 발생하고, WM_LBUTTONDOWN 메세지가 발생하지 않기 때문에 문자열이 출력되지 않는 것이다.
-  - 그래서 화면의 변화가 있다고 윈도우에 알리기 위해 InvalidateRect() 혹은 InvalidateRgn() 함수를 사용한다. 이에 대한 자세한 내용은 추후에 다룰 예정이다.
-- GetDC()
+  - 그래서 화면의 변화가 있다고 윈도우에 알리기 위해 InvalidateRect 혹은 InvalidateRgn 함수를 사용한다. 이에 대한 자세한 내용은 추후에 다룰 예정이다.
+- GetDC
   - WM_PAINT 외에 메세지에서 출력을 하기 위해 해당 Client 영역의 Device Context를 얻는 함수다.
   - TextOut 프로젝트에서 LBUTTONDOWN 메세지가 발생하면 바로 출력하는 것처럼 즉각적인 출력이 이루진다. 하지만, 일시적인 출력 방법으로 그 이후의 변화에는 책임지지 않는다. 
   - 그래서, 윈도우가 최소화되었다가 띄워지거나, 윈도우의 사이즈가 변경되는 경우 문자열을 다시 출력하지 않는 것이다. 
-  - 그래서 GetDC함수는 배경과 관계없이 특정 출력을 일시적(즉각적)으로 반영하고자하는 경우 사용하곤 한다. 여담으로, 윈도우의 타이틀바 영역에 대한 DC를 얻기 위해서는 GetWindowDC() 함수를 사용한다. 
+  - 그래서 GetDC 함수는 배경과 관계없이 특정 출력을 일시적(즉각적)으로 반영하고자하는 경우 사용하곤 한다. 여담으로, 윈도우의 타이틀바 영역에 대한 DC를 얻기 위해서는 GetWindowDC() 함수를 사용한다. 
   
-### BeginPaint()는 정적(Static) 출력, GetDC()는 동적(Dynamic) 출력
-- BeginPaint() 함수는 정적(Static) 출력을 하기 위해 사용한다. 윈도우의 틀이 출력되는 것처럼 기본적으로 출력할 수 있는 것이다. 
-- 반대로, GetDC() 함수는 동적(Dynamic) 출력을 하기 위해 사용한다. 마우스의 동작에 따라, 혹은 키보드의 입력에 따라 동작할 때 GetDC 함수를 사용하여 바로 출력하곤한다. 
+### BeginPaint는 정적(Static) 출력, GetDC는 동적(Dynamic) 출력
+- BeginPaint 함수는 정적(Static) 출력을 하기 위해 사용한다. 윈도우의 틀이 출력되는 것처럼 기본적으로 출력할 수 있는 것이다. 
+- 반대로, GetDC 함수는 동적(Dynamic) 출력을 하기 위해 사용한다. 마우스의 동작에 따라, 혹은 키보드의 입력에 따라 동작할 때 GetDC 함수를 사용하여 바로 출력하곤한다. 
 - 일시적인 출력이기 때문에, 다른 윈도우에 의해 가려지거나 윈도우가 변화하면 지워진다.(이후 변화는 책임지지 않기 때문이다.)
 - 두 함수 모두, 사용이 끝나면 메모리를 반환하기 위해서 EndPaint(BeginPaint를 사용한 경우),ReleaseDC(GetDC를 사용한 경우)를 꼭 사용해야한다.
 
