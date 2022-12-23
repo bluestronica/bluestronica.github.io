@@ -37,7 +37,39 @@ case WM_PAINT
 
 ### 제어권을 독점하지 않고, 타이머를 활용해서 백그라운드 작업을 하는 프로그램의 원도우 프로시저
 ```c
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+	PAINTSTRUCT ps;
+	int i;
 
+	switch (iMessage)
+	{
+	case WM_CREATE:
+		SetTimer(hWnd, 1, 50, NULL);
+		return 0;
+	case WM_TIMER:
+		hdc = GetDC(hWnd);
+		for (i = 0; i < 1000; i++)
+		{
+			SetPixel(hdc, rand() % 500, rand() % 400, 
+				RGB(rand() % 256, rand() % 256, rand() % 256));
+		}
+		ReleaseDC(hWnd, hdc);
+		return 0;
+	case WM_LBUTTONDOWN:
+		hdc = GetDC(hWnd);
+		Ellipse(hdc, LOWORD(lParam) - 10, HIWORD(lParam) - 10, 
+      LOWORD(lParam) + 10, HIWORD(lParam) + 10);
+		ReleaseDC(hWnd, hdc);
+		return 0;
+	case WM_DESTROY:
+		KillTimer(hWnd, 1);
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
 ```
 
 
