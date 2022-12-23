@@ -87,6 +87,17 @@
 - 정리 
 
 ### [타이머를 활용해 시계 만들기 2](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Timer2.md)
+- 개요
+- 이번 프로그램의 문제점과 해결 방안
+- 실행 시 시간이 바로 출력되지 않고 1초 후에 출력된다.
+- 화면이 깜빡거린다.
+- 경고음 출력하기
+- 코드로 구현하기
+- TowTimer 프로젝트
+- 일회용 타이머 만들기
+- 코드로 구현하기
+- OnceTimer 프로젝트
+
 
 ### [백그라운드 작업과 콜백 함수](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/BackgroundTask_CallbackFunction.md)
 
