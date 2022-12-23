@@ -51,8 +51,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		hdc = GetDC(hWnd);
 		for (i = 0; i < 1000; i++)
 		{
-			SetPixel(hdc, rand() % 500, rand() % 400, RGB(rand() % 256, 
-			rand() % 256, rand() % 256));
+			SetPixel(hdc, rand() % 500, rand() % 400, 
+			RGB(rand() % 256, rand() % 256, rand() % 256));
 		}
 		ReleaseDC(hWnd, hdc);
 		return 0;
@@ -87,34 +87,42 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 
 ### Callback2 프로젝트
 ```c
+void CALLBACK TimerProc(HWND hWnd, UINT uMsg, UINT idEvent, DWORD dwTime)
+{
+	HDC hdc;
+	int i;
+	hdc = GetDC(hWnd);
+	for (i = 0; i < 1000; i++) {
+		SetPixel(hdc, rand() % 500, rand() % 400, 
+			RGB(rand() % 256, rand() % 256, rand() % 256));
+	}
+	ReleaseDC(hWnd, hdc);
+}
 
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+
+	switch (iMessage)
+	{
+	case WM_CREATE:
+		SetTimer(hWnd, 1, 50, TimerProc);   // 콜백함수 TimerProc 지정
+		return 0;
+	case WM_LBUTTONDOWN:
+		hdc = GetDC(hWnd);
+		Ellipse(hdc, LOWORD(lParam) - 10, 
+		HIWORD(lParam) - 10, LOWORD(lParam) + 10, HIWORD(lParam) + 10);
+		ReleaseDC(hWnd, hdc);
+		return 0;
+	case WM_DESTROY:
+		KillTimer(hWnd, 1);
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- 함수로 빼서 작성했기 때문에 윈도우 프로시저 함수(WndProc)가 간결해졌고, 가독성이 향샹된 모습이다.
+- WM_CREATE 메세지를 처리하는 부분에 존재하는 SetTimer 함수의 네 번째 매개 변수로 TimerProc 함수를 넣어주면서 50/1000초마다 타이머가 발생하면 운영체제가 TimerProc 함수를 호출하도록 한다.
 
 
