@@ -85,7 +85,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 - WinMain 함수에서 WndProc 함수를 호출하는 부분이 없다.
 - 왜냐하면, 윈도우 프로시저 함수는 콜백 함수이기 때문에 운영체제가 호출하는 것이다.
 
-### Callback2 프로젝트
+### Callback 프로젝트
 ```c
 void CALLBACK TimerProc(HWND hWnd, UINT uMsg, UINT idEvent, DWORD dwTime)
 {
