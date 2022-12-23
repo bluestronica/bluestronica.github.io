@@ -45,7 +45,7 @@
 ### TowTimer 프로젝트
 ```c
 RESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
-    WPARAM wParam, LPARAM lParam)
+    	WPARAM wParam, LPARAM lParam)
 {
 	HDC hdc;
 	PAINTSTRUCT ps;
@@ -70,7 +70,9 @@ RESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 		{
 		case 1:
 			GetLocalTime(&st);
-			_stprintf_s(sTime, _T("지금 시간은 %d:%d:%d입니다."), st.wHour, st.wMinute, st.wSecond);
+			_stprintf_s(sTime, 
+				_T("지금 시간은 %d:%d:%d입니다."), 
+				st.wHour, st.wMinute, st.wSecond);
 			InvalidateRect(hWnd, &rt, FALSE);
 			break;
 		case 2:
@@ -87,7 +89,10 @@ RESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
 }
 ```
-
+- 5초마다 알림을 울리기 위해 2번 ID를 갖는 타이머를 생성했다.
+- 타이머를 생성한 뒤, 화면에 바로 시간을 출력하기 우해 `SendMessage(hWnd, WM_TIMER, 1, 0)` 함수를 통해 WM_TIMER 메세지를 발생시켜 윈도우 프로시저에게 전달한다.
+- wParam에 아이디 값을 넘겨주고, WM_TIMER를 처리하는 부분에서 switch문을 통해 메세지를 처리하는 모습을 확인할 수 있다.
+- 또한, 1번 타이머를 처리하는 과정에서 화면에 변화가 있을을 알리기 위해 사용하는 InvalidateRect 함수의 두 번째 매개변수에 시간을 출력하는 **사각 영역 정보를 전달해 이 부분만 무효화시켜** 전체 화면이 깜빡이는 것을 방지했다.
 
 
 
