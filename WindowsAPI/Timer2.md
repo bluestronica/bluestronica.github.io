@@ -122,10 +122,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 	case WM_LBUTTONDOWN:
 		lstrcpy(str, _T("왼쪽 버튼을 눌렀습니다."));
 		InvalidateRect(hWnd, NULL, TRUE);
-		SetTimer(hWnd, 1, 3000, NULL);
+		SetTimer(hWnd, 1, 3000, NULL);      // 생성
 		return 0;
 	case WM_TIMER:
-		KillTimer(hWnd, 1);
+		KillTimer(hWnd, 1);                 // 소멸
 		lstrcpy(str, _T(""));
 		InvalidateRect(hWnd, NULL, TRUE);
 		return 0;
@@ -141,7 +141,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
 }
 ```
-- 이 프로젝트의 포인트는 타이머의 생성 위치와 소멸 위치이다.
+- 이 프로젝트의 **포인트는 타이머의 생성 위치와 소멸 위치**이다.
 - 마우스가 눌리면 타이머가 설치되고, 3초 후에 발생하는 WM_TIMER 메세지에서 해당 타이머를 삭제한다.
 - 이렇게 되면 3초 후 문자열이 사라지고 나서 똑같은 메세지가 발생하지 않는다.
 - 즉, 3초가 지나도 아무 일도 일어나지 않는다. 
