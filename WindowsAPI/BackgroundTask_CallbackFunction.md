@@ -40,7 +40,6 @@ case WM_PAINT
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 {
 	HDC hdc;
-	PAINTSTRUCT ps;
 	int i;
 
 	switch (iMessage)
@@ -52,15 +51,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		hdc = GetDC(hWnd);
 		for (i = 0; i < 1000; i++)
 		{
-			SetPixel(hdc, rand() % 500, rand() % 400, 
-				RGB(rand() % 256, rand() % 256, rand() % 256));
+			SetPixel(hdc, rand() % 500, rand() % 400, RGB(rand() % 256, 
+			rand() % 256, rand() % 256));
 		}
 		ReleaseDC(hWnd, hdc);
 		return 0;
 	case WM_LBUTTONDOWN:
 		hdc = GetDC(hWnd);
 		Ellipse(hdc, LOWORD(lParam) - 10, HIWORD(lParam) - 10, 
-      LOWORD(lParam) + 10, HIWORD(lParam) + 10);
+			LOWORD(lParam) + 10, HIWORD(lParam) + 10);
 		ReleaseDC(hWnd, hdc);
 		return 0;
 	case WM_DESTROY:
@@ -71,11 +70,25 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
 }
 ```
+- 프로그램이 시작하면 발생하는 메세지인 WM_CREATE 메세지에서 타이머를 50/1000 초 마다 발생시킨다.
+- 타이머가 발생 할 때마다 임의 좌표에 랜덤 생각을 갖는 점을 찍게 된다.
+- 그와 동시에 왼쪽 마우스가 클릭되면 발생하는 메세지인 WM_LBUTTONDOWN 메세지가 발생하면 이를 처리하게된다.
 
 
+# 콜백 함수(Callback Function)
+- 일반적인 API함수들은 운영체제가 제공하고, 프로그램은 이 함수를 호출해서 운영체제의 서비를 받는 형태이다. 쉽게 말해서, 운영체제가 제공하는 함수를 응용 프로그램이 필요할 때 호출해서 사용하는 것이다.
+- 개발자가 필요한 기능이 있을 때, 운영체제가 제공하는 함수를 찾아서 호출하는 것이다. 
+- 예를 들어, 위에서 타이머를 생성할 때 사용한 SetTimer() 함수 또한 운영체제가 제공하는 함수이고, 우리는 타이머를 설치하기 위해 호출해서 사용한 것이다.
+- 반대로, 응용 프로그램이 제공하는 함수 중에 운영체제가 필요한 함수가 있으면 호출하는 것이 콜백 함수(Callback Function)이다. 바로, 메세지 처리 전용 함수인 윈도우 프로시저(WndProc) 함수이다.
+- 함수의 선언문을 보면 CALLBACK이라고 명시되어 있다. 메세지가 발생하면 운영체제는 해당 함수를 호출해 메세지를 처리한다.
+- 콜백 함수는 용용 프로그램 내부에 있지만, 응용 프로그램은 함수를 직접 호출하지 않고 오직 운영체제만이 이 함수를 호출할 수 있다. 쉽게 말해서, 윈도우 프로시저 함수는 응용 프로그램 내부에 있지만 우리는 한 번도 호출한 적이 없다.
+- WinMain 함수에서 WndProc 함수를 호출하는 부분이 없다.
+- 왜냐하면, 윈도우 프로시저 함수는 콜백 함수이기 때문에 운영체제가 호출하는 것이다.
 
+### Callback2 프로젝트
+```c
 
-
+```
 
 
 
