@@ -141,26 +141,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 	}
 	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
 }
-``
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
 
 
