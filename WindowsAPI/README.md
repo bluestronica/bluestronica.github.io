@@ -101,6 +101,7 @@
 
 ### [백그라운드 작업과 콜백 함수](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/BackgroundTask_CallbackFunction.md)
 
+### [작업 영역 얻기](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Client_Area.md)
 
 
 
