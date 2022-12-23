@@ -123,6 +123,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 }
 ```
 - 함수로 빼서 작성했기 때문에 윈도우 프로시저 함수(WndProc)가 간결해졌고, 가독성이 향샹된 모습이다.
-- WM_CREATE 메세지를 처리하는 부분에 존재하는 SetTimer 함수의 네 번째 매개 변수로 TimerProc 함수를 넣어주면서 50/1000초마다 타이머가 발생하면 운영체제가 TimerProc 함수를 호출하도록 한다.
+- WM_CREATE 메세지를 처리하는 부분에 존재하는 SetTimer 함수의 네 번째 매개 변수로 TimerProc 함수를 넣어주면서 50/1000초마다 타이머가 발생하면 운영체제가 TimerProc 함수를 호출하도록 했다.
 
 
