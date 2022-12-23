@@ -46,10 +46,102 @@ hWnd = CreateWindow(lpszClass, lpszClass, WS_OVERLAPPEDWINDOW,
 ### WM_CREATE
 - 프로그램 생성시 작업 영역을 얻어 문자열을 출력한다.
 ```c
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
+	WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+	PAINTSTRUCT ps;
+	static RECT rt;
 
+	switch (iMessage)
+	{
+	case WM_CREATE:
+		GetClientRect(hWnd, &rt);
+		return 0;
+	case WM_PAINT:
+		hdc = BeginPaint(hWnd, &ps);
+		SetTextAlign(hdc, TA_CENTER);
+		TextOut(hdc, rt.right / 2, 
+			rt.bottom / 2, _T("Center String"), 13);
+		EndPaint(hWnd, &ps);
+		return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
 ```
+- 위와 같이 WM_CREATE에서 GetClientRect 함수를 사용해서 작업 영역을 얻은 뒤, 
+- WM_PAINT에서 화면에 문자열을 출력하고 있다.
+- 윈도우가 처음 실행되면 WM_CREATE 메세지가 발생하고, 
+- **윈도우를 화면에 띄우기 위해서 WM_PAINT 메세지를 자동으로 발생하기 때문에,**
+- InvalidateRect 함수를 사용하지 않아도 WM_PAINT 메세지가 발생한다.
+- 최초에는 중앙에 문자열이 정상적으로 출력되지만, 
+- 윈도우의 크기가 변경되도 문자열의 위치가 변경되지 않는다. 
+- 따라서 크기가 작아지면 문자열이 일부 가려지는 것을 알 수 있다.
+- **윈도우의 크기가 바뀌어도 얻은 영역의 정보가 바뀌지 않기 때문이다.**
 
+### WM_SIZE
+- 윈도우의 크기가 변경되면 WM_SIZE 메세지가 발생한다.
+- 윈도우의 크기가 변경될 때 작업 영역의 정보를 얻는 것이 가장 이상적이다.
+```c
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+	PAINTSTRUCT ps;
+	static RECT rt;
 
+	switch (iMessage)
+	{
+	case WM_SIZE:
+		GetClientRect(hWnd, &rt);
+		InvalidateRect(hWnd, NULL, TRUE);
+		return 0;
+	case WM_PAINT:
+		hdc = BeginPaint(hWnd, &ps);
+		SetTextAlign(hdc, TA_CENTER);
+		TextOut(hdc, rt.right / 2, 
+			rt.bottom / 2, _T("Center String"), 13);
+		EndPaint(hWnd, &ps);
+		return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
+```
+- 윈도우의 크기가 변화함에 따라서 문자열의 위치도 이동하는 것을 볼 수 있다.
+- 크기가 변화할 때마다, WM_SIZE 메세지가 발생하면서 작업 영역을 최신화하기 때문에 그 때마다 문자열을 올바른 위치에 출력할 수 있는 것이다.
+
+### WM_PAINT
+- 사실, 위에서 InvalidateRect 함수를 사용한 것을 보여주기 위함이다.
+- **WM_SIZE가 발생하면 화면의 크기가 변화한 것이므로 WM_PAINT가 자동으로 발생하게 된다.**
+- 따라서 결과는 WM_SIZE와 동일하다.
+```c
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
+	WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+	PAINTSTRUCT ps;
+	static RECT rt;
+
+	switch (iMessage) {
+	case WM_PAINT:
+		hdc = BeginPaint(hWnd, &ps);
+		SetTextAlign(hdc, TA_CENTER);
+       		GetClientRect(hWnd, &rt);
+		TextOut(hdc, rt.right / 2, rt.bottom / 2, _T("Center String"), 13);
+		EndPaint(hWnd, &ps);
+		return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
+``
 
 
 
