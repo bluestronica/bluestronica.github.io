@@ -22,7 +22,7 @@
 - 사용이 끝난 타이머는 반드시 제거해야 한다. 타이머를 제거할 때는 KillTimer 함수를 사용한다.
   - **`KillTimer(HWND, TimerID)`**  
 
-### SetTime() 함수와 KillTimer() 함수의 위치?
+### SetTime 함수와 KillTimer 함수의 위치?
 - WM_CREATE 메세지
   - WM_CREATE 메세지는 윈도우가 처음 생성될 때 발생하는 메세지이다. 
   - 해당 메세지에서 실행에 필요한 메모리 할당, 전역 변수 초기값 등 프로그램 시작 시 꼭 한 번만 초기화해야 하는 것들을 처리 할 수 있다.
