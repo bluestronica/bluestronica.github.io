@@ -44,7 +44,48 @@
 
 ### TowTimer 프로젝트
 ```c
+RESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
+    WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+	PAINTSTRUCT ps;
+	SYSTEMTIME st;
+	static TCHAR sTime[128] = _T("");
+	static RECT rt = { 100, 100, 400, 120 };
 
+	switch (iMessage)
+	{
+	case WM_CREATE:
+		SetTimer(hWnd, 1, 1000, NULL);
+		SetTimer(hWnd, 2, 5000, NULL);
+		SendMessage(hWnd, WM_TIMER, 1, 0);
+		return 0;
+	case WM_PAINT:
+		hdc = BeginPaint(hWnd, &ps);
+		TextOut(hdc, 100, 100, sTime, _tcslen(sTime));
+		EndPaint(hWnd, &ps);
+		return 0;
+	case WM_TIMER:
+		switch (wParam) 
+		{
+		case 1:
+			GetLocalTime(&st);
+			_stprintf_s(sTime, _T("지금 시간은 %d:%d:%d입니다."), st.wHour, st.wMinute, st.wSecond);
+			InvalidateRect(hWnd, &rt, FALSE);
+			break;
+		case 2:
+			MessageBeep(0);
+			break;
+		}		
+		return 0;
+	case WM_DESTROY:
+		KillTimer(hWnd, 1);
+		KillTimer(hWnd, 2);
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
 ```
 
 
