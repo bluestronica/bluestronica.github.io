@@ -110,27 +110,41 @@ RESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 - 왼쪽 마우스를 클릭하면 텍스트가 출력되었다가 3초 뒤 사라는 프로그램이다.
 - 단, 이 때 사용된 타이머는 문자열이 사라지면 함께 사라진다. 이를 새로운 윈도우에 띄우면 다른 웹사이트나 프로그램에서 보았던 도움말처럼 응용할 수 있다.
 ```c
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, 
+	WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+	PAINTSTRUCT ps;
+	static TCHAR str[128] = _T("");
 
+	switch (iMessage)
+	{
+	case WM_LBUTTONDOWN:
+		lstrcpy(str, _T("왼쪽 버튼을 눌렀습니다."));
+		InvalidateRect(hWnd, NULL, TRUE);
+		SetTimer(hWnd, 1, 3000, NULL);
+		return 0;
+	case WM_TIMER:
+		KillTimer(hWnd, 1);
+		lstrcpy(str, _T(""));
+		InvalidateRect(hWnd, NULL, TRUE);
+		return 0;
+	case WM_PAINT:
+		hdc = BeginPaint(hWnd, &ps);
+		TextOut(hdc, 10, 10, str, _tcslen(str));
+		EndPaint(hWnd, &ps);
+		return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- 이 프로젝트의 포인트는 타이머의 생성 위치와 소멸 위치이다.
+- 마우스가 눌리면 타이머가 설치되고, 3초 후에 발생하는 WM_TIMER 메세지에서 해당 타이머를 삭제
+- 이렇게 되면 3초 후 문자열이 사라지고 나서 똑같은 메세지가 발생하지 않는다.
+- 즉, 3초가 지나도 아무 일도 일어나지 않는다. 
+- 이렇게 특정 용도를 위해 사용되는 일회용 타이머를 구현할 수 있다.
 
 
