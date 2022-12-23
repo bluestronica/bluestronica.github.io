@@ -133,7 +133,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 		SetTextAlign(hdc, TA_CENTER);
        		GetClientRect(hWnd, &rt);
 		TextOut(hdc, rt.right / 2, 
-		rt.bottom / 2, _T("Center String"), 13);
+			rt.bottom / 2, _T("Center String"), 13);
 		EndPaint(hWnd, &ps);
 		return 0;
 	case WM_DESTROY:
