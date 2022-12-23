@@ -16,7 +16,7 @@
 | 오른쪽 버튼 | WM_RBUTTONDOWN | WM_RBUTTONUP | WM_RBUTTONDBLCLK |
 | 중앙 버튼 | WM_MBUTTONDOWN | WM_MBUTTONUP | WM_MBUTTONDBLCLK |
 
-- 메세지 루프에서 WM_LBUTTONDOWN 메세직 발생하면 윈도우 프로시저로 메세지가 전달된다.
+- 메세지 루프에서 WM_LBUTTONDOWN 메세지 발생하면 윈도우 프로시저로 메세지가 전달된다.
 - 이 때, 마우스가 클릭된 위치나 조합키의 상태(Shif, Ctrl 등)와 같은 부가 정보가 메세지와 함께 윈도우 프로시저로 전달된다.
 - **`LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)`**
 - 부가 정보는 WPARAM, LPARAM에 담겨서 전달된다.
