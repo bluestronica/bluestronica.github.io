@@ -100,6 +100,13 @@
 
 
 ### [백그라운드 작업과 콜백 함수](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/BackgroundTask_CallbackFunction.md)
+- 개요
+- 백그라운드 작업
+- RandGrp 프로젝트
+- 반복문에서 제어권을 독점하고 있는 올바르지 못한 코드
+- 제어권을 독점하지 않고, 타이머를 활용해서 백드라운드 작업을 하는 프로그램의 윈도우 프로시저
+- 콜백함수
+- Callback 프로젝트
 
 ### [작업 영역 얻기](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Client_Area.md)
 
