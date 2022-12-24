@@ -118,6 +118,11 @@
 - WM_PAINT
 
 ### [GDI와 스톡 오브젝트(Stock Object)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/GDI_StockObject.md)
+- GDI, GDI 오브젝트, DC의 개념
+- 스톡 오브젝트(Stock Object)
+- 스톡 오브젝트 활용과 색상
+- GdiObject 프로젝트
+- 색상
 
 ### [펜과 브러쉬, Old의 의미](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Pen_Brush_Old.md)
 
