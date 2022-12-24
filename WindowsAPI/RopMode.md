@@ -45,7 +45,23 @@ int GetROP2(HDC hdc);  // 그리기 모드를 가져오는 함수
 
 ### 마우스 왼쪽 버튼을 누르면 클릭 상태가 유지된다.
 ```c
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
+	WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+	PAINTSTRUCT ps;
+	static int sx, sy, oldx, oldy;
+	static bool bNowDraw = FALSE;
 
+	switch (iMessage) {
+	case WM_LBUTTONDOWN:
+		sx = LOWORD(lParam);
+		sy = HIWORD(lParam);
+		oldx = sx;
+		oldy = sy;
+		bNowDraw = TRUE;
+		return 0;
+    ...
 ```
 
 
