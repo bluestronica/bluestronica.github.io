@@ -34,7 +34,32 @@ DelectObject(MyPen);        // 6.메모리에서 삭제한다.
 ### GDI_Blue_Pen 프로젝트
 - 펜을 생성해 파란색 테두리를 가진 사각형 출력
 ```c
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+	PAINTSTRUCT ps;
+	HPEN MyPen, OldPen;
 
+	switch (iMessage)
+	{
+	case WM_CREATE:
+		hWndMain = hWnd;
+		return 0;
+	case WM_PAINT:
+		hdc = BeginPaint(hWnd, &ps);
+		MyPen = CreatePen(PS_SOLID, 5, RGB(0, 0, 255));
+		OldPen = (HPEN)SelectObject(hdc, MyPen);
+		Rectangle(hdc, 30, 30, 200, 100);
+		SelectObject(hdc, OldPen);
+		DeleteObject(MyPen);
+		EndPaint(hWnd, &ps);
+		return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
 ```
 
 
