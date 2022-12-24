@@ -42,7 +42,36 @@
 
 ### 코드 작성
 ```c
+#include <windows.h>
+#include <tchar.h>
+#include "resource.h"
 
+//중략
+
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
+	WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc, MemDC;
+	PAINTSTRUCT ps;
+	HBITMAP MyBitmap, OldBitmap;
+
+	switch (iMessage) {
+	case WM_PAINT:
+		hdc = BeginPaint(hWnd, &ps);
+		MemDC = CreateCompatibleDC(hdc); // 메모리DC 생성
+		MyBitmap = LoadBitmap(g_hInst, MAKEINTRESOURCE(IDB_BITMAP1)); //로딩
+		OldBitmap = (HBITMAP)SelectObject(MemDC, MyBitmap); //비트맵 선택
+		BitBlt(hdc, 0, 0, 123, 160, MemDC, 0, 0, SRCCOPY); //복사 및 출력
+		SelectObject(MemDC, OldBitmap);
+		DeleteObject(MyBitmap);
+		EndPaint(hWnd, &ps);
+		return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
 ```
 
 
