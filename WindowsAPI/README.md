@@ -117,7 +117,7 @@
 - WM_SIZE
 - WM_PAINT
 
-### [GDI와 스톡 오브젝트(Stock Object)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Client_Area.md)
+### [GDI와 스톡 오브젝트(Stock Object)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/GDI_StockObject.md)
 
 
 
