@@ -7,3 +7,8 @@
 - 이러한 GDI Object는 DC(Device Context)에 담겨져 있다.
 - DC에서 원하는 내용을 변경하여 출력한다.
 - 그래서 여태까지 GetDC, BeginPaint와 같은 함수를 사용해 DC를 생성해 핸들을 얻어서 사용했던 것이다.
+![img](Img/DC_GDI.png)
+
+- GDI Object는 DC에 담겨저 있고 GDI를 통해 출력 장치에 출력을 하게 된다.
+- 개발자는 GetDC, BeginPaint와 같은 함수를 통해 DC를 생성하게 된다.
+- GDI Object는 내부는 공개되어 있지 않기 때문에, 핸들을 이용해서 사용한다.
