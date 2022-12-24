@@ -23,3 +23,48 @@
 |영역(RGN)|HRGN|영역|선택되지 않음|
 
 ### 스톡 오브젝트(Stock Object)
+- 윈도우에서 기복적으로 제공하는 GDI Object를 스톡 오브젝트라고 한다.
+- 스톡 오브젝트는 언제든 사용할 수 잇고, 사용 후에 해지않아도 된다는 특징이 있다.
+- 핸들을 얻어 사용하면 되므로 편리하다는 장점이 있다.
+- 반면, 사용자가 직접 만들어 사용하는 오브젝트는 꼭 해지해야 한다.
+- **`HGDIOBJ GetStockObject(int fnObject);`**
+
+| fnObject | 설명 |
+|:---|:---|
+|BLACK_BRUSH|검정색 브러쉬|
+|GRAY_BRUSH|회색 브러쉬|
+|NULL_BRUSH|투명 브러쉬|
+|WHITE_BRUSH|**흰색 브러쉬(디폴트)**|
+|DKGRAY_BRUSH|진한 회색 브러쉬|
+|LTGRAY_BRUSH|연한 회색 브러쉬|
+|BLACK_PEN|**검정색 펜(디폴트)**|
+|WHITE_PEN|흰색 펜|
+|NULL_PEN|투명 펜|
+|ANSI_FIXED_FONT|고정폭 폰트|
+|ANSI_VAR_FONT|가변폭 폰트|
+|DEFAULT_PALETTE|시스템 팔레트|
+
+# 스톡 오브젝트 활용과 색상
+### GdiObject 프로젝트
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
