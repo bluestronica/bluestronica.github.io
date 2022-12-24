@@ -75,24 +75,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
 }
 ```
+- 먼저, 브러쉬의 핸들을 얻는다. MyBrush, OldBrush 2개를 얻는 것을 확인할 수 있다.
+- 이는 하나의 값은 무조건 가지고 있어야 하기 때문에, 기존 정보를 저장해두기 위함이다.
+- WM_PAINT 메세지 처리 부분을 보면, BeginPaint 함수를 통해 DC를 생성해 핸들값을 hdc에 저장한다.
+- GetStockObject 함수를 통해 스톡 오브젝트를 사용한다.
+- 반환형이 int형이다. 핸들값을 사용하기 위해 BRUSH의 핸들인 HBRUSH로 명시적 형변환을 한다.
+- 이후, SelectObject 함수를 통해서 기존 브러쉬 정보를 저장한다. 
+- 이를 사용 후, 저장하고 있던 브러쉬 정보를 선택하고 마무리한다.
+- 리소스를 반환하는(메모리를 삭제하는) 코드가 없다. 
+- 이는, 윈도우에서 기본적으로 제공하는 스톡 오브젝트는 따로 리소스를 반환하지 않아도 되기 때문이다.(자동으로 되기 때문에)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# 색상
+- Win32 API에서 색상은 COLORREF라는 DWORD형 구조체를 사용한다.
+- RGB로 표현하며 각 빨가(RED), 초록(GREEN), 파랑(BLUE)의 색상 정보를 나타낸다.
 
