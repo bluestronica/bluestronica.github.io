@@ -142,11 +142,12 @@
 - 마우스를 떼면 선 그리기가 완료되고 더 이상 선이 그려지지 않는다.
 
 ### [비트맵 출력](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Bitmap.md)
-
-
-
-
-
+- 개요
+- 비트맵(Bitmap)
+- 비트맵 출력
+- 비트맵 저장
+- 리소스 파일 생성
+- 코드 작성
 
 
 
