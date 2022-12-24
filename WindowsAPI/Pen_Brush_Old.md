@@ -81,7 +81,7 @@ HBRUSH CreateHatchBrush(int fnStyle, COLORREF clrref); // 색상과 무늬를 �
 - 브러쉬에 적용할 수 있는 무늬는 여러 가지가 존재한다. 
 - 수평(HS_HORIZONTAL), 수직선(HS_VERTICAL)으로 채울 수 있는 브러쉬부터 바둑판 모양(HS_CROSS), 좌하향 줄무늬(HS_BDIAGONAL) 등이 있다.
 
-### Bursh 프로젝트
+### Brush 프로젝트
 - 파란색 사각형의 내부를 초록색 우하향 줄무늬 모양으로 채우기
 ```c
 LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
