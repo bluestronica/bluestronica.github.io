@@ -85,7 +85,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 - 리소스를 반환하는(메모리를 삭제하는) 코드가 없다. 
 - 이는, 윈도우에서 기본적으로 제공하는 스톡 오브젝트는 따로 리소스를 반환하지 않아도 되기 때문이다.(자동으로 되기 때문에)
 
-# 색상
+### 색상
 - Win32 API에서 색상은 COLORREF라는 DWORD형 구조체를 사용한다.
 - RGB로 표현하며 각 빨가(RED), 초록(GREEN), 파랑(BLUE)의 색상 정보를 나타낸다.
 
