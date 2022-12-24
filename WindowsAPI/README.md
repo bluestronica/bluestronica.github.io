@@ -125,6 +125,14 @@
 - 색상
 
 ### [펜과 브러쉬, Old의 의미](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Pen_Brush_Old.md)
+- 개요
+- 펜(Pen)
+- GDI_Blue_Pen 프로젝트
+- 브러쉬(Brush)
+- Brush 프로젝트
+- Old의 으미
+
+### [그리기 모드와 ROP2 모드, 선 그리기](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/RopMode.md)
 
 
 
