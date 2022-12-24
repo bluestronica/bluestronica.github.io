@@ -49,7 +49,31 @@
 - 여태까지 GDI 오브젝트 중 디폴트 값을 사용해서 선, 그림 등을 윈도우에 출력했다.
 - 이번에는 스톡 오브젝트 중 브러쉬를 변경하여 사각형을 출력해본다.
 ```c
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
+{
+	HDC hdc;
+	PAINTSTRUCT ps;
+	HBRUSH MyBrush, OldBrush;
 
+	switch (iMessage)
+	{
+	case WM_CREATE:
+		hWndMain = hWnd;
+		return 0;
+	case WM_PAINT:
+		hdc = BeginPaint(hWnd, &ps);
+		MyBrush = (HBRUSH)GetStockObject(GRAY_BRUSH);
+		OldBrush = (HBRUSH)SelectObject(hdc, MyBrush);
+		Rectangle(hdc, 30, 30, 200, 100);
+		SelectObject(hdc, OldBrush);
+		EndPaint(hWnd, &ps);
+		return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	}
+	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
+}
 ```
 
 
