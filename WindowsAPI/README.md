@@ -109,6 +109,15 @@
 - Callback 프로젝트
 
 ### [작업 영역 얻기](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Client_Area.md)
+- 개요
+- 작업 영역(Client Area)
+- GetClientRect 함수
+- GetClientRect 함수를 통해 작업 영역 얻기
+- WM_CREATE
+- WM_SIZE
+- WM_PAINT
+
+### [GDI와 스톡 오브젝트(Stock Object)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Client_Area.md)
 
 
 
