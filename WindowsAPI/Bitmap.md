@@ -84,7 +84,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 BOOL BitBlt(1.HDC hdcDest, 2.int XDest, 3.int YDest, 4.int nWidth 5.int nHeight
             6.HDC hdcSrc, 7.int XSrc, 8.int YSrc, 9.DWORD dwRop);
 ```
-  - 1번 파라미터는 복제 대상을 의미합니다. 비트맵을 복제해 화면에 출력할 대상을 의미한다. 
+  - 1번 파라미터는 복제 대상을 의미한다. 비트맵을 복제해 화면에 출력할 대상을 의미한다. 
   - 2~5번 파라미터는 복사 대상의 x, y, weith, height를 의미한다. 
   - 6번 파라미터는 복사 원본의 DC, 7, 8번은 복사 원본의 좌표, 9번은 어떻게 복사할지에 대한 정보다.
   - 여기서 사용된 SRCCOPY는 대상 영역에 복사하는 옵션이다. 
