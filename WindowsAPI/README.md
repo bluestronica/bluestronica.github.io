@@ -130,7 +130,7 @@
 - GDI_Blue_Pen 프로젝트
 - 브러쉬(Brush)
 - Brush 프로젝트
-- Old의 으미
+- Old의 의미
 
 ### [그리기 모드와 ROP2 모드, 선 그리기](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/RopMode.md)
 - 개요
