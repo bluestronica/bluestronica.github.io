@@ -73,25 +73,24 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage,
 	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- 이번 프로젝트는 resource.h 파일에 리소스의 매크로 상수를 정의해놨으므로, 해당 파일을 inlucde 해야 한다. 
+- 평소에 사용하던 stdio, tchar와 다르게 큰 따옴표로 묶여있는 것을 확인할 수 있다. 큰 따옴표로 묶여있다는 것은 워킹 디렉토리에 존재하는 파일을 가져오겠다는 뜻이다.
+- CreateCompatibleDC 함수를 사용해서 기존 메모리와 양립하는, 
+- 즉 동일한 특성을 가지며 내부에 출력 표면을 가진 메모리 영역을 생성한다. 
+- 해당 메모리 영역에 비트맵을 그린 후, 출력할 화면으로 고속 복사하는 것이다. 
+- 이후, SelectObject() 함수를 사용해 리소스 내에 비트맵을 선택한 후, LoadBitmap() 함수를 사용해 비트맵을 읽어오는 것이다.
+- BitBlt() 함수는 함수간 영역을 고속 복사하는 함수입니다. 함수의 원형은 다음과 같다.
+```c
+BOOL BitBlt(1.HDC hdcDest, 2.int XDest, 3.int YDest, 4.int nWidth 5.int nHeight
+            6.HDC hdcSrc, 7.int XSrc, 8.int YSrc, 9.DWORD dwRop);
+```
+  - 1번 파라미터는 복제 대상을 의미합니다. 비트맵을 복제해 화면에 출력할 대상을 의미한다. 
+  - 2~5번 파라미터는 복사 대상의 x, y, weith, height를 의미한다. 
+  - 6번 파라미터는 복사 원본의 DC, 7, 8번은 복사 원본의 좌표, 9번은 어떻게 복사할지에 대한 정보다.
+  - 여기서 사용된 SRCCOPY는 대상 영역에 복사하는 옵션이다. 
+  - 이외에도, 값을 반전시키는 DSTINVERT, 검은색으로 채우는 BLACKNESS 등이 있다.
+- 당연히, 비트맵 출력 후 비트맵 자체와 메모리 DC를 해제해야 한다.
+- 참고로, Win32 API는 비트맵을 바로 출력하는 함수를 지원하지 않는다. 
+- 로딩 속도로 인해 실제와 차이가 발생할 수 있기 때문이다.
 
 
