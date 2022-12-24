@@ -133,7 +133,15 @@
 - Old의 으미
 
 ### [그리기 모드와 ROP2 모드, 선 그리기](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/RopMode.md)
+- 개요
+- Win32 API의 그리기 모드
+- Win32 API가 지원하는 그리기 모드
+- RopMode를 활용해 선 그리기
+- 마우스 왼쪽 버튼을 누르면 클릭 상태가 유지된다.
+- 드래그하면 그 만큼 선을 그리게 된다.
+- 마우스를 떼면 선 그리기가 완료되고 더 이상 선이 그려지지 않는다.
 
+### [비트맵 출력](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/Bitmap.md)
 
 
 
