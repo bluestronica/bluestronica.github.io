@@ -213,7 +213,7 @@ int main(void)
 - 그래서 원본 배열이 바뀐다.
 ```c
 void process(int num[5])  // 프로그래머가 읽기 편하라고 [5]를 써준 것
-{                         // 컴파일하면 vodi process(int nums[]) 와 동일
+{                         // 컴파일하면 void process(int nums[]) 와 동일
   size_t i;
   for (i = 0; i < 5; ++i)
   {
