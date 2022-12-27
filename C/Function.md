@@ -55,7 +55,7 @@ int main(void)
 ### 평가 순서
 - 표준에 따르면, 함수 매개변수의 평가 순서는 명시되어 있지않음 즉, 컴파일러에 따라 평가 순서가 달라질 수 있음
 ```c
-printf("%d, %d\n", add(num1, num2), subtract(num1, num2);
+printf("%d, %d\n", add(num1, num2), subtract(num1, num2));
 
 // add()와 subtract() 누가 먼저 호출되는지 보장 못함.
 ```
