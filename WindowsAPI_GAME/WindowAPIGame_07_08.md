@@ -10,17 +10,18 @@
 class CCore
 {
 private:
-	static CCore* g_pInst;  // 데이터형 메모리에 개제 주소 저장하기 위한 정적변수
+	static CCore* g_pInst; // 데이터형 메모리에 개제 주소 저장하기 위한 정적변수
 
 public:
-	// 정적 멤버함수 : 개체를 바로 생성하지 않고 정적 멤버함수에 바로 접근해서 개체를 생성
+	// 정적 멤버함수
+	// 개체를 바로 생성하지 않고 정적 멤버함수에 바로 접근해서 개체를 생성
 	static CCore* GetInstance()
 	{
 		// 최초 호출 된 경우
 		if (nullptr == g_pInst)
 		{
-			g_pInst = new CCore;  // 개체 주소를 데이터형 메모리에 저장
-		}                             // 개체는 동적할당(힙) 되어 있다.
+			g_pInst = new CCore; // 개체 주소를 데이터형 메모리에 저장
+		}                            // 개체는 동적할당(힙) 되어 있다.
 
 		return g_pInst;
 	}
