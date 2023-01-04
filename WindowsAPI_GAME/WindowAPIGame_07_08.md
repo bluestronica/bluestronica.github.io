@@ -10,7 +10,7 @@
 class CCore
 {
 private:
-	static CCore* g_pInst; // 데이터 섹션에 개제 주소를 저장하기 위한 정적변수
+	static CCore* g_pInst; // 데이터 섹션에 개체 주소를 저장하기 위한 정적변수
 
 public:
 	// 정적 멤버함수로 만든 이유는
