@@ -193,17 +193,17 @@ if (FAILED(CCore::GetInst()->init(g_hWnd, POINT{1280, 768})))
   - 그래서 대표적인 음수 값인 E_FAIL이 들어가 있으면
   - `FAILED(E_FAIL)`
   - 참으로 뜬다.
-```c++
-if (FAILED(E_FAIL))  // 그래서 FAILED 실패했다면 true 이므로
-{
-    실행
-}
+  ```c++
+  if (FAILED(E_FAIL))  // 그래서 FAILED 실패했다면 true 이므로
+  {
+      실행
+  }
 
-if (FAILED(S_OK))  // FAILED에 0반환 되므로 false 뜨면서 
-{
-    살행 안함
-}
-```
+  if (FAILED(S_OK))  // FAILED에 0반환 되므로 false 뜨면서 
+  {
+      살행 안함
+  }
+  ```
 
 
 
