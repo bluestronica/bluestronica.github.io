@@ -15,7 +15,7 @@ public:
 		if (nullptr == g_pInst)
 		{
 			g_pInst = new CCore;  // 개체 주소를 데이터형 메모리에 저장
-		}                             // 개체는 동적할당 되어 있다.
+		}                             // 개체는 동적할당(힙) 되어 있다.
 
 		return g_pInst;
 	}
