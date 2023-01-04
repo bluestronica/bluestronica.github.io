@@ -13,7 +13,7 @@ private:
 	static CCore* g_pInst;  // 데이터형 메모리에 개제 주소 저장하기 위한 정적변수
 
 public:
-	// 정적 멤버함수
+	// 정적 멤버함수 : 개체를 바로 생성하지 않고 정적 멤버함수에 바로 접근해서 개체를 생성
 	static CCore* GetInstance()
 	{
 		// 최초 호출 된 경우
