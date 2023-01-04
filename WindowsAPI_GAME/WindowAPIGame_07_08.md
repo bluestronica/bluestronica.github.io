@@ -66,27 +66,26 @@ private:
 };
 ```
 
-### 싱글톤으로 만들 유일한 **개체를 데이터형 메모리에 올리는 방식**
+### 싱글톤으로 만들 유일한 개체를 데이터 섹션에 올리는 방식
+- static은 데이터 섹션에 저장된다. 
+- `static CCore mgr;` 
+- 그래서 개체는 데이터 섹션에 만들어지게 된다.
+- 정적 변수는 한번만 초기화되고 그 다음부터는 무시된다.
+- 그래서 앞으로 호출될 때마다 즉시, 데이터 섹션에 있는 개체의 주소를 넘겨주게된다.
+- 정적 변수가 해당 정적함수에서만 접근 가능하지만
+- 주소를 통해서 접근하는 것은 불가능한 것이 아니다.
+- 그래서 주소 받은 쪽에서 그 주소로 접근하는 것이 가능하다.(포인터의 장점)
 - 해제를 신경쓰지 않아도 된다. 프로그램이 종료될까지 데이터가 남는다.
-- static은 데이터형 메모리에 저장, core 개체를 데이터형에 만든다.
 ```c++
 class CCore
 {
 public:
 	static CCore* GetInst()
 	{
-		static CCore mgr;  // 개체를 데이터형 메모리에 저장
-		return &mgr;       // 데이터형 메모리에 저장된 개체 주소를 전달
+		static CCore mgr;  // 개체를 데이터 섹션에 만든다.
+		return &mgr;       // 데이터 섹션에 저장된 그 개체 주소를 전달
 	}
-
-private:
-	HWND	m_hWnd;		// 메인 윈도우 핸들
-	POINT	m_ptResolution; // 메인 윈도우 해상도
-
-public:
-	int init(HWND _hWnd, POINT _ptResolution);
-	void progress();
-
+	
 private:
 	CCore();
 	~CCore();
@@ -98,7 +97,17 @@ private:
 
 
 
-
+# 싱글톤 클래스를 매크로 함수로 만들기
+```c++
+// Singleton 메크로
+//#define SINGLE(type) static type* GetInst() { static type mgr; return &mgr; }
+#define SINGLE(type) public:\
+			 static type* GetInst()\
+			 {\
+				 static type mgr;\
+				 return &mgr;\
+			 }
+```
 
 
 # Core Class
