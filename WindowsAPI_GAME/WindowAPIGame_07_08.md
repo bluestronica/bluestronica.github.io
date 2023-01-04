@@ -35,14 +35,27 @@ private:
 };
 ```
 
+### 싱글톤으로 만들 유일한 개체를 데이터형 메모리에 올리는 방식
+- 해제를 신경쓰지 않아도 된다. 프로그램이 종료될까지 데이터가 남는다.
+- static은 데이터형 메모리에 저장, core 개체를 데이터형에 만든다.
+```c++
+class CCore
+{
+	SINGLE(CCore);
 
+private:
+	HWND	m_hWnd;			// 메인 윈도우 핸들
+	POINT	m_ptResolution; // 메인 윈도우 해상도
 
+public:
+	int init(HWND _hWnd, POINT _ptResolution);
+	void progress();
 
-
-
-
-
-
+private:
+	CCore();
+	~CCore();
+};
+```
 
 
 
