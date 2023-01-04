@@ -41,7 +41,12 @@ private:
 ```c++
 class CCore
 {
-	SINGLE(CCore);
+public:
+	static type* GetInst()
+	{
+		static type mgr;
+		return &mgr;
+	}
 
 private:
 	HWND	m_hWnd;			// 메인 윈도우 핸들
