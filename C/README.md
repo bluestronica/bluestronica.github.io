@@ -22,6 +22,8 @@
 
 ### [기본 문법 3 Build](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Build.md)
 - C프로그램의 빌드 과정
+- 지역변수
+- 전역변수
 - 정리
 
 ### [포인터 1](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Pointer1.md)
