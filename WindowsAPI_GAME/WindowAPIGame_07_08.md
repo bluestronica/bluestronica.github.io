@@ -42,14 +42,14 @@ private:
 class CCore
 {
 public:
-	static type* GetInst()
+	static CCore* GetInst()
 	{
-		static type mgr;
+		static CCore mgr;
 		return &mgr;
 	}
 
 private:
-	HWND	m_hWnd;			// 메인 윈도우 핸들
+	HWND	m_hWnd;		// 메인 윈도우 핸들
 	POINT	m_ptResolution; // 메인 윈도우 해상도
 
 public:
