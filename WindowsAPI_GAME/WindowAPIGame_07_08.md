@@ -127,6 +127,8 @@ private:
 - 속성에 들어가서 미리 컴파일된 헤더 체크 확인!
 ```c++
 // 미리 컴파일된 헤더
+#include "Windows.h>
+
 #include "define.h"
 ```
 
@@ -144,13 +146,25 @@ private:
 	POINT	m_ptResolution;  // 메인 윈도우 해상도
 
 public:
-	int init(HWND _hWnd, POINT _ptResolution);
+	int init(HWND _hWnd, POINT _ptResolution); // 실패 체크하기 위해 정수값 하나 반환
 	void progress();
 
 private:
 	CCore();
 	~CCore();
 };
+```
+- CCore.cpp
+```c++
+int CCore::init(HWND _hWnd, POINT _ptResolution)
+{
+	m_hWnd = _hWnd;
+	m_ptResolution = _ptResolution;
+
+	// 해상도에 맞게 윈도우 크기 조정
+
+	return S_OK;
+}
 ```
 
 - main.cpp
@@ -164,7 +178,32 @@ if (FAILED(CCore::GetInst()->init(g_hWnd, POINT{1280, 768})))
 }
 ```
 
-# 윈도우에서 사용하는 기법
+# 윈도우 스타일 기법
+- 성공 했을 때
+  - `return S_OK;`
+  - S_OK는 매크로로 `((HRESUKT)0L)` 정의되어 있다. **0**이다.
+- 실패 했을 때
+  - `return F_FAIL;`
+  - F_FAIL은 매크로로 `_HRESULT_TYPEDEF_(0x80004005L)`
+    - 16진수 첫 자리 비트가 8이므로 음수이다. 
+    - 최상의 비트가 1이니깐 8은 음수이다.
+- 윈도우에서 자주 사용하는 FAILED 매크로
+  - `#define FAILED(hr) (((HRESULT)(hr)) < 0)`
+  - hr이 0보다 작은 음수면 true를 반환한다.
+  - 그래서 대표적인 음수 값인 E_FAIL이 들어가 있으면
+  - `FAILED(E_FAIL)`
+  - 참으로 뜬다.
+```c++
+if (FAILED(E_FAIL))  // 그래서 FAILED 실패했다면 true 이므로
+{
+    실행
+}
+
+if (FAILED(S_OK))  // FAILED에 0반환 되므로 false 뜨면서 
+{
+    살행 안함
+}
+```
 
 
 
