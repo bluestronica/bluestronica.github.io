@@ -1,7 +1,7 @@
 # Singleton Pattern
 
 ### 동적할당을 이용해서 싱글톤 만드는 방식
-```c
+```c++
 class CCore
 {
 private:
