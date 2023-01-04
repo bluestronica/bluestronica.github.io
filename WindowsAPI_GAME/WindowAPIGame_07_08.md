@@ -121,11 +121,36 @@ private:
 ```
 
 
+# 미리 컴파일된 헤더 - pch.h
+- 미리 컴파일된 헤더라는게 생겨나면
+- 모든 cpp 파일들은 무조건 미리 컴파일된 헤더를 참조해야한다.
+- 속서에 들어가서 미리 컴파일된 헤더 체크 확인!
+```c++
+// 미리 컴파일된 헤더
+#include "define.h"
+```
 
 
 
+# Core Class 초기화
+```c++
+class CCore
+{
+	SINGLE(CCore);
 
-# Core Class
+private:
+	HWND	m_hWnd;		 // 메인 윈도우 핸들
+	POINT	m_ptResolution;  // 메인 윈도우 해상도
+
+public:
+	int init(HWND _hWnd, POINT _ptResolution);
+	void progress();
+
+private:
+	CCore();
+	~CCore();
+};
+```
 
 
 
