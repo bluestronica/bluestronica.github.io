@@ -5,7 +5,7 @@
 class CCore
 {
 private:
-	static CCore* g_pInst;
+	static CCore* g_pInst;  // 데이터형 메모리에 개제 주소 저장하기 위한 정적변수
 
 public:
 	// 정적 멤버함수
@@ -14,8 +14,8 @@ public:
 		// 최초 호출 된 경우
 		if (nullptr == g_pInst)
 		{
-			g_pInst = new CCore;
-		}
+			g_pInst = new CCore;  // 개체 주소를 데이터형 메모리에 저장
+		}                             // 개체는 동적할당 되어 있다.
 
 		return g_pInst;
 	}
@@ -35,7 +35,7 @@ private:
 };
 ```
 
-### 싱글톤으로 만들 유일한 개체를 데이터형 메모리에 올리는 방식
+### 싱글톤으로 만들 유일한 **개체를 데이터형 메모리에 올리는 방식**
 - 해제를 신경쓰지 않아도 된다. 프로그램이 종료될까지 데이터가 남는다.
 - static은 데이터형 메모리에 저장, core 개체를 데이터형에 만든다.
 ```c++
@@ -44,8 +44,8 @@ class CCore
 public:
 	static CCore* GetInst()
 	{
-		static CCore mgr;
-		return &mgr;
+		static CCore mgr;  // 개체를 데이터형 메모리에 저장
+		return &mgr;       // 데이터형 메모리에 저장된 개체 주소를 전달
 	}
 
 private:
