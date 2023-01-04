@@ -93,11 +93,12 @@ private:
 ```
 
 
-
-
-
-
 # 싱글톤 클래스를 매크로 함수로 만들기
+- 매크로 함수 
+  - 함수가 호출되는 것이 아니라 **코드를 치환하는 형태**이다. 
+  - 자주 반복되는 코드 유형 패턴을 미리 만들어 놓고 필요 할 때마다 쓰면 좋다.
+- Engine/Header/Define.h
+  - 메크로나 어떤 정의의 것들을 모아 놓은 헤더파일
 ```c++
 // Singleton 메크로
 //#define SINGLE(type) static type* GetInst() { static type mgr; return &mgr; }
@@ -108,6 +109,20 @@ private:
 				 return &mgr;\
 			 }
 ```
+```c++
+class CCore
+{
+	SINGLE(CCore);
+
+private:
+	CCore();
+	~CCore();
+};
+```
+
+
+
+
 
 
 # Core Class
