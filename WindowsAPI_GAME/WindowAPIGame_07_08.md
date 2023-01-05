@@ -178,7 +178,7 @@ if (FAILED(CCore::GetInst()->init(g_hWnd, POINT{1280, 768})))
 }
 ```
 
-# 윈도우 스타일 기법
+# 윈도우 스타일 기법 - FAILED
 - 성공 했을 때
   - `return S_OK;`
   - S_OK는 매크로로 `((HRESUKT)0L)` 정의되어 있다. **0**이다.
