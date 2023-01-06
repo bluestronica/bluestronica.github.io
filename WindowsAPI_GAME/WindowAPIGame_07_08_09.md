@@ -213,19 +213,24 @@ if (FAILED(CCore::GetInst()->init(g_hWnd, POINT{1280, 768})))
 - 입력받은 해상도 사이즈 값이 들어 있다.
 
 ### AdjustWindowRect
-- `AdjustWindowRect(_Inout_ LPRECT lpRect, _In_ DWORD dwStyle, _In_ BOOL bMenu);`
-  - 해상도 사이즈로 타이틀바, 메뉴바, 테두리 등이 포함된 클라이언트 영역(윈도우 전체 크기)이 되도록 사이즈 조정한다.
-  ```c++
-  RECT rt = {0, 0, m_ptResolution.x, m_ptResolution.y};
-  AdjustWindowRect(&rt, WS_OVERLAPPEDWINDOW, true);
-  
-  // LPRECT : RECT 구조체를 가릴킬 수 있는 포인터 타입을 의미하는 것이다., *RECT;
-  // dwStyle : 비트 연산으로 Window Styles을 나타낸다. 
-  // 함수 결과는 값을 반환하는 것이 아니라 지역변수 rt에 값이 채워진다.
-  // _Inout_ : 입력과 결과를 되돌려 받는 두 가지 의미가 있다. 
-  // 리턴값이 너무 클 때 이런 방식으로 한다.
-  // 인자로 주소를 받아서 다시 접근해서 결과를 담아준다.
-  ```
+- 해상도 사이즈로 타이틀바, 메뉴바, 테두리 등이 포함된 클라이언트 영역(윈도우 전체 크기)이 되도록 사이즈 조정한다.
+```c++
+AdjustWindowRect(
+    _Inout_ LPRECT lpRect,
+    _In_ DWORD dwStyle,
+    _In_ BOOL bMenu);
+    
+// LPRECT : RECT 구조체를 가릴킬 수 있는 포인터 타입을 의미하는 것이다., *RECT;
+// dwStyle : 비트 연산으로 Window Styles을 나타낸다. 
+// 함수 결과는 값을 반환하는 것이 아니라 지역변수 rt에 값이 채워진다.
+// _Inout_ : 입력과 결과를 되돌려 받는 두 가지 의미가 있다. 
+// 리턴값이 너무 클 때 이런 방식으로 한다.
+// 인자로 주소를 받아서 다시 접근해서 결과를 담아준다.    
+```
+```c++
+RECT rt = {0, 0, m_ptResolution.x, m_ptResolution.y};
+AdjustWindowRect(&rt, WS_OVERLAPPEDWINDOW, true);
+```
 
 ### SetWindowPos
   - 윈도우 전체 크기를 세팅한다.
