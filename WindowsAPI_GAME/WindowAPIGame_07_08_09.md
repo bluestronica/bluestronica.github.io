@@ -208,8 +208,6 @@ if (FAILED(CCore::GetInst()->init(g_hWnd, POINT{1280, 768})))
 
 # 해상도에 맞게 윈도우 크기 조정
 - 해상도는 순수하게 물체가 그려지는 작업영역을 말한다.
-- 그러나 
-- 여기서 얻어온 사각형의 정보로 윈도우 사이즈를 세팅한다.
 - POINT _ptResolution
   - 입력받은 해상도 사이즈 값이 들어 있다.
 - AdjustWindowRect
