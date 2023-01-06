@@ -8,7 +8,7 @@
 - 미리 컴파일된 헤더 - pch.h
 - Core Class 초기화
 - 윈도우 스타일 기법 - FAILED
-- 해상도에 맞게 윈도우 크기 조정
+- 해상도에 맞게 윈도우 크기 조정과 세팅
   - POINT _ptResolution
   - AdjustWindowRect
   - SetWindowPos
