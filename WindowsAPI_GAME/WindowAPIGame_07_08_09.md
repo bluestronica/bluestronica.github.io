@@ -343,30 +343,126 @@ void CCore::render()
 }
 ```
 
+# 코드
+### CCore.h
+```c++
+class CCore
+{
+	SINGLE(CCore);
 
+private:
+	HWND	m_hWnd;		// 메인 윈도우 핸들
+	POINT	m_ptResolution; // 메인 윈도우 해상도
+	HDC		m_hDC;	// 메인 윈도우에 Draw 할 DC
 
+public:
+	int init(HWND _hWnd, POINT _ptResolution);
+	void progress();
 
+private:
+	void update();
+	void render();
 
+private:
+	CCore();
+	~CCore();
+};
+```
 
+### CCore.cpp
+```c++
+#include "pch.h"
+#include "CCore.h"
 
+#include "CObject.h"
 
+CObject g_obj;
 
+CCore::CCore()
+	: m_hWnd(0)
+	, m_ptResolution{}
+	, m_hDC(0)
+{
+}
 
+CCore::~CCore()
+{
+	ReleaseDC(m_hWnd, m_hDC);
+}
 
+int CCore::init(HWND _hWnd, POINT _ptResolution)
+{
+	m_hWnd = _hWnd;
+	m_ptResolution = _ptResolution;  
+	
+	RECT rt = {0, 0, m_ptResolution.x, m_ptResolution.y};  
+	AdjustWindowRect(&rt, WS_OVERLAPPEDWINDOW, true);  
+	SetWindowPos(m_hWnd, nullptr, 100, 100, 
+			rt.right - rt.left, rt.bottom - rt.top, 0);  
 
+	// 이제부터 메세지 기반 쪽 기능을 쓰지 않는다.
+	// 메세지 처리가 발생하지 않는 시간 동안에 모두 처리를 다할 것이다.
+	// 이제 앞으로 여기서 그리기 작업을 한다.
+	// BeginPaint 사용하지 않고 GetDC 사용
 
+	m_hDC = GetDC(m_hWnd);
 
+	// 이니셜라이져로 초기값
+	g_obj.m_ptPos = POINT{ m_ptResolution.x / 2, 
+					m_ptResolution.y / 2 };
+	g_obj.m_ptScale = POINT{ 100, 100 };
 
+	return S_OK;
+}
 
+void CCore::progress()
+{
+	static int callCount = 0;
+	++callCount;
 
+	static int iPrevCount = GetTickCount();  // 계속 데이타 지속
 
+	int iCurCount = GetTickCount();  // 현재
+	if (iCurCount - iPrevCount > 1000)   // 1초 차이가 났을 때
+	{
+		iPrevCount = iCurCount;
+		callCount = 0;
+	}
+	
+	update();
 
+	render();
+}
 
+void CCore::update()
+{
+	// 물체들의 좌표나 변경점들을 다 해결하고 픽스된 상태에서 
+	// render()에서 다시 그려낸다.
 
+	// 물체를 특정키가 눌렀을 때 포지션 변경
+	// 키 입력도 메세지 기반이 아니다. 키 눌린 순간 바로 체크
+	// 비동기 키 입출력 함수
+	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+	{
+		g_obj.m_ptPos.x -= 1;
+	}
+	
+	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
+	{
+		g_obj.m_ptPos.x += 1;
+	}
+}
 
+void CCore::render()
+{
+	Rectangle(m_hDC,
+		g_obj.m_ptPos.x - g_obj.m_ptScale.x / 2,
+		g_obj.m_ptPos.y - g_obj.m_ptScale.y / 2,
+		g_obj.m_ptPos.x + g_obj.m_ptScale.x / 2,
+		g_obj.m_ptPos.y + g_obj.m_ptScale.y / 2);
+}
 
-
-
+```
 
 
 
