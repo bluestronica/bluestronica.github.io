@@ -211,6 +211,10 @@ if (FAILED(CCore::GetInst()->init(g_hWnd, POINT{1280, 768})))
 
 ### POINT _ptResolution
 - 입력받은 해상도 사이즈 값이 들어 있다.
+```c++
+// 원하는 해상도 사이즈
+RECT rt = {0, 0, m_ptResolution.x, m_ptResolution.y};
+```
 
 ### AdjustWindowRect
 - 해상도 사이즈로 타이틀바, 메뉴바, 테두리 등이 포함된 클라이언트 영역(윈도우 전체 크기)이 되도록 사이즈 조정한다.
@@ -228,25 +232,25 @@ AdjustWindowRect(
 // 인자로 주소를 받아서 다시 접근해서 결과를 담아준다.    
 ```
 ```c++
-RECT rt = {0, 0, m_ptResolution.x, m_ptResolution.y};
 AdjustWindowRect(&rt, WS_OVERLAPPEDWINDOW, true);
 ```
 
 ### SetWindowPos
-  - 윈도우 전체 크기를 세팅한다.
-  ```c++
-  // 그래서 결과적으로 윈도우 가로, 세로의 크기는
-  // rt.right - rt.left
-  // rt.bottom - rt.top 
-	
-  SetWindowPos(m_hWnd, nullptr, 100, 100, 
-  			rt.right - rt.left, rt.bottom - rt.top, 0);  
-  ```
-
-
-
-
-
+- 윈도우 전체 크기를 세팅한다.
+```c++
+SetWindowPos(
+    _In_ HWND hWnd,
+    _In_opt_ HWND hWndInsertAfter,
+    _In_ int X,
+    _In_ int Y,
+    _In_ int cx,	// 가로 : rt.right - rt.left
+    _In_ int cy,	// 세로 : rt.bottom - rt.top
+    _In_ UINT uFlags);
+```
+```c++	
+SetWindowPos(m_hWnd, nullptr, 100, 100, 
+  		rt.right - rt.left, rt.bottom - rt.top, 0);  
+```
 
 
 
