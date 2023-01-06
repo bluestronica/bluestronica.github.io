@@ -252,8 +252,95 @@ SetWindowPos(m_hWnd, nullptr, 100, 100,
   		rt.right - rt.left, rt.bottom - rt.top, 0);  
 ```
 
+# 프로그램 실행!
+- 메세지가 발생하지 않는 대부분의 시간 그곳에서 프로그램이 실행되도록 한다.
+- main.cpp
+```c++
+while (true)
+    {                 
+        // 반환 된 메세지가 무(없으면) fasle, 유(있으면) true
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+        {            
+            if (WM_QUIT == msg.message)
+            {
+                break;
+            }
 
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+        }
 
+        // 메세지가 발생하지 않는 대부분의 시간 
+        else
+        {            
+            // Game 코드 수행
+            // 디자인 패턴(설계 유형)
+            // 싱글톤 패턴
+            CCore::GetInst()->progress();
+        }
+    }
+```
+- CCore.cpp
+```c++
+void CCore::progress()
+{
+	// 메세지가 없을 때는 계속 작업한다.
+	// 프로그램 실행!!!!
+	static int callCount = 0;
+	++callCount;
+
+	static int iPrevCount = GetTickCount();  // 계속 데이타 지속
+
+	int iCurCount = GetTickCount();  // 현재
+	if (iCurCount - iPrevCount > 1000)   // 1초 차이가 났을 때
+	{
+		iPrevCount = iCurCount;
+		callCount = 0;
+	}
+	
+	update();
+
+	render();
+
+	// 이제부터는 메세지 신경 쓸 이유 없다. 다시 c++로 넘어 왔다.
+}
+
+void CCore::update()
+{
+	// 물체들의 좌표나 변경점들을 다 해결하고 
+	// 픽스된 상태에서 render()에서 다시 그려낸다.
+
+	// 물체를 특정 키가 눌렀을 때 포지션 변경
+	// 키 입력도 메세지 기반이 아니다. 키 눌린 순간 바로 체크
+	// 비동기 키 입출력 함수
+	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+	{
+		g_obj.m_ptPos.x -= 1;
+	}
+	
+	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
+	{
+		g_obj.m_ptPos.x += 1;
+	}
+}
+
+void CCore::render()
+{
+	// 그리기 
+	//Rectangle(m_hDC, 10, 10, 110, 110);  
+	// 실행 시켜보면 사각형 하나 그려져 있는데.. 
+	// 실시간으로 계속 그려지고 있는 모습이다.
+
+	Rectangle(m_hDC,
+		g_obj.m_ptPos.x - g_obj.m_ptScale.x / 2,
+		g_obj.m_ptPos.y - g_obj.m_ptScale.y / 2,
+		g_obj.m_ptPos.x + g_obj.m_ptScale.x / 2,
+		g_obj.m_ptPos.y + g_obj.m_ptScale.y / 2);
+}
+```
 
 
 
