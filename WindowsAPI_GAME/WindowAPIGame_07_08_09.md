@@ -301,9 +301,9 @@ void CCore::progress()
 		callCount = 0;
 	}
 	
-	update();
+	update();  // 상태 변경 처리
 
-	render();
+	render();  // 처리된 값으로 그리기
 
 	// 이제부터는 메세지 신경 쓸 이유 없다. 다시 c++로 넘어 왔다.
 }
