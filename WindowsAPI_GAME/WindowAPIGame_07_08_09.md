@@ -213,7 +213,8 @@ if (FAILED(CCore::GetInst()->init(g_hWnd, POINT{1280, 768})))
 - 입력받은 해상도 사이즈 값이 들어 있다.
 
 ### AdjustWindowRect
-  - 해상도 사이즈로 타이틀바, 메뉴바, 테두리 등이 포함된 클라이언트 영역(윈도우 전체 크기)이 되도록 조정한다.
+- `AdjustWindowRect(_Inout_ LPRECT lpRect, _In_ DWORD dwStyle, _In_ BOOL bMenu);`
+  - 해상도 사이즈로 타이틀바, 메뉴바, 테두리 등이 포함된 클라이언트 영역(윈도우 전체 크기)이 되도록 사이즈 조정한다.
   ```c++
   RECT rt = {0, 0, m_ptResolution.x, m_ptResolution.y};
   AdjustWindowRect(&rt, WS_OVERLAPPEDWINDOW, true);
