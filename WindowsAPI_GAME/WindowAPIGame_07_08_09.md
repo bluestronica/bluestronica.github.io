@@ -208,9 +208,11 @@ if (FAILED(CCore::GetInst()->init(g_hWnd, POINT{1280, 768})))
 
 # 해상도에 맞게 윈도우 크기 조정
 - 해상도는 순수하게 물체가 그려지는 작업영역을 말한다.
-- POINT _ptResolution
-  - 입력받은 해상도 사이즈 값이 들어 있다.
-- AdjustWindowRect
+
+### POINT _ptResolution
+- 입력받은 해상도 사이즈 값이 들어 있다.
+
+### AdjustWindowRect
   - 해상도 사이즈로 타이틀바, 메뉴바, 테두리 등이 포함된 클라이언트 영역(윈도우 전체 크기)이 되도록 조정한다.
   ```c++
   RECT rt = {0, 0, m_ptResolution.x, m_ptResolution.y};
@@ -223,14 +225,16 @@ if (FAILED(CCore::GetInst()->init(g_hWnd, POINT{1280, 768})))
   // 리턴값이 너무 클 때 이런 방식으로 한다.
   // 인자로 주소를 받아서 다시 접근해서 결과를 담아준다.
   ```
-- SetWindowPos
+
+### SetWindowPos
   - 윈도우 전체 크기를 세팅한다.
   ```c++
   // 그래서 결과적으로 윈도우 가로, 세로의 크기는
   // rt.right - rt.left
   // rt.bottom - rt.top 
 	
-  SetWindowPos(m_hWnd, nullptr, 100, 100, rt.right - rt.left, rt.bottom - rt.top, 0);  
+  SetWindowPos(m_hWnd, nullptr, 100, 100, 
+  			rt.right - rt.left, rt.bottom - rt.top, 0);  
   ```
 
 
