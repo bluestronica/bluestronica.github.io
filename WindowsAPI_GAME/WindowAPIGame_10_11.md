@@ -3,6 +3,13 @@
 ### FPS(Frame per second) - 초당 프레임 수
 ![img](IMG/FPS.png)
 
+| FPS | Frame time(s) | Frame time(ms) |
+|:---|:---|:---|
+|20|1/20|50ms|
+|30|1/30|33.33ms|
+|60|1/60|16.67ms|
+|100|1/100|10ms|
+
 ### 픽셀
 
 ### 시간 동기화
