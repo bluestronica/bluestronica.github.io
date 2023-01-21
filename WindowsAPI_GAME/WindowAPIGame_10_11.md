@@ -1,7 +1,6 @@
 # Timer
 
-### 프레임 레이트(Frame Rate / FPS)
-- 초당 프레임 수
+### FPS(Frame per second) - 초당 프레임 수
 ![img](IMG/FPS.png)
 
 ### 픽셀
