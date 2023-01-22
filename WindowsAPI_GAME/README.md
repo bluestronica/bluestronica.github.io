@@ -15,5 +15,5 @@
 - 프로그램 실행!
 - 코드
 
-### [WindowsAPI Game - 10 ~ 11 (Time / 시간동기화)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_10_11.md)
+### [WindowsAPI Game - 10 ~ 11 (Time)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_10_11.md)
 - Time
