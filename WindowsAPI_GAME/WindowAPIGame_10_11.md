@@ -1,6 +1,6 @@
 # Timer
 
-### FPS(Frame per second) - 초당 프레임 수
+### FPS(Frame Per Second) - 초당 프레임 수
 ![img](IMG/FPS.png)
 
 | FPS | Frame time(s) | Frame time(ms) |
@@ -10,7 +10,7 @@
 |60|1/60|16.67ms|
 |100|1/100|10ms|
 
-### PPS(Pixels per Second) - 초당 픽셀들 수
+### PPS(Pixels Per Second) - 초당 픽셀들 수
 
 ### 시간 동기화
 - 컴퓨터는 빠르게 돌고있는 와중에 움직이는 물체들이 우리 현실 시간과 매칭이 되어야한다.
