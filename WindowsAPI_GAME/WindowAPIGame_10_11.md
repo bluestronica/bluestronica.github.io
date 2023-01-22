@@ -12,7 +12,7 @@
 
 ### PPS(Pixels Per Second) - 초당 픽셀들 수
 - Absolute position of eye and displayed object
-![img](IMG/PPS.png)
+![img](IMG/PPS1.png)
 
 - Relative position of eye and displayed object
 ![img](IMG/PPS2.png)
