@@ -21,7 +21,7 @@
 - Relative position of eye and displayed object
 ![img](IMG/PPS2.png)
 
-  - 표시된 물체는 시야에서 주기적으로 앞뒤로 움직인다. 이 움직임은 진동(vibration)으로 설명될 수 있으므로 지금부터 이 용어를 사용한다. 이 진동(vibration)의 진폭(amplitude)은 프레임 속도(frame rate)가 증가함에 따라 감소하고 주파수(frequency)는 프레임 속도와 동일하다는 것을 알 수 있다.
+  - 표시된 물체는 시야에서 주기적으로 앞뒤로 움직인다. 이 움직임은 진동(vibration)으로 설명될 수 있으므로 지금부터 이 용어를 사용한다. 이 진동(vibration)의 진폭(amplitude)은 프레임 속도(frame rate)가 증가함에 따라 감소하고 주파수(frequency)(1초 동안에 진동하는 수)는 프레임 속도와 동일하다는 것을 알 수 있다.
 
 ### 시간 동기화
 - 컴퓨터는 빠르게 돌고있는 와중에 움직이는 물체들이 우리 현실 시간과 매칭이 되어야한다.
