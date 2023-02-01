@@ -46,15 +46,16 @@ int main()
 	LARGE_INTEGER timer;
 	LARGE_INTEGER start;
 	LARGE_INTEGER end;
-	float DeltaTime;
+	float DeltaTime;   // 
 	
 	QueryPerformanceFrequency(&timer);  // 타이머의 주파수를 얻어온다.
 	QueryPerformanceCounter(&start);    // 시작 시점의 CPU 클릭 수
-	
-	
-	// 실행할 내용
+		
+	// 실행할 내용 : 1프레임 처리
 	
 	QueryPerformanceCounter(&end);  // 종료 시점의 CPU 클릭 수
+	
+	// 1프레임 동안 걸린 시간 계산
 	DeltaTime = (end.QuadPart - start.QuadPart) / (float)timer.QuadPart;
 	
 	// 시작점과 끝지점에서 QueryPerformanceCounter 함수를 호출하면
@@ -144,6 +145,7 @@ void CTimeMgr::update()   // 매 프레임마다 호출
 	// 차이 값; QuardPart는 실제 long long 타입의 자료 데이터이다
 	// 프레임과 프레임 사이에 걸린 시간에 카운트 차이 벌어진 값을 알 수 있다.
 	// 이전 프레임 카운팅과, 현재 프레임 카운팅 값의 차이를 구한다.
+	// 매 프레임마다 새롭게 계산되기때문에 m_dDT값은 1프레임 시간 값이 된다.
 	m_dDT = (double)(m_llCurCount.QuadPart 
 		- m_llPrevCount.QuadPart) / (double)m_llFrequency.QuadPart;
 
