@@ -17,3 +17,8 @@
 
 ### [WindowsAPI Game - 10 ~ 11 (Time)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_10_11.md)
 - Time
+  - FPS(Frame Per Second) - 초당 프레임 수
+  - PPS(Pixels Per Second) - 초당 픽셀들 수
+  - 시간 동기화 하기
+  - QueryPerformance를 이용해 프로그램 실행 속도 측정
+  - CTimeMgr
