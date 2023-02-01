@@ -39,7 +39,7 @@ private:
 	// QueryPerformanceCounter로 부터 얻는 현재 카운트 값(백만단위)
 	
 	LARGE_INTEGER	m_llPrevCount; // 이전 카운트
-	LARGE_INTEGER	m_llFrequency; // 1초가 지난 그 사이 카운트를 세어 나타낸 값
+	LARGE_INTEGER	m_llFrequency; // 1초가 동안 카운트를 세어 나타낸 값
 
 	double		m_dDT;		// 프레임 사이의 시간 값
 	double		m_dAcc;  	// 1초 체크를 위한 누적 시간
