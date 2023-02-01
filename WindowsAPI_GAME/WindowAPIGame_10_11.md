@@ -29,6 +29,41 @@
 - 1Frame time은 컴퓨터의 성능에 따라 달라질 수 있기 때문에 매번 1Frame time을 얻어와서 **1프레임당 픽셀 이동 거리**를 계산해낸다.
 - 그리고 그것을 1초 동안 반복 합산하면 초당 1920픽셀의 총 이동량이 된다.
 
+### QueryPerformance를 이용해 프로그램 실행 속도 측정
+- 컴퓨터 메인보드의 고해상도 타이머를 이용해 시간 간격을 측정한다.
+- QueryPerformanceFrequency
+  - 현재 성는 카운터, 타이머의 주파수를 반환한다.
+- QueryPerformanceCounter
+  - 시간 간격 측정에 사용할 수 있는 고해상도 타임 스탬프인 성능 카운터의 현재 값을 반환
+  - 즉, 현재 CPU의 틱을 받아오는 것이다.
+- 사용법
+```C++
+#include <windows.h>
+
+int main()
+{
+	LARGE_INTEGER timer;
+	LARGE_INTEGER start;
+	LARGE_INTEGER end;
+	float DeltaTime;
+	
+	QueryPerformanceFrequency(&timer);  // 타이머의 주파수를 얻어온다.
+	QueryPerformanceCounter(&start);    // 시작 시점의 CPU 클릭 수
+	
+	
+	// 실행할 내용
+	
+	QueryPerformanceCounter(&end);  // 종료 시점의 CPU 클릭 수
+	DeltaTime = (end.QuadPart - start.QuadPart) / (float)timer.QuadPart;
+	
+	// 시작점과 끝지점에서 QueryPerformanceCounter 함수를 호출하면
+	// 수행시간동안 발생한 진동수를 얻을 수 있다.
+	// 그러나 이 값은 시간 단위가 아니므로
+	// QueryPerformanceFrequency 함수로 얻은 주기로 나누어 시간 단위로 변환한다.
+}
+```
+  
+
 ### CTimeMgr
 ```C++
 // CTimeMgr.h
