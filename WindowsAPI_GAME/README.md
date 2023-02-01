@@ -21,4 +21,4 @@
   - PPS(Pixels Per Second) - 초당 픽셀들 수
   - 시간 동기화 하기
   - QueryPerformance를 이용해 프로그램 실행 속도 측정
-  - CTimeMgr
+- CTimeMgr
