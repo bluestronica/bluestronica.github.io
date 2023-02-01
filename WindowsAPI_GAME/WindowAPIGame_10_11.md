@@ -31,6 +31,8 @@
 
 ### CTimeMgr
 ```C++
+// CTimeMgr.h
+
 class CTimeMgr
 {
 	SINGLE(CTimeMgr);
@@ -63,6 +65,78 @@ public:
 	double GetDT() { return m_dDT; }
 	float GetfDT() { return (float)m_dDT; }
 };
+```
+
+```C++
+// CTiMgr.cpp
+
+CTimeMgr::CTimeMgr()
+	: m_llCurCount{}
+	, m_llPrevCount{}
+	, m_llFrequency{}
+	, m_dDT(0.)
+	, m_dAcc(0.)
+	, m_iCallCount(0)
+	, m_iFPS(0)
+{
+}
+
+CTimeMgr::~CTimeMgr()
+{
+}
+
+void CTimeMgr::init()
+{
+	// 현재 카운트
+	QueryPerformanceCounter(&m_llPrevCount);     
+	// 100만 단위의 초당 세는 카운트
+	
+	// 초당 카운트 횟수
+	QueryPerformanceFrequency(&m_llFrequency);  
+	// 1초가 벌어졌을 때 카운트 값 차이가 얼마나 나는지도 구해 와야 한다.
+												// 1초당 카운트가 얼마나 발생하는지에 대한 프리퀀시 값을 얻겠다는 것이다.
+												// 초당 셀 수 있는 카운트 양 ; 프리퀀시 안에 시간 개념이 들어가 있다
+
+}
+
+void CTimeMgr::update()   // 매 프레임마다 호출
+{
+	// 매번 업데이트마다 한 프레임에 걸린 시간을 구한다.  
+	// 1 프레임 호출되는 데 걸린 시간
+	QueryPerformanceCounter(&m_llCurCount);
+
+	// 차이 값; QuardPart는 실제 long long 타입의 자료 데이터이다
+	// 프레임과 프레임 사이에 걸린 시간에 카운트 차이 벌어진 값을 알 수 있다.
+	// 이전 프레임 카운팅과, 현재 프레임 카운팅 값의 차이를 구한다.
+	m_dDT = (double)(m_llCurCount.QuadPart 
+		- m_llPrevCount.QuadPart) / (double)m_llFrequency.QuadPart;
+
+	// 이전 카운트를 현재 카운트 값으로 갱신(다음번에 계산을 위해서)
+	m_llPrevCount = m_llCurCount;
+
+	++m_iCallCount;
+	m_dAcc += m_dDT;	// DT 누적; 흘러간 시간
+
+	// 1초가 되었을 때 카운트 세기
+	if (m_dAcc >= 1.)
+	{
+		m_iFPS = m_iCallCount;  // 1초동안에 이 함수 몇번 호출 되었는지
+
+		m_dAcc = 0.;
+		m_iCallCount = 0;
+
+		wchar_t szBuffer[2550] = {};
+
+		swprintf_s(szBuffer, L"FPS : %d, DT : %f", m_iFPS, m_dDT);
+		SetWindowText(CCore::GetInst()->GetMainWwnd(), szBuffer);
+	}
+
+// 한 프레임에 걸린 시간 값은
+// 이전 프레임과 현재 프레임의 카운트 차이 값이 
+	: 프레임과 프레임 사이 많은 시간이 흐른다
+// 1초 동안 내가 셀수 있는 프리퀀시 값으로 나누었을 때 
+// 그게 바로 실제 시간이 된다.
+}
 ```
 
 
