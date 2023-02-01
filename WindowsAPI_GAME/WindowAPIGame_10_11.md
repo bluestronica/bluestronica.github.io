@@ -66,8 +66,9 @@ int main()
 	// CPU의 틱을 나누어 시간 단위로 변환한다.
 }
 ```
-  
-### CTimeMgr
+
+
+# CTimeMgr
 ```C++
 // CTimeMgr.h
 
