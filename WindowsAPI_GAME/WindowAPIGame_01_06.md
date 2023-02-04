@@ -65,15 +65,17 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,  /* 실행 된 프로세스의 �
     // 컴퓨터를 돌리려고 하는 것이다.
 
 
+    // GetTickCount
     DWORD dwPrevCount = GetTickCount();
     DWORD dwAccCount = 0;
 
+    // PeekMessageA 메시지 루프
     while (true)
     {                 
         // 반환 된 메세지가 무(없으면) fasle, 유(있으면) true
         if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {            
-            int iTime = GetTickCount();
+            DWORD dwTime = GetTickCount();
 
             if (WM_QUIT == msg.message)
             {
@@ -86,9 +88,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,  /* 실행 된 프로세스의 �
                 DispatchMessage(&msg);
             }
 
-            // 메세지 처리 시간을 계속 누적
-            int iAdd = (GetTickCount() - iTime);
-            dwAccCount += iAdd;
+            // 메세지 처리 누적 시간
+            dwAccCount += (GetTickCount() - dwTime);
         }
         else
         {
@@ -97,15 +98,15 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,  /* 실행 된 프로세스의 �
             DWORD dwCurCount = GetTickCount();
             if (dwCurCount - dwPrevCount > 1000)
             {
+                // 1초가 흐른 시간동안 PeekMessageA에서 처리한 누적 시간 비율 값
                 float fRatio = (float)dwAccCount / 1000.f;
 
-                // 문자열
+                // 문자열 조합
                 wchar_t szBuff[50] = {};
                 swprintf_s(szBuff, L"비율 : %f", fRatio);
-                //wsprintf(szBuff, L"비율 : %f", fRatio);
 
-                // 윈도우창 제목에 문자열 입력
-                SetWindowText(g_hWnd, szBuff);     
+                // 윈도우창 제목에 문자열 출력
+                SetWindowText(g_hWnd, szBuff);
 
                 dwPrevCount = dwCurCount;
                 dwAccCount = 0;
@@ -115,7 +116,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,  /* 실행 된 프로세스의 �
 
     return (int) msg.wParam;
 }
-
 
 
 //
@@ -183,24 +183,27 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 //
 
+// 센터와 크기를 지정해 사각형 그리기
+POINT g_ptObjPos = { 500, 300 };
+POINT g_ptObjScale = { 100, 100 };
+
+
+// 마우스로 시작점과 끝점을 이용해 사각형 그리기
+POINT g_ptLT;
+POINT g_ptRB;
+bool g_bLBtnDown = false;
+
+
+// vector을 이용해 그려진 도형을 저장
 #include <vector>
 
 struct g_tObjInfo
 {
     POINT ptObjPos;
-    POINT ptObjScal;
+    POINT ptObjScale;
 };
 
 std::vector<g_tObjInfo> g_ObjInfo;
-
-POINT g_ptLT;
-POINT g_ptRB;
-
-bool g_blbDown = false;
-
-
-POINT g_ptObjPos = { 500, 300 };  // 그림의 중심
-POINT g_ptObjScal = { 100, 100 }; // 크기
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -278,8 +281,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             // 해당 DC가 목적지로 하고 있는 그림판에 
             // 그 DC 안에 들어 있는 PEN 정보로 또는 그 DC 안에 들어 있는 BRUSH 정보를
             // 이용해서 그림을 그리겠다는 뜻이 된다. DC가 그 종합적인 정보를 관리하고 있다.
-
-            
 
             // 그리기 종료
             EndPaint(hWnd, &ps);
