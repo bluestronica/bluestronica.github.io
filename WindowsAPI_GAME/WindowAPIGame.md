@@ -22,3 +22,8 @@
   - Core
 - main.cpp
 - pch.h
+
+#### 3. Singleton Pattern을 위한 매크로 함수 만들기
+- 동적할당 싱글톤
+- 데이터섹션 싱글톤 구현
+  - Engine/Header/Define.h
