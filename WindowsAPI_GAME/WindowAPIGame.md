@@ -12,3 +12,11 @@
   9. GetTickCount()을 이용한 1초가 흐른 시간동안 PeekMessageA에서 처리한 누적 시간 비율 값을 윈도우창 제목에 출력
 
 ### Game_07_09 (Singleton / Core Class)
+1. main.cpp
+2. 폴더, 파일 정리
+  - Default
+  - Engine
+    - Header
+    - Core
+  - main.cpp
+  - pch.h
