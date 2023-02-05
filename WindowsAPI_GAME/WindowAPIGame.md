@@ -14,9 +14,9 @@
 ### Game_07_09 (Singleton / Core Class)
 1. main.cpp
 2. 폴더, 파일 정리
-  - Default
-  - Engine
-    - Header
-    - Core
-  - main.cpp
-  - pch.h
+- Default
+- Engine
+  - Header
+  - Core
+- main.cpp
+- pch.h
