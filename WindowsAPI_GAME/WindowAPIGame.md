@@ -14,6 +14,8 @@
 
 ### Game_07_09 (Singleton / Core Class)
 #### 1. main.cpp
+- g_hWnd 전역변수 만들기
+- 메시지 루프 변경(PeekMessageA)
 
 #### 2. 폴더, 파일 정리
 - Default
