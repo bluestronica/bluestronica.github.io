@@ -22,7 +22,9 @@
 - Engine
   - Header
   - Core
+    - 게임 생성과 관리
 - main.cpp
+  - 윈도우 프로그램 생성과 관리
 - pch.h
 
 #### 3. Singleton Pattern을 위한 매크로 함수 만들기
