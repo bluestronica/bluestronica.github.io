@@ -97,7 +97,7 @@
     - **Header 파일**
     ```c++
     // vector.h
-    class Vector // 클래스의 정의
+    class Vector  // 클래스의 정의
     {
     public:
         Vector();
@@ -107,7 +107,7 @@
         int mY;
     };
     ```
-    - CPP 파일
+    - **Cpp 파일**
     ```c++
     // vector.cpp
     Vector::Vector()  // 클래스 구현
