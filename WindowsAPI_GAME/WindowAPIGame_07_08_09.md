@@ -188,7 +188,7 @@ if (FAILED(CCore::GetInst()->init(g_hWnd, POINT{1280, 768})))
   - F_FAIL은 매크로로 `_HRESULT_TYPEDEF_(0x80004005L)`
     - 16진수 첫 자리 비트가 8이므로 음수이다. 
     - 최상의 비트가 1이니깐 8은 음수이다.
-- 윈도우에서 자주 사용하는 FAILED 매크로
+- 윈도우에서 자주 사용하는 **FAILED 매크로**
   - `#define FAILED(hr) (((HRESULT)(hr)) < 0)`
   - hr이 0보다 작은 음수면 **true를 반환한다.**
   - 그래서 대표적인 음수 값인 E_FAIL이 들어가 있으면
