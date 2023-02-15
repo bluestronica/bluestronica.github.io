@@ -54,8 +54,10 @@
   - AdjustWindowRect
   - SetWindowPos
 
-#### 6. 프로그램 실행
-
+#### 6. 게임 실행
+- Progress
+  - 데이터를 업데이트하고
+  - 업데이트한 데이터로 렌더링한다.
 
 
 
