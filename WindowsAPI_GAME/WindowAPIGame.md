@@ -27,20 +27,22 @@
   - 윈도우 프로그램 생성과 관리
 - pch.h
 
-#### 3. Singleton Pattern을 위한 매크로 함수 만들기
+#### 3. 미리 컴파일된 헤더
+*모든 cpp 파일들은 pch.h 파일을 참조해야 한다. **클래스 만들 때마다 자동으로 추가 된다.***
+- pch.h
+  - `#include "define.h"`
+- 속성 설정
+  - 만들기(/Yc), pch.h
+
+#### 4. Singleton Pattern을 위한 매크로 함수 만들기
 *미션 : 싱글톤 패턴을 이해하고 구현할 수 있도록 습득*
 - 동적할당 싱글톤
 - **데이터섹션 싱글톤 구현**
   - Engine/Core/CCore.h
 - 매크로 함수 만들기  
-  - Engine/Header/Define.h
+  - Engine/Header/define.h
 
-#### 4. 미리 컴파일된 헤더
-*모든 cpp 파일들은 pch.h 파일을 참조해야 한다. 클래스 만들 때마다 자동으로 추가 된다.*
-- pch.h
-  - `#include "define.h"`
-- 속성 설정
-  - 만들기(/Yc), pch.h
+
 
 
 
