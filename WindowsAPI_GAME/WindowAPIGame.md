@@ -36,6 +36,7 @@
   - Engine/Header/Define.h
 
 #### 4. 미리 컴파일된 헤더
+*모든 cpp 파일들은 pch.h 파일을 참조해야 한다. 클래스 만들 때마다 자동으로 추가 된다.*
 - pch.h
   - `#include "define.h"`
 - 속성 설정
