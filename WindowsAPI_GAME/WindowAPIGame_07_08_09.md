@@ -182,7 +182,7 @@ if (FAILED(CCore::GetInst()->init(g_hWnd, POINT{1280, 768})))
 # 윈도우 스타일 기법 - FAILED
 - 성공 했을 때
   - `return S_OK;`
-  - S_OK는 매크로로 `((HRESUKT)0L)` 정의되어 있다. **0**이다.
+  - S_OK는 매크로로 `((HRESULT)0L)` 정의되어 있다. **0**이다.
 - 실패 했을 때
   - `return F_FAIL;`
   - F_FAIL은 매크로로 `_HRESULT_TYPEDEF_(0x80004005L)`
@@ -190,10 +190,10 @@ if (FAILED(CCore::GetInst()->init(g_hWnd, POINT{1280, 768})))
     - 최상의 비트가 1이니깐 8은 음수이다.
 - 윈도우에서 자주 사용하는 FAILED 매크로
   - `#define FAILED(hr) (((HRESULT)(hr)) < 0)`
-  - hr이 0보다 작은 음수면 true를 반환한다.
+  - hr이 0보다 작은 음수면 **true를 반환한다.**
   - 그래서 대표적인 음수 값인 E_FAIL이 들어가 있으면
   - `FAILED(E_FAIL)`
-  - 참으로 뜬다.
+  - **참으로 뜬다.**
   ```c++
   if (FAILED(E_FAIL))  // 그래서 FAILED 실패했다면 true 이므로
   {
