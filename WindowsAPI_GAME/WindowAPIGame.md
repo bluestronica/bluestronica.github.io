@@ -49,7 +49,7 @@
 - 윈도우 스타일 기법인 **FAILED 매크로**를 사용해서 수행 성공여부를 체크한다.
   - FAILED 매크로는 0보다 작으면 true를 반환한다.
   - 그래서, FAILED(E_FAIL)는 true를 반환
-  - FAILED(S_OK)는 false 반환
+  - **FAILED(S_OK)는 false 반환**
 - 해상도에 맞게 윈도우 크기 조정과 세팅
 
 
