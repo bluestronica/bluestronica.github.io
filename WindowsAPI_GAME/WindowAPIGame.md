@@ -51,6 +51,8 @@
   - 그래서, FAILED(E_FAIL)는 true를 반환
   - **FAILED(S_OK)는 false 반환**
 - 해상도에 맞게 윈도우 크기 조정과 세팅
+  - AdjustWindowRect
+  - SetWindowPos
 
 #### 6. 프로그램 실행
 
