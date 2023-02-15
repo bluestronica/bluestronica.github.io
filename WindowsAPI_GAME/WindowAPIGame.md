@@ -42,7 +42,7 @@
 - 매크로 함수 만들기  
   - Engine/Header/define.h
 
-#### 5. CCore 클래스 생성 및 초기화
+#### 5. CCore 클래스 초기화
 
 
 
