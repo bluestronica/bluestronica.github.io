@@ -34,7 +34,12 @@
   - Engine/Core/CCore.h
 - 매크로 함수 만들기  
   - Engine/Header/Define.h
-- 매크로 함수 적용
+
+#### 4. 미리 컴파일된 헤더
+- pch.h
+  - `#include "define.h"`
+- 속성 설정
+  - 만들기(/Yc), pch.h
 
 
 
