@@ -42,8 +42,14 @@
 - 매크로 함수 만들기  
   - Engine/Header/define.h
 
-#### 5. CCore 클래스 초기화
-
+#### 5. CCore 인스턴스 초기화
+- 초기화 함수 매개변수
+  - HWND 핸들, 
+  - POINT 해상도
+- 윈도우 스타일 기법인 **FAILED 매크로**를 사용해서 수행 성공여부를 체크한다.
+  - FAILED 매크로는 0보다 작으면 true를 반환한다.
+  - 그래서, FAILED(E_FAIL)는 true를 반환
+  - FAILED(S_OK)는 false 반환
 
 
 
