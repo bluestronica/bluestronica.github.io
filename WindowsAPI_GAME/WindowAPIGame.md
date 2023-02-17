@@ -77,11 +77,14 @@
     - `if (GetAsyncKeyState(VK_RIGHT) & 0x8000)`
 
 #### 2. 프레임 동기화
-- 1프레임당 픽셀 이동 거리 = PPS * 1Frame time
+- 1프레임당 픽셀 이동 거리 = PPS * 1Frame time(DeltaTime)
   - `vPos.x += 10.f;`
   - `vPos.x += 100.f * 1Frame time`
-- 1Frame time 기능을 담당할 CTimeMgr 클래스 작성
+- 1Frame time(DeltaTime)값을 구하기 위한 CTimeMgr 클래스 작성
   - 싱글톤
+  - DeltaTime 구하기 구현
+    - QueryPerformanceCounter
+    - QueryPerformanceFrequency
   
 
 
