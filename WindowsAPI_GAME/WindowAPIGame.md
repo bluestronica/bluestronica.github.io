@@ -77,6 +77,12 @@
     - `if (GetAsyncKeyState(VK_RIGHT) & 0x8000)`
 
 #### 2. 프레임 동기화
+- 1프레임당 픽셀 이동 거리 = PPS * 1Frame time
+  - `vPos.x += 10.f;`
+  - `vPos.x += 100.f * 1Frame time`
+- 1Frame time 기능을 담당할 CTimeMgr 클래스 작성
+  - 
+  
 
 
 
