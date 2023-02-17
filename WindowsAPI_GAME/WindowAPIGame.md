@@ -74,7 +74,9 @@
   - GetAsyncKeyState
     - 리턴값은 `0, 0x8000, 0x8001, 1` 4가지다.
     - `if (GetAsyncKeyState(VK_LEFT) & 0x8000)`
+    - `if (GetAsyncKeyState(VK_RIGHT) & 0x8000)`
 
+#### 2. 프레임 동기화
 
 
 
@@ -107,5 +109,5 @@
 
 
 
-d
+
 ```
