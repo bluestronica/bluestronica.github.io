@@ -68,5 +68,5 @@
 
 
 
-### WindowsAPI Game - 10 ~ 11 (Time)
+### Game - 10 ~ 11 (Time)
 #### 1. 키 입력으로 물체 움직이기
