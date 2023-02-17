@@ -81,7 +81,7 @@
   - `vPos.x += 10.f;`
   - `vPos.x += 100.f * 1Frame time`
 - 1Frame time 기능을 담당할 CTimeMgr 클래스 작성
-  - 
+  - 싱글톤
   
 
 
