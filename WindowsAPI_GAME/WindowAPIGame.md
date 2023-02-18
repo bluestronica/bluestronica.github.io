@@ -85,8 +85,11 @@
   - DeltaTime 구하기 구현
     - QueryPerformanceCounter
     - QueryPerformanceFrequency
-  
+  - FPS 구하기
+    - 1초 동안 프레임 개수 구하기
+    - 1초 동안 호출 카운트 
 
+#### 3. 창 제목에 FPS, DeltaTime 나타내기
 
 
 
