@@ -54,7 +54,7 @@
   - AdjustWindowRect
   - SetWindowPos
 
-#### 6. 게임 실
+#### 6. 게임 실행
 - `초기값 -> Progress{ 상태변경 -> 랜더링 }`
 - 물체에 초기값 부여
   - pos : center
