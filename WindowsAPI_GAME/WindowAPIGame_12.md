@@ -15,6 +15,20 @@ m_memDC = CreateCompatibleDC(m_hDC);
 HBITMAP hOldBit = (HBITMAP)SelectObject(m_memDC, m_hBit);
 DeleteObject(hOldBit);
 ```
+- **CreateCompatibleDC**
+  - 어떤 DC와 호환(Compatible) 되는 DC를 만드는 방식이다.
+  - 매개 변수로 전달된 hdc와 호환이 된다라는 뜻은 hdc가 사용하는 출력 장치의 종류나
+  - 출력장치가 사용 중인 그래픽 드라이버 정보를 가지고 있는 새로운 DC를 만든다는 뜻이다.
+  - 따라서 이렇게 만들어진 DC는 DC에 연결된 비트맵에 그림을 그릴 때 hdc와 동인한 방법으로 그림을 그리게 된다.
+  - CreateCompatibleDC를 사용해서 얻은 DC는 출력 대상이 없는 상태로 그리기 특성만 정해져서 만들어지기 때문에 비트맵 객체가 연결은 되어 있지만 제대로 된 비트맵 객체는 아니다.
+  - CreateCompatibleDC 함수로 만든 DC에 연결된 비트맵 객체 정보를 얻어보면 1비트 색상에 폭과 높이가 1인 비트맵이라는 것을 확인할 수 있다. 
+  - 결국 사용하라고 연결한 비트맵 객체가 아니라 그냥 DC를 구성하기 위해서 연결한 비트맵이라는 것이다.
+  - 따라서 CreateCompatibleDC로 생성한 DC를 사용하려면 비트맵 객체를 만들어서 연결하는 작업을 먼저 해야한다.
+- **CreateCompatibleBitmap**
+  - 비트맵을 만든다.
+- **SelectObject**
+  - 메모리 DC와 비트맵 객체 연결
+
 - 메모리에 그려 놓은 후 실제 화면에 복사 옮겨 그리기 
 ```c++
 Rectangle(m_memDC, -1, -1, m_ptResolution.x + 1, m_ptResolution.y + 1);
