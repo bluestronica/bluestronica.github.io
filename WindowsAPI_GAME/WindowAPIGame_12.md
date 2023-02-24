@@ -29,7 +29,7 @@ Rectangle(m_memDC, int(vPos.x - vScale.x / 2.f),
          int(vPos.x + vScale.x / 2.f),
          int(vPos.y + vScale.y / 2.f));
 
-// Memory DC와 화면 출력용 DC를 사용하여 비트맵에 그려진 글미을 복사하여 화면에 출력
+// Memory DC와 화면 출력용 DC를 사용하여 비트맵에 그려진 그림을 복사하여 화면에 출력
 BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y
   , m_memDC, 0, 0, SRCCOPY);
 ```
