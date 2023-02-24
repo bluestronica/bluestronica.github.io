@@ -25,3 +25,7 @@
   - 시간 동기화 하기
   - QueryPerformance를 이용해 프로그램 실행 속도 측정
 - CTimeMgr
+
+### [WindowsAPI Game - 12 (Double Buffering)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_12.md)
+
+
