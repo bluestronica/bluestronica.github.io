@@ -11,6 +11,7 @@
 m_hBit = CreateCompatibleBitmap(m_hDC, m_ptResolution.x, m_ptResolution.y);
 m_memDC = CreateCompatibleDC(m_hDC);
 
+// m_hBit와 m_memDC 연결
 HBITMAP hOldBit = (HBITMAP)SelectObject(m_memDC, m_hBit);
 DeleteObject(hOldBit);
 ```
@@ -22,11 +23,13 @@ Rectangle(m_memDC, -1, -1, m_ptResolution.x + 1, m_ptResolution.y + 1);
 Vec2 vPos = g_obj.GetPos();
 Vec2 vScale = g_obj.GetScale();
 
+// m_memDC와 연결된 m_hBit에 사각형을 그린다. 이 그름은 화면에 출력되지 않는다.
 Rectangle(m_memDC, int(vPos.x - vScale.x / 2.f),
          int(vPos.y - vScale.y / 2.f),
          int(vPos.x + vScale.x / 2.f),
          int(vPos.y + vScale.y / 2.f));
 
+// Memory DC와 화면 출력용 DC를 사용하여 비트맵에 그려진 글미을 복사하여 화면에 출력
 BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y
   , m_memDC, 0, 0, SRCCOPY);
 ```
