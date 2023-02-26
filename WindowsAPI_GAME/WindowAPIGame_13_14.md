@@ -11,7 +11,7 @@
 
 ### 키 입력 이벤트 처리
 #### 윈도우에서 제공해주는 기본 함수로는 구체적인 키 이벤트 정의가 제대로 잘 안되어 있다.
-- GetAsyncKeyState
+- **GetAsyncKeyState**
   - `SHORT GetAsyncKeyState(int vKey)`
   - | 반환값 | 설명 |
     |:---|:---|
