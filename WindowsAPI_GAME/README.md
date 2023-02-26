@@ -29,9 +29,10 @@
 ### [WindowsAPI Game - 12 (Double Buffering)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_12.md)
 
 ### [WindowsAPI Game - 13 ~ 14 (Key Event)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_13_14.md)
-- 동기화
-- 키 입력 이벤트 처리
-- 윈도우 포커싱
+- CKeyMgr
+  - 키와 프레임 동기화
+  - 키 입력 이벤트 처리
+  - 윈도우 포커싱
 
 
 
