@@ -67,7 +67,7 @@
   - 가로, 세로 길이 scale
   - 그 값을 담을 수 있는 float(실수) 타입 x, y를 가지는 구조체 생성(Vec)
 
-### Game - 10 ~ 11 (Time)
+### Game - 10 ~ 11 (TimeMgr)
 #### 1. 물체를 특정키가 눌렀을 때 포지션 변경
 - 키 눌린 순간 바로 체크하는 비동기 키 입출력 함수
   - GetAsyncKeyState
@@ -98,7 +98,22 @@
 #### 2. 비트맵에 그려놓은 그림을 출력용 DC에 복사하여 화면에 출력
 - BitBlt
 
+### Game - 13 ~ 14 (KeyMgr)
+### 1. 키 정보를 가지는 struct 작성
+ - enum class KEY_STATE
+ - enum class KEY
 
+### 2. Init
+- 벡터안에 키 정보를 채워준다.
 
+### 3. Update
+- 매번 업데이트마다 모든 키들에 대해서 상태값 체크
+- 자신이 설정한 가상 키(KEY enum)와 실제 윈도우 가상 키 값에 매칭 시키는 작업
+  - `int garrVK[(int)KEY::LAST]`
+
+### 4. 윈도우 포커싱
+- GetFocus
+- 윈도우 포커싱 중일 때 키 이벤트 동작
+- 윈도우 포커싱 해제 상태일때 키 상태 변경
 
 
