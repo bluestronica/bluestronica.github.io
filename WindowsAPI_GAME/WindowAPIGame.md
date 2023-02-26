@@ -99,22 +99,22 @@
 - BitBlt
 
 ### Game - 13 ~ 14 (KeyMgr)
-### 1. 키 정보를 가지는 struct 작성
+#### 1. 키 정보를 가지는 struct 작성
 - enum class KEY_STATE
 - enum class KEY
 - struct tKeyInfo
   - KEY_STATE eState
   - bool bPrevPush
 
-### 2. Init
+#### 2. Init
 - 벡터안에 키 정보를 채운다.
 
-### 3. Update
+#### 3. Update
 - 매번 업데이트마다 모든 키들에 대해서 상태값 체크
 - 자신이 설정한 가상 키(KEY enum)와 실제 윈도우 가상 키 값에 매칭 시키는 작업
   - `int garrVK[(int)KEY::LAST]`
 
-### 4. 윈도우 포커싱
+#### 4. 윈도우 포커싱
 - GetFocus
 - 윈도우 포커싱 중일 때 키 이벤트 동작
 - 윈도우 포커싱 해제 상태일 때 키 상태 변경
