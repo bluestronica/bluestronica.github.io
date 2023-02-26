@@ -109,9 +109,10 @@ enum class KEY
 
 struct tKeyInfo
 {
-	//KEY	eKey; // 벡터 내에 인덱스가 곧 키 값이 된다. 그래서 존재 의미가 없어 삭제
+	//KEY	eKey; 		  // 벡터 내에 인덱스가 곧 키 값이 된다. 
+				  //그래서 존재 의미가 없어 삭제
 	KEY_STATE    eSate;	  // 키의 상태 값 
-	bool	     bPrevPush;   // 이전 프레임에서 이 키가 눌렸는지 안 눌렸는지 여부
+	bool	     bPrevPush;   // 이전 프레임에서 이 키가 눌렸는지 안 눌렸는지
 };
 
 class CKeyMgr
@@ -189,7 +190,7 @@ void CKeyMgr::update()
 {	
 	// 윈도우 포커싱 알아내기
 	// HWND hMainWnd = CCore::GetInst()->GetMainHwnd();
-	HWND hWnd = GetFocus(); // 현재 포커싱 되어있는 윈도우의 핸들 값을 알려준다. 
+	HWND hWnd = GetFocus(); // 현재 포커싱 되어있는 윈도우 핸들 값을 알려준다. 
 
 	// 윈도우 포커싱 중일 때 키 이벤트 동작
 	if (nullptr != hWnd)
