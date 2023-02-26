@@ -24,7 +24,6 @@
     if(GetAsyncKeyState(VK_LEFT) & 0x0001) -> 이전과 지금 사이에 키가 눌림 
     if(GetAsyncKeyState(VK_LEFT)) -> 둘다 가능
    ```
-
 #### 프레임 기준으로 키 입력 상태 나타내기
 - 이전 프레임과 현재 프레임을 기준으로 키 상태 나타내기
   - NONE : 눌리지 않은 상태
