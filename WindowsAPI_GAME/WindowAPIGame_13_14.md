@@ -38,7 +38,8 @@ if(GetAsyncKeyState(VK_LEFT)) -> 둘다 가능
     - 이전 프레임에는 눌러있었고, 현재 프레임에는 눌려있지 않은 상태
 - 이전 프레임과 현재 프레임간의 키 상태 모두 체크
 
-#### 내가 설정한 키와 실제 가상 키 값을 매칭
+#### 내가 설정한 키와 실제 윈도우 가상 키 값을 매칭
+- 배열을 만들어 KEY enum 값을 똑같이 매칭한다.
 
 ### 윈도우 포커싱
 #### 윈도우에 포커싱이 벗어나면 하고 있던 작업이 정상적으로 마무리가 되도록 키 상태를 순차적으로 변화 시켜야 한다.
@@ -55,9 +56,203 @@ if(GetAsyncKeyState(VK_LEFT)) -> 둘다 가능
 - **GetFocus**
   - 현재 포커싱 되어있는 윈도우의 핸들 값을 알려준다.
   - 어떠한 윈도우도 포커싱이 되어있지 않으면 0, nullptr로 지칭할 수 있다.
+- 윈도 포커싱일 때  
+- 윈도우 포커싱 해제상태
+
+### CKeyMgr.h
+```c++
+enum class KEY_STATE
+{
+	NONE,	// 이전 프레임에 눌리지 않았고, 현재 프레임에도 눌리지 않은 상태, 
+			// 이전 프레임과 현재 프레임 사이에 어떤 변화도 전혀 없으면서 눌리지 않은 상태
+	TAP,	// 막 누른 시점
+	HOLD,	// 누르고 있는
+	AWAY,	// 막 뗀 시점 (이전 프레임에는 눌러 있엇고 현재 프레임에서는 눌려 있지 않은 상태)	
+};
+
+enum class KEY
+{
+	LEFT,
+	RIGHT,
+	UP,
+	DOWN,
+
+	Q,
+	W,
+	E,
+	R,
+	T,
+	Y,
+	U,
+	I,
+	O,
+	P,
+	A,
+	S,
+	D,
+	F,
+	G,
+	Z,
+	X,
+	C,
+	V,
+	B,
+
+	ALT,
+	CTRL,
+	LSHIFT,
+	SPACE,
+	ENTER,
+	ESC,
+
+	LAST,
+};
+
+struct tKeyInfo
+{
+	//KEY			eKey;	// 벡터 내에 인덱스가 곧 키 값이 된다. 그래서 존재 의미가 없어 삭제
+	KEY_STATE	eSate;		  // 키의 상태 값 
+	bool		  bPrevPush;	// 이전 프레임에서 이 키가 눌렸는지 안 눌렸는지 여부
+};
+
+class CKeyMgr
+{
+	SINGLE(CKeyMgr);
+
+private:
+	vector<tKeyInfo> mvecKey;
+
+public:
+	void init();
+	void update();
+
+public:
+	KEY_STATE GetKeyState(KEY eKey) { return mvecKey[(int)eKey].eSate; }
+};
+```
+
+### CKeyMgr.cpp
+```c++
+int garrVK[(int)KEY::LAST] =
+{
+	VK_LEFT,
+	VK_RIGHT,
+	VK_UP,
+	VK_DOWN,
+	'Q',
+	'W',
+	'E',
+	'R',
+	'T',
+	'Y',
+	'U',
+	'I',
+	'O',
+	'P',
+	'A',
+	'S',
+	'D',
+	'F',
+	'G',
+	'Z',
+	'X',
+	'C',
+	'V',
+	'B',
+	VK_MENU,
+	VK_CONTROL,
+	VK_LSHIFT,
+	VK_SPACE,
+	VK_RETURN,
+	VK_ESCAPE,
+	//VK_LAST, 끝을 알리는 용도니깐 넣을 필요 없음
+};
 
 
+CKeyMgr::CKeyMgr()
+{}
+CKeyMgr::~CKeyMgr()
+{}
 
+void CKeyMgr::init()
+{
+	// 따라서 초기화 할때 벡터안에 키 정보를 채워줘야 한다.
+	// 접근 : mvecKey[(int)KEY::LEFT].eSate;
+	// 접근 : mvecKey[(int)KEY::LEFT].bPrev;
+
+	for (int i = 0; i < (int)KEY::LAST; ++i)
+	{
+		mvecKey.push_back(tKeyInfo{ KEY_STATE::NONE, false });
+	}	
+}
+
+void CKeyMgr::update()
+{	
+	// 윈도우 포커싱 알아내기
+	// HWND hMainWnd = CCore::GetInst()->GetMainHwnd();
+	HWND hWnd = GetFocus(); // 현재 포커싱 되어있는 윈도우의 핸들 값을 알려준다. 
+							// 어떠한 윈도우도 포커싱 되어 있지 않으면 0, nullptr로 지칭할 수도 있다.
+
+	// 윈도우 포커싱 중일 때 키 이벤트 동작
+	if (nullptr != hWnd)
+	{
+		// 매번 업데이트 해서 모든 키들에 대해서 상태값 체크
+		for (int i = 0; i < (int)KEY::LAST; ++i)
+		{
+			// 키가 눌려있다.
+			if (GetAsyncKeyState(garrVK[i]) && 0x8000)
+			{
+				if (mvecKey[i].bPrevPush)
+				{
+					// 이전에도 눌려있었다.
+					mvecKey[i].eSate = KEY_STATE::HOLD;
+				}
+				else
+				{
+					// 이전에는 눌려있지 않았다.
+					mvecKey[i].eSate = KEY_STATE::TAP;
+				}
+
+				mvecKey[i].bPrevPush = true;
+			}
+			// 키가 안눌려있다.
+			else
+			{
+				if (mvecKey[i].bPrevPush)
+				{
+					// 이전에 눌려있었다.
+					mvecKey[i].eSate = KEY_STATE::AWAY;
+				}
+				else
+				{
+					// 이전에도 안눌려있었다.
+					mvecKey[i].eSate = KEY_STATE::NONE;
+				}
+
+				mvecKey[i].bPrevPush = false;
+			}
+
+		}
+	}
+	// nullptr == hWnd , 윈도우 포커싱 해제상태
+	else
+	{
+		for (int i = 0; i < (int)KEY::LAST; ++i)
+		{
+			mvecKey[i].bPrevPush = false;
+
+			if (KEY_STATE::TAP == mvecKey[i].eSate || KEY_STATE::HOLD == mvecKey[i].eSate)
+			{
+				mvecKey[i].eSate = KEY_STATE::AWAY;
+			}
+			else if (KEY_STATE::AWAY == mvecKey[i].eSate)
+			{
+				mvecKey[i].eSate = KEY_STATE::NONE;
+			}
+		}
+	}
+}
+```
 
 
 
