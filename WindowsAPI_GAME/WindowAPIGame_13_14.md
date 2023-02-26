@@ -63,11 +63,10 @@ if(GetAsyncKeyState(VK_LEFT)) -> 둘다 가능
 ```c++
 enum class KEY_STATE
 {
-	NONE,	// 이전 프레임에 눌리지 않았고, 현재 프레임에도 눌리지 않은 상태, 
-			// 이전 프레임과 현재 프레임 사이에 어떤 변화도 전혀 없으면서 눌리지 않은 상태
+	NONE,	// 이전 프레임에 눌리지 않았고, 현재 프레임에도 눌리지 않은 상태
 	TAP,	// 막 누른 시점
 	HOLD,	// 누르고 있는
-	AWAY,	// 막 뗀 시점 (이전 프레임에는 눌러 있엇고 현재 프레임에서는 눌려 있지 않은 상태)	
+	AWAY,	// 막 뗀 시점 	
 };
 
 enum class KEY
@@ -110,9 +109,9 @@ enum class KEY
 
 struct tKeyInfo
 {
-	//KEY			eKey;	// 벡터 내에 인덱스가 곧 키 값이 된다. 그래서 존재 의미가 없어 삭제
-	KEY_STATE	eSate;		  // 키의 상태 값 
-	bool		  bPrevPush;	// 이전 프레임에서 이 키가 눌렸는지 안 눌렸는지 여부
+	//KEY	eKey; // 벡터 내에 인덱스가 곧 키 값이 된다. 그래서 존재 의미가 없어 삭제
+	KEY_STATE    eSate;	  // 키의 상태 값 
+	bool	     bPrevPush;   // 이전 프레임에서 이 키가 눌렸는지 안 눌렸는지 여부
 };
 
 class CKeyMgr
@@ -191,7 +190,6 @@ void CKeyMgr::update()
 	// 윈도우 포커싱 알아내기
 	// HWND hMainWnd = CCore::GetInst()->GetMainHwnd();
 	HWND hWnd = GetFocus(); // 현재 포커싱 되어있는 윈도우의 핸들 값을 알려준다. 
-							// 어떠한 윈도우도 포커싱 되어 있지 않으면 0, nullptr로 지칭할 수도 있다.
 
 	// 윈도우 포커싱 중일 때 키 이벤트 동작
 	if (nullptr != hWnd)
@@ -241,7 +239,8 @@ void CKeyMgr::update()
 		{
 			mvecKey[i].bPrevPush = false;
 
-			if (KEY_STATE::TAP == mvecKey[i].eSate || KEY_STATE::HOLD == mvecKey[i].eSate)
+			if (KEY_STATE::TAP == mvecKey[i].eSate 
+				|| KEY_STATE::HOLD == mvecKey[i].eSate)
 			{
 				mvecKey[i].eSate = KEY_STATE::AWAY;
 			}
@@ -253,7 +252,4 @@ void CKeyMgr::update()
 	}
 }
 ```
-
-
-
 
