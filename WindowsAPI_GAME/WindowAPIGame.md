@@ -100,8 +100,11 @@
 
 ### Game - 13 ~ 14 (KeyMgr)
 ### 1. 키 정보를 가지는 struct 작성
- - enum class KEY_STATE
- - enum class KEY
+- enum class KEY_STATE
+- enum class KEY
+- struct tKeyInfo
+  - KEY_STATE eState
+  - bool bPrevPush
 
 ### 2. Init
 - 벡터안에 키 정보를 채워준다.
