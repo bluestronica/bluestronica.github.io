@@ -13,10 +13,9 @@
 
 
 ### Game_07_09 (Singleton / Core Class)
-#### 1. 윈도우 프로그램 생성과 관리
-- main Class
-  - ghWnd 
-  - PeekMessageA
+#### 1. main Class : 윈도우 프로그램 생성과 관리
+- ghWnd 
+- PeekMessageA
 
 #### 2. 폴더, 파일 정리
 - Default
@@ -35,42 +34,39 @@
 - 속성 설정
   - 만들기(/Yc), pch.h
 
-#### 3. Game 프로그램 생성과 관리
-- **Core Class**
-  - **생성**
-    - 동적할당 싱글톤
-    - **데이터섹션 싱글톤 구현**
-    - 매크로 함수 만들기  
-      - Engine/Header/define.h
+#### 3. Core Class : Game 프로그램 생성과 관리
+- **생성 : GetInst()**
+  - 동적할당 싱글톤
+  - **데이터섹션 싱글톤 구현**
+  - 매크로 함수 만들기  
+    - Engine/Header/define.h
 
-  - **초기화**
-    - Init()
-      - 초기화 함수 매개변수
-        - HWND 핸들, 
-        - POINT 해상도(1280, 768)
-      - 윈도우 스타일 기법인 **FAILED 매크로**를 사용해서 수행 성공여부를 체크한다.
-        - FAILED 매크로는 0보다 작으면 true를 반환한다.
-        - 그래서, FAILED(E_FAIL)는 true를 반환
-        - **FAILED(S_OK)는 false 반환**
-      - 해상도에 맞게 윈도우 크기 조정과 세팅
-        - AdjustWindowRect
-        - SetWindowPos
+- **초기화 : Init()**
+  - 초기화 함수 매개변수
+    - HWND 핸들, 
+    - POINT 해상도(1280, 768)
+  - 윈도우 스타일 기법인 **FAILED 매크로**를 사용해서 수행 성공여부를 체크한다.
+    - FAILED 매크로는 0보다 작으면 true를 반환한다.
+    - 그래서, FAILED(E_FAIL)는 true를 반환
+    - **FAILED(S_OK)는 false 반환**
+  - 해상도에 맞게 윈도우 크기 조정과 세팅
+    - AdjustWindowRect
+    - SetWindowPos
 
-  - **실행**
-    - Progress()
-      - `초기값 -> Progress{ 상태변경 -> 랜더링 }`
-      - 캐릭터(물체)
-        - pos : center
-        - scale :  100, 100 
-      - Progress
-        - 상태 변경 처리하고
-        - 처리된 데이터로 렌더링한다.
-      - 물체 상태를 저장하는 개체 생성
-        - position
-        - 가로, 세로 길이 scale
-        - 그 값을 담을 수 있는 float(실수) 타입 x, y를 가지는 구조체 생성(Vec)
-    - Update()
-    - Render()
+- **실행 - Progress()**
+  - `초기값 -> Progress{ 상태변경 -> 랜더링 }`
+  - 캐릭터(물체)
+    - pos : center
+    - scale :  100, 100 
+  - Progress
+    - 상태 변경 처리하고
+    - 처리된 데이터로 렌더링한다.
+  - 물체 상태를 저장하는 개체 생성
+    - position
+    - 가로, 세로 길이 scale
+    - 그 값을 담을 수 있는 float(실수) 타입 x, y를 가지는 구조체 생성(Vec)
+  - Update()
+  - Render()
 
 
 ### Game - 10 ~ 11 (TimeMgr)
