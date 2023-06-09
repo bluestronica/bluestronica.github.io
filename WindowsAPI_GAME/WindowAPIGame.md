@@ -13,9 +13,10 @@
 
 
 ### Game_07_09 (Singleton / Core Class)
-#### 1. main.cpp
-- g_hWnd 
-- PeekMessageA
+#### 윈도우 프로그램 생성과 관리
+- main Class
+  - g_hWnd 
+  - PeekMessageA
 
 #### 2. 폴더, 파일 정리
 - Default
