@@ -13,7 +13,7 @@
 
 
 ### Game_07_09 (Singleton / Core Class)
-#### 1. main Class : 윈도우 프로그램 생성과 관리
+#### 1. 윈도우 프로그램 생성과 관리 - main Class
 - ghWnd 
 - PeekMessageA
 
@@ -27,14 +27,14 @@
   - 윈도우 프로그램 생성과 관리
 - pch.h
 
-#### 미리 컴파일된 헤더 설정 
+#### 3. 미리 컴파일된 헤더 설정 
 *모든 cpp 파일들은 pch.h 파일을 참조해야 한다. **클래스 만들 때마다 자동으로 추가 된다.***
 - pch.h
   - `#include "define.h"`
 - 속성 설정
   - 만들기(/Yc), pch.h
 
-#### 3. Core Class : Game 프로그램 생성과 관리
+#### 4. Game 프로그램 생성과 관리 - Core Class
 - **생성 : GetInst()**
   - 동적할당 싱글톤
   - **데이터섹션 싱글톤 구현**
