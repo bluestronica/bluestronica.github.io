@@ -13,7 +13,7 @@
 
 
 ### Game_07_09 (Singleton / Core Class)
-#### 1. 윈도우 프로그램 생성과 관리 - main Class
+#### 1. 윈도우 프로그램 생성과 관리를 하는 main Class
 - ghWnd 
 - PeekMessageA
 
@@ -34,7 +34,7 @@
 - 속성 설정
   - 만들기(/Yc), pch.h
 
-#### 4. Game 프로그램 생성과 관리 - Core Class
+#### 4. Game 프로그램 생성과 관리를 하는 Core Class
 - **생성 : GetInst()**
   - 동적할당 싱글톤
   - **데이터섹션 싱글톤 구현**
