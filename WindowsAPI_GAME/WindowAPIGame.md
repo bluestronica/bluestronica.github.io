@@ -13,9 +13,9 @@
 
 
 ### Game_07_09 (Singleton / Core Class)
-#### 윈도우 프로그램 생성과 관리
+#### 1. 윈도우 프로그램 생성과 관리
 - main Class
-  - g_hWnd 
+  - ghWnd 
   - PeekMessageA
 
 #### 2. 폴더, 파일 정리
@@ -28,45 +28,50 @@
   - 윈도우 프로그램 생성과 관리
 - pch.h
 
-#### 3. 미리 컴파일된 헤더
+#### 미리 컴파일된 헤더 설정 
 *모든 cpp 파일들은 pch.h 파일을 참조해야 한다. **클래스 만들 때마다 자동으로 추가 된다.***
 - pch.h
   - `#include "define.h"`
 - 속성 설정
   - 만들기(/Yc), pch.h
 
-#### 4. Singleton Pattern을 위한 매크로 함수 만들기
-*미션 : 싱글톤 패턴을 이해하고 구현할 수 있도록 습득*
-- 동적할당 싱글톤
-- **데이터섹션 싱글톤 구현**
-  - Engine/Core/CCore.h
-- 매크로 함수 만들기  
-  - Engine/Header/define.h
+#### 3. Game 프로그램 생성과 관리
+- **Core Class**
+  - 생성
+    - 동적할당 싱글톤
+    - **데이터섹션 싱글톤 구현**
+    - 매크로 함수 만들기  
+      - Engine/Header/define.h
 
-#### 5. CCore 인스턴스 초기화
-- 초기화 함수 매개변수
-  - HWND 핸들, 
-  - POINT 해상도(1280, 768)
-- 윈도우 스타일 기법인 **FAILED 매크로**를 사용해서 수행 성공여부를 체크한다.
-  - FAILED 매크로는 0보다 작으면 true를 반환한다.
-  - 그래서, FAILED(E_FAIL)는 true를 반환
-  - **FAILED(S_OK)는 false 반환**
-- 해상도에 맞게 윈도우 크기 조정과 세팅
-  - AdjustWindowRect
-  - SetWindowPos
+- **초기화**
+  - Init()
+    - 초기화 함수 매개변수
+      - HWND 핸들, 
+      - POINT 해상도(1280, 768)
+    - 윈도우 스타일 기법인 **FAILED 매크로**를 사용해서 수행 성공여부를 체크한다.
+      - FAILED 매크로는 0보다 작으면 true를 반환한다.
+      - 그래서, FAILED(E_FAIL)는 true를 반환
+      - **FAILED(S_OK)는 false 반환**
+    - 해상도에 맞게 윈도우 크기 조정과 세팅
+      - AdjustWindowRect
+      - SetWindowPos
 
-#### 6. 게임 실행
-- `초기값 -> Progress{ 상태변경 -> 랜더링 }`
-- 캐릭터(물체)
-  - pos : center
-  - scale :  100, 100 
-- Progress
-  - 상태 변경 처리하고
-  - 처리된 데이터로 렌더링한다.
-- 물체 상태를 저장하는 개체 생성
-  - position
-  - 가로, 세로 길이 scale
-  - 그 값을 담을 수 있는 float(실수) 타입 x, y를 가지는 구조체 생성(Vec)
+- **실행**
+  - Progress()
+    - `초기값 -> Progress{ 상태변경 -> 랜더링 }`
+    - 캐릭터(물체)
+      - pos : center
+      - scale :  100, 100 
+    - Progress
+      - 상태 변경 처리하고
+      - 처리된 데이터로 렌더링한다.
+    - 물체 상태를 저장하는 개체 생성
+      - position
+      - 가로, 세로 길이 scale
+      - 그 값을 담을 수 있는 float(실수) 타입 x, y를 가지는 구조체 생성(Vec)
+  - Update()
+  - Render()
+
 
 ### Game - 10 ~ 11 (TimeMgr)
 #### 1. 물체를 특정키가 눌렀을 때 포지션 변경
