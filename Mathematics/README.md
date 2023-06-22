@@ -1,6 +1,6 @@
 ### [bluestronica.github.io](https://bluestronica.github.io/)
 
-### [1. 곱셈공식과 인수분해공식](https://github.com/bluestronica/bluestronica.github.io/blob/main/Mathematics/multiplication_factorization.md.md)
+### [1. 곱셈공식과 인수분해공식](https://github.com/bluestronica/bluestronica.github.io/blob/main/Mathematics/multiplication_factorization.md)
 - **다항식에 대한 용어**
 - **전개와 인수분해**
   - 완전제곱식
