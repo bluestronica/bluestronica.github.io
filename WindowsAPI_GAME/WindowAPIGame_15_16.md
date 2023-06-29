@@ -29,3 +29,8 @@
 #### CScene은 직접 사용할 클래스가 아니라 상속을 시킬 목적의 클래스이다.
 - 이걸경우 반드시 CScene에서 소멸자의 가상함수를 무조건 해줘야 한다.
 - `virtual ~CScene();`
+- CSceneMgr가 모든 파생된 CScene들을 부모 CScene 포인터로 관리하고 있다.
+- 관리하던 CScene들을 소멸할 때 다 지워야 한다.
+- delete를 하게 되면 전부다 부모 CScene 포인터 타입이기 때문에
+- 만약 virtual ~Cscene()을 호출을 하지 않으면 부모 CScene만 삭제하게된다.
+
