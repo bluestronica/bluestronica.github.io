@@ -1,10 +1,10 @@
 # Scene
 
 ### CScene
-#### Object를 그룹별로 관리한다.
-- 화면에 존재하는 모든 것은 Object이다. 그래서 Object를 일괄적으로 관리해주는 것이 필요하다.
-- 하나의 Scene안에 여러 종류의 object들을 그룹별로 관리하기 위해 그룹으로 분류한다.
-- 그룹으로 분류된 object들을 `vector<CObject*>`으로 저장하고 관리한다.
+#### CObject를 그룹별로 관리한다.
+- 화면에 존재하는 모든 것은 CObject이다. 그래서 CObject를 일괄적으로 관리해주는 것이 필요하다.
+- 하나의 Scene안에 여러 종류의 CObject들을 그룹별로 관리하기 위해 그룹으로 분류한다.
+- 그룹으로 분류된 CObject들을 `vector<CObject*>`으로 저장하고 관리한다.
 - CObject를 포인터로 담는 이유
   - CObject는 앞으로 파생될 모든 클래스들의 부모 클래스가 된다.
   - 그래서 자식 클래스(파생된 클래스)들의 타입들을 부모 클래스 타입으로 받을 수 있기 때문이다.
@@ -34,3 +34,17 @@
 - delete를 하게 되면 전부다 부모 CScene 포인터 타입이기 때문에
 - 만약 `virtual ~Cscene()`을 호출을 하지 않으면 부모 CScene만 삭제하게된다.
 
+
+### CScene_Start
+#### CScene_Start.h
+- CScene을 상속 받은 CScene_Start
+```C++
+class CScene_Start :
+    public CScene
+{
+public:
+    CScene_Start();
+    ~CScene_Start();  // 자식 소멸자부터 삭제된다
+    
+};
+```
