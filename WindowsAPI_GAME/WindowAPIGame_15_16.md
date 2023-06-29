@@ -1,8 +1,8 @@
 # Scene
-- 화면에 존재하는 모든 것은 Object이다. 그래서 Object를 일괄적으로 관리해주는 것이 필요하다.
 
 ### CScene
 #### Object를 그룹별로 관리한다.
+- 화면에 존재하는 모든 것은 Object이다. 그래서 Object를 일괄적으로 관리해주는 것이 필요하다.
 - 하나의 Scene안에 여러 종류의 object들을 그룹별로 관리하기 위해 그룹으로 분류한다.
 - 그룹으로 분류된 object들을 `vector<CObject*>`으로 저장하고 관리한다.
 - CObject를 포인터로 담는 이유
