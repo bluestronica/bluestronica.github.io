@@ -33,4 +33,5 @@
 - 관리하던 CScene들을 소멸할 때 다 지워야 한다.
 - delete를 하게 되면 전부다 부모 CScene 포인터 타입이기 때문에
 - 만약 virtual ~Cscene()을 호출을 하지 않으면 부모 CScene만 삭제하게된다.
+- 
 
