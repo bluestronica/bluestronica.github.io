@@ -35,7 +35,7 @@
   - 윈도우 포커싱
 
 
- ### [WindowsAPI Game - 15~ 16 (Scene)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_15_16.md)
+### [WindowsAPI Game - 15~ 16 (Scene)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_15_16.md)
 - CScene
 
 
