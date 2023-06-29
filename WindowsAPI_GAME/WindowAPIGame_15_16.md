@@ -19,3 +19,11 @@
 - 전방선언을 하는 이유는 최대한 컴파일 속도에 영향을 주지 않기 위해서 이다.
 - 만약 직접 헤더를 참조했다면 CObject 코드가 매번 변경되면 CScene에서 매번 확인을 해야한다.
 
+
+### CSceneMgr
+#### CSceneMgr은 모든 CScene들을 관리한다.
+- `CScene* marrScene[(UINT)SCENE_TYPE::END];`
+  - 하나의 CScene에 32개의 그룹들로 분류되어 그룹별로 CObject들을 관리한다.
+  - 그런 CScene은 여러가지(start, tool, 등등) CScene(SCENE_TYPE)들로 발생하게 되고 그것을 관리하는게 CSceneMgr이다.
+
+#### CScene은 직접 사용할 클래스가 아니라 상속을 시킬 목적의 클래스이다.
