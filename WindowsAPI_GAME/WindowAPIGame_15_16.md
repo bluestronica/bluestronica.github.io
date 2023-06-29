@@ -27,3 +27,5 @@
   - 그런 CScene은 여러가지(start, tool, 등등) CScene(SCENE_TYPE)들로 발생하게 되고 그것을 관리하는게 CSceneMgr이다.
 
 #### CScene은 직접 사용할 클래스가 아니라 상속을 시킬 목적의 클래스이다.
+- 이걸경우 반드시 CScene에서 소멸자의 가상함수를 무조건 해줘야 한다.
+- `virtual ~CScene();`
