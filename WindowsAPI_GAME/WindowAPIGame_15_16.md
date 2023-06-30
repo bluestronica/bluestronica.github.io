@@ -29,7 +29,7 @@
 - 하지만 그보다는 인라인 함수를 만들어 노출하는게 더 낫다.
 - 클래스는 헤더에 함수 작성하면 인라인 처리된다.
 - 인라인으로 호출되면 호출된 스택에서 바로 해결한다.
-- ** 그래서 비용이 안든다.**
+- **그래서 비용이 들지 않는다.**
 - 거의 인터페이스같은 역할
 
 ```C++
@@ -84,17 +84,83 @@ public:
 - delete를 하게 되면 전부다 부모 CScene 포인터 타입이기 때문에
 - 만약 `virtual ~Cscene()`을 호출을 하지 않으면 부모 CScene만 삭제하게된다.
 
+```C++
+#pragma once
+
+class CScene;
+
+class CSceneMgr
+{
+	SINGLE(CSceneMgr);
+
+private:
+	CScene* marrScene[(UINT)SCENE_TYPE::END];	// 모든 CScene 목록
+	CScene* mpCurScene;	// 현재 CScene
+
+public:
+	void Init();
+	void Update();
+	void Render(HDC hdc);
+};
+```
 
 ### CScene_Start
-#### CScene_Start.h
-- CScene을 상속 받은 CScene_Start
+#### CScene을 상속 받은 CScene_Start
+- CScene_Start.h
 ```C++
+#pragma once
+#include "CScene.h"
+
+// CScene을 상속 받은 CScene_Start
 class CScene_Start :
     public CScene
 {
 public:
+    // virtual 안적어줘도 되지만 구분할 수 있게 명시적으로 적어주자!
+    virtual void Enter(); 
+    virtual void Exit();
+
+public:
     CScene_Start();
-    ~CScene_Start();  // 자식 소멸자부터 삭제된다
-    
+    ~CScene_Start();  // 자식 소멸자부터 삭제된다.
 };
 ```
+
+- CScene_Start.cpp
+```C++
+#include "pch.h"
+#include "CScene_Start.h"
+
+#include "CObject.h"
+
+CScene_Start::CScene_Start()
+{
+}
+
+CScene_Start::~CScene_Start()
+{
+}
+
+void CScene_Start::Enter()
+{
+	// Object 추가
+	CObject* pObj = new CObject;
+
+	pObj->SetPos(Vec(640.f, 384.f));
+	pObj->SetScale(Vec(100.f, 100.f));
+
+//marrObj[(UINT)GROUP_TYPE::DEFAULT].push_back(pObj); 
+// marrObj은 부모클래스의 private 맴버이기 때문에 자식클래스에서는 접근이 안된다.
+// 그래서 상속받은 자식은 접근이 가능하게 하기위해 private -> protected로 변경한다.
+// 그러나 이러한 private 맴버 변수에 바로 접근해서 변경하는 것 보다
+// protected: 함수로 넘겨주는게 더 좋다.
+// 에러 났을 경우를 대비해서
+
+	AddObject(pObj, GROUP_TYPE::DEFAULT);  // 인라인 함수로 호출
+}
+
+void CScene_Start::Exit()
+{
+
+}
+``
