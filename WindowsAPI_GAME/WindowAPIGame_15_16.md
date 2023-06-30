@@ -31,7 +31,7 @@
 - 인라인으로 호출되면 호출된 스택에서 바로 해결한다.
 - **그래서 비용이 들지 않는다.**
 - 거의 인터페이스같은 역할
-
+- CScene.h
 ```C++
 #pragma once
 
@@ -69,6 +69,60 @@ public:
 };
 ```
 
+- CScene.cpp
+```C++
+#include "pch.h"
+#include "CScene.h"
+
+#include "CObject.h"
+
+CScene::CScene()
+{
+}
+
+CScene::~CScene()
+{
+	for (UINT i = 0; i < (UINT)GROUP_TYPE::END; ++i)
+	{
+		for (size_t j = 0; j < marrObj[i].size(); ++i)
+		{
+			// marrObj[i] 그룹 벡터의 j CObject 삭제
+			delete marrObj[i][j];
+
+// CObject를 담고 있던 벡터는 
+// CScene의 맴버이기 때문에 CScene 소멸자에서 삭제된다.
+// 자연스럽게 CScene 소멸하면 CScene이 소유하고 있던 맴버들도 소멸한다.
+// 지금 여기 보이지는 않지만 소멸할때 자동으로 호출되어 삭제한다. 
+// CObject를 따로 루프돌려서 삭제한 이유는
+// 벡터에 들어간게 각각의 CObject* 포인터였고 포인터가 가리키는 주소에 가보면 
+// 그기에 동적할당된 공간이 있다. 
+// 그래서 벡터만 지워서는 동적할당된 공간은 삭제가 안된다.
+		}
+	}
+}
+
+void CScene::Update()
+{
+	for (UINT i = 0; i < (UINT)GROUP_TYPE::END; ++i)
+	{
+		for (size_t j = 0; j < marrObj[i].size(); ++i)
+		{
+			marrObj[i][j]->Update();
+		}
+	}
+}
+
+void CScene::Render(HDC hdc)
+{
+	for (UINT i = 0; i < (UINT)GROUP_TYPE::END; ++i)
+	{
+		for (size_t j = 0; j < marrObj[i].size(); ++i)
+		{
+			marrObj[i][j]->Render(hdc);
+		}
+	}
+}
+```
 
 ### CSceneMgr
 #### CSceneMgr은 모든 CScene들을 관리한다.
