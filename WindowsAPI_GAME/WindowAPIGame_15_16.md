@@ -24,6 +24,51 @@
 - `virtual void Enter() = 0`
   - 순수 가상함수는 기능을 만들필요없다. 하지만 자식 Enter()는 반드시 구현해야한다. 강제시킨다.
 
+#### 인라인 함수
+- private 맴버변수를 자식들에게만 노출되게 protected:로 범위 지정했다.
+- 하지만 그보다는 인라인 함수를 만들어 노출하는게 더 낫다.
+- 클래스는 헤더에 함수 작성하면 인라인 처리된다.
+- 인라인으로 호출되면 호출된 스택에서 바로 해결한다.
+- ** 그래서 비용이 안든다.**
+- 거의 인터페이스같은 역할
+
+```C++
+#pragma once
+
+// CScene에서 CObject를 그룹별로 관리할 것이다.
+// 최대 그룹값을 enum으로 정리할 것이다.
+
+// 전방선언
+class CObject;
+
+class CScene
+{
+private:
+	vector<CObject*> marrObj[(UINT)GROUP_TYPE::END];
+	wstring mstrName; // Scene 이름
+
+public:
+	void SetName(const wstring& strName) { mstrName = strName; }
+	const wstring& GetName() { return mstrName; }
+
+	void Update();
+	void Render(HDC hdc);
+
+	virtual void Enter() = 0; // 해당 Scene에 진입 시 호출
+	virtual void Exit() = 0;  // 해당 Scene을 찰출 시 호출
+
+protected:
+	void AddObject(CObject* pObj, GROUP_TYPE eTyp)
+	{
+		marrObj[(UINT)eTyp].push_back(pObj);
+	}
+
+public:
+	CScene();
+	virtual ~CScene();  // 상속된 자식 CScene을 삭제하기위해
+};
+```
+
 
 ### CSceneMgr
 #### CSceneMgr은 모든 CScene들을 관리한다.
