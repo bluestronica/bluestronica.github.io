@@ -94,8 +94,8 @@ class CSceneMgr
 	SINGLE(CSceneMgr);
 
 private:
-	CScene* marrScene[(UINT)SCENE_TYPE::END];	// 모든 CScene 목록
-	CScene* mpCurScene;	// 현재 CScene
+	CScene* marrScene[(UINT)SCENE_TYPE::END];  // 모든 CScene 목록
+	CScene* mpCurScene;  // 현재 CScene
 
 public:
 	void Init();
@@ -151,7 +151,7 @@ void CScene_Start::Enter()
 
 //marrObj[(UINT)GROUP_TYPE::DEFAULT].push_back(pObj); 
 // marrObj은 부모클래스의 private 맴버이기 때문에 자식클래스에서는 접근이 안된다.
-// 그래서 상속받은 자식은 접근이 가능하게 하기위해 private -> protected로 변경한다.
+// 그래서 상속받은 자식이 부모에게 접근 하기위해 private -> protected로 변경한다.
 // 그러나 이러한 private 맴버 변수에 바로 접근해서 변경하는 것 보다
 // protected: 함수로 넘겨주는게 더 좋다.
 // 에러 났을 경우를 대비해서
