@@ -137,7 +137,7 @@ void CScene::Render(HDC hdc)
 - 관리하던 CScene들을 소멸할 때 다 지워야 한다.
 - delete를 하게 되면 전부다 부모 CScene 포인터 타입이기 때문에
 - 만약 `virtual ~Cscene()`을 호출을 하지 않으면 부모 CScene만 삭제하게된다.
-
+- CSceneMgr.h
 ```C++
 #pragma once
 
@@ -156,6 +156,58 @@ public:
 	void Update();
 	void Render(HDC hdc);
 };
+```
+- CSceneMgr.cpp
+```C++
+#include "pch.h"
+#include "CSceneMgr.h"
+#include "CScene_Start.h"
+
+CSceneMgr::CSceneMgr()
+	: marrScene{}
+	, mpCurScene(nullptr)
+{
+
+}
+
+CSceneMgr::~CSceneMgr()
+{
+	// 씬 전부 삭제
+	for (UINT i = 0; i < (UINT)SCENE_TYPE::END; ++i)
+	{
+		if (nullptr != marrScene[i])
+		{
+			delete marrScene[i];
+		}		
+	}
+}
+
+void CSceneMgr::Init()
+{
+	// 모든 CScene 생성
+	marrScene[(UINT)SCENE_TYPE::START] = new CScene_Start;
+	marrScene[(UINT)SCENE_TYPE::START]->SetName(L"Start Scene");
+
+	//marrScene[(UINT)SCENE_TYPE::TOOL] = new CScene_Tool;
+	//marrScene[(UINT)SCENE_TYPE::STAGE_01] = new CScene_Stage01;
+	//marrScene[(UINT)SCENE_TYPE::STAGE_02] = new CScene_Stage02;
+
+	// 현재 CSCene 지정
+	mpCurScene = marrScene[(UINT)SCENE_TYPE::START];
+	mpCurScene->Enter();
+}
+
+void CSceneMgr::Update()
+{
+	// CSceneMgr의 업데이트는 현재 CSCene을 업데이는 하는 것이다.
+	mpCurScene->Update();
+}
+
+void CSceneMgr::Render(HDC hdc)
+{
+	mpCurScene->Render(hdc);
+}
+
 ```
 
 ### CScene_Start
