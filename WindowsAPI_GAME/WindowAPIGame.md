@@ -156,7 +156,7 @@
 - Update()
 - Render()
 
-#### 소멸자 작성
+#### 5. 소멸자 작성
 - arr_p_scenes
 - arr_v_objs
 
