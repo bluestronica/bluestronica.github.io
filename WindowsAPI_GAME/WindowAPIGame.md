@@ -122,3 +122,41 @@
 - 윈도우 포커싱 해제 상태일 때 키 상태 변경
 
 
+### Game - 15 ~ 16 (SceneMgr)
+#### 1. enum class
+- ESceneType
+  - Scene의 종류
+  - (시작화면, 툴 화면, 등등)
+- EGroupByObject
+  - Scene에 존재하는 모든 Object들을 Scene type별로 Object를 그룹화한다.
+  - ( Default, Monster, 등등)
+
+#### 2. CSceneMgr
+- arr_p_scenes
+- p_currScene->(CStartScene)Enter();
+  - 게임 프로그램이 시작할 보여주는 화면
+  - CStartScene 강제 설정
+  - Enter()
+    - CStartScne에 나타나는 모든 Object를 등록한다.
+
+
+#### 3. 부모 CScene
+- arr_v_objs
+- inline 함수
+  - AddObj() : Object를 등록하는 함수
+- virtual Enter()
+- virtual Exit()
+
+#### 3. 자식 CScene 
+- Enter()
+  - Object 등록
+- Exit()
+
+#### 4. CObject
+- Update()
+- Render()
+
+#### 소멸자 작성
+- arr_p_scenes
+- arr_v_objs
+
