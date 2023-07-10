@@ -10,7 +10,7 @@
 - ###  [Algorithms](https://bluestronica.github.io/Algorithms/)
 - ###  [Xing](https://bluestronica.github.io/Xing/)
 - ###  [Mathematics](https://bluestronica.github.io/Mathematics/)
-
+- ###  [Etc](https://bluestronica.github.io/Etc/)
 
 # 
 
