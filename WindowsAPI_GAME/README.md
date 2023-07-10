@@ -38,6 +38,9 @@
 ### [WindowsAPI Game - 15~ 16 (Scene)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_15_16.md)
 - CScene
 
+### [WindowsAPI Game - 17~ 18 (Scene)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_17_18.md)
+- CObject
+
 
 
 
