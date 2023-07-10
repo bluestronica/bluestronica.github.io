@@ -10,7 +10,8 @@ private:
 	Vec v_scale;
 
 public:
-	virtual void Update() = 0; // 순수 가상함수, 모든 자식 클래스는 자기만의 Update를 구현해야한다.
+	virtual void Update() = 0; // 순수 가상함수,
+                                   // 모든 자식 클래스는 자기만의 Update를 구현해야한다.
 	virtual void Render(HDC memDc);
 
 public:
