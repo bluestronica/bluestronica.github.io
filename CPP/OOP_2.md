@@ -6,18 +6,18 @@
     - 즉, 다른 개체의 값을 새로운 개체에 그대로 복사
       ```C++
       // Vector.h
-      class Vector
+      class Vector                  // 만들려는 새로운 개체에
       {
       public:
-      	Vector(const Vector& other);
+      	Vector(const Vector& other);  // 다른 개체를 가져와서
       private:
       	int mX;
       	int mY;
       };
 
       // Vector.cpp
-      Vector::Vector(const Vector& other)
-	: mX(other.mX)
+      Vector::Vector(const Vector& other)  
+	: mX(other.mX)		// 값을 새로운 개체에 복사
 	, my(other.mY)
       {
       }
