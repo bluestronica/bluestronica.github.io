@@ -147,16 +147,61 @@
 - virtual Enter()
 - virtual Exit()
 
-#### 3. 자식 CScene 
+#### 4. 자식 CScene 
 - Enter()
   - Object 등록
 - Exit()
 
-#### 4. CObject
+#### 5. CObject
 - Update()
 - Render()
 
-#### 5. 소멸자 작성
+#### 6. 소멸자 작성
 - arr_p_scenes
 - arr_v_objs
+
+
+### Game - 17 ~ 18 (Object)
+#### 1.Object
+- Update, Render
+  - 화면에 보여줄 objet는 전부 다르게 그려야 한다.
+    
+#### 2. Monster
+- 좌우 무브
+  - 이동거리 넘는 순간 방향전환  
+- 경계선 처리
+- 다수의 몬스터 나타내기
+  - 나타낼 몬스터간의 간격은 (cnt - 1)
+
+#### 3. Palyer
+
+#### 4. Missile
+- 일회성 소모용 class
+- CPlayer->Update() 에서 Missile이 생성되어 소모된다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
