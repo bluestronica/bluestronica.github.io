@@ -4,6 +4,24 @@
 - #### 복사 생성자
     - 같은 클래스에 속한 다른 개체를 이용하여 새로운 개체를 초기화
     - 즉, 다른 개체의 값을 새로운 개체에 그대로 복사
+      ```C++
+      // Vector.h
+      class Vector
+      {
+      public:
+      	Vector(const Vector& other);
+      private:
+      	int mX;
+      	int mY;
+      };
+
+      // Vector.cpp
+      Vector::Vector(const Vector& other)
+	: mX(other.mX)
+	, my(other.mY)
+      {
+      }
+      ```
     - a를 가져다가 b를 초기화
         ```C++
         Vector(const Vector& other);
