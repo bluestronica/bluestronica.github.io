@@ -17,7 +17,7 @@
 
       // Vector.cpp
       Vector::Vector(const Vector& other)  // 복사 생성자로
-      	: mX(other.mX)		           // 값을 새로운 개체에 복사
+      	: mX(other.mX)                     // 값을 새로운 개체에 복사
       	, my(other.mY)
       {
       }
