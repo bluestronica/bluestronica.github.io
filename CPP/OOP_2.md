@@ -218,27 +218,31 @@
 	{
 	    return (mX == v.mX && mY == v.mY);
 	}
-	
-	Vector Vector::Multiply(const Vector& v) const
+
+ 	// 오버로딩된 함수
+	Vector Vector::Multiply(const Vector& v) const  
 	{
 	    Vector result(mX * v.GetX(), mY * v.GetY());
 	
 	    return result;
 	}
-	
+
+ 	// 오버로딩된 함수
 	Vector Vector::Multiply(int multiplier) const
 	{
 	    Vector result(mX * multiplier, mY * multiplier);
 	
 	    return result;
 	}
-	
+
+ 	// 오버로딩된 함수
 	void Vector::Scale(const Vector& v)
 	{
 	    mX *= v.mX;
 	    mY *= v.mY;
 	}
-	
+
+ 	// 오버로딩된 함수
 	void Vector::Scale(int multiplier)
 	{
 	    mX *= multiplier;
