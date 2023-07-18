@@ -171,11 +171,11 @@
 	
 	    bool IsEqual(const Vector& v) const;
 
- 	    // 오보로드된 2개의 메서드, 둘의 함수명이 같음
+ 	    // 오버로드된 2개의 메서드, 둘의 함수명이 같음
 	    Vector Multiply(const Vector& v) const;
 	    Vector Multiply(int multiplier) const;
 
-  	   // 오보로드된 2개의 메서드, 둘의 함수명이 같음
+  	   // 오버로드된 2개의 메서드, 둘의 함수명이 같음
 	    void Scale(const Vector& v);
 	    void Scale(int multiplier);
 	
@@ -225,6 +225,7 @@
  	// 오버로딩된 함수
 	Vector Vector::Multiply(const Vector& v) const  
 	{
+ 	    // 스택에 새 vector를 하나 만들고 반환. ( 값 복사에 의한 반환)
 	    Vector result(mX * v.GetX(), mY * v.GetY());
 	
 	    return result;
