@@ -80,7 +80,7 @@
             ClassRecord* classRecordCopy = new ClassRecord(classRecord);
             delete classRecordCopy;
             ```
-    - Sample Code - Copy Constructor With char Array
+    - Sample Code - **Copy Constructor With char Array**
         ```c++
         // String.h
         class String
