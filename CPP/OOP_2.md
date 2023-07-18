@@ -182,82 +182,82 @@
 	    int mY;
 	};
 	```
-  
-        ```c++
-        // Vector.cpp
-        Vector::Vector()       // 기본 생성자
-            : Vector(0, 0)     // 초기화 리스트
-        {
-        }
-
-        Vector::Vector(int x, int y)   // 매개변수 2개인 생성자
-            : mX(x)                    // 초기화 리스트
-            , mY(y)
-        {
-        }
-
-        int Vector::GetX() const
-        {
-            return mX;
-        }
-
-        void Vector::SetX(int x)
-        {
-            mX = x;
-        }
-
-        void Vector::SetY(int y)
-        {
-            mY = y;
-        }
-
-        int Vector::GetY() const
-        {
-            return mY;
-        }
-
-        bool Vector::IsEqual(const Vector& v) const
-        {
-            return (mX == v.mX && mY == v.mY);
-        }
-
-        Vector Vector::Multiply(const Vector& v) const
-        {
-            Vector result(mX * v.GetX(), mY * v.GetY());
-
-            return result;
-        }
-
-        Vector Vector::Multiply(int multiplier) const
-        {
-            Vector result(mX * multiplier, mY * multiplier);
-
-            return result;
-        }
-
-        void Vector::Scale(const Vector& v) 
-        {
-            mX *= v.mX;
-            mY *= v.mY;
-        }
-
-        void Vector::Scale(int multiplier)
-        {
-            mX *= multiplier;
-            mY *= multiplier;
-        }
-        ```
+	```c++
+	// Vector.cpp
+	Vector::Vector()       // 기본 생성자
+	    : Vector(0, 0)     // 초기화 리스트
+	{
+	}
+	
+	Vector::Vector(int x, int y)   // 매개변수 2개인 생성자
+	    : mX(x)                    // 초기화 리스트
+	    , mY(y)
+	{
+	}
+	
+	int Vector::GetX() const
+	{
+	    return mX;
+	}
+	
+	void Vector::SetX(int x)
+	{
+	    mX = x;
+	}
+	
+	void Vector::SetY(int y)
+	{
+	    mY = y;
+	}
+	
+	int Vector::GetY() const
+	{
+	    return mY;
+	}
+	
+	bool Vector::IsEqual(const Vector& v) const
+	{
+	    return (mX == v.mX && mY == v.mY);
+	}
+	
+	Vector Vector::Multiply(const Vector& v) const
+	{
+	    Vector result(mX * v.GetX(), mY * v.GetY());
+	
+	    return result;
+	}
+	
+	Vector Vector::Multiply(int multiplier) const
+	{
+	    Vector result(mX * multiplier, mY * multiplier);
+	
+	    return result;
+	}
+	
+	void Vector::Scale(const Vector& v)
+	{
+	    mX *= v.mX;
+	    mY *= v.mY;
+	}
+	
+	void Vector::Scale(int multiplier)
+	{
+	    mX *= multiplier;
+	    mY *= multiplier;
+	}
+	```  
+       
         ```c++
         // Main.c
         Vector vector1(3, 5);
-		Vector vector2(7, 9);
-		const int multiplier = 3;
+	Vector vector2(7, 9);
+	const int multiplier = 3;
 
-		Vector result = vector1.Multiply(vector2);
-		result = vector1.Multiply(multiplier);
+	Vector result = vector1.Multiply(vector2);
+	result = vector1.Multiply(multiplier);
 
-		vector1.Scale(vector2);
-		vector1.Scale(multiplier);
+	vector1.Scale(vector2);
+	vector1.Scale(multiplier);
         ```
 
 - #### 연산자
