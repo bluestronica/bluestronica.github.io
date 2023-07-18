@@ -269,7 +269,11 @@
 
 - #### 연산자
     - 함수처럼 작동하는 부호
-    	- `int result = num1 **+** num2;`
+    	- `int result = num1 + num2;`
+  	- `if (num1 < num2) {}`
+  	- `if (IsNumber() || IsAlphabet()) {}`
+  	- `num1++;`
+  	- `num1 += 1;`
     - C++에서는 프로그래머가 연산자를 오버로딩할 수 있다.
 
 - #### 멤버 함수를 이용한 연산자 오버로딩
