@@ -225,7 +225,8 @@
  	// 오버로딩된 함수
 	Vector Vector::Multiply(const Vector& v) const  
 	{
- 	    // 스택에 새 vector를 하나 만들고 반환. ( 값 복사에 의한 반환)
+ 	    // 스택에 새 vector를 하나 만들고 반환. (값 복사에 의한 반환)
+ 	    // 함수 안에 있던 개체는 사라지지만 그게 복사가 되어 받아가는 모양
 	    Vector result(mX * v.GetX(), mY * v.GetY());
 	
 	    return result;
@@ -268,6 +269,7 @@
 
 - #### 연산자
     - 함수처럼 작동하는 부호
+    	- `int result = num1 **+** num2;`
     - C++에서는 프로그래머가 연산자를 오버로딩할 수 있다.
 
 - #### 멤버 함수를 이용한 연산자 오버로딩
