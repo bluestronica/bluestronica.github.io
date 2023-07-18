@@ -269,11 +269,15 @@
 
 - #### 연산자
     - 함수처럼 작동하는 부호
-    	- `int result = num1 + num2;` 이항 연산자
-     	- `if (num1 < num2) {}` 이항 연산자
-      	- `if (IsNumber() || IsAlphabet()) {}` 이항 연산
-      	- `num1++;` 단항 연산자
-      	- `num1 += 1;` 단항 연산자
+    	- `int result = num1 + num2;` 이항 연산자 `+`
+     	- `if (num1 < num2) {}` 이항 연산자 `<`
+      	- `if (IsNumber() || IsAlphabet()) {}` 이항 연산자 `||`
+      	- `num1++;` 단항 연산자 `++`
+      	- `num1 += 1;` 단항 연산자 `+`
+      	- `Max(num1, num2)` 함수호출 연산자, `()`
+      	- `int score = Scores[10]` 첨자 연산자 `[]`
+      	- `Vector* vectors = new Vector[10]` new 연산자 `new`
+      	- `delete[] vectors;` delete 연산자 `delete`
     - C++에서는 프로그래머가 연산자를 오버로딩할 수 있다.
 
 - #### 멤버 함수를 이용한 연산자 오버로딩
