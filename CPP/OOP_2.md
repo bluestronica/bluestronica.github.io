@@ -157,7 +157,7 @@
     - Sample Code - **Vector Class with Function Overloading**
       	```c++
        // Vector.h
-       	class Vector
+       class Vector
        {
 	public:
 		Vector();
