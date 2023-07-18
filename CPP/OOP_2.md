@@ -22,7 +22,7 @@
       {
       }
       ```
-    - a를 가져다가 b를 초기화
+    - **a를 가져다가 b를 초기화**
         ```C++
         Vector(const Vector& other);
 
@@ -40,6 +40,18 @@
         - 그래서 직접 복사 생성자를 만들어서 깊은 복사를 해야한다.
         - 즉, 포인터 변수가 가리키는 실제 데이터까지도 복사
             ```C++
+            // ClassRecord.h
+            class ClassRecord
+            {
+            public:
+            	ClassRecord(const int* cores, int count);
+            	~ClassRecord();
+            private:
+            	int mCount;
+            	int* mScores;
+            }
+
+            
             // ClassRecord.cpp
             // 매개변수를 가지는 생성자
             ClassRecord::ClassRecord(const int* scores, int count)
@@ -48,6 +60,7 @@
                 mScores = new int[mCount];
                 memcpy(mScores, scores, mCount * sizeof(int));
             }
+
 
             // 직접 만든 복사 생성자
             ClassRecord::ClassRecord(const ClassRecord& other)
