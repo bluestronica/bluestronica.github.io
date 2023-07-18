@@ -175,10 +175,11 @@
 
   		void Scale(const Vector& v);
   		void Scale(int multiplier);
-  	private:
+  
+	private:
   		int mX;
   		int mY;
-       }
+	};
        	```
   
         ```c++
