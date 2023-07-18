@@ -156,7 +156,6 @@
         ```
     - Sample Code - **Vector Class with Function Overloading**
 	```c++
-	
 	// Vector.h
 	class Vector
 	{
@@ -246,19 +245,18 @@
 	    mY *= multiplier;
 	}
 	```  
-       
-        ```c++
-        // Main.c
-        Vector vector1(3, 5);
+	 ```c++
+	// Main.c
+	Vector vector1(3, 5);
 	Vector vector2(7, 9);
 	const int multiplier = 3;
-
+	
 	Vector result = vector1.Multiply(vector2);
 	result = vector1.Multiply(multiplier);
-
+	
 	vector1.Scale(vector2);
 	vector1.Scale(multiplier);
-        ```
+	```
 
 - #### 연산자
     - 함수처럼 작동하는 부호
