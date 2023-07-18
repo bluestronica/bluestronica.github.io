@@ -170,9 +170,12 @@
 	    void SetY(int y);
 	
 	    bool IsEqual(const Vector& v) const;
+
+ 	    // 오보로드된 2개의 메서드, 둘의 함수명이 같음
 	    Vector Multiply(const Vector& v) const;
 	    Vector Multiply(int multiplier) const;
-	
+
+  	   // 오보로드된 2개의 메서드, 둘의 함수명이 같음
 	    void Scale(const Vector& v);
 	    void Scale(int multiplier);
 	
