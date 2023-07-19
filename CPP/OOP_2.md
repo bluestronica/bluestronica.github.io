@@ -334,7 +334,7 @@
             return result;
         }
 
-        Vector2 operator*(int multiplier, const Vector2& v)
+        Vector2 Vector2::operator*(int multiplier, const Vector2& v)
         {
             Vector2 result(v.mX * multiplier, v.mY * multiplier);
 
@@ -357,6 +357,9 @@
             return *this;
         }
 
+	// 멤버 아닌 함수를 이용한 연산자 오버로딩
+	// 좌항이 되는 개체에 접근 권한이 없을 때 
+	// 전역 함수를 만들어야 한다.
         std::ostream& operator<<(std::ostream& out, const Vector2& v)
         {
             out << v.mX << ", " << v.mY << std::endl;
