@@ -540,18 +540,22 @@
           동적으로 메모리를 할당하고 있다면 직접 메모리 해제를 하는 코드를 작성해야 한다. 
 	- 즉, 사용자는 직접 복사 생성자를 작성해야한다.
 
+
 초기화와 대입의 차이
 	- 대입은 초기화가 된 이후에 실행되는 행위다.
 	- 초기화리스트는 실제 개체가 만들어질 때 초기화하는 것을 의미한다.
+
 
 함수 오버로딩
 	- 매개변수 목록을 제외하고는 모든 게 동일
 	- 반환형은 상관 없음
 
+
 연산자의 오버로딩하는 방법은 두 가지다.
 	- 멤버 함수
 	- 멤버 아닌 함수 (friend)
 		○ 다른 클래스나 함수가 나의 private 또는 protected 맴버에 접근할 수 있게 허용
+
 
 연산자 오버로딩과 const, &
 	- const, & 사용하는 이유
@@ -561,8 +565,7 @@
 		○ Vector Vector::operator+(const Vector& rhs) const;
 		○ Vector Vector::operator-(const Vector& rhs) const;
 		○ Vector Vector::operator*(const Vector& rhs) const;
-		○ Vector Vector::operator/(const Vector& rhs) const;
-		○ Vector Vector::operator=(const Vector& rhs) const;
+		○ Vector Vector::operator/(const Vector& rhs) const;		
 		○ Vector result = vector1 + vector2;
 	- 맴버 변수 바뀔 때 const 사용하지 않는  경우
 		○ Vector& operator+=(const Vector& rhs);
@@ -571,8 +574,10 @@
 
 대입 연산자 (암시적 생성)
 	- b = a;
+	- Vector Vector::operator=(const Vector& rhs);
 	- 복사 생성자와 거의 동일
 	- 그래서 복사 생성자를 구현했다면 대입 연산자도 구현해야 할 것임
+
 
 클래스에 딸려오는 기본 함수들 (컴파일러의 암시적 생성)
 	- 기본 생성자(매개변수 없는 생성자)
