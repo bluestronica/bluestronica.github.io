@@ -23,3 +23,7 @@
 - **인수정리와 조립제법**
 
 ### [3. 복소수](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/Discussion.md)
+
+
+
+### [4. 라디안과 삼각함수](https://github.com/bluestronica/bluestronica.github.io/blob/main/Mathematics/goniometric_functions.md)
