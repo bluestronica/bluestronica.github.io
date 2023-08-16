@@ -10,11 +10,10 @@
 - 2πr = 원의 전체 둘레 길이
 
 
-#### 라디안(Radian)
+#### 라디안(Radian) : 각? 호의 길이?
 - 각도법은 degree 호도법은 radian이라고 한다.
 - 호도법은 호의 길이를 이용하여 각도를 재는 방법을 말한다.
-- 반지름과 원의 둘레간(호의 길이)의 비율
-  - r :   
+- 반지름과 원의 둘레간(호의 길이)의 비율 
 - 호의 길이가 반지름과 같게 되는 만큼의 각을 1 라디안이라고 정의한다.
 - 라디안은 호의 길이와 각도를 구하기 편리하다.
 - 컴퓨터나 수학에서 사용하는 각 체계는 라디안이다.
@@ -22,13 +21,15 @@
 ![img](Img/radian.png)
 
 ```C++
+// 1radian은 180을 π로 나눈 값
+π radian = 180 degree
+1 radian = 180 / π degree = 57 degree
+x radian = x * 180 / π degree = x * 57 degree
+
+// 1degree은 π를 180으로 나눈 값
 180 degree = π radian
 1 degree = π / 180 radian
 x degree = x * π / 180 radian
-
-π radian = 180 degree
-1 radian = 180 / π degree
-x radian = x * 180 / π degree
 ```
 
 
