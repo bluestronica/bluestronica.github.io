@@ -74,7 +74,7 @@ x degree = x * π / 180radian
       - 30도 60도 90도 이루어져 있다.
       -  1 : √3 : 2
 
-![img](Img/radian.png)
+![img](Img/bi.png)
 
 
 ### 호도법
