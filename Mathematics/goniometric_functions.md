@@ -1,6 +1,6 @@
-### 라디안과 삼각함수
+## 라디안과 삼각함수
 
-#### π 원주율
+### π 원주율
 
 - π 는 원의 전체 둘레 길이 / 지름(2r), 원의 크기와 관계없이 그 비율값은 항상 3.14를 가진다.
 
@@ -8,7 +8,7 @@
 
 - 2πr = 원의 전체 둘레 길이
 
-#### 라디안(Radian)
+### 라디안(Radian)
 
 - 각도법은 degree 호도법은 radian이라고 한다.
 
@@ -25,13 +25,11 @@
 ![img](Img/radian.png)
 
 ```C++
-
 //1radian은 180을 π로 나눈 값 
 
 π radian = 180degree
 1radian = 180/ π degree = 57degree
 x radian = x * 180/ π degree = x * 57degree
-
 
 
 //1degree은 π를 180으로 나눈 값
