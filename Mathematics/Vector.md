@@ -29,6 +29,59 @@
 
 
 
+### 벡터의 내적  
+![img](Img/vector6.png)
+![img](Img/vector7.png)
+
+- 내적 공식 
+![img](Img/vector8.png)
+
+- 내적의 기하학적 의미
+  - **예각**
+    - 한 벡터의 종점에서 수선의 발 H를 내린 후
+    - 다른 벡터의 시점에서 Hㄴ까지의 거리와
+    - 다른 벡터의 크기를 곱하면 된다.
+   
+  ![img](Img/vector9.png)
+  
+  - **둔각**
+    -(마이너스)를 붙이면 된다!
+
+ ![img](Img/vector10.png)
+
+  - **직각**
+
+  ![img](Img/vector11.png)
+
+
+- 성분으로 계산하기 
+
+  ![img](Img/vector12.png)
+
+
+- 정리
+
+![img](Img/vector13.png)
+
+
+
+### 벡터의 외적
+
+![img](Img/vector14.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
