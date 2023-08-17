@@ -17,3 +17,21 @@
 ## 백터의 덧셈
 
 ![img](Img/vector3.png)
+
+
+### 벡터의 뺄셈
+
+![img](Img/vector4.png)
+
+### 백터의 성분표현
+
+![img](Img/vector5.png)
+
+
+
+
+
+
+
+
+
