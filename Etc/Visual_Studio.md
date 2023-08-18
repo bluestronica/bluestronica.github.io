@@ -1,7 +1,7 @@
 
 |Key|Description|
 |:---|:---|
-|`ctrl + w + s`|`솔루션 탐색기`|
+|`ctrl + w + s`|솔루션 탐색기|
 |`Ctrl + Shift + X`|클래스 마법사|
 |`ctrl + shift + a`|새항목 추가|
 |`Ctrl + tab`|열려있는 문서간 이동|
