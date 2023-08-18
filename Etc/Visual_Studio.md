@@ -1,25 +1,24 @@
 
 |Key|Description|
 |:---|:---|
-|`ctrl + w + s`|솔루션 탐색기|
+|`Ctrl + W + S`|솔루션 탐색기|
 |`Ctrl + Shift + X`|클래스 마법사|
-|`ctrl + shift + a`|새항목 추가|
-|`Ctrl + tab`|열려있는 문서간 이동|
+|`ctrl + Shift + A`|새항목 추가|
+|`Ctrl + Tab`|열려있는 문서간 이동|
 |`Ctrl + F4`|현재 문서 닫기|
 |`Ctrl + Alt + L`|솔루션 탐색기 열기|
 |`Ctrl + ]`|괄호, 대괄호 이동|
 |`Alt + Shift + T`|라인 바꾸기|
 |`Alt + Shift + 방향키`|수직 범위선택|
 |`Alt + 마우스 왼쪽`|수직 범위선택|
-|`Ctrl + d`|현재 라인 복사해서 아래 라인에 붙이기|
-|`Ctrl + x, Ctrl  + L`|현재 라인 잘라내기|
+|`Ctrl + D`|현재 라인 복사해서 아래 라인에 붙이기|
+|`Ctrl + X, Ctrl  + L`|현재 라인 잘라내기|
 |`Ctrl + Shift + L`|현재 라인 완전 삭제|
 |`Ctrl + 좌우 방향키`|단어 단위로 커서 이동|
 |`Alt + 위아래 방향키`|줄 상하로 이동시키기|
-|`Ctrl + r + r`|이름 바꾸기|
-|`Ctrl + f `|찾기|
-|`Ctrl + h`|바꾸기|
-|||
+|`Ctrl + R + R`|이름 바꾸기|
+|`Ctrl + F `|찾기|
+|`Ctrl + H`|바꾸기|
 
 ### 1. Quick Refactoring / Referencing
 #### 리팩터링 할 때 쓸 만한 단축키
