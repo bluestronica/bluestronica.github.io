@@ -3,10 +3,10 @@
 |:---|:---|
 |`Ctrl + Alt + L`|솔루션 탐색기 열기, 이동|
 |`Shift + F2`|솔루션 탐색기에서 빠른 파일 만들기|
-|`Ctrl + Shift + X`|클래스 마법사|
-|`ctrl + Shift + A`|새항목 추가|
 |`Ctrl + Tab`|열려있는 문서간 이동|
 |`Ctrl + F4`|현재 문서 닫기|
+|`Ctrl + Shift + X`|클래스 마법사|
+|`ctrl + Shift + A`|새항목 추가|
 |`Ctrl + ]`|괄호, 대괄호 이동|
 |`Alt + Shift + T`|라인 바꾸기|
 |`Alt + Shift + 방향키`|수직 범위선택|
