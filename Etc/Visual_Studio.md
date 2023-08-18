@@ -81,8 +81,8 @@
 ### 7. 정리
 |ESC Code Sequence|Description|
 |:---|:---|
-|`ctrl + w + s`|솔루션 탐색기|
-|||
+|`ctrl + w + s`|`솔루션 탐색기`|
+|Ctrl+Shift+X|클래스 마법사|
 |||
 
 
