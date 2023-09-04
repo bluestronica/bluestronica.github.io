@@ -12,16 +12,16 @@ Engine/Core
 Engine/Default
 
 #### 메인 윈도우창 세팅
- Core : Core Class
-	- Create
-		○ SINGLE()
-	- Init
-		○ check -> FAILED()
-		○ hwnd, POINT
-		○ adjust_window 
-	- Progress
-		○ Update
-		○ Render
+Core : Core Class
+- Create
+  - SINGLE()
+- Init
+  - check -> FAILED()
+  - hwnd, POINT
+  - adjust_window 
+- Progress
+  - Update
+  - Render
 
 #### 화면 중앙에 사각형 그리기
 Object Class
