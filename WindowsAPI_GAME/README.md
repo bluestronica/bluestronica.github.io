@@ -41,6 +41,35 @@
 ### [WindowsAPI Game - 17~ 18 (Scene)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_17_18.md)
 - CObject
 
+### [WindowsAPI Game - 19~ 20 (각도, 벡터)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_19_20.md)
+- 라디안
+- theta
+- 단위벡터
+- normalize
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
