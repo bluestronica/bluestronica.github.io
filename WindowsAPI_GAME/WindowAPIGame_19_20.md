@@ -25,35 +25,37 @@ Core : Core Class
 
 #### 화면 중앙에 사각형 그리기
 Object Class
-	- pos
-	- scale
+- pos
+- scale
+
 Vec struct
-	- x
-	- y
+- x
+- y
+
 Render()
-	- Rectangle()
+- Rectangle()
 
 사각형 움직이기
-	- Update()
-	- Manager
-		○ TimeMgr
-			§ 1프레임당 이동거리
-			§ speed * deltatime
-	- dubble buffering
-		○ mem_dc_handle
-		○ compatible_bitmap_handle
-		○ BitBlt
-	- Manager
-		○ KeyMgr
-			§ enum class Ekey
-			§ enum class KeyState
-				□ 키가 눌렸을 여부에 따라, 
-				□ 키상태 변경
-			§ struct KeyInfo
-			§ Vector<KeyInfo> keys_
-			§ Keys sync with VKs
-				□ (asynckeystate(vk) & 0x8000)
-			§ GetFocus
+- Update()
+- Manager
+  - TimeMgr
+    - 1프레임당 이동거리
+    - speed * deltatime
+- dubble buffering
+  - mem_dc_handle
+  - compatible_bitmap_handle
+  - BitBlt
+- Manager
+  - KeyMgr
+    - enum class Ekey
+    - enum class KeyState
+      -  키가 눌렸을 여부에 따라,
+      - 키상태 변경
+    - struct KeyInfo
+    - Vector<KeyInfo> keys_
+    - Keys sync with VKs
+      -(asynckeystate(vk) & 0x8000)
+    - etFocus
 
 #### 각각의 화면에는 화면에 나타나는 모든 Object를 가진다.
 	- Manager
