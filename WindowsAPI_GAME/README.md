@@ -37,21 +37,17 @@
   - 윈도우 포커싱
 
 
-### [WindowsAPI Game - 15~ 16 (Scene)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_15_16.md)
+### [WindowsAPI Game - 15 ~ 16 (Scene)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_15_16.md)
 - CScene
 
 
-### [WindowsAPI Game - 17~ 18 (Scene)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_17_18.md)
+### [WindowsAPI Game - 17 ~ 18 (Scene)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_17_18.md)
 - CObject
 
 
 
-### [WindowsAPI Game - 19~ 20 (각도, 벡터)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_19_20.md)
-- 라디안
-- theta
-- 단위벡터
-- normalize
-
+### [WindowsAPI Game - 01 ~ 20](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_19_20.md)
+- 01 ~ 20화 정리
 
 
 
