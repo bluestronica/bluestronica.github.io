@@ -26,7 +26,7 @@ Core : Core Class
   - Render
 
 
-#### 화면 중앙에 사각형 그리기
+#### 화면 중앙에 object 그리기
 Object Class
 - pos
 - scale
@@ -39,7 +39,7 @@ Render()
 - Rectangle()
 
 
-#### 사각형 움직이기
+#### object 움직이기
 - Update()
 - Manager
   - TimeMgr
