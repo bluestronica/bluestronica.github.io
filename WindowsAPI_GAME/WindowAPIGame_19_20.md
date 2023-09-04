@@ -149,4 +149,3 @@ Render()
 			§ 들어가면 이동 거리에 영향을 받는다.
 			§ 그래서 방향은 같고 크기(길이)가 1인
 			§ 순수 방향을 나타내는 단위 벡터를 사용한다.
-![image](https://github.com/bluestronica/bluestronica.github.io/assets/80299788/cc1742e5-8a0d-42b9-8455-49b0ad46da53)
