@@ -7,14 +7,14 @@
 
 
 #### 기본 폴더 작성
-**main.cpp**
+main.cpp
 - PeekMessageW()
 - Engine/Core
 - Engine/Default
 
 
 #### 메인 윈도우창 세팅
-**Core : Core Class**
+Core : Core Class
 - Create
   - SINGLE()
 - Init
@@ -27,18 +27,19 @@
 
 
 #### 화면 중앙에 사각형 그리기
-**Object Class**
+Object Class
 - pos
 - scale
 
-**Vec struct**
+Vec struct
 - x
 - y
 
-**Render()**
+Render()
 - Rectangle()
 
-**사각형 움직이기**
+
+#### 사각형 움직이기
 - Update()
 - Manager
   - TimeMgr
