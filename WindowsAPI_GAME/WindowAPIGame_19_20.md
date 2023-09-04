@@ -1,23 +1,17 @@
+# WindowsApiGame_01_20
 
 
+#### main.cpp
+#### Default
+#### Engine
 
-*** WindowsApiGame_19_20***
-
+#### 기본 폴더 작성
 main.cpp
-Default
-Engine
-
-
-----
-기본 폴더 작성
-main.cpp
-	- PeekMessageW()
+- PeekMessageW()
 Engine/Core
 Engine/Default
 
-
-----
-메인 윈도우창 세팅
+#### 메인 윈도우창 세팅
  Core : Core Class
 	- Create
 		○ SINGLE()
@@ -29,9 +23,7 @@ Engine/Default
 		○ Update
 		○ Render
 
-
-----
-화면 중앙에 사각형 그리기
+#### 화면 중앙에 사각형 그리기
 Object Class
 	- pos
 	- scale
@@ -63,7 +55,7 @@ Render()
 				□ (asynckeystate(vk) & 0x8000)
 			§ GetFocus
 
-각각의 화면에는 화면에 나타나는 모든 Object를 가진다.
+#### 각각의 화면에는 화면에 나타나는 모든 Object를 가진다.
 	- Manager
 		○ SceneMgr
 			§ enum class SceneType
@@ -105,7 +97,7 @@ Render()
 	- Missile : public Object
 		○ CreateMissile()
 
-내가 원하는 방향으로 미사일 쏘기
+#### 내가 원하는 방향으로 미사일 쏘기
 	- 라디안
 		○ 각을 실수로 표현하는 방법
 		○ 호의 길이가 반지름과 같으면 1, 57도
