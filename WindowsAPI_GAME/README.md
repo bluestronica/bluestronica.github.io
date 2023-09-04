@@ -26,7 +26,9 @@
   - QueryPerformance를 이용해 프로그램 실행 속도 측정
 - CTimeMgr
 
+
 ### [WindowsAPI Game - 12 (Double Buffering)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_12.md)
+
 
 ### [WindowsAPI Game - 13 ~ 14 (Key)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_13_14.md)
 - CKeyMgr
@@ -38,8 +40,11 @@
 ### [WindowsAPI Game - 15~ 16 (Scene)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_15_16.md)
 - CScene
 
+
 ### [WindowsAPI Game - 17~ 18 (Scene)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_17_18.md)
 - CObject
+
+
 
 ### [WindowsAPI Game - 19~ 20 (각도, 벡터)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_19_20.md)
 - 라디안
