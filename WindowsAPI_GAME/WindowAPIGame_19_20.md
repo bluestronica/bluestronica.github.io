@@ -58,46 +58,46 @@ Render()
     - etFocus
 
 #### 각각의 화면에는 화면에 나타나는 모든 Object를 가진다.
-	- Manager
-		○ SceneMgr
-			§ enum class SceneType
-			§ CScene* scenes_[]
-	- Scene
-		○ base
-			§ void update()
-			§ void render()
-			§ virtual void Enter() = 0
-			§ virtual void Exit() = 0
-		○ derived
-			§ virtual void Enter() override
-				□ object 등록
-			§ virtual void exit() override
-				□ object 삭제
-	- Object
-		○ base
-			§ virtual void update() = 0
-			§ virtual void render() = 0
-		○ derived
-			§ virtual void update() override
-			§ virtual void render() override
-	- Player : public Object
-	- Monster : public Object
-		○ auto left-right move
-			§ start_pos 
-			§ moving_distance
-				□ monster scale.x / 2
-			§ if (|start_pos - pos.x| > moving_distnace)
-			§ turn direction
-				□ x * 1
-				□ x * -1
-		○ 5 monster
-			§ monster_cnt
-			§ start_position
-				□ (screen_resolution.x - (max_mvoing *2) * 2) / (monster_cnt - 1)
-			§ for( ; i < monster_cnt; ; )
-			§ SetStartPos
-	- Missile : public Object
-		○ CreateMissile()
+- Manager
+	○ SceneMgr
+		§ enum class SceneType
+		§ CScene* scenes_[]
+- Scene
+	○ base
+		§ void update()
+		§ void render()
+		§ virtual void Enter() = 0
+		§ virtual void Exit() = 0
+	○ derived
+		§ virtual void Enter() override
+			□ object 등록
+		§ virtual void exit() override
+			□ object 삭제
+- Object
+	○ base
+		§ virtual void update() = 0
+		§ virtual void render() = 0
+	○ derived
+		§ virtual void update() override
+		§ virtual void render() override
+- Player : public Object
+- Monster : public Object
+	○ auto left-right move
+		§ start_pos 
+		§ moving_distance
+			□ monster scale.x / 2
+		§ if (|start_pos - pos.x| > moving_distnace)
+		§ turn direction
+			□ x * 1
+			□ x * -1
+	○ 5 monster
+		§ monster_cnt
+		§ start_position
+			□ (screen_resolution.x - (max_mvoing *2) * 2) / (monster_cnt - 1)
+		§ for( ; i < monster_cnt; ; )
+		§ SetStartPos
+- Missile : public Object
+	○ CreateMissile()
 
 #### 내가 원하는 방향으로 미사일 쏘기
 	- 라디안
