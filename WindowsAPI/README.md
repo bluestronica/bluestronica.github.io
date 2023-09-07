@@ -23,6 +23,9 @@
 - 윈도우 프로시저의 특징
 - WndProc 함수
 
+### [SBCS, MBCS, WBCS](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/SBCS_MBCS_WBCS.md)
+
+
 ### [Device Context / 문자열 출력 / 문자열 정렬](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI/DC_String.md)
 - Device Context(DC)란?
 - Device Context가 필요한 이유?
