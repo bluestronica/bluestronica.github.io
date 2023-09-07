@@ -33,6 +33,11 @@
 - `<sstream>`
 - 여전히 성능상의 이유로 많은 C함수들을 사용
 
+### [SBCS, MBCS, WBCS](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/SBCS_MBCS_WBCS.md)
+- SBCS
+- MBCS
+- WBCS
+
 ### [파일 입출력(I/O)](https://github.com/bluestronica/bluestronica.github.io/blob/main/CPP/File_IO.md)
 - `<fstream>`
 - 파일 읽기
