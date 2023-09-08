@@ -202,6 +202,18 @@
         }
         ```
 
+- #### 중괄호 초기화
+    - 장점
+        - vector등 container와 잘 어울린다.
+        - 축소 변환 방 
+        ```C++
+        vector<int> v1{ 9, 10, 11 };   // push_back 와 똑같
+        map<int, string> m1{ {1, "a"}, {2, "b"} };
+        string s{ 'a', 'b', 'c' };
+        regex rgx{ 'x', 'y', 'z' };
+        ```
+
+
 - #### 클래스의 멤버 함수
     ```C++
     // Vector.h
