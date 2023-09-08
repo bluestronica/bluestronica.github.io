@@ -65,12 +65,7 @@ const wchar_t* lpcwstr =  L"LPCWSTR에 문자열 만들기";
 size_t lpcwstr_length = wcslen(lpwstr); // lstrlenW()
 
 
-_tcslen, strlen, wcslen -----> ansi C 함수
-lstrlenW, lstrlenA ----> Windows api 함수
------------------------------------------------------------
-
-
-const char_t* lpcstr =  "LPCSTR에 문자열 만들기";
+const char* lpcstr =  "LPCSTR에 문자열 만들기";
 size_t lpcstr_length = strlen(lpwstr);
 
 
@@ -80,6 +75,13 @@ size_t lpcstr_length = _tcslen(lpwstr);
 
 LPCTSTR lpcstr =  _T("LPCSTR에 문자열 만들기");
 size_t lpcstr_length = _tcslen(lpwstr);
+
+
+---------------------------------------------------
+_tcslen, strlen, wcslen -----> ansi C 함수
+lstrlenW, lstrlenA ----> Windows api 함수
+
+
 ```
 
 
