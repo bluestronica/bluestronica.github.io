@@ -49,14 +49,14 @@
 
 ### Win32 에서 쓰이는 문자형
 
-|문자 형태|Win32에서 기본적으로 쓰이는 문자타입|Win32식 문자타입|
+|-|Win32에서 기본적으로 쓰이는 문자타입|Win32식 문자타입|
 |:---|:---|:---|
 |SBCS|typedef char|CHAR|
 |WBCS|typedef wchar_t|WCHAR|
-|문자 형태|**NULL 문자로 끝나는 c-style 문자열로 구성될 경우**|**Win32식 문자타입**|
+|-|**NULL 문자로 끝나는 c-style 문자열로 구성될 경우**|**Win32식 문자타입**|
 |SBCS|typedef CHAR*|LPSTR|
 |WBCS|typedef WCHAR*|LPWSTR|
-|문자 형태|**CONST 상수 속성을 가질 경우**|**Win32식 문자타입**|
+|-|**CONST 상수 속성을 가질 경우**|**Win32식 문자타입**|
 |SBCS|typedef CONST CHAR*|LPCSTR|
 |WBCS|typedef CONST WCHAR*|LPCWSTR|
 
