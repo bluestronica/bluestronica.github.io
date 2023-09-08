@@ -52,6 +52,7 @@
 |SBCS|WBCS|MBCS + WBCS|
 |:---|:---|:---|
 |char|wchar_t|TCHAR|
+|""|L""|_T(""), TEXT("")|
 
 - THCAR은 마이크로 소프트에서 만든 Win32 문자열이다.
 - ANSI 및 DBCS 플랫폼의 경우 char형으로
@@ -68,6 +69,22 @@
 |형식화된 문자열 만들기|_snprintf_s(char)|_swprintf_s(wchar_t)|_sntprintf_s(TCHAR)|
 |가변길이 문자열 만들기|_vsnprintf(char)|_vsnwprintf(wchar_t)|_vsntprintf(TCHAR)|
 
+#### wcsncpy_s
+```C++
+errno_t wcsncpy_s( wchar_t *strDest, strDest의 크기,
+                      const whcar_t *strSouce, 복사할 문자 수 );
+
+wchar_t szDest[256] = {0, };
+wchar_t szSource[] = L"TEST";
+
+wcsncpy_s( szDest, 256, szSource, 4);
+
+// or
+// 널문자를 위해,
+// szSource의 널문자까지만 복사한다.
+// 255문자를 복사하는 것이 아니다.
+wcsncpy_s( szDest, 256, szSource, 256-1 );
+```
 
 #### MultiByteToWideChar
 ```C++
