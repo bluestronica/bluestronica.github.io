@@ -220,7 +220,7 @@
     ```
 
 - #### Const 멤버 함수
-    - 멤버 변수가 변하는 것을 방지
+    - 맴버 함수 내에서 모든 멤버 변수가 변하는 것을 방지(상수화)
         ```C++
         int GetX() const
         {
@@ -233,6 +233,51 @@
             mY = mY + ohter.mY;   // 컴파일 에러 
         }
         ```
+- #### Const 멤버 변수
+    - const 변수는 반드시 선언 시 초기화 해야한다.
+    - class의 멤버 변수를 const로 선언 시에는 반드시 초기화 리스트를 사용해야한다.
+    ```C++
+    class Foo
+    {
+    	const int num;    // 메모리 할당이 아님
+     
+    	Foo(void)
+    		: num(1)    // const int num = 1; 초기화 리스트 사용
+    	{
+    	}
+    };
+     
+    class Bar
+    {
+    	const int num;
+     
+    	Bar(void)
+    	{
+    		num = 1;    // Compile Error
+    		// const int num;
+    		// num = 1;
+    	}
+    };
+    ```
+    
+- #### Const 포인터 변수
+    - 값(*ptr)을 상수화
+    ```C++
+    int num = 1;
+    const int* ptr = &num;    // *ptr을 상수화
+
+    *ptr = 2;     // compile error
+    num = 2;     // pass
+    ```
+
+    - 포인터 변수(ptr)를 상수화
+    ```C++
+    int num1 = 1;
+    int num2 = 2;
+    int* const ptr = &num1;    // ptr을 상수화
+
+    ptr = &num2;     // compile error
+    ```
 
 - #### 구조체에 관한 코딩표준
     - C++에서는 구조체를 클래스처럼 쓸 수 있음
@@ -245,3 +290,22 @@
         - 메모리 카피가 가능
             - memcpy()를 사용하여 struct를 char[]로, 혹은 반대로 복사할 수 있음
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
