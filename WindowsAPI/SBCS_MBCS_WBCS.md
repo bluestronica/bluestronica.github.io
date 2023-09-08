@@ -53,10 +53,10 @@
 |:---|:---|
 |typedef char|CHAR|
 |typedef wchar_t|WCHAR|
-|NULL 문자로 끝나는 c-style 문자열로 구성될 경우||
+|NULL 문자로 끝나는 c-style 문자열로 구성될 경우|
 |typedef CHAR*|LPSTR|
 |typedef WCHAR*|LPWSTR|
-|CONST 상수 속성을 가질 경우||
+|CONST 상수 속성을 가질 경우|
 |typedef CONST CHAR*|LPCSTR|
 |typedef CONST WCHAR*|LPCWSTR|
 
