@@ -138,10 +138,10 @@ int main()
 |WBCS|typedef CONST WCHAR*|LPCWSTR|
 
 - c-style 문자열은 null 문자로 끝나는 char 배열이라고 말한다.
-  - **''\0''**
-  - char str1[] = "abc";
+  - null 문자 : **''\0''**
+  - **`char str1[] = "abc"`**;
     - 스택에 "abc" 저장
-  - char* str2 = "abc";
+  - **`char* str2 = "abc"`**;
     - 데이터 섹션에 "abc" 저장
     - 바꾸지 않을 문자일 때 사용    
 - win32에서는 String처리를 위해서 char* 타입을 그대로 쓰기보다는
