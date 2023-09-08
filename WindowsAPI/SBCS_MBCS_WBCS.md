@@ -59,25 +59,43 @@
 
  
 #### 안전한 문자열 함수
-|SBCS|WBCS|MBCS + WBCS|
-|:---|:---|:---|
-|strlen|wcslen|_tcslen|
-|strcpy_s(char)|wcsncpy_s(wchar_t)|_tcsncpy_s(TCHAR)|
-|strncpy|wcsncpy|_tcsncpy|
-|strcat|wcscat|_tcscat|
-|ctrncat|wcsncat||
-|strcmp|wcscmp|_tcscmp|
-|strncmp|wcsncmp|_tcsncmp|
+||SBCS|WBCS|MBCS + WBCS|
+|:---|:---|:---|:---|
+|문자열 길이|strnlen_s(char)|wcsnlen_s(wchar_t)|_tcsnlen(TCHAR)|
+|문자열 복사|strncpy_s(char)|wcsncpy_s(wchar_t)|_tcsncpy_s(TCHAR)|
+|문자열 합치기|strncat_s(char)|wcsncat_s(wchar_t)|_tcsncat_s(TCHAR)|
+|문자열 비교|strncmp(char)|wcsncmp(whcar_t)|_tcsncmp(TCHAR)|
+|형식화된 문자열 만들기|_snprintf_s(char)|_swprintf_s(wchar_t)|_sntprintf_s(TCHAR)|
+|가변길이 문자열 만들기|_vsnprintf(char)|_vsnwprintf(wchar_t)|_vsntprintf(TCHAR)|
 
+#### MultiByteToWideChar
+```C++
+#include <windows.h>
 
-#### 안전한 입출력 함수
-|SBCS|WBCS|MBCS + WBCS|
-|:---|:---|:---|
-|_snprintf_s(char)|_swprintf_s(wchar_t)|_sntprintf_s(TCHAR)|
-|scanf|wscanf|_tscanf|
-|fgets|fgetws|_fgetts|
-|fputs|fputws|_fputts|
+int main()
+{
+  char str[100] = "삼국지";
+  int str_len = strlen(str) + 1;
 
+  // n1은 4, 널문자 포함 하지 않음
+  wchar_t* str1 = new wchar_t[str_len];
+  int n1 = MultiByteToWideChar(CP_ACP, 0, str, 8, str1, str_len);
+
+  // n2은 5, 널문자 포함, 네 번째 인수를 -1을 해야 널문자가 들어간다.
+  wchar_t* str2 = new wchar_t[str_len];
+  int n2 = MultiByteToWideChar(CP_ACP, 0, str, -1, str2, str_len);
+
+  // n3은 4, 복사는 "삼국지" 까지, 널문자 포함 하지 않는다.
+  wchar_t* str3 = new wchar_t[str_len];
+  int n3 = MultiByteToWideChar(CP_ACP, 0, str, 7, str3, str_len);
+
+  delete[] str1;
+  delete[] str2;
+  delete[] str3;
+
+  return 0;
+}
+```
 
 #### "l"이 있는 함수들
 - Win32API에 있는 함수들은 ANSI버전(기본적으로 MBCS), UNICODE버전(WBCS)을 둘 다 지원한다.
