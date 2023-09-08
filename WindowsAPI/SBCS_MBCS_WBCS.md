@@ -59,7 +59,7 @@
 
  
 #### 안전한 문자열 함수
-||SBCS|WBCS|MBCS + WBCS|
+|-|SBCS|WBCS|MBCS + WBCS|
 |:---|:---|:---|:---|
 |문자열 길이|strnlen_s(char)|wcsnlen_s(wchar_t)|_tcsnlen(TCHAR)|
 |문자열 복사|strncpy_s(char)|wcsncpy_s(wchar_t)|_tcsncpy_s(TCHAR)|
@@ -67,6 +67,7 @@
 |문자열 비교|strncmp(char)|wcsncmp(whcar_t)|_tcsncmp(TCHAR)|
 |형식화된 문자열 만들기|_snprintf_s(char)|_swprintf_s(wchar_t)|_sntprintf_s(TCHAR)|
 |가변길이 문자열 만들기|_vsnprintf(char)|_vsnwprintf(wchar_t)|_vsntprintf(TCHAR)|
+
 
 #### MultiByteToWideChar
 ```C++
@@ -104,7 +105,7 @@ int main()
 - 포함하는 매크로된 함수이다.
 - "l" 을 붙이고 끝에 A면 MBCS 방식이고 W면 WBCS 방식이 된다.
 
-### Win32 에서 쓰이는 문자형
+### Win32 에서 쓰이는 문자타입
 
 |-|Win32에서 기본적으로 쓰이는 문자타입|Win32식 문자타입|
 |:---|:---|:---|
