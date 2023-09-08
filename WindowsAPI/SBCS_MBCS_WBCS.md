@@ -58,11 +58,11 @@
 - 유니코드 플랫폼의 경우 TCHAR은 WCHAR 유형과 동의어로 정의됩니다.
 
  
-#### 문자열 함수
+#### 안전한 문자열 함수
 |SBCS|WBCS|MBCS + WBCS|
 |:---|:---|:---|
 |strlen|wcslen|_tcslen|
-|strcpy|wcscpy|_tcscpy|
+|strcpy_s(char)|wcsncpy_s(wchar_t)|_tcsncpy_s(TCHAR)|
 |strncpy|wcsncpy|_tcsncpy|
 |strcat|wcscat|_tcscat|
 |ctrncat|wcsncat||
@@ -70,10 +70,10 @@
 |strncmp|wcsncmp|_tcsncmp|
 
 
-#### 입출력 함수
+#### 안전한 입출력 함수
 |SBCS|WBCS|MBCS + WBCS|
 |:---|:---|:---|
-|printf|wprintf|_tprintf|
+|_snprintf_s(char)|_swprintf_s(wchar_t)|_sntprintf_s(TCHAR)|
 |scanf|wscanf|_tscanf|
 |fgets|fgetws|_fgetts|
 |fputs|fputws|_fputts|
