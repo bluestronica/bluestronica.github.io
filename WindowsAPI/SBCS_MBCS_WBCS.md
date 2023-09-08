@@ -71,8 +71,8 @@
 
 #### wcsncpy_s
 ```C++
-// strDest 변하는 문자열이니 const 없이 받았고
-// strSource는 변하지 않아야할 문자열이니 const로 받았다.
+// strDest는 변하는 문자열이니 const 없이 받았고
+// strSource는 변하지 않아야 할 문자열이니 const로 받았다.
 errno_t wcsncpy_s( wchar_t* strDest, strDest의 크기,
                       const whcar_t* strSouce, 복사할 문자 수 );
 
