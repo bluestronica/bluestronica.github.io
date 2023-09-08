@@ -212,7 +212,34 @@
         string s{ 'a', 'b', 'c' };
         regex rgx{ 'x', 'y', 'z' };
         ```
+    - 단점
+        - 초기화 리스트를 인자로 받는 생성
+        ```C++
+        class Knight {
+        public:
+            Knight() {
+        
+            }
+        
+            Knight(int a, int b) {
+                cout << "Knight(int, int)" << endl;
+            }
+        
+            // 우선순위 짱
+            Knight(initializer_list<int> li) {
+                cout << "Knight(initializer_list)" << endl;
+            }
+        };
 
+        ///////
+
+        Knight k{ 1, 2 };
+
+
+        // 중괄호를 사용하게 되면 무조건 초기화 리스트를 인자로 받는 생성자가 호출된다.
+        // 우선순위가 가장 높기 때문이다.
+        // int 타입의 인자 두 개를 받는 생성자를 호출하고 싶으면 일반 괄호를 사용해야 한다.
+        ``` 
 
 - #### 클래스의 멤버 함수
     ```C++
