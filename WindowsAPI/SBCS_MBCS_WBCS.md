@@ -66,7 +66,7 @@
 |문자열 복사|strncpy_s(char)|wcsncpy_s(wchar_t)|_tcsncpy_s(TCHAR)|
 |문자열 합치기|strncat_s(char)|wcsncat_s(wchar_t)|_tcsncat_s(TCHAR)|
 |문자열 비교|strncmp(char)|wcsncmp(whcar_t)|_tcsncmp(TCHAR)|
-|형식화된 문자열 만들기|_snprintf_s(char)|_swprintf_s(wchar_t)|_sntprintf_s(TCHAR)|
+|형식화된 문자열 만들기|_snprintf_s(char)|_snwprintf_s(wchar_t)|_sntprintf_s(TCHAR)|
 |가변길이 문자열 만들기|_vsnprintf(char)|_vsnwprintf(wchar_t)|_vsntprintf(TCHAR)|
 
 #### wcsncpy_s
