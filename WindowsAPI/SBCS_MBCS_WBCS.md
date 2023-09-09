@@ -73,7 +73,7 @@
 ```C++
 //c-style
 WCHAR szbuffer[1024] = { 0, };
-_snwprintf_s(szbuffer, 1024, L"FPS : %d , DeltaTime : %f", fps_, (float)delta_time_);
+_snwprintf_s(szbuffer, 1024, L"FPS : %d , DT : %f", fps, delta_time);
 ```
 
 #### wcsncpy_s
