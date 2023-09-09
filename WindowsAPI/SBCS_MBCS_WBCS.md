@@ -69,6 +69,13 @@
 |형식화된 문자열 만들기|_snprintf_s(char)|_snwprintf_s(wchar_t)|_sntprintf_s(TCHAR)|
 |가변길이 문자열 만들기|_vsnprintf(char)|_vsnwprintf(wchar_t)|_vsntprintf(TCHAR)|
 
+#### _snwprintf_s
+```C++
+//c-style
+WCHAR szbuffer[1024] = { 0, };
+_snwprintf_s(szbuffer, 1024, L"FPS : %d , DeltaTime : %f", fps_, (float)delta_time_);
+```
+
 #### wcsncpy_s
 ```C++
 // strDest는 변하는 문자열이니 const 없이 받았고
