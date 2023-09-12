@@ -7,6 +7,9 @@
 |`Ctrl + F4`|현재 문서 닫기|
 |`Ctrl + Shift + X`|클래스 마법사|
 |`ctrl + Shift + A`|새항목 추가|
+|`Ctrl + k + c`|주석 처리|
+|`Ctrl + k + u`|주석 해제|
+|`Ctrl + Space`|Intellisense(단어 추천 목록) 띄우기|
 |`Ctrl + ]`|괄호, 대괄호 이동|
 |`Alt + Shift + T`|라인 바꾸기|
 |`Alt + Shift + 방향키`|수직 범위선택|
@@ -19,6 +22,9 @@
 |`Ctrl + R + R`|이름 바꾸기|
 |`Ctrl + F `|찾기|
 |`Ctrl + H`|바꾸기|
+
+
+ 
 
 ### 1. Quick Refactoring / Referencing
 #### 리팩터링 할 때 쓸 만한 단축키
