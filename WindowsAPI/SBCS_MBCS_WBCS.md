@@ -95,6 +95,18 @@ wcsncpy_s( szDest, 256, szSource, 4);
 wcsncpy_s( szDest, 256, szSource, 256-1 );
 ```
 
+#### wcsncat_s
+```C++
+errno_t wcsncat_s( wchar_t* strDest, strDest의 크기,
+                      const whcar_t* strSouce, 합칠 문자 수 );
+
+wchar_t szcontent_path_[255] = {0, };
+wchar_t szSource[] = L"\\bin\\content\\";  // 문자 수 : 14
+
+wcsncat_s(szcontent_path_, 255, L"\\bin\\content\\", 14);
+```
+
+
 #### MultiByteToWideChar
 ```C++
 #include <windows.h>
