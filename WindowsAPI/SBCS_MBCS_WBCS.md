@@ -108,10 +108,10 @@ wcsncat_s(szcontent_path_, 255, szSource_, 14);
 // or
 // 널문자를 위해,
 // szSource의 널문자까지만 복사한다.
-// 255문자를 복사하는 것이 아니다.
+// 255문자를 복사하는 것이 아님!!!
 wcsncat_s( szDest, 256, szSource, 255-1 );
-```
 
+```
 
 #### MultiByteToWideChar
 ```C++
