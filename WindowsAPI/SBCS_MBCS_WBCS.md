@@ -104,6 +104,12 @@ wchar_t szcontent_path_[255] = {0, };   // 원본 문자
 wchar_t szSource_[] = L"\\bin\\content\\";  // 합칠문자 수 : 14
 
 wcsncat_s(szcontent_path_, 255, szSource_, 14);
+
+// or
+// 널문자를 위해,
+// szSource의 널문자까지만 복사한다.
+// 255문자를 복사하는 것이 아니다.
+wcsncat_s( szDest, 256, szSource, 255-1 );
 ```
 
 
