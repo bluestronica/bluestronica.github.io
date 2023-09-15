@@ -12,10 +12,18 @@
 
 
 ## c-style
-- 모든 문자 표현은 c-style로 작성한다.
-- const wchar_t*
-  - 수정 불가한 문자열
-- wchar_t[]
-  - 수정 가능한 문자열     
+모든 문자 표현은 c-style로 작성한다.
+```C++
+// 수정 불가한 문자 : 데이타 섹션에 저장
+const wchar_t* sz = L"\\bin\\content\\";
+
+// 수정 가능한 문자열 : 스택에 저장
+wchar_t dest[255] = {0, };
+wchar_t source[] = L"\\bin\\content\\";
+size_t source_length = wcsnlen_s(source, 255);
+
+wcsncat_s(dest, 255, source , source_length);
+```
+
 
 ## Resource
