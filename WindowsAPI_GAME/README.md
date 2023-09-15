@@ -45,9 +45,15 @@
 - CObject
 
 
-
+WindowAPIGame_21_24.md
 ### [WindowsAPI Game - 01 ~ 20](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_19_20.md)
 - 01 ~ 20화 정리
+
+
+### [WindowsAPI Game - 21 ~ 24 (Path & Resource)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_21_24.md)
+- Path
+- Resource
+
 
 
 
