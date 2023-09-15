@@ -9,6 +9,10 @@
 #### 기본 폴더 작성
 main.cpp
 - PeekMessageW()
+- memory leak check
+  - `#include <crtdbg.h>` 
+  - `_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF)`
+  - `_CrtSetBreakAlloc(138)`
 - Engine/Core
 - Engine/Default
 
