@@ -27,3 +27,17 @@ wcsncat_s(dest, 255, source , source_length);
 
 
 ## Resource
+
+### ResourceMgr
+texture, sound 등 자원을 관리한다.
+- Texture* LoadTexture()
+- map<const wchar_t*, Texture*> textures_
+- Texture* FindTexture(const wchar_t* key)
+
+### GameResource
+- key
+- relative_path
+
+#### Texture
+
+#### Sound
