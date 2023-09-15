@@ -41,10 +41,13 @@ wcsncat_s(dest, 255, source , source_length);
 ## Resource
 
 ### ResourceMgr
-texture, sound 등 자원을 관리한다.
+texture, sound 등 자원을 전체적으로 관리한다.
+리소스가 없으면 로딩해서 주고, 있으면 생성된 걸 지급한다.
 - Texture* LoadTexture()
   - 비트맵 이미지 하나당 Texture class 하나 저장 그래서 중복 체크해서 없으면
-  - Texture 생성한다. 
+  - Texture 생성한다.
+  - 즉, 첫번째 플레이어가 최초 로딩을 시도할 것이고
+  - 그 다음부터는 생성된 이후의 플레이어들은 생성된 것을 지급받는다.
 - map<const wchar_t*, Texture*> textures_
   - 저장하고 관리한다. 
 - Texture* FindTexture(const wchar_t* key)
@@ -64,74 +67,69 @@ texture, sound 등 자원을 관리한다.
 #### Sound
 
 
-### Player
-player에 Texture을 적용한다.
-- Texture* 을 ResourceMgr->LoadTexture 함수로 받아서
-- Randering 한다.
-  - BitBlt()
+## Player
+메모리적인 측면에서 리소스를 사용하려는 모습은 플레이어, 몬스터 이런 생성자에서 직접 텍스처를 로딩하는게 아니라 리소스를 관리하는 담당 매니저를 통해서 리소스를 로딩해야한다.
+
+- player에 Texture을 적용한다.
+  - player 생성될 때 Texture 로딩한다.
+  - Texture* 을 ResourceMgr->LoadTexture 함수로 받아서
+  - Randering 한다.
+    - BitBlt()
 
 
 ## BITMAP
 
 ### 비트맵을 다루는 두 가지 방법
-
-1. 비트맵을 리소스에 등록하여 사용
-  a.비트맵 이미지를 VC에 넣어서 사용
-  b.그래서 실행파일과 같이 만들어지기 때문에
-  c.실행파일 용량이 커진다.
-  d.단점이 크다.
-
-2. LoadImage() 함수를 이용하여 파일 경로로부터 읽어내는 방법
+- 1. 비트맵을 리소스에 등록하여 사용
+  - 비트맵 이미지를 VC에 넣어서 사용
+  - 그래서 실행파일과 같이 만들어지기 때문에 실행파일 용량이 커진다.
+  - 단점이 크다.
+- 2. LoadImage() 함수를 이용하여 파일 경로로부터 읽어내는 방법
   - 복잡하지만 많이 사용
 
-
 ### 비트맵을 읽어 출력하는 순서
-1. 비트맵의 핸들을 얻는다.
-  a. LoadBitmap()
-  b. LoadImage()
-
-2. 메모리 DC 생성
-  a. 이미지를 메모리에 적정하기 위해
-  b. CreateCompatibleDC()
-
-3. 메모리 DC에 비트맵 적용(복사)
-  a. 만들어진 메모리 DC에는 아무것도 없다.
-  b. 그래서 핸들과 메모리 DC를 연결 시켜준다.
-  c. SelectObject()
-
-4. 비트맵 출력
-  a.BitBle(bm.bmWidth, bm.bmHeight, SRCCOPY);
-
-5. 메모리 DC와 비트맵 제거
-  a. DeleteDC()
-  b. DeleteObject()
-
+- 1. 비트맵의 핸들을 얻는다.
+  - LoadBitmap()
+  - LoadImage()
+- 2. 메모리 DC 생성
+  - 이미지를 메모리에 적정하기 위해
+  - CreateCompatibleDC()
+- 3. 메모리 DC에 비트맵 적용(복사)
+  - 만들어진 메모리 DC에는 아무것도 없다.
+  - 그래서 핸들과 메모리 DC를 연결 시켜준다.
+  - SelectObject()
+- 4. 비트맵 출력
+  - BitBle(bm.bmWidth, bm.bmHeight, SRCCOPY);
+- 5. 메모리 DC와 비트맵 제거
+  - DeleteDC()
+  - DeleteObject()
 
 ### 비트맴 확대축소 출력 함수
-1. StretchBlt()
-  a. 확대축소
-2. TransparentBlt()
-  a. 확대축소
-  b. 특정색 제외하고 출력
-  c. msimg32.lib 라이브러리 추가
-    i. 설정
-    ii. 링커
-    iii. 입력
-    추가 종속성->편집(msimg32.lib)
+- 1. StretchBlt()
+  - 확대축소
+- 2. TransparentBlt()
+  - 확대축소
+  - 특정색 제외하고 출력
+  - msimg32.lib 라이브러리 추가
+    - 설정
+    - 링커
+    - 입력
+    - 추가 종속성->편집(msimg32.lib)
+    - `#pragma comment(lib, "Msimg32.lib")`
 
 ### 비트맵 정보
-1. BITMAP 구조체
-  a. int bmType
-  b. int bmWidth
-  c. int bmHeight
-  d. int bmWidthBytes
-  e. BYTE bmPlanes
-  f. BYTE bmBitsPixel
-  g. LPVOID bmBits
-2. GetObject()
-  a. BITMAP에 대한 정보를 알 수 있다.
-  b. bm.bmWidth
-  c. bm.bmHeight
+- 1. BITMAP 구조체
+  - int bmType
+  - int bmWidth
+  - int bmHeight
+  - int bmWidthBytes
+  - BYTE bmPlanes
+  - BYTE bmBitsPixel
+  - LPVOID bmBits
+- 2. GetObject()
+  - BITMAP에 대한 정보를 알 수 있다.
+  - bm.bmWidth
+  - bm.bmHeight
 
 
 
