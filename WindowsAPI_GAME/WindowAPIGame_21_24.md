@@ -4,13 +4,11 @@
 경로를 관리하는 클래스
 - Init()
 - const wchar_t* GetContentPath()
-- wchar_t[] content_path_
-  - 절대경로
-    - solution 폴더까지 절대경로 값을 얻는다.
-  - 상대경로
-    - resource가 폴더까지 경로를 지정한다.
+- wchar_t content_path_[255]
+  - solution 폴더까지 절대경로 값을 얻는다.
+  - solution에서 resource가 있는 폴더까지 경로를 지정한다.
   - content_path_
-    - 절대경로 + 상대경로
+    - solution 경로 + resource 경로
 
 
 ## c-style
