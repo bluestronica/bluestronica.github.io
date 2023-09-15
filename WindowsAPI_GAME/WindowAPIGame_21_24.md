@@ -63,6 +63,7 @@ texture, sound 등 자원을 전체적으로 관리한다.
 - Uint GetWidth()
 - Uint GetHeight()
 - HDC GEtMemoryDC()
+- friend calss GameResource
 
 #### Sound
 
