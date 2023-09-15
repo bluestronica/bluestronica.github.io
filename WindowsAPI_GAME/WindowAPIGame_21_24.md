@@ -133,7 +133,23 @@ texture, sound 등 자원을 전체적으로 관리한다.
 
 
 
-
+### Windows Api 그래픽 출력 정리
+1. 그래픽 출력
+  - GDI
+  - DC
+2. 스톡 오브젝트와 커스텀 오브젝트
+  - 펜, 브러시
+3. 도형 출력
+4. SelectObject(), DeleteObject()
+5. 메모리 DC 사용순서
+6. 비트맵 다루기
+  - CreateCompatibleDC()
+  - DeleteDC()
+7. BitBlt(),
+8. StretchBlt(),
+9. TransparentBlt()
+  - wingdi.h(Windows.h 포함)
+  - Msimg32.lib(구현부분)
 
 
 
