@@ -157,9 +157,12 @@ Render()
   - PI = 180
     - θ를 실수로 표현하기 위해 radian을 사용한다.
   - x_direction
-    - cosθ * position.x
+    - cosθ
   - y_direction
-    - sinθ * position.y
+    - sinθ
+  - **크기와 방향을 가진 theta**
+    - position.x * cosθ
+    - position.y * sinθ
   
 - **vector**
   - 어떤 크기와 방향을 가진 벡터를 단위백터로 만든다.
@@ -169,9 +172,9 @@ Render()
   - 크기
     - position.x
     - position.y
-  - 크기와 방향을 가진 벡터를 만들기
-    - position.x * 단위벡터
-    - position.y * 단위벡터
+  - **크기와 방향을 가진 vector**
+    - position.x * unit_vector.x
+    - position.y * unit_vector.y
    
 
 
