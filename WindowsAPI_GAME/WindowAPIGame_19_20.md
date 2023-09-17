@@ -161,6 +161,9 @@ Render()
       - cosθ
     - y_direction
       - sinθ
+  - 크기
+    - position.x
+    - position.y
   - **크기와 방향을 가진 theta**
     - position.x * cosθ
     - position.y * sinθ
