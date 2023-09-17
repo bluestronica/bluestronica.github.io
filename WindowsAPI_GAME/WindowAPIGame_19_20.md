@@ -151,3 +151,31 @@ Render()
     - 들어가면 이동 거리에 영향을 받는다.
     - 그래서 방향은 같고 크기(길이)가 1인
     - 순수 방향을 나타내는 단위 벡터를 사용한다.
+
+#### Direction
+- **theta(θ)**
+  - PI = 180
+    - θ를 실수로 표현하기 위해 radian을 사용한다.
+  - x_direction
+    - cosθ * position.x
+  - y_direction
+    - sinθ * position.y
+  
+- **vector**
+  - 어떤 크기와 방향을 가진 벡터를 단위백터로 만든다.
+  - 단위벡터
+    - 정규화 과정을 거쳐서 만든다.
+    - 단위벡터는 순수 방향만 가진다.
+  - 크기
+    - position.x
+    - position.y
+  - 크기와 방향을 가진 벡터를 만들기
+    - position.x * 단위벡터
+    - position.y * 단위벡터
+   
+
+
+
+
+
+
