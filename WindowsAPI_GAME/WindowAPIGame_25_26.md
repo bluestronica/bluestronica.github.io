@@ -56,6 +56,14 @@
 - 구체적으로 충돌이 제대로 진행되는지를 시각적으로 표현해 줄 필요가 있다.
   - 초종 릴리즈 버전에서 기능을 끄면 된다.
   - 그래서 Colldier에 랜더링 구현 함수를 만든다.
+- Colldier::Render
+  - Rectangle
+  - Win32에서 매 랜더링마다 Brush, Pen 생성과 선택과 다시 되돌려주는 이런 과정이 너무 비효율적이다.
+  - 그래서 Core에서 Brush, Pen을 미리 생성
+- 그리는 과정을 추상화
+  - Module/SelejctGDI/SelectGDI.cpp
+  - SelectGDI(memory_dc, EBrushType::Hollow);
+  - SelectGDI(memory_dc, EPenType::Green);
 
 
 
