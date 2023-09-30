@@ -34,12 +34,13 @@
   - Collider 생성과 제거는 Object가 책임진다.
     - Player->CreateCollier
     - Monster->CreateCollider
-  - Collider는 Object에 달라붙어서 그 Object에 바운딩 박스 즉 Object의 어떤 영역을 검사한다.
-    - Object가 움직일 때, Collider도 같이 따라 움직여야 한다.
-    - Collider도 자신을 생성한 Object의 정보를 가지고 있어야 한다.
-      - ownder_
-      - friend class Object;
-    - 그렇게 함으로써 Collider와 Object는 서로 쌍방 연결이 된 것이다. 
+- Collider는 Object에 달라붙어서 그 Object에 바운딩 박스 즉 Object의 어떤 영역을 검사한다.
+  - Object가 움직일 때, Collider도 같이 따라 움직여야 한다.
+  - 그래서 Collider도 자신을 생성한 Object의 정보를 가지고 있어야 한다.
+    - ownder_
+    - friend class Object
+  - 그렇게 함으로써 Collider와 Object는 서로 쌍방 연결이 된 것이다.
+- Update
 
 
 
