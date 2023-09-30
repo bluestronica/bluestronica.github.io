@@ -42,6 +42,9 @@
     - friend class Object
   - 그렇게 함으로써 Collider와 Object는 서로 쌍방 연결이 된 것이다.
 - Update
+  - 프레임마다 Object가 업데이트 한번씩 돌고 나면 Collider도 업데이트 한번씩 돌아야 한다.
+  - Engin 구조상 매 Update마다(프레임마다, deltatime 시간동안) 필수적으로 해야하는 일들이 있다.
+  - 
 
 
 
