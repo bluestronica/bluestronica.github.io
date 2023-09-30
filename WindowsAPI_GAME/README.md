@@ -55,6 +55,11 @@ WindowAPIGame_21_24.md
 - Resource
 
 
+### [WindowsAPI Game - 25 ~ 26(Collider)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_25_26.md)
+- 컴포넌트 기반으로 하는 객체 설계
+- 추상화 - SelctGDI
+
+
 
 
 
