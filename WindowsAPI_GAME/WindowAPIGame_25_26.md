@@ -41,10 +41,21 @@
     - ownder_
     - friend class Object
   - 그렇게 함으로써 Collider와 Object는 서로 쌍방 연결이 된 것이다.
-- Update
+- Engin 구조상 매 Update마다(프레임마다, deltatime 시간동안) 필수적으로 해야하는 일들이 있다.
   - 프레임마다 Object가 업데이트 한번씩 돌고 나면 Collider도 업데이트 한번씩 돌아야 한다.
-  - Engin 구조상 매 Update마다(프레임마다, deltatime 시간동안) 필수적으로 해야하는 일들이 있다.
-  - 
+- FinalUpdate의 임무는 Collider가 Player를 따라가게 하는 일
+  - 모든 물체들이 다 업데이트가 되면 충돌체(collider)를 보유하고 있는 오브젝트(object)들은 충돌체가 오브젝트 위치로 따라갈 수 있게 마무리 지어주는 작업을 한다.
+  - 그리고 나서 랜더링이 되기 때문에 내 눈에서는 오브젝트와 충돌체가 분리된 느낌을 절대 받을 수 없다.
+  - SinMgr->scene->finalUpdat(collider::funalUpdate)
+- Collider FinalUpdat를 위한 Member 구성
+  - offset
+    - 자체 포지션을 가지기 위해 Object의 포지션을 중심으로 상대적인 거리 값을 구한다.
+  - position
+  - scale
+    - 이번 프로젝트에서는 오브젝트 scale 변경이 없기때문에 사이즈를 절대값으로 한다.
+- 구체적으로 충돌이 제대로 진행되는지를 시각적으로 표현해 줄 필요가 있다.
+  - 초종 릴리즈 버전에서 기능을 끄면 된다.
+  - 그래서 Colldier에 랜더링 구현 함수를 만든다.
 
 
 
