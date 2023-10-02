@@ -60,6 +60,10 @@ WindowAPIGame_21_24.md
 - 추상화 - SelctGDI
 
 
+### [WindowsAPI Game - 27 ~ 28 (Collider)](https://github.com/bluestronica/bluestronica.github.io/blob/main/WindowsAPI_GAME/WindowAPIGame_27_28.md)
+- 충돌체와 충돌체간의 충돌
+
+
 
 
 
