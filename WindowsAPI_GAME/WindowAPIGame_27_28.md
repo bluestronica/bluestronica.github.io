@@ -7,10 +7,14 @@
 - Player -> EObjectsGroupby::PALAYER
 - Monster -> EObjectsGroupby::MONSTER
 
-### 충돌 지정
-
+### 충돌체 지정
+- Start Scene에 진입(Enter)하고 Object 생성 등록 후 마지막에 충돌체을 지정한다.
 
 ### 충돌 검사
+- 물체들이 업데이트를 하고 그 다음 파이널 업데이트까지 한 후 충돌검사를하고 랜더링이 되어야 한다.
+- 즉, Core에서 SceneMgr의 Update가 끝난 후 CollisionMgr의 Update가 실행 된 후 랜더링으로 넘어간다.
+- 그리고 어떤 그룹이랑 어떤 그룹들이 충돌해줄지를 해당 Scene이 Enter진입하고 맨 마지막에 지정을 해준다.
+- 그 다음 충돌 검사한다. 업데이트 돌 때 충돌 검사도 진행이 된다.
 
 ### 충돌 진행
 
