@@ -24,6 +24,8 @@
     - 4바이트 부호없는 정수가 비트 32개(하나의 그룹이 32개의 그룹에 일대일 대응)
       - (M x N)
   - `size_t collision_checks_[(size_t)EObjectsGroupby::END];`
+  - `CheckCollision(EObjectsGroupby left_group_type, EObjectsGroupby right_group_type)`
+    - CheckCollision 함수는 지정한 그룹을 알려주면 그룹의 비트자리를 체크해준다.
 
 
 
