@@ -9,8 +9,8 @@
 
 - Bitwise **`AND`** , Operator **`&`**
   - **둘다 값이 같으면 1**
-  - 특정 비트가 커져(1) 있는지 확인
-  - 즉, 비트의 상태를 알 수 있다.
+  - 비트의 **상태**를 알 수 있다.
+    - 특정 비트가 커져(1) 있는지 확인
   ```c
   int main(void)
   {
@@ -20,7 +20,7 @@
     unsigned char mask = 0x01;  // 0000 0001
                                 // data 1번 비트가 커져있는지 상태 확인
     
-    if(data & mask) // 상태 확인을 위해 & 연산
+    if(data & mask) 	// 상태 확인을 위해 & 연산
     {
        printf("data has mask set\n");
     }
