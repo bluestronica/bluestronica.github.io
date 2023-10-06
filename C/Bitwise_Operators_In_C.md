@@ -10,46 +10,47 @@
 - Bitwise **`AND`** , Operator **`&`**
   - **둘다 값이 같으면 1**
   - 비트의 **상태**를 알 수 있다.
-    - 특정 비트가 커져(1) 있는지 확인ㅓ
-    - `if(data & mask)`
+    - 특정 비트가 커져(1) 있는지 확인
+    - `if(data **&** mask)`
 
-  ```c
-  int main(void)
-  {
-    int a = 12, b = 25;
-    
-    unsigned char data = 0xFF;  // 1111 1111
-    unsigned char mask = 0x01;  // 0000 0001
-                                // data 1번 비트가 커져있는지 상태 확인
-    
-    if(data & mask)  // 상태 확인을 위해 & 연산
-    {
-       printf("data has mask set\n");
-    }
-    else
-    {
-       printf("data does not have mask set\n");
-    }
-    return 0;
-  }
-  ```
+```c
+int main(void)
+{
+int a = 12, b = 25;
+
+unsigned char data = 0xFF;  // 1111 1111
+unsigned char mask = 0x01;  // 0000 0001
+			// data 1번 비트가 커져있는지 상태 확인
+
+if(data & mask)  // 상태 확인을 위해 & 연산
+{
+printf("data has mask set\n");
+}
+else
+{
+printf("data does not have mask set\n");
+}
+return 0;
+}
+```
+
 - Bitwise **`OR`** Operator **`|`**
-  - **둘 중 하나라도 1이면 결과가 1**이 되는 특성이 있다.
-  - 비트를 켤(1) 수 있다.
-  ```c
-  int main(void) 
-  {
-    int a = 12, b = 25;
-    
-    unsigned char data = 0x00;  // 0000 0000
-    unsigned char mask = 0x01;  // 0000 0001 , data 1번 비트 켜기
-    
-    printf("Output = %d", a | b); // Output = 29
-    printf("Output = %d", data | mask); // 0000 0001 Output = 1
+- **둘 중 하나라도 1이면 결과가 1**이 되는 특성이 있다.
+- 비트를 켤(1) 수 있다.
+```c
+int main(void) 
+{
+int a = 12, b = 25;
 
-    return 0;
-  }
-  ```
+unsigned char data = 0x00;  // 0000 0000
+unsigned char mask = 0x01;  // 0000 0001 , data 1번 비트 켜기
+
+printf("Output = %d", a | b); // Output = 29
+printf("Output = %d", data | mask); // 0000 0001 Output = 1
+
+return 0;
+}
+```
 - Bitwise **`XOR`** (exclusive OR) Operator **`^`**
   - **두 개가 같으면 0**, 다르면 1인 특성이 있다.
   - 비트를 토글(toggle)할 수 있다.
