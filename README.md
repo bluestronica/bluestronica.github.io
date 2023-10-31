@@ -5,7 +5,7 @@
 - ###  [Windows API](https://bluestronica.github.io/WindowsAPI/) 
 - ###  [Windows API - Game](https://bluestronica.github.io/WindowsAPI_GAME/) 
 - ###  [CPP](https://bluestronica.github.io/CPP/)
-- ###  [CppCoreGuidelines](https://bluestronica.github.io/CppCoreGuidelines/)  
+- ###  [CPP CoreGuidelines](https://bluestronica.github.io/CppCoreGuidelines/)  
 - ###  [MFC](https://bluestronica.github.io/MFC/)  
 - ###  [Console](https://bluestronica.github.io/Console/)
 - ###  [Algorithms](https://bluestronica.github.io/Algorithms/)
