@@ -12,13 +12,21 @@
   struct AnimationInfo;
   ```
 2. 메서드는 동사-목적어 쌍으로 표기 
-  - a. public 메서드의 이름은 파스칼 표기법
+  - a. public 메서드는 파스칼 표기법
     ```C++
     public:
       void DoSomething();
     ```
- - b. 그 외 다른 메서드들은 카멜 표기법
+ - b. 그 외 다른 메서드는 카멜 표기법
     ```C++
     private:
       void doSomething();
     ```
+3. 지역 변수 그리고 함수의 매개 변수는  카멜 표기법
+  ```C++
+   void SomeMethod(const int someParameter);
+   {
+       int someNumber;
+       int id;
+   }
+  ```
