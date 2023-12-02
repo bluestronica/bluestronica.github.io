@@ -11,7 +11,7 @@
   class PlayerManager;
   struct AnimationInfo;
   ```
-2. 메서드 이름은 동사-목적어 쌍으로 표기한다.
+2. 메서드 이름은 동사-목적어 쌍으로 표기한다. 
 - a. public 메서드의 이름은 파스칼 표기법을 따른다.
     ```C++
     public:
