@@ -7,7 +7,7 @@
 
 ### 메인 코딩 표준
 1. 클래스 구조체의 이름은 파스칼 표기법을 따른다.
-```C++
-class PlayerManager;
-struct AnimationInfo;
-```
+  ```C++
+  class PlayerManager;
+  struct AnimationInfo;
+  ```
