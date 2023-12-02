@@ -6,8 +6,19 @@
 3. 기본적으로 통합개발환경(IDE)의 자동 서식을 따른다.
 
 ### 메인 코딩 표준
-- 1. 클래스 구조체의 이름은 파스칼 표기법을 따른다.
+1. 클래스 구조체의 이름은 파스칼 표기법을 따른다.
   ```C++
   class PlayerManager;
   struct AnimationInfo;
   ```
+2. 메서드 이름은 동사-목적어 쌍으로 표기한다.
+  - public 메서드의 이름은 파스칼 표기법을 따른다.
+    ```C++
+    public:
+      void DoSomething();
+    ```
+  - 그 외 다른 메서드의 이름은 카멜 표기법을 따른다.
+    ```C++
+    private:
+      void doSomething();
+    ```
