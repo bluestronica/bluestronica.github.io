@@ -63,9 +63,35 @@
    class ISomeInterface;
    ```
 
+7. 클래스 맴버 변수에 접근할 때는 항상 setter와 getter를 사용한다.
+```C++
+  class Employee
+  {
+  public:
+      const string& GetName() const;
+      void SetName(const string& name);
+  private:
+      string name_;
+  }
+```
 
+8. 구조체는 오직 public 멤버 변수만 가질 있다. 구조체의 멤버 변수명은 카멜 표기법을 따르며, 구조체 안에서는 함수는 사용하지 않는다.
+```C++
+  struct Vec
+  {
+    float x;
+    float y;
+  }
+```
 
-
+9. const
+  - 원칙적으로 모든 곳에 const를 사용한다. 여기에는 지역 변수와 함수 매개 변수도 포함된다.
+  - 개체를 수정하지 않는 멤버 함수에는 모두 `const`를 붙인다.
+    ```C++
+    int GetAge() const;
+    ```
+  - 값(value)  형식의 변수를 const로 반환하지 않는다.
+  - 포인터나 참조(reference)를 반환할 경우에만 `const` 반환한다.
 
 
 
