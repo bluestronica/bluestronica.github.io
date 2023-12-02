@@ -30,3 +30,11 @@
        int id;
    }
   ```
+4. 클래스 맴버 변수명은 끝에 **_**를 붙인다.
+  ```C++
+  private:
+  	void createBrushPen();
+  
+  	HWND	main_hwnd_;
+    POINT	resolution_;
+  ```
