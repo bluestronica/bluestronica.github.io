@@ -13,12 +13,12 @@
   ```
 
 2. 메서드는 동사-목적어 쌍으로 표기 
-  - a. public 메서드는 파스칼 표기법
+  - public 메서드는 파스칼 표기법
     ```C++
     public:
       void DoSomething();
     ```
- - b. 그 외 다른 메서드는 카멜 표기법
+ - 그 외 다른 메서드는 카멜 표기법
     ```C++
     private:
       void doSomething();
@@ -33,12 +33,12 @@
    }
   ```
 
-4. 클래스 맴버 변수명은 끝에 `_` 를 붙인다.
+4. 클래스 맴버 변수명은 소문자로 표현하고 끝에 `_` 를 붙인다.
   ```C++
   class Core
   {
   protected:
-    int department_id;
+    int department_id_;
   private:
     HWND	main_hwnd_;
     POINT	resolution_;
