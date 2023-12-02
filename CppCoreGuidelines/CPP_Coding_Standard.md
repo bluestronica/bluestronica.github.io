@@ -35,7 +35,50 @@
 
 4. 클래스 맴버 변수명은 끝에 `_` 를 붙인다.
   ```C++
+  class Core
+  {
+  protected:
+    int department_id;
   private:
     HWND	main_hwnd_;
     POINT	resolution_;
+  }
   ```
+
+5. 열거형은 앞에 `E`를 붙인다.
+   ```C++
+   enum class ESceneType
+   {
+     START,
+     LEVEL1,
+     LEVEL2,
+     TOOL,
+  
+     END
+   };
+   ```
+
+6. 인터페이스는 앞에 `I`를 붙인다.
+   ```C++
+   class ISomeInterface;
+   ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
