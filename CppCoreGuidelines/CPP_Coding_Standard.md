@@ -24,11 +24,11 @@
       void doSomething();
     ```
 
-3. 지역 변수 그리고 함수의 매개 변수는  카멜 표기법
+3. 지역 변수 그리고 함수의 매개 변수는 소문자
   ```C++
-   void SomeMethod(const int someParameter);
+   void SomeMethod(const int some_parameter);
    {
-       int someNumber;
+       int some_number;
        int id;
    }
   ```
