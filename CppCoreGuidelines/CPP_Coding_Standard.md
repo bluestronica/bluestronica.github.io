@@ -46,22 +46,22 @@
   ```
 
 5. 열거형은 앞에 `E`를 붙인다.
-   ```C++
-   enum class ESceneType
-   {
-     START,
-     LEVEL1,
-     LEVEL2,
-     TOOL,
-  
-     END
-   };
-   ```
+ ```C++
+ enum class ESceneType
+ {
+   START,
+   LEVEL1,
+   LEVEL2,
+   TOOL,
+
+   END
+ };
+ ```
 
 6. 인터페이스는 앞에 `I`를 붙인다.
-   ```C++
-   class ISomeInterface;
-   ```
+ ```C++
+ class ISomeInterface;
+ ```
 
 7. 클래스 맴버 변수에 접근할 때는 항상 setter와 getter를 사용한다.
 ```C++
