@@ -158,15 +158,17 @@ Render()
     - θ를 실수로 표현하기 위해 radian을 사용한다.
   - 방향
     - x_direction
-      - cosθ
+      - cosθ : θ는 PI/2.f : PI는 180도 고로 90도 방향을 나타내고 있다.
     - y_direction
-      - sinθ
+      - sinθ : θ는 PI/2.f : PI는 180도 고로 90도 방향을 나타내고 있다.
   - 크기
     - position.x
     - position.y
   - **크기와 방향을 가진 theta**
     - position.x * cosθ
+      - position.x * cosf(PI/2.f)
     - position.y * sinθ
+      - positiond.y * sinf(PI/2.f)
   
 - **vector**
   - 어떤 크기와 방향을 가진 벡터를 단위백터로 만든다.
