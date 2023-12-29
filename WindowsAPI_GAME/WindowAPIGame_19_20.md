@@ -156,11 +156,12 @@ Render()
 - **theta(θ)**
   - PI = 180
     - θ를 실수로 표현하기 위해 radian을 사용한다.
+    - (PI/2.f)의 θ는 PI는 180도 고로 90도 방향을 나타내고 있다.
   - 방향
     - x_direction
-      - cosθ : θ는 PI/2.f : PI는 180도 고로 90도 방향을 나타내고 있다.
+      - cosθ 
     - y_direction
-      - sinθ : θ는 PI/2.f : PI는 180도 고로 90도 방향을 나타내고 있다.
+      - sinθ
   - 크기
     - position.x
     - position.y
