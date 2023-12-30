@@ -174,11 +174,11 @@ int main()
    
 ```C++
 const wchar_t* lpcwstr =  L"LPCWSTR에 문자열 만들기";
-size_t lpcwstr_length = wcslen(lpwstr); // lstrlenW()
+size_t lpcwstr_length = wcslen_s(lpwstr); // lstrlenW()
 
 
 const char* lpcstr =  "LPCSTR에 문자열 만들기";
-size_t lpcstr_length = strlen(lpwstr);
+size_t lpcstr_length = strlen_s(lpwstr);
 
 
 LPCTSTR lpcstr =  _TEXT("LPCSTR에 문자열 만들기");
