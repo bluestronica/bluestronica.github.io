@@ -1,9 +1,9 @@
 [bluestronica.github.io/WindowsAPI](https://bluestronica.github.io/WindowsAPI)
 
-# GDI, GDI Object, DC(Device Context)
+# DC(Device Context), GDI Object, GDI
 - GDI는 화면, 프린터와 같은 **모든 출력 장치를 제어하는 인터페이스이다.**
 - 그래픽을 출력하기 위해 사용되는 도구를 GDI Object라고 한다.
-- 펜, 브러쉬, 비트맵, 폰트 등이 GDI Object에 해당된다.
+- **펜, 브러쉬, 비트맵, 폰트 등이 GDI Object**에 해당된다.
 - 이러한 GDI Object는 **DC(Device Context)에 담겨져 있다.**
   - DC는 Win32에서 출력을 하기위한 Device Context라는 구조체이다.
   - 즉, **출력에 필요한 정보를 가지는 데이터 구조체**이며 좌표, 색, 굵기 등 출력에 필요한 모든 정보를 담고 있다.
