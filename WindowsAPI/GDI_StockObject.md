@@ -12,6 +12,7 @@
 ![img](Img/DC_GDI.png)
 - GDI Object는 DC에 담겨저 있고 GDI를 통해 출력 장치에 출력을 하게 된다.
 - 개발자는 GetDC, BeginPaint와 같은 함수를 통해 DC를 생성하게 된다.
+  - GetDC는 지정한 윈도우(창)의 DC를 가져온다.
 - GDI Object는 내부는 공개되어 있지 않기 때문에, 핸들을 이용해서 사용한다.
 - 기본적으로 DC가 만들어졌을 때 디폴트로 선택된 GDI Object는 다음과 같다.
 
