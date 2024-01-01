@@ -5,6 +5,8 @@
 - 그래픽을 출력하기 위해 사용되는 도구를 GDI Object라고 한다.
 - 펜, 브러쉬, 비트맵, 폰트 등이 GDI Object에 해당된다.
 - 이러한 GDI Object는 DC(Device Context)에 담겨져 있다.
+  - DC는 Win32에서 출력을 하기위한 Device Context라는 구조체이다.
+  - 즉, 출력에 필요한 정보를 가지는 데이터 구조체, 좌표, 색, 굵기 등 출려게 필요한 모든 정보를 담고 있다.
 - DC에서 원하는 내용을 변경하여 출력한다.
 - 그래서 여태까지 GetDC, BeginPaint와 같은 함수를 사용해 DC를 생성해 핸들을 얻어서 사용했던 것이다.
 ![img](Img/DC_GDI.png)
