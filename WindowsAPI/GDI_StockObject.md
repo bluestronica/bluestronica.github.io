@@ -1,18 +1,18 @@
 [bluestronica.github.io/WindowsAPI](https://bluestronica.github.io/WindowsAPI)
 
 # GDI, GDI 오브젝트, DC의 개념
-- GDI는 화면, 프린터와 같은 모든 출력 장치를 제어하는 인터페이스이다.
+- GDI는 화면, 프린터와 같은 **모든 출력 장치를 제어하는 인터페이스이다.**
 - 그래픽을 출력하기 위해 사용되는 도구를 GDI Object라고 한다.
 - 펜, 브러쉬, 비트맵, 폰트 등이 GDI Object에 해당된다.
-- 이러한 GDI Object는 DC(Device Context)에 담겨져 있다.
+- 이러한 GDI Object는 **DC(Device Context)에 담겨져 있다.**
   - DC는 Win32에서 출력을 하기위한 Device Context라는 구조체이다.
-  - 즉, 출력에 필요한 정보를 가지는 데이터 구조체이며 좌표, 색, 굵기 등 출력에 필요한 모든 정보를 담고 있다.
+  - 즉, **출력에 필요한 정보를 가지는 데이터 구조체**이며 좌표, 색, 굵기 등 출력에 필요한 모든 정보를 담고 있다.
 - DC에서 원하는 내용을 변경하여 출력한다.
 - 그래서 여태까지 GetDC, BeginPaint와 같은 함수를 사용해 DC를 생성해 핸들을 얻어서 사용했던 것이다.
 ![img](Img/DC_GDI.png)
 - GDI Object는 DC에 담겨저 있고 GDI를 통해 출력 장치에 출력을 하게 된다.
 - 개발자는 GetDC, BeginPaint와 같은 함수를 통해 DC를 생성하게 된다.
-  - GetDC는 지정한 윈도우(창)의 DC를 가져온다.
+  - GetDC는 **지정된 윈도우(창)의** 클라이언트 영역에 대한 DC의 핸들을 반환한다.
 - GDI Object는 내부는 공개되어 있지 않기 때문에, 핸들을 이용해서 사용한다.
 - 기본적으로 DC가 만들어졌을 때 디폴트로 선택된 GDI Object는 다음과 같다.
 
