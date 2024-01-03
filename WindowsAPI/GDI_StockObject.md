@@ -1,5 +1,3 @@
-[bluestronica.github.io/WindowsAPI](https://bluestronica.github.io/WindowsAPI)
-
 # DC, GDI Object, GDI
 - GDI는 화면, 프린터와 같은 **모든 출력 장치를 제어하는 인터페이스이다.**
 - 그래픽을 출력하기 위해 사용되는 도구를 GDI Object라고 한다.
