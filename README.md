@@ -14,5 +14,3 @@
 - ###  [Memorization](https://bluestronica.github.io/Memorization/)
 - ###  [Etc](https://bluestronica.github.io/Etc/)
 
-# 
-
