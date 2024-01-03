@@ -12,7 +12,6 @@
 - ###  [Xing](https://bluestronica.github.io/Xing/)
 - ###  [Mathematics](https://bluestronica.github.io/Mathematics/)
 - ###  [Etc](https://bluestronica.github.io/Etc/)
-
+- ###  [Memorization](https://bluestronica.github.io/Memorization/)
 # 
 
-기타 : SDL2, OS 개발하기 (OS 구조와 원리 OS 개발)
