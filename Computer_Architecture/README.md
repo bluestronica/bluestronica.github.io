@@ -1,1 +1,1 @@
-- ###  [Computer Architecture](https://bluestronica.github.io/Computer_Architecture/chapter_1.md)  
+- ###  [1장. 컴퓨터 내부의 언어 체계](https://bluestronica.github.io/Computer_Architecture/chapter_1.md)  
