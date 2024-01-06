@@ -1,6 +1,5 @@
-# bluestronica.github.io
 
-
+- ###  [Computer Architecture](https://bluestronica.github.io/Computer_Architecture/)  
 - ###  [C](https://bluestronica.github.io/C/)   
 - ###  [Windows API](https://bluestronica.github.io/WindowsAPI/) 
 - ###  [Windows API - Game](https://bluestronica.github.io/WindowsAPI_GAME/) 
