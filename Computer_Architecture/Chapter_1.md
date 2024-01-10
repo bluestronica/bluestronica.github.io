@@ -207,7 +207,7 @@
   ![img](img/07.png)
 
 
-
+https://nybounce.wordpress.com/2016/06/24/ieee-754-floating-point
 
 
 
