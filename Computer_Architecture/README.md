@@ -1,2 +1,2 @@
 - ###  [1장. 컴퓨터 내부의 언어 체계](https://github.com/bluestronica/bluestronica.github.io/blob/main/Computer_Architecture/Chapter_1.md)
-- ###  [1장 - 1. IEEE754_32bit_floating_point_number를 C 언어로 구현](https://github.com/bluestronica/bluestronica.github.io/blob/main/Computer_Architecture/Chapter_1-1.md)
+- ###  [1장 - 1. IEEE754_32bit_floating_point_number를 C 언어로 구현](https://github.com/bluestronica/bluestronica.github.io/blob/main/Computer_Architecture/Chapter_1_1.md)
