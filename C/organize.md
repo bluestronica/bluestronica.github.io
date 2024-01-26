@@ -1,5 +1,14 @@
 ### 목표 : 포인터(Linked-list), 디버깅 가능, 함수포인터 + Callback 구조
 
+#### 기본 문법 정리
+- **unsigned int, int 구분해서 사용**
+  - int는 signed int이다. 그래서 signed은 생략하고 int로 쓴다.
+- char
+  - 최소 8비트인 정수형
+  - char와 ASCII 문자
+    - 아스키는 0~127인 숫자
+    - char ch_c = 99; //'c'
+
 #### 포인터 완전 이해
 - 배열
 - 포인터
