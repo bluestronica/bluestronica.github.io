@@ -10,19 +10,19 @@
     - char ch_c = 99; //'c'
 - **정수형 타입**
 
-|부호|정수|할당되는 메모리|데이터의 표현 범위|특징|
+|부호|정수|할당되는 메모리|특징|
 |---:|---:|:---|:---|:---|
-|(signed)|short|16bit, 2byte|-32,768 ~ 32,767|느릴 수 있다.|
-|unsigned|short|16bit, 2byte|0 ~ 65,535|느릴 수 있다.|
-|(signed)|int|32bit, 4byte|-2,147,483,648 ~ 2,147,483,647|가장 빠르게 처리한다.|
-|unsigned|int|32bit, 4byte|0 ~ 4,294,967,296|가장 빠르게 처리한다.|
-|(signed)|long|32bit, 4byte|-2,147,483,648 ~ 2,147,483,647||
-|unsigned|long|32bit, 4byte|0 ~ 4,294,967,296||
+|(signed)|short|16bit, 2byte|느릴 수 있다.|
+|unsigned|short|16bit, 2byte|느릴 수 있다.|
+|(signed)|int|32bit, 4byte|가장 빠르게 처리한다.|
+|unsigned|int|32bit, 4byte|가장 빠르게 처리한다.|
+|(signed)|long|32bit, 4byte||
+|unsigned|long|32bit, 4byte||
 
 - **실수형 타입**
 
 |실수|할당되는 메모리|지수의 길이|가수의 길이|유효 자릿수|
-|---:|:---|:---|:---|:---|
+|--:--|--:--|--:--|--:--|--:--|
 |float|32bit, 4byte|8bit|23bit|소수 부분 6자리까지 오차없이 표현할 수 있음.|
 |double|64bit, 8byte|11bit|52|소수 부분 6자리까지 오차없이 표현할 수 있음.|
 |long double|64bit, 8byte|||
