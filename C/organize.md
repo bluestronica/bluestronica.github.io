@@ -73,13 +73,13 @@
 ```
 #### 코딩 표준: 참, 거짓은 1과 0을 반환한다.
 ```C
-  // true, false를 사용하지 않는다.
+  // C에서는 true, false를 사용하지 않는다.
   int is_student(const int id)
   {
     if( /* 조건 */) {
-      return 1;
+      return 1;  // 참일 때는 1 반환
     }
-    return 0:
+    return 0:  // 거짓일 때는 0 반환
   }
 ```
 
