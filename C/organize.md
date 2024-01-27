@@ -84,8 +84,8 @@
   }
 ```
 
-- 열거형(enum)
-  - **C에서의 열거형은 그냥 정수에 별명 붙이는 수준이다.**
+- **열거형(enum)**
+C에서의 열거형은 그냥 정수에 별명 붙이는 수준이다.
 ```C
 enum day { DAY_MONDAY, DAY_TUESDAY, DAY_WEDNESDAY. /* 생략 */ };
 enum month { MONTH_JANUARY, MONTH_FEBRUARY, MONTH_MARCH /* 생략 */ };
@@ -93,8 +93,27 @@ enum month { MONTH_JANUARY, MONTH_FEBRUARY, MONTH_MARCH /* 생략 */ };
 enum day hump_day = DAY_WEDNESDAY;  // 정수 2 입력
 enum month birth_month = hum_day;  /* 컴파일이 됨. 정수 2 입력 */
 
-// 정수의 별명 붙이는 수준 즉, int와 섞어서 사용 가능하다.
+// 정수에 별명 붙이는 수준 즉, int와 섞어서 사용 가능하다.
 ```
+- **변수 선언 위치**
+```C
+int main(void)
+{
+  int num1 = 10;
+  int num2 = 1234;
+  int result1;    // 변수 선언은 반드시 블력 시작에서 해야한다.
+  int result2;    // 코드 중간에 사용하는 변수는
+                  // 블록 시작에서 선언만 한다.
+
+  print("변수 선언 위치"/n);
+
+  result1 = add(num1, num2);  // 컴파일 오류
+  result2 = add(num1, num2);  // 컴파일
+
+  return 0;
+}
+```
+
 
       
 #### 포인터 완전 이해
