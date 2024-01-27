@@ -71,7 +71,8 @@
   // 변수 num1에는 소수점 15자리까지만 정확한 값이 저장되어 있고,
   // 소수점 16자리부터는 틀린 값이 저장되어 있다.
 ```
-#### 코딩 표준: 참, 거짓은 1과 0을 반환한다.
+
+- **코딩 표준: 참, 거짓은 1과 0을 반환한다.**
 ```C
   // C에서는 true, false를 사용하지 않는다.
   int is_student(const int id)
@@ -81,6 +82,18 @@
     }
     return 0:  // 거짓일 때는 0 반환
   }
+```
+
+- 열거형(enum)
+  - **C에서의 열거형은 그냥 정수에 별명 붙이는 수준이다.**
+```C
+enum day { DAY_MONDAY, DAY_TUESDAY, DAY_WEDNESDAY. /* 생략 */ };
+enum month { MONTH_JANUARY, MONTH_FEBRUARY, MONTH_MARCH /* 생략 */ };
+
+enum day hump_day = DAY_WEDNESDAY;  // 정수 2 입력
+enum month birth_month = hum_day;  /* 컴파일이 됨. 정수 2 입력 */
+
+// 정수의 별명 붙이는 수준 즉, int와 섞어서 사용 가능하다.
 ```
 
       
