@@ -9,8 +9,8 @@
 - **unsigned int, int 구분해서 부호 사용**
   - int는 signed int이다. 그래서 부호 signed는 생략하고 int로 쓴다.
 ```C
-int signedInt = -10000;
-unsigned int = 234545;
+  int signedInt = -10000;
+  unsigned int = 234545;
 ```
 
 - **char**
