@@ -9,16 +9,16 @@
 - **unsigned int, int 구분해서 부호 사용**
   - int는 signed int이다. 그래서 부호 signed는 생략하고 int로 쓴다.
 ```C
-  int signedInt = -10000;
-  unsigned int = 234545;
+  int signed_int = -10000;
+  unsigned int unsigned_int = 234545;
 ```
-
-- **char**
-  - **최소 8비트인 정수형**
-  - char와 ASCII 문자
-    - 아스키는 0~127인 숫자, 그래서 char 기본 부호가 지정 안 된 이유가 된다.
-    - char ch_c = 99; //'c'
-
+- char
+  - 최소 8비트인 정수형
+  - ASCII 문자를 표현하기에 충분 (0~127인 숫자)
+  - ```C
+    char ch_a = 'a';  // 값은 정수 97이 저장되고 출력은 'a'가 출력된다.
+    char cha_b = 98;  // 출력은 정수 98을 나타내는 'b'가 출력된다.
+    ```
 
 - **정수형 타입**
 
