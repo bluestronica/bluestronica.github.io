@@ -12,20 +12,20 @@
 
 |부호|정수|할당되는 메모리|특징|
 |---:|---:|:---|:---|
-|(signed)|short|16bit, 2byte|느릴 수 있다.|
-|unsigned|short|16bit, 2byte|느릴 수 있다.|
-|(signed)|int|32bit, 4byte|가장 빠르게 처리한다.|
-|unsigned|int|32bit, 4byte|가장 빠르게 처리한다.|
-|(signed)|long|32bit, 4byte||
-|unsigned|long|32bit, 4byte||
+|(signed)|short|16bit|느릴 수 있다.|
+|unsigned|short|16bit|느릴 수 있다.|
+|(signed)|int|32bit|가장 빠르게 처리한다.|
+|unsigned|int|32bit|가장 빠르게 처리한다.|
+|(signed)|long|32bit||
+|unsigned|long|32bit||
 
 
 - **실수형 타입**
 
 |실수|할당되는 메모리|지수의 길이|가수의 길이|유효 자릿수|
 |---:|---:|:---|:---|:---|
-|float|32bit, 4byte|8bit|23bit|소수 부분 6자리까지 오차없이 표현할 수 있음.|
-|double|64bit, 8byte|11bit|52|소수 부분 6자리까지 오차없이 표현할 수 있음.|
+|float|32bit|8bit|23bit|소수 부분 6자리까지 오차없이 표현할 수 있음.|
+|double|64bit|11bit|52|소수 부분 6자리까지 오차없이 표현할 수 있음.|
 |long double|64bit, 8byte||||
 
 
