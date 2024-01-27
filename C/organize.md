@@ -19,6 +19,7 @@
 |(signed)|long|32bit, 4byte||
 |unsigned|long|32bit, 4byte||
 
+
 - **실수형 타입**
 
 |실수|할당되는 메모리|지수의 길이|가수의 길이|유효 자릿수|
