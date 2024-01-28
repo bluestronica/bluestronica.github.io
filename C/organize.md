@@ -88,6 +88,25 @@
   }
 ```
 
+- if문과 불 표현식
+```C
+  // 숫자를 if문의 조건식에 넣어도 곧바로 판단이 가능
+  float num = 0.0f;
+
+  if (num) {  // false : 0;
+    printf("%f\n", num);
+  }
+
+  float num = 3.14f;
+
+  if (num) {  // true : 3.14f;
+    printf("%f\n", num);
+  }
+
+  // 메모리 주소(포인터)나 float형도 마찬가지로
+  // 모든 비트패턴이 0이면 false, 아니면 true
+```
+
 - **열거형(enum)**
 C에서의 열거형은 그냥 정수에 별명 붙이는 수준이다.
 ```C
@@ -150,8 +169,31 @@ int main(void)
     |-2|1|1|0|6|
     |-1|1|1|1|7|
       
+- **case에 사용간으한 데이터형**
+  - C는 정수형만 가능
+  - int, char, enum
 
-      
+- **코딩 표준 : fall-through를 명시적으로 표기**
+```C
+  // 의도를 가지고 'break;'를 사용하지 않을 경우
+  // /* intentional fallthrough */
+  // 위 주석을 반드시 붙인다.
+
+  enum fruit { FRUIT_APPLE, FRUIT_MANGO };
+  enum fruit fruit = FRUIT_APPLE;
+
+  switch (fruit) {
+  case FRUIT_APPLE:
+    printf("Breakfast\n");
+    /* intentional fallthrough */
+  case FRUIT_MANGO:
+    printf("Lunch\n");
+    break;
+  default:
+    printf("Unknown fool\n");
+    break;
+  }
+```
       
 #### 포인터 완전 이해
 - 배열
