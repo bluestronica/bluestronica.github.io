@@ -1,7 +1,9 @@
 [bluestronica.github.io](https://bluestronica.github.io/)
 
 
-### [정리](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/organize.md)
+### [정리1](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/organize.md)
+
+### [정리2](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/organize_2.md)
 
 ### [Bitwise Operators In C](https://github.com/bluestronica/bluestronica.github.io/blob/main/C/Bitwise_Operators_In_C.md)
 - 비트 연산자
