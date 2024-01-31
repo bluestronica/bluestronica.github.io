@@ -1,5 +1,7 @@
 [bluestronica.github.io/C](https://bluestronica.github.io/C)
 
+# 2진수, 10진수, 16진수
+
 
 # Bitwise Operators In C
 
