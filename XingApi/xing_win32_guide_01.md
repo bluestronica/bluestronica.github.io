@@ -52,7 +52,7 @@
 - jamong에서 로그인 요청
   - xing.Login()
 - eBest 서버에서 로그인 처리
-  - 서버에서 메시지(XM_LOGIN) 전송
+  - 서버에서 jamong으로 메시지(XM_LOGIN) 전송
     - IXingAPI.h에 메시지 정의가 있다.
   - 메시지ID값은 Connect시에 설정한 nStartMsgID와 더하여 사용하면 된다.
 - jamong
