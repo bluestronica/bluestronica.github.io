@@ -102,10 +102,12 @@
         - RequestID를 해제하기 위해 ETK_ReleaseMessageData()를 호출하여야 한다.
     - lParam
       - 조회TR 수신 Packet
+      - wParam이 REQUEST_DATA 일 때,
         - RECV_PACKET 구조체
           - Data 상태를 나타낸다.
           - RequestID(nRqID)는 0~255사이의 값을 사용하며, 해제하지 않으면 255개의 전송이 이루어진 이후에는 전송이 불가능하다.
           - 그래서 수신이 완료가 되면 해제해 주어야 한다.
+      - wParam이 MESSAGE_DATA 일 때,
         - MSG_PACKET 구조체
 
 
