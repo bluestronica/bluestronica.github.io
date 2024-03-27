@@ -1,6 +1,6 @@
 ### eBest + xingApi + Win32 + Visual Studio
 - 프로젝트
-  - Jamong
+  - jamong
   - 스스로 꿈을 이룬다.
 
 #### eBest + xingApi
@@ -15,7 +15,7 @@
 - 데스크톱 애플리케이션(exe)
 - 빈 프로젝트(E)
 
-#### Jamong 기본 세팅
+#### jamong 기본 세팅
 - C:\eBEST\xingAPI
   - 모든 DLL 파일과 Sys 폴더를 복사
 - C:\jamong_solution\Debug
