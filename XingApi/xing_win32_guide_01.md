@@ -1,7 +1,7 @@
 #### eBest + xingApi + Win32 + Visual Studio
 - 프로젝트
   - jamong
-  - 스스로 꿈을 이룬다.
+  - 스스로 꿈을 이루다.
 
 #### eBest + xingApi
 - 계좌개설
