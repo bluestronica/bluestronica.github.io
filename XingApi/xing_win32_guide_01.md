@@ -79,9 +79,34 @@
 - 실시간 데이터가 필요하면 실시간 등록 이후에 사용되며 사용이 완료된 이후에 실시간 해제 호출
 - 실시간 데이터 등록은 수신 받기를 원할 때 등록해도 되지만, 조회 Data를 받은 이후에 하는 것을 추천한다.
 
-#### 단일 데이터 조회
-- 
-
+#### 단일 데이터(조회 TR) 처리
+- jamong에서 조회성TR 함수 호출
+- eBest 서버에서 TR처리 후 jamong에 Data 전송
+  - Data는 REQUEST_DATA - MESSAGE_DATA - RELEASE_DATA 순으로 오게 된다.
+- jamong
+  - iMessage의 값은 WM_RECEIVE_DATA = WM_APP + XM_RECEIVE_DATA
+  - wParam은 Data 구분 플래그, lParam은 Data 위치를 나타내는 포인터
+    - wParam
+      - REQUEST_DATA
+        - 요청한 Data를 전송
+      - MESSAGE_DATA 
+        - Data 처리에 대한 Message
+        - Data 처리에 성공을 해도 실패를 해도 Message는 발생
+        - Message Data를 처리하고 더 이상 사용하지 않을 경우 ETK_ReleaseMessageData()를 호출하여 Message를 해제하여야 한다.
+      - SYSTEM_ERROR_DATA
+        - Data 처리 이전에 System 문제로 인한 Error가 발생할 경우에 전송한다.
+        - Message Data를 처리하고 더 이상 사용하지 않을 경우 ETK_ReleaseMessageData()를 호출하여 Message를 해제하여야 한다.
+        - System Error가 발생할 경우 Release가 전송되지 않으며 ETK_ReleaseMessageData()에서 자동으로 RequestID를 해제해 준다.
+      - RELEASE_DATA
+        - Data 처리가 완료된 경우에 전송
+        - RequestID를 해제하기 위해 ETK_ReleaseMessageData()를 호출하여야 한다.
+    - lParam
+      - 조회TR 수신 Packet
+        - RECV_PACKET 구조체
+          - Data 상태를 나타낸다.
+          - RequestID(nRqID)는 0~255사이의 값을 사용하며, 해제하지 않으면 255개의 전송이 이루어진 이후에는 전송이 불가능하다.
+          - 그래서 수신이 완료가 되면 해제해 주어야 한다.
+        - MSG_PACKET 구조체
 
 
 
